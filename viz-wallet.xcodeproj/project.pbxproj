@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF74725E239D900B29A19 /* Tests_iOS.swift */; };
 		D11AF75325E239D900B29A19 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF75225E239D900B29A19 /* Tests_macOS.swift */; };
-		D11AF75525E239D900B29A19 /* viz_walletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* viz_walletApp.swift */; };
-		D11AF75625E239D900B29A19 /* viz_walletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* viz_walletApp.swift */; };
+		D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
+		D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
 		D11AF75725E239D900B29A19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72D25E239D600B29A19 /* ContentView.swift */; };
 		D11AF75825E239D900B29A19 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72D25E239D600B29A19 /* ContentView.swift */; };
 		D11AF75925E239D900B29A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11AF72E25E239D900B29A19 /* Assets.xcassets */; };
@@ -35,7 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D11AF72C25E239D600B29A19 /* viz_walletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viz_walletApp.swift; sourceTree = "<group>"; };
+		D11AF72C25E239D600B29A19 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		D11AF72D25E239D600B29A19 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D11AF72E25E239D900B29A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11AF73325E239D900B29A19 /* viz-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viz-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,7 +98,7 @@
 		D11AF72B25E239D600B29A19 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D11AF72C25E239D600B29A19 /* viz_walletApp.swift */,
+				D11AF72C25E239D600B29A19 /* WalletApp.swift */,
 				D11AF72D25E239D600B29A19 /* ContentView.swift */,
 				D11AF72E25E239D900B29A19 /* Assets.xcassets */,
 			);
@@ -309,7 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11AF75725E239D900B29A19 /* ContentView.swift in Sources */,
-				D11AF75525E239D900B29A19 /* viz_walletApp.swift in Sources */,
+				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11AF75825E239D900B29A19 /* ContentView.swift in Sources */,
-				D11AF75625E239D900B29A19 /* viz_walletApp.swift in Sources */,
+				D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

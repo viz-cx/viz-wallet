@@ -1,14 +1,14 @@
 //
-//  viz_walletApp.swift
+//  WalletApp.swift
 //  Shared
 //
-//  Created by Бабин Владимир on 21.02.2021.
+//  Created by Vladimir Babin on 21.02.2021.
 //
 
 import SwiftUI
 
 @main
-struct viz_walletApp: App {
+struct WalletApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
