@@ -10,21 +10,23 @@ import VIZ
 
 @main
 struct WalletApp: App {
+
     var body: some Scene {
         WindowGroup {
-            LoginView()
+            IntermediateView().environmentObject(UserAuth())
         }
-    }
-    
-    init() {
-        getAccount()
     }
 }
 
-func getAccount() {
-    let client = VIZ.Client(address: URL(string: "https://node.viz.cx")!)
-    let req = API.GetDynamicGlobalProperties()
-    client.send(req) { res, error in
-        print(res, error)
+private struct IntermediateView: View {
+    @EnvironmentObject private var userAuth: UserAuth
+    
+    var body: some View {
+        if !userAuth.isLoggedin {
+            LoginView()
+        } else {
+            MainView()
+        }
     }
 }
+

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @EnvironmentObject private var userAuth: UserAuth
     @State private var login = ""
     @State private var regularKey = ""
         
@@ -46,7 +47,7 @@ struct LoginView: View {
                 
             }.padding([.leading, .trailing], 27.5)
             
-            Button(action: {}) {
+            Button(action: signIn) {
                 Text("Sign In")
                     .font(.headline)
                     .foregroundColor(.white)
@@ -70,6 +71,10 @@ struct LoginView: View {
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
         
+    }
+    
+    func signIn() {
+        userAuth.login(login: login, regularKey: regularKey)
     }
 }
 
