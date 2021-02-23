@@ -22,6 +22,8 @@
 		D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887D25E42B8000654F12 /* UserAuth.swift */; };
 		D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3889A25E4F20A00654F12 /* AwardView.swift */; };
 		D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3889A25E4F20A00654F12 /* AwardView.swift */; };
+		D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F388AD25E5269800654F12 /* VIZHelper.swift */; };
+		D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F388AD25E5269800654F12 /* VIZHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,7 @@
 		D1F3887225E429FB00654F12 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D1F3887D25E42B8000654F12 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		D1F3889A25E4F20A00654F12 /* AwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardView.swift; sourceTree = "<group>"; };
+		D1F388AD25E5269800654F12 /* VIZHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIZHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,7 @@
 				D1F3887225E429FB00654F12 /* MainView.swift */,
 				D17C3C5625E3CBDD004771EF /* LoginView.swift */,
 				D1F3889A25E4F20A00654F12 /* AwardView.swift */,
+				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -331,6 +335,7 @@
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
+				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,
 			);
@@ -343,6 +348,7 @@
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
+				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */,
 			);

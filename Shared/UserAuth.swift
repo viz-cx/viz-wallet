@@ -10,19 +10,24 @@ import Foundation
 import VIZ
 
 class UserAuth: ObservableObject {
-    
     let objectWillChange = PassthroughSubject<UserAuth,Never>()
     
-    func login(login: String, regularKey: String) {
+    var login = ""
+    
+    var isLoggedIn = false {
+        didSet {
+            objectWillChange.send(self)
+        }
+    }
+    
+    private let viz = VIZHelper()
+    
+    func auth(login: String, regularKey: String) {
         guard login.count > 1 else {
             print("Login too small")
             return
         }
-        let client = VIZ.Client(address: URL(string: "https://node.viz.cx")!)
-        let req = API.GetAccounts(names: [login])
-        let result = try? client.sendSynchronous(req)
-        guard let account = result?.first else {
-            print("Account not found")
+        guard let account = viz.getAccount(login: login) else {
             return
         }
         var isRegularValid = false
@@ -38,13 +43,8 @@ class UserAuth: ObservableObject {
             }
         }
         if isRegularValid {
+            self.login = login
             self.isLoggedIn = true
-        }
-    }
-    
-    var isLoggedIn = false {
-        didSet {
-            objectWillChange.send(self)
         }
     }
 }

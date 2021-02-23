@@ -74,7 +74,7 @@ struct LoginView: View {
     }
     
     func signIn() {
-        userAuth.login(login: login, regularKey: regularKey)
+        userAuth.auth(login: login, regularKey: regularKey)
     }
 }
 

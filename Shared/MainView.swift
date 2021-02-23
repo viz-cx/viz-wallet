@@ -8,16 +8,18 @@
 import SwiftUI
 
 struct MainView: View {
-    enum TabItem {
+    private enum TabItem {
         case award
         case settings
     }
     
-    @State var selectedItem: TabItem = .award
+    @State private var selectedItem: TabItem = .award
+    
+    @EnvironmentObject private var userAuth: UserAuth
     
     var body: some View {
         TabView(selection: $selectedItem, content: {
-            AwardView()
+            AwardView(login: userAuth.login)
                 .tabItem {
                     if selectedItem == .award {
                         Image(systemName: "star.fill")
