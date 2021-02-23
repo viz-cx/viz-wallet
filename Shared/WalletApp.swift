@@ -22,7 +22,7 @@ private struct IntermediateView: View {
     @EnvironmentObject private var userAuth: UserAuth
     
     var body: some View {
-        if !userAuth.isLoggedin {
+        if !userAuth.isLoggedIn {
             LoginView()
         } else {
             MainView()

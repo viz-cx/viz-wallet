@@ -8,8 +8,32 @@
 import SwiftUI
 
 struct MainView: View {
+    enum TabItem {
+        case award
+        case settings
+    }
+    
+    @State var selectedItem: TabItem = .award
+    
     var body: some View {
-        Text("Hello, World!")
+        TabView(selection: $selectedItem, content: {
+            AwardView()
+                .tabItem {
+                    if selectedItem == .award {
+                        Image(systemName: "star.fill")
+                    } else {
+                        Image(systemName: "star")
+                    }
+                    Text("Award")
+                }.tag(TabItem.award)
+                
+            Text("Settings View")
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }.tag(TabItem.settings)
+        })
+        .font(.headline)
     }
 }
 

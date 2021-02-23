@@ -26,23 +26,23 @@ class UserAuth: ObservableObject {
             return
         }
         var isRegularValid = false
-        for accountAuth in account.regularAuthority.keyAuths {
-            if accountAuth.weight >= account.regularAuthority.weightThreshold {
+        for auth in account.regularAuthority.keyAuths {
+            if auth.weight >= account.regularAuthority.weightThreshold {
                 guard let publicKey = PrivateKey(regularKey)?.createPublic() else {
                     continue
                 }
-                isRegularValid = publicKey.address == accountAuth.value.address
+                isRegularValid = publicKey.address == auth.value.address
                 if isRegularValid {
                     break
                 }
             }
         }
         if isRegularValid {
-            self.isLoggedin = true
+            self.isLoggedIn = true
         }
     }
     
-    var isLoggedin = false {
+    var isLoggedIn = false {
         didSet {
             objectWillChange.send(self)
         }
