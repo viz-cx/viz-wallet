@@ -28,7 +28,11 @@ struct AwardView: View {
         NavigationView {
             VStack {
                 VStack(alignment: .leading, spacing: 15) {
-                    Text("Account: \(state.login)\nEnergy: \(String(format: "%.2f", state.energyPercent)) %\nFund: \(state.effectiveVestingShares) Ƶ")
+                    Text("""
+                        Account: \(state.login)
+                        Energy: \(String(format: "%.2f", state.energyPercent)) %
+                        Social capital: \(state.effectiveVestingShares) Ƶ
+                        """)
                         .padding()
                         .frame(maxWidth: .infinity, alignment: Alignment.leading)
                         .cornerRadius(20.0)
