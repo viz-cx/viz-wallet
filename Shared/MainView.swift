@@ -19,7 +19,7 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selectedItem, content: {
-            AwardView(login: userAuth.login)
+            AwardView().environmentObject(userAuth)
                 .tabItem {
                     if selectedItem == .award {
                         Image(systemName: "star.fill")

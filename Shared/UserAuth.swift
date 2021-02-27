@@ -12,9 +12,12 @@ import VIZ
 class UserAuth: ObservableObject {
     let objectWillChange = PassthroughSubject<UserAuth,Never>()
     
-    var login = ""
+    private(set) var login = ""
+    private(set) var regularKey = ""
+    private(set) var energy = 0
+    private(set) var effectiveVestingShares = 0.0
     
-    var isLoggedIn = false {
+    private(set) var isLoggedIn = false {
         didSet {
             objectWillChange.send(self)
         }
@@ -43,8 +46,40 @@ class UserAuth: ObservableObject {
             }
         }
         if isRegularValid {
-            self.login = login
+            updateDynamicData(account: account)
+            self.login = account.name
+            self.regularKey = regularKey
             self.isLoggedIn = true
         }
+    }
+    
+    func updateUserData() {
+        guard let account = viz.getAccount(login: login) else {
+            return
+        }
+        updateDynamicData(account: account)
+        objectWillChange.send(self)
+    }
+    
+    private func updateDynamicData(account: API.ExtendedAccount) {
+        self.energy = account.currentEnergy
+        self.effectiveVestingShares = account.effectiveVestingShares
+    }
+}
+
+fileprivate extension API.ExtendedAccount {
+    var effectiveVestingShares: Double {
+        return vestingShares.resolvedAmount
+            + receivedVestingShares.resolvedAmount
+            - delegatedVestingShares.resolvedAmount
+    }
+    
+    var currentEnergy: Int {
+        let deltaTime = Date().timeIntervalSince(lastVoteTime)
+        var e = Float64(energy) + (deltaTime * 10000 / 432000) //CHAIN_ENERGY_REGENERATION_SECONDS
+        if e > 10000 {
+            e = 10000
+        }
+        return Int(e)
     }
 }
