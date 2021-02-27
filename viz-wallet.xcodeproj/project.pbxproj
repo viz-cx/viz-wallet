@@ -15,6 +15,11 @@
 		D11AF75A25E239D900B29A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11AF72E25E239D900B29A19 /* Assets.xcassets */; };
 		D157494C25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157494D25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
+		D157495425EA69E40043C95C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D157495325EA69E40043C95C /* Lottie */; };
+		D157495B25EA6A040043C95C /* 46472-lurking-cat.json in Resources */ = {isa = PBXBuildFile; fileRef = D157495A25EA6A040043C95C /* 46472-lurking-cat.json */; };
+		D157495C25EA6A040043C95C /* 46472-lurking-cat.json in Resources */ = {isa = PBXBuildFile; fileRef = D157495A25EA6A040043C95C /* 46472-lurking-cat.json */; };
+		D157496225EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
+		D157496325EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
 		D17C3C3225E3B374004771EF /* VIZ in Frameworks */ = {isa = PBXBuildFile; productRef = D17C3C3125E3B374004771EF /* VIZ */; };
 		D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
 		D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
@@ -60,6 +65,8 @@
 		D11AF75225E239D900B29A19 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		D11AF75425E239D900B29A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D157494B25EA29810043C95C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		D157495A25EA6A040043C95C /* 46472-lurking-cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "46472-lurking-cat.json"; sourceTree = "<group>"; };
+		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D17C3C5625E3CBDD004771EF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D1F3887225E429FB00654F12 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D1F3887D25E42B8000654F12 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -73,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
+				D157495425EA69E40043C95C /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				D11AF72E25E239D900B29A19 /* Assets.xcassets */,
+				D157495525EA69EF0043C95C /* Lottie */,
+				D157496125EA6A9C0043C95C /* LottieView.swift */,
 				D11AF72C25E239D600B29A19 /* WalletApp.swift */,
 				D1F3887D25E42B8000654F12 /* UserAuth.swift */,
 				D1F3887225E429FB00654F12 /* MainView.swift */,
@@ -173,6 +183,14 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		D157495525EA69EF0043C95C /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				D157495A25EA6A040043C95C /* 46472-lurking-cat.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,6 +209,7 @@
 			name = "viz-wallet (iOS)";
 			packageProductDependencies = (
 				D17C3C3125E3B374004771EF /* VIZ */,
+				D157495325EA69E40043C95C /* Lottie */,
 			);
 			productName = "viz-wallet (iOS)";
 			productReference = D11AF73325E239D900B29A19 /* viz-wallet.app */;
@@ -285,6 +304,7 @@
 			mainGroup = D11AF72625E239D600B29A19;
 			packageReferences = (
 				D17C3C3025E3B374004771EF /* XCRemoteSwiftPackageReference "viz-swift-lib" */,
+				D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
 			projectDirPath = "";
@@ -304,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11AF75925E239D900B29A19 /* Assets.xcassets in Resources */,
+				D157495B25EA6A040043C95C /* 46472-lurking-cat.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D11AF75A25E239D900B29A19 /* Assets.xcassets in Resources */,
+				D157495C25EA6A040043C95C /* 46472-lurking-cat.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +365,7 @@
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,
+				D157496225EA6A9C0043C95C /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +380,7 @@
 				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */,
+				D157496325EA6A9C0043C95C /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -736,6 +760,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.1;
+			};
+		};
 		D17C3C3025E3B374004771EF /* XCRemoteSwiftPackageReference "viz-swift-lib" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/viz-blockchain/viz-swift-lib.git";
@@ -747,6 +779,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D157495325EA69E40043C95C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		D17C3C3125E3B374004771EF /* VIZ */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D17C3C3025E3B374004771EF /* XCRemoteSwiftPackageReference "viz-swift-lib" */;

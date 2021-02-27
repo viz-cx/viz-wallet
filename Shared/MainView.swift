@@ -29,7 +29,7 @@ struct MainView: View {
                     Text("Award")
                 }.tag(TabItem.award)
                 
-            Text("Settings View")
+            LottieView(name:"46472-lurking-cat")
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")
