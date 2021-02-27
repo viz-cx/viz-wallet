@@ -20,6 +20,12 @@
 		D157495C25EA6A040043C95C /* 46472-lurking-cat.json in Resources */ = {isa = PBXBuildFile; fileRef = D157495A25EA6A040043C95C /* 46472-lurking-cat.json */; };
 		D157496225EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
 		D157496325EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
+		D157497125EA74C70043C95C /* 33598-hammock.json in Resources */ = {isa = PBXBuildFile; fileRef = D157497025EA74C60043C95C /* 33598-hammock.json */; };
+		D157497225EA74C70043C95C /* 33598-hammock.json in Resources */ = {isa = PBXBuildFile; fileRef = D157497025EA74C60043C95C /* 33598-hammock.json */; };
+		D157497825EA75E60043C95C /* 31675-programming.json in Resources */ = {isa = PBXBuildFile; fileRef = D157497725EA75E60043C95C /* 31675-programming.json */; };
+		D157497925EA75E60043C95C /* 31675-programming.json in Resources */ = {isa = PBXBuildFile; fileRef = D157497725EA75E60043C95C /* 31675-programming.json */; };
+		D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
+		D157498025EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
 		D17C3C3225E3B374004771EF /* VIZ in Frameworks */ = {isa = PBXBuildFile; productRef = D17C3C3125E3B374004771EF /* VIZ */; };
 		D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
 		D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
@@ -67,6 +73,9 @@
 		D157494B25EA29810043C95C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D157495A25EA6A040043C95C /* 46472-lurking-cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "46472-lurking-cat.json"; sourceTree = "<group>"; };
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
+		D157497025EA74C60043C95C /* 33598-hammock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "33598-hammock.json"; sourceTree = "<group>"; };
+		D157497725EA75E60043C95C /* 31675-programming.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "31675-programming.json"; sourceTree = "<group>"; };
+		D157497E25EA78BD0043C95C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D17C3C5625E3CBDD004771EF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D1F3887225E429FB00654F12 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D1F3887D25E42B8000654F12 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -133,6 +142,7 @@
 				D1F3889A25E4F20A00654F12 /* AwardView.swift */,
 				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
 				D157494B25EA29810043C95C /* ConfettiView.swift */,
+				D157497E25EA78BD0043C95C /* SettingsView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -186,7 +196,9 @@
 		D157495525EA69EF0043C95C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
+				D157497725EA75E60043C95C /* 31675-programming.json */,
 				D157495A25EA6A040043C95C /* 46472-lurking-cat.json */,
+				D157497025EA74C60043C95C /* 33598-hammock.json */,
 			);
 			path = Lottie;
 			sourceTree = "<group>";
@@ -323,8 +335,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D157497825EA75E60043C95C /* 31675-programming.json in Resources */,
 				D11AF75925E239D900B29A19 /* Assets.xcassets in Resources */,
 				D157495B25EA6A040043C95C /* 46472-lurking-cat.json in Resources */,
+				D157497125EA74C70043C95C /* 33598-hammock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,8 +346,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D157497925EA75E60043C95C /* 31675-programming.json in Resources */,
 				D11AF75A25E239D900B29A19 /* Assets.xcassets in Resources */,
 				D157495C25EA6A040043C95C /* 46472-lurking-cat.json in Resources */,
+				D157497225EA74C70043C95C /* 33598-hammock.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +377,7 @@
 				D157494C25EA29810043C95C /* ConfettiView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
+				D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */,
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
@@ -376,6 +393,7 @@
 				D157494D25EA29810043C95C /* ConfettiView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,
+				D157498025EA78BD0043C95C /* SettingsView.swift in Sources */,
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
 				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,

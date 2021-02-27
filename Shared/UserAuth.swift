@@ -16,6 +16,7 @@ class UserAuth: ObservableObject {
     private(set) var regularKey = ""
     private(set) var energy = 0
     private(set) var effectiveVestingShares = 0.0
+    private(set) var dgp: API.DynamicGlobalProperties? = nil
     
     private(set) var isLoggedIn = false {
         didSet {
@@ -46,6 +47,7 @@ class UserAuth: ObservableObject {
             }
         }
         if isRegularValid {
+            updateDGPData()
             updateDynamicData(account: account)
             self.login = account.name
             self.regularKey = regularKey
@@ -59,6 +61,10 @@ class UserAuth: ObservableObject {
         }
         updateDynamicData(account: account)
         objectWillChange.send(self)
+    }
+    
+    func updateDGPData() {
+        self.dgp = viz.getDGP()
     }
     
     private func updateDynamicData(account: API.ExtendedAccount) {

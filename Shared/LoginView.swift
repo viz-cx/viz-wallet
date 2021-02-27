@@ -15,18 +15,8 @@ struct LoginView: View {
     // MARK: - View
     var body: some View {
         VStack() {
-            Text("VIZ")
-                .font(.largeTitle).foregroundColor(Color.white)
+            LottieView(name:"33598-hammock")
                 .padding([.top, .bottom], 40)
-                .shadow(radius: 10.0, x: 20, y: 10)
-            
-//            Image("logo")
-//                .resizable()
-//                .frame(width: 100, height: 100)
-//                .clipShape(Circle())
-//                .overlay(Circle().stroke(Color.white, lineWidth: 4))
-//                .shadow(radius: 10.0, x: 20, y: 10)
-//                .padding(.bottom, 40)
             
             VStack(alignment: .leading, spacing: 15) {
                 TextField("Login", text: $login)
@@ -56,15 +46,20 @@ struct LoginView: View {
                     .background(Color.green)
                     .cornerRadius(15.0)
                     .shadow(radius: 10.0, x: 20, y: 10)
-            }.padding(.top, 50)
+            }
+            .padding(.top, 10)
+            .padding(.bottom, 30)
             
             Spacer()
+            
             HStack(spacing: 0) {
                 Text("Don't have an account? ")
+                    .colorInvert()
                 Button(action: {}) {
                     Text("Sign Up")
                         .foregroundColor(.black)
                 }
+                .colorInvert()
             }
         }
         .background(
@@ -89,8 +84,6 @@ struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             LoginView()
-            LoginView()
-                .previewDevice("iPhone 8")
         }
     }
 }

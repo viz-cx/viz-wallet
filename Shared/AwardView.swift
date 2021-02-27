@@ -12,11 +12,11 @@ struct AwardView: View {
     private let viz = VIZHelper()
     @EnvironmentObject private var userAuth: UserAuth {
         didSet {
+            userAuth.updateDGPData()
             userAuth.updateUserData()
         }
     }
     
-    @State private var dgp: API.DynamicGlobalProperties? = nil
     @State private var receiver = ""
     @State private var percent = 5.0
     @State private var memo = ""
@@ -29,43 +29,52 @@ struct AwardView: View {
                 Text("""
                         Account: \(userAuth.login)
                         Energy: \(String(format: "%.2f", Double(userAuth.energy) / 100)) %
-                        Social capital: \(userAuth.effectiveVestingShares) Ƶ
+                        Social capital: \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ
                         """)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: Alignment.leading)
                     .cornerRadius(20.0)
                     .font(.headline)
                     .foregroundColor(.white)
-                    .background(Color.orange)
+//                    .background(Color.orange)
                 
                 HStack {
                     TextField("Receiver", text: $receiver)
                         .padding()
                         .background(Color.themeTextField)
+                        .foregroundColor(.black)
                         .cornerRadius(20.0)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                     NavigationLink(destination: Text("QR Scanner")) {
-                        Image(systemName: "qrcode.viewfinder").font(.largeTitle)
-                    }.buttonStyle(PlainButtonStyle())
+                        Image(systemName: "qrcode.viewfinder")
+                            .font(.largeTitle)
+                            .colorInvert()
+                    }
+                    .buttonStyle(PlainButtonStyle())
                 }
                 
                 TextField("Memo", text: $memo)
                     .padding()
                     .background(Color.themeTextField)
+                    .foregroundColor(.black)
                     .cornerRadius(20.0)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                 
                 VStack {
-                    Slider(
-                        value: $percent,
-                        in: 0.01...(Double(userAuth.energy) / 100 > 0.01 ? Double(userAuth.energy) / 100 : 0.02),
-                        step: 0.01)
+                    Slider(value: $percent, in: 0.01...100.0, step: 0.01, onEditingChanged: { changing in
+                            if !changing {
+                                updateSlider()
+                            }
+                        })
+                        .accentColor(.green)
                     HStack {
                         Text(String(format: "%.2f", percent) + " %")
+                            .colorInvert()
                         Text("≈\(String(format: "%.3f", calculateReward(energy: Int(percent) * 100))) Ƶ")
                             .frame(maxWidth: .infinity, alignment: .trailing)
+                            .colorInvert()
                     }
                 }
                 
@@ -88,17 +97,24 @@ struct AwardView: View {
                 
                 ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], confettiSize: 20)
                 
-            }.padding([.leading, .trailing], 27.5)
+            }
+            .padding([.leading, .trailing], 27.5)
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all))
         }
     }
     
-    init() {
-        updateDGPData()
+    func updateSlider() {
+        let energyPercent = Double(userAuth.energy) / 100
+        if percent > energyPercent {
+            percent = energyPercent
+        }
     }
     
     // energy multiplied by 100 (1% - 100, 100% - 10000)
     func calculateReward(energy: Int) -> Double {
-        guard let dgp = dgp else {
+        guard let dgp = userAuth.dgp else {
             return 0
         }
         let voteShares = userAuth.effectiveVestingShares * 100 * Double(energy)
@@ -117,13 +133,7 @@ struct AwardView: View {
         memo = ""
         confettiCounter += 1
         userAuth.updateUserData()
-    }
-    
-    func updateDGPData() {
-        guard let dgp = viz.getDGP() else {
-            return
-        }
-        self.dgp = dgp
+        userAuth.updateDGPData()
     }
 }
 
