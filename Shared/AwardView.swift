@@ -58,7 +58,10 @@ struct AwardView: View {
                     .autocapitalization(.none)
                 
                 VStack {
-                    Slider(value: $percent, in: 0.01...(Double(userAuth.energy) / 100), step: 0.01)
+                    Slider(
+                        value: $percent,
+                        in: 0.01...(Double(userAuth.energy) / 100 > 0.01 ? Double(userAuth.energy) / 100 : 0.02),
+                        step: 0.01)
                     HStack {
                         Text(String(format: "%.2f", percent) + " %")
                         Text("≈\(String(format: "%.3f", calculateReward(energy: Int(percent) * 100))) Ƶ")
