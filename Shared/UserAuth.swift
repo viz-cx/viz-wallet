@@ -55,6 +55,12 @@ class UserAuth: ObservableObject {
         }
     }
     
+    func logout() {
+        self.login = ""
+        self.regularKey = ""
+        self.isLoggedIn = false
+    }
+    
     func updateUserData() {
         guard let account = viz.getAccount(login: login) else {
             return

@@ -44,7 +44,7 @@ struct MainView: View {
                 }
                 .tag(TabItem.transfer)
             
-            SettingsView()
+            SettingsView().environmentObject(userAuth)
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")

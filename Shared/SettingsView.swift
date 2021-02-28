@@ -8,11 +8,54 @@
 import SwiftUI
 
 struct SettingsView: View {
+    @EnvironmentObject private var userAuth: UserAuth
+    @State private var activePage = ""
+    
     var body: some View {
-        LottieView(name:"31675-programming")
-            .background(
-                LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all))
+        let isSubPageActive = Binding<Bool>(get: { self.activePage.count > 0 }, set: { _ in })
+        VStack {
+            Image("profile")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 150, height: 150, alignment: .center)
+                .clipShape(Circle())
+                .padding()
+            VStack {
+                Text(userAuth.login)
+                    .font(.title)
+                    .foregroundColor(.primary)
+                Text("Profile description or registration date")
+                    .font(.subheadline)
+                    .foregroundColor(.secondary)
+            }
+            
+            List {
+                Label("Privacy policy", systemImage: "lock.doc")
+                    .onTapGesture {
+                        activePage = "PrivacyPolicy"
+                    }
+                Label("Logout", systemImage: "person.fill")
+                    .onTapGesture {
+                        userAuth.logout()
+                    }
+            }
+            .fullScreenCover(isPresented: isSubPageActive, onDismiss: {
+                activePage = ""
+            }, content: {
+                VStack {
+                    switch activePage {
+                    case "PrivacyPolicy":
+                        Text("Privacy Policy")
+                    default:
+                        Text("Not supported now")
+                    }
+                    Spacer()
+                    Button("Dismiss") {
+                        self.activePage = ""
+                    }
+                }
+            })
+        }
     }
 }
 
