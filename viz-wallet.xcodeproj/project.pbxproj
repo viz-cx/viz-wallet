@@ -13,6 +13,8 @@
 		D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
 		D11AF75925E239D900B29A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11AF72E25E239D900B29A19 /* Assets.xcassets */; };
 		D11AF75A25E239D900B29A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11AF72E25E239D900B29A19 /* Assets.xcassets */; };
+		D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE97C25EB7D7C0088D49D /* TransferView.swift */; };
+		D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE97C25EB7D7C0088D49D /* TransferView.swift */; };
 		D157494C25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157494D25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157495425EA69E40043C95C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D157495325EA69E40043C95C /* Lottie */; };
@@ -70,6 +72,7 @@
 		D11AF74E25E239D900B29A19 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11AF75225E239D900B29A19 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		D11AF75425E239D900B29A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D13FE97C25EB7D7C0088D49D /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
 		D157494B25EA29810043C95C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D157495A25EA6A040043C95C /* 46472-lurking-cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "46472-lurking-cat.json"; sourceTree = "<group>"; };
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
 				D157494B25EA29810043C95C /* ConfettiView.swift */,
 				D157497E25EA78BD0043C95C /* SettingsView.swift */,
+				D13FE97C25EB7D7C0088D49D /* TransferView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -375,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D157494C25EA29810043C95C /* ConfettiView.swift in Sources */,
+				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
 				D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */,
@@ -391,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D157494D25EA29810043C95C /* ConfettiView.swift in Sources */,
+				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,
 				D157498025EA78BD0043C95C /* SettingsView.swift in Sources */,
