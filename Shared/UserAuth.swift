@@ -14,8 +14,10 @@ class UserAuth: ObservableObject {
     
     private(set) var login = ""
     private(set) var regularKey = ""
+    private(set) var activeKey = ""
     private(set) var energy = 0
     private(set) var effectiveVestingShares = 0.0
+    private(set) var balance = 0.0
     private(set) var dgp: API.DynamicGlobalProperties? = nil
     
     private(set) var isLoggedIn = false {
@@ -47,7 +49,6 @@ class UserAuth: ObservableObject {
             }
         }
         if isRegularValid {
-            updateDGPData()
             updateDynamicData(account: account)
             self.login = account.name
             self.regularKey = regularKey
@@ -66,16 +67,26 @@ class UserAuth: ObservableObject {
             return
         }
         updateDynamicData(account: account)
-        objectWillChange.send(self)
+        DispatchQueue.main.async { [unowned self] in
+            self.objectWillChange.send(self)
+        }
     }
     
     func updateDGPData() {
         self.dgp = viz.getDGP()
     }
     
+    func backgroundUpdate() {
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            self.updateDGPData()
+            self.updateUserData()
+        }
+    }
+    
     private func updateDynamicData(account: API.ExtendedAccount) {
         self.energy = account.currentEnergy
         self.effectiveVestingShares = account.effectiveVestingShares
+        self.balance = account.balance.resolvedAmount
     }
 }
 

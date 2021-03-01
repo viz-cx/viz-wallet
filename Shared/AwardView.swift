@@ -10,15 +10,10 @@ import VIZ
 
 struct AwardView: View {
     private let viz = VIZHelper()
-    @EnvironmentObject private var userAuth: UserAuth {
-        didSet {
-            userAuth.updateDGPData()
-            userAuth.updateUserData()
-        }
-    }
+    @EnvironmentObject private var userAuth: UserAuth
     
     @State private var receiver = ""
-    @State private var percent = 5.0
+    @State private var percent = 0.0
     @State private var memo = ""
     
     @State private var confettiCounter = 0
@@ -27,8 +22,7 @@ struct AwardView: View {
         NavigationView {
             VStack {
                 Text("""
-                        Account: \(userAuth.login)
-                        Energy: \(String(format: "%.2f", Double(userAuth.energy) / 100)) %
+                        Account: \(userAuth.login) (\(String(format: "%.2f", Double(userAuth.energy) / 100)) %)
                         Social capital: \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ
                         """)
                     .padding()
@@ -36,7 +30,6 @@ struct AwardView: View {
                     .cornerRadius(20.0)
                     .font(.headline)
                     .foregroundColor(.white)
-//                    .background(Color.orange)
                 
                 HStack {
                     TextField("Receiver", text: $receiver)
@@ -64,11 +57,11 @@ struct AwardView: View {
                 
                 VStack {
                     Slider(value: $percent, in: 0.01...100.0, step: 0.01, onEditingChanged: { changing in
-                            if !changing {
-                                updateSlider()
-                            }
-                        })
-                        .accentColor(.green)
+                        if !changing {
+                            updateSlider()
+                        }
+                    })
+                    .accentColor(.green)
                     HStack {
                         Text(String(format: "%.2f", percent) + " %")
                             .colorInvert()
@@ -103,6 +96,15 @@ struct AwardView: View {
                 LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                     .edgesIgnoringSafeArea(.all))
         }
+        .onAppear {
+            if percent == 0 {
+                percent = Double(userAuth.energy) / 100
+            }
+            userAuth.backgroundUpdate()
+        }
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
     
     func updateSlider() {
@@ -125,9 +127,16 @@ struct AwardView: View {
     }
     
     func award() {
+        var result: UINotificationFeedbackGenerator.FeedbackType = .error
+        let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+        notificationFeedbackGenerator.prepare()
+        defer {
+            notificationFeedbackGenerator.notificationOccurred(result)
+        }
         guard receiver.count > 1 else {
             return
         }
+        result = .success
         viz.award(initiator: userAuth.login, regularKey: userAuth.regularKey, receiver: receiver, energy: UInt16(percent * 100), memo: memo)
         receiver = ""
         memo = ""

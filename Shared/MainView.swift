@@ -11,6 +11,7 @@ struct MainView: View {
     private enum TabItem {
         case award
         case transfer
+        case receive
         case settings
     }
     
@@ -31,18 +32,27 @@ struct MainView: View {
                 }
                 .tag(TabItem.award)
             
-            TransferView()
+            TransferView().environmentObject(userAuth)
                 .tabItem {
-                    // TODO: create custom Ƶ symbol
-                    // https://developer.apple.com/documentation/xcode/creating_custom_symbol_images_for_your_app
                     if selectedItem == .transfer {
-                        Image(systemName: "bitcoinsign.circle.fill")
+                        Image(systemName: "arrow.up.heart.fill")
                     } else {
-                        Image(systemName: "bitcoinsign.circle")
+                        Image(systemName: "arrow.up.heart")
                     }
                     Text("Transfer")
                 }
                 .tag(TabItem.transfer)
+            
+            ReceiveView()
+                .tabItem {
+                    if selectedItem == .receive {
+                        Image(systemName: "arrow.down.heart.fill")
+                    } else {
+                        Image(systemName: "arrow.down.heart")
+                    }
+                    Text("Receive")
+                }
+                .tag(TabItem.receive)
             
             SettingsView().environmentObject(userAuth)
                 .tabItem {
