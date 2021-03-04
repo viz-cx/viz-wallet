@@ -18,6 +18,11 @@ struct TransferView: View {
     @State private var amount: Double? = nil
     @State private var memo = ""
     
+    @State private var showErrorMessage: Bool = false
+    @State private var errorMessageText: String = ""
+    @State private var isLoading = false
+    @State private var tmpActiveKey = ""
+    
     private var currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
@@ -50,11 +55,48 @@ struct TransferView: View {
             let amount = Double(s) ?? 0.0
             self.amount = (amount >= userAuth.balance) ? userAuth.balance : amount
         })
-        NavigationView {
-            VStack {
+        VStack {
+            if userAuth.activeKey.isEmpty {
+                Spacer()
+                
+                Text("Active key is empty")
+                    .padding()
+                    .frame(maxWidth: .infinity, alignment: Alignment.center)
+                    .cornerRadius(20.0)
+                    .font(.headline)
+                    .foregroundColor(.white)
+                
+                TextField("Private active key", text: $tmpActiveKey)
+                    .padding()
+                    .background(Color.themeTextField)
+                    .foregroundColor(.black)
+                    .cornerRadius(20.0)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                
+                Button(action: submitActiveKey) {
+                    Text("Submit")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(
+                            maxWidth: .infinity,
+                            minHeight: 50,
+                            maxHeight: 50,
+                            alignment: .center
+                        )
+                        .background(Color.green)
+                        .opacity(0.95)
+                        .cornerRadius(15.0)
+                }
+                
+                Spacer()
+            } else {
+                ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+                
                 Text("""
                     Account: \(userAuth.login)
-                    Balance: \(String(format: "%.3f", userAuth.balance)) Ƶ
+                    Liquid balance: \(String(format: "%.3f", userAuth.balance)) Ƶ
                     """)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: Alignment.leading)
@@ -113,23 +155,34 @@ struct TransferView: View {
                 
                 Spacer()
                 
-                ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], confettiSize: 20)
-                
+                ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
             }
-            .padding([.leading, .trailing], 27.5)
-            .background(
-                LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all))
         }
+        .padding([.leading, .trailing], 27.5)
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all))
         .onAppear {
-            userAuth.backgroundUpdate()
+            userAuth.updateUserData()
+            userAuth.updateDGPData()
         }
         .onTapGesture {
             hideKeyboard()
         }
+        .alert(isPresented: $showErrorMessage) { () -> Alert in
+            Alert(title: Text("Error"),
+                  message: Text(errorMessageText),
+                  dismissButton: .default(Text("Ok"))
+            )
+        }
+    }
+    
+    func submitActiveKey() {
+        userAuth.changeActiveKey(key: tmpActiveKey)
     }
     
     func transfer() {
+        isLoading = true
         var result: UINotificationFeedbackGenerator.FeedbackType = .error
         let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
         notificationFeedbackGenerator.prepare()
@@ -141,12 +194,20 @@ struct TransferView: View {
         }
         result = .success
         print("Transfer: \(amount)")
-        viz.transfer(initiator: userAuth.login, activeKey: userAuth.activeKey, receiver: receiver, amount: amount, memo: memo)
-        receiver = ""
-        self.amount = nil
-        memo = ""
-        confettiCounter += 1
-        userAuth.updateUserData()
+        viz.transfer(initiator: userAuth.login, activeKey: userAuth.activeKey, receiver: receiver, amount: amount, memo: memo) { (err) in
+            if err != nil {
+                errorMessageText = err.debugDescription
+                showErrorMessage = true
+            } else {
+                receiver = ""
+                self.amount = nil
+                memo = ""
+                confettiCounter += 1
+                userAuth.updateUserData()
+            }
+            isLoading = false
+        }
+        
     }
 }
 

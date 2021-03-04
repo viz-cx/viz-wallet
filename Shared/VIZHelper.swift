@@ -51,13 +51,17 @@ struct VIZHelper {
         }
     }
     
-    func transfer(initiator: String, activeKey: String, receiver: String, amount: Double, memo: String) {
+    func transfer(initiator: String, activeKey: String, receiver: String, amount: Double, memo: String, callback: @escaping (Error?) -> ()) {
         client.send(API.GetDynamicGlobalProperties()) { props, error in
             guard let props = props else {
+                callback(Errors.UnknownError)
                 return
             }
             let expiry = props.time.addingTimeInterval(60)
-            let key = PrivateKey(activeKey)!
+            guard let key = PrivateKey(activeKey) else {
+                callback(Errors.ActiveKeyError)
+                return
+            }
             let transfer = VIZ.Operation.Transfer(from: initiator, to: receiver, amount: Asset(amount), memo: memo)
             let tx = Transaction(
                 refBlockNum: UInt16(props.headBlockNumber & 0xFFFF),
@@ -66,11 +70,12 @@ struct VIZHelper {
                 operations: [transfer]
             )
             guard let stx = try? tx.sign(usingKey: key) else {
+                callback(Errors.UnknownError)
                 return
             }
             let trx = API.BroadcastTransaction(transaction: stx)
             client.send(trx) { res, error in
-                print(res, error)
+                callback(error)
             }
         }
     }

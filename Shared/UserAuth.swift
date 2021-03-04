@@ -19,67 +19,69 @@ class UserAuth: ObservableObject {
     private(set) var effectiveVestingShares = 0.0
     private(set) var balance = 0.0
     private(set) var dgp: API.DynamicGlobalProperties? = nil
-    
-    private(set) var isLoggedIn = false {
-        didSet {
-            objectWillChange.send(self)
-        }
-    }
+    private(set) var isLoggedIn = false
     
     private let viz = VIZHelper()
     
     func auth(login: String, regularKey: String) {
-        guard login.count > 1 else {
-            print("Login too small")
-            return
-        }
-        guard let account = viz.getAccount(login: login) else {
-            return
-        }
-        var isRegularValid = false
-        for auth in account.regularAuthority.keyAuths {
-            if auth.weight >= account.regularAuthority.weightThreshold {
-                guard let publicKey = PrivateKey(regularKey)?.createPublic() else {
-                    continue
-                }
-                isRegularValid = publicKey.address == auth.value.address
-                if isRegularValid {
-                    break
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            guard login.count > 1 else {
+                print("Login too small")
+                return
+            }
+            guard let account = viz.getAccount(login: login) else {
+                return
+            }
+            var isRegularValid = false
+            for auth in account.regularAuthority.keyAuths {
+                if auth.weight >= account.regularAuthority.weightThreshold {
+                    guard let publicKey = PrivateKey(regularKey)?.createPublic() else {
+                        continue
+                    }
+                    isRegularValid = publicKey.address == auth.value.address
+                    if isRegularValid {
+                        break
+                    }
                 }
             }
+            if isRegularValid {
+                updateDynamicData(account: account)
+                self.login = account.name
+                self.regularKey = regularKey
+                self.isLoggedIn = true
+                updateObject()
+            }
         }
-        if isRegularValid {
-            updateDynamicData(account: account)
-            self.login = account.name
-            self.regularKey = regularKey
-            self.isLoggedIn = true
-        }
+    }
+    
+    func changeActiveKey(key: String) {
+        // TODO: verify account keyAuths
+        guard VIZ.PrivateKey(key) != nil else { return }
+        activeKey = key
+        updateObject()
     }
     
     func logout() {
         self.login = ""
         self.regularKey = ""
         self.isLoggedIn = false
+        updateObject()
     }
     
     func updateUserData() {
-        guard let account = viz.getAccount(login: login) else {
-            return
-        }
-        updateDynamicData(account: account)
-        DispatchQueue.main.async { [unowned self] in
-            self.objectWillChange.send(self)
+        DispatchQueue.global(qos: .background).async { [unowned self] in
+            guard isLoggedIn, login.count > 1, let account = viz.getAccount(login: login) else {
+                return
+            }
+            self.updateDynamicData(account: account)
+            self.updateObject()
         }
     }
     
     func updateDGPData() {
-        self.dgp = viz.getDGP()
-    }
-    
-    func backgroundUpdate() {
         DispatchQueue.global(qos: .background).async { [unowned self] in
-            self.updateDGPData()
-            self.updateUserData()
+            self.dgp = viz.getDGP()
+            self.updateObject()
         }
     }
     
@@ -87,6 +89,12 @@ class UserAuth: ObservableObject {
         self.energy = account.currentEnergy
         self.effectiveVestingShares = account.effectiveVestingShares
         self.balance = account.balance.resolvedAmount
+    }
+    
+    private func updateObject() {
+        DispatchQueue.main.async { [unowned self] in
+            self.objectWillChange.send(self)
+        }
     }
 }
 
