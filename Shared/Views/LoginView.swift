@@ -11,7 +11,6 @@ struct LoginView: View {
     @EnvironmentObject private var userAuth: UserAuth
     @State private var login = ""
     @State private var regularKey = ""
-        
     @State private var isLoading = false
     
     // MARK: - View

@@ -201,6 +201,7 @@ struct TransferView: View {
             } else {
                 receiver = ""
                 self.amount = nil
+                self.empty = true
                 memo = ""
                 confettiCounter += 1
                 userAuth.updateUserData()

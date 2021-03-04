@@ -1,5 +1,5 @@
 //
-//  Registration.swift
+//  RegistrationView.swift
 //  viz-wallet
 //
 //  Created by Vladimir Babin on 04.03.2021.
