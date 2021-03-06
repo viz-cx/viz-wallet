@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "CodeScanner",
+        "repositoryURL": "https://github.com/twostraws/CodeScanner.git",
+        "state": {
+          "branch": null,
+          "revision": "a2144ddaa7c43a6ee00873edd4cc7815ad97942f",
+          "version": "1.0.7"
+        }
+      },
+      {
         "package": "KeychainAccess",
         "repositoryURL": "https://github.com/kishikawakatsumi/KeychainAccess.git",
         "state": {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 import VIZ
+import CodeScanner
 
 struct AwardView: View {
     private let viz = VIZHelper()
@@ -17,6 +18,7 @@ struct AwardView: View {
     @State private var memo = ""
     
     @State private var confettiCounter = 0
+    @State private var isShowingScanner = false
     
     var body: some View {
         VStack {
@@ -38,12 +40,25 @@ struct AwardView: View {
                     .cornerRadius(20.0)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
-                NavigationLink(destination: Text("QR Scanner")) {
-                    Image(systemName: "qrcode.viewfinder")
-                        .font(.largeTitle)
-                        .colorInvert()
-                }
-                .buttonStyle(PlainButtonStyle())
+                
+                Image(systemName: "qrcode.viewfinder")
+                    .font(.largeTitle)
+                    .colorInvert()
+                    .buttonStyle(PlainButtonStyle())
+                    .onTapGesture {
+                        isShowingScanner = true
+                    }
+                    .sheet(isPresented: $isShowingScanner, content: {
+                        CodeScannerView(codeTypes: [.qr], simulatedData: "id") { result in
+                            switch result {
+                            case .success(let code):
+                                receiver = code
+                                isShowingScanner = false
+                            case .failure(let error):
+                                print(error.localizedDescription)
+                            }
+                        }
+                    })
             }
             
             TextField("Memo", text: $memo)

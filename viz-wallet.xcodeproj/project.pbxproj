@@ -11,6 +11,7 @@
 		D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A38C25F384EE0031AA0A /* DAOView.swift */; };
 		D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyView.swift */; };
 		D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyView.swift */; };
+		D101A3A025F391040031AA0A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D101A39F25F391040031AA0A /* CodeScanner */; };
 		D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF74725E239D900B29A19 /* Tests_iOS.swift */; };
 		D11AF75325E239D900B29A19 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF75225E239D900B29A19 /* Tests_macOS.swift */; };
 		D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
@@ -116,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D101A3A025F391040031AA0A /* CodeScanner in Frameworks */,
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
 				D157495425EA69E40043C95C /* Lottie in Frameworks */,
 				D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */,
@@ -285,6 +287,7 @@
 				D17C3C3125E3B374004771EF /* VIZ */,
 				D157495325EA69E40043C95C /* Lottie */,
 				D13FE9FA25F2C9EC0088D49D /* KeychainAccess */,
+				D101A39F25F391040031AA0A /* CodeScanner */,
 			);
 			productName = "viz-wallet (iOS)";
 			productReference = D11AF73325E239D900B29A19 /* viz-wallet.app */;
@@ -381,6 +384,7 @@
 				D17C3C3025E3B374004771EF /* XCRemoteSwiftPackageReference "viz-swift-lib" */,
 				D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
 			projectDirPath = "";
@@ -864,6 +868,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.7;
+			};
+		};
 		D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -891,6 +903,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D101A39F25F391040031AA0A /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
 		D13FE9FA25F2C9EC0088D49D /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */;

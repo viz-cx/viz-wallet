@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct TransferView: View {
     private let viz = VIZHelper()
@@ -21,6 +22,7 @@ struct TransferView: View {
     @State private var showErrorMessage: Bool = false
     @State private var errorMessageText: String = ""
     @State private var isLoading = false
+    @State private var isShowingScanner = false
     
     private var currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -78,12 +80,24 @@ struct TransferView: View {
                         .cornerRadius(20.0)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
-                    NavigationLink(destination: Text("QR Scanner")) {
                         Image(systemName: "qrcode.viewfinder")
                             .font(.largeTitle)
                             .colorInvert()
-                    }
-                    .buttonStyle(PlainButtonStyle())
+                            .buttonStyle(PlainButtonStyle())
+                            .onTapGesture {
+                                isShowingScanner = true
+                            }
+                            .sheet(isPresented: $isShowingScanner, content: {
+                                CodeScannerView(codeTypes: [.qr], simulatedData: "id") { result in
+                                    switch result {
+                                    case .success(let code):
+                                        receiver = code
+                                        isShowingScanner = false
+                                    case .failure(let error):
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                            })
                 }
                 
                 TextField("Amount", text: binding)
