@@ -12,6 +12,7 @@ struct MainView: View {
         case award
         case transfer
         case receive
+        case dao
         case settings
     }
     
@@ -53,6 +54,17 @@ struct MainView: View {
                     Text("Receive")
                 }
                 .tag(TabItem.receive)
+            
+            DAOView()
+                .tabItem {
+                    if selectedItem == .dao {
+                        Image(systemName: "building.columns.fill")
+                    } else {
+                        Image(systemName: "building.columns")
+                    }
+                    Text("DAO")
+                }
+                .tag(TabItem.dao)
             
             SettingsView()
                 .tabItem {
