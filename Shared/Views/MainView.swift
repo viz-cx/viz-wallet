@@ -21,7 +21,7 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selectedItem, content: {
-            AwardView().environmentObject(userAuth)
+            AwardView()
                 .tabItem {
                     if selectedItem == .award {
                         Image(systemName: "hand.thumbsup.fill")
@@ -32,7 +32,7 @@ struct MainView: View {
                 }
                 .tag(TabItem.award)
             
-            TransferView().environmentObject(userAuth)
+            TransferView()
                 .tabItem {
                     if selectedItem == .transfer {
                         Image(systemName: "arrow.up.heart.fill")
@@ -54,7 +54,7 @@ struct MainView: View {
                 }
                 .tag(TabItem.receive)
             
-            SettingsView().environmentObject(userAuth)
+            SettingsView()
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")

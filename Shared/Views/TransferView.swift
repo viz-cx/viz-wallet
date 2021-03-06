@@ -75,7 +75,7 @@ struct TransferView: View {
                     .autocapitalization(.none)
                 
                 Button(action: submitActiveKey) {
-                    Text("Submit")
+                    Text("Update")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()

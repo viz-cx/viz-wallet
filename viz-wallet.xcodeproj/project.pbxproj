@@ -23,6 +23,11 @@
 		D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */; };
 		D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9BB25F105080088D49D /* RegistrationView.swift */; };
 		D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9BB25F105080088D49D /* RegistrationView.swift */; };
+		D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9D525F25FC60088D49D /* View+Extension.swift */; };
+		D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9D525F25FC60088D49D /* View+Extension.swift */; };
+		D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
+		D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
+		D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D13FE9FA25F2C9EC0088D49D /* KeychainAccess */; };
 		D157494C25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157494D25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157495425EA69E40043C95C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D157495325EA69E40043C95C /* Lottie */; };
@@ -85,6 +90,8 @@
 		D13FE9A925ED78490088D49D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D13FE9BB25F105080088D49D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		D13FE9D525F25FC60088D49D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		D13FE9E025F260120088D49D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		D157494B25EA29810043C95C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D157495A25EA6A040043C95C /* 46472-lurking-cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "46472-lurking-cat.json"; sourceTree = "<group>"; };
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
@@ -105,6 +112,7 @@
 			files = (
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
 				D157495425EA69E40043C95C /* Lottie in Frameworks */,
+				D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,10 +158,8 @@
 				D11AF72E25E239D900B29A19 /* Assets.xcassets */,
 				D157495525EA69EF0043C95C /* Lottie */,
 				D13FE9CA25F164720088D49D /* Views */,
+				D13FE9D425F25F500088D49D /* Data */,
 				D11AF72C25E239D600B29A19 /* WalletApp.swift */,
-				D1F3887D25E42B8000654F12 /* UserAuth.swift */,
-				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
-				D13FE9A925ED78490088D49D /* Errors.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -225,8 +231,20 @@
 				D157494B25EA29810043C95C /* ConfettiView.swift */,
 				D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */,
 				D157496125EA6A9C0043C95C /* LottieView.swift */,
+				D13FE9D525F25FC60088D49D /* View+Extension.swift */,
+				D13FE9E025F260120088D49D /* Color+Extension.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D13FE9D425F25F500088D49D /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				D1F3887D25E42B8000654F12 /* UserAuth.swift */,
+				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
+				D13FE9A925ED78490088D49D /* Errors.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		D157495525EA69EF0043C95C /* Lottie */ = {
@@ -258,6 +276,7 @@
 			packageProductDependencies = (
 				D17C3C3125E3B374004771EF /* VIZ */,
 				D157495325EA69E40043C95C /* Lottie */,
+				D13FE9FA25F2C9EC0088D49D /* KeychainAccess */,
 			);
 			productName = "viz-wallet (iOS)";
 			productReference = D11AF73325E239D900B29A19 /* viz-wallet.app */;
@@ -353,6 +372,7 @@
 			packageReferences = (
 				D17C3C3025E3B374004771EF /* XCRemoteSwiftPackageReference "viz-swift-lib" */,
 				D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
 			projectDirPath = "";
@@ -417,12 +437,14 @@
 				D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */,
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
+				D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */,
 				D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */,
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */,
 				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,
 				D13FE9AA25ED784A0088D49D /* Errors.swift in Sources */,
+				D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */,
 				D157496225EA6A9C0043C95C /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,12 +460,14 @@
 				D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157498025EA78BD0043C95C /* SettingsView.swift in Sources */,
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
+				D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */,
 				D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */,
 				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */,
 				D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */,
 				D13FE9AB25ED784A0088D49D /* Errors.swift in Sources */,
+				D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */,
 				D157496325EA6A9C0043C95C /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,6 +852,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.2.2;
+			};
+		};
 		D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
@@ -847,6 +879,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D13FE9FA25F2C9EC0088D49D /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
 		D157495325EA69E40043C95C /* Lottie */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */;

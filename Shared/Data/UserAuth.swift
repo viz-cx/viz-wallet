@@ -8,13 +8,41 @@
 import Combine
 import Foundation
 import VIZ
+import KeychainAccess
 
 class UserAuth: ObservableObject {
-    let objectWillChange = PassthroughSubject<UserAuth,Never>()
+    internal let objectWillChange = PassthroughSubject<UserAuth,Never>()
     
-    private(set) var login = ""
-    private(set) var regularKey = ""
-    private(set) var activeKey = ""
+    private let keychain = Keychain(service: "cx.viz.viz-wallet")
+        .accessibility(.afterFirstUnlock)
+    
+    private(set) var login: String = "" {
+        didSet {
+            if login != "" {
+                keychain["login"] = login
+            } else {
+                keychain["login"] = nil
+            }
+        }
+    }
+    private(set) var regularKey: String = "" {
+        didSet {
+            if regularKey != "" {
+                keychain["regularKey"] = regularKey
+            } else {
+                keychain["regularKey"] = nil
+            }
+        }
+    }
+    private(set) var activeKey: String = "" {
+        didSet {
+            if activeKey != "" {
+                keychain["activeKey"] = activeKey
+            } else {
+                keychain["activeKey"] = nil
+            }
+        }
+    }
     private(set) var energy = 0
     private(set) var effectiveVestingShares = 0.0
     private(set) var balance = 0.0
@@ -22,6 +50,16 @@ class UserAuth: ObservableObject {
     private(set) var isLoggedIn = false
     
     private let viz = VIZHelper()
+    
+    init() {
+        if let activeKey = try? keychain.getString("activeKey") {
+            self.activeKey = activeKey
+        }
+        if let login = try? keychain.getString("login"), let regularKey = try? keychain.getString("regularKey") {
+            auth(login: login, regularKey: regularKey)
+            updateDGPData()
+        }
+    }
     
     func auth(login: String, regularKey: String) {
         DispatchQueue.global(qos: .background).async { [unowned self] in
@@ -64,6 +102,7 @@ class UserAuth: ObservableObject {
     func logout() {
         self.login = ""
         self.regularKey = ""
+        self.activeKey = ""
         self.isLoggedIn = false
         updateObject()
     }
