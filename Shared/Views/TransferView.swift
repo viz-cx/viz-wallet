@@ -21,7 +21,6 @@ struct TransferView: View {
     @State private var showErrorMessage: Bool = false
     @State private var errorMessageText: String = ""
     @State private var isLoading = false
-    @State private var tmpActiveKey = ""
     
     private var currencyFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -57,40 +56,7 @@ struct TransferView: View {
         })
         VStack {
             if userAuth.activeKey.isEmpty {
-                Spacer()
-                
-                Text("Active key is empty")
-                    .padding()
-                    .frame(maxWidth: .infinity, alignment: Alignment.center)
-                    .cornerRadius(20.0)
-                    .font(.headline)
-                    .foregroundColor(.white)
-                
-                TextField("Private active key", text: $tmpActiveKey)
-                    .padding()
-                    .background(Color.themeTextField)
-                    .foregroundColor(.black)
-                    .cornerRadius(20.0)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                
-                Button(action: submitActiveKey) {
-                    Text("Update")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(
-                            maxWidth: .infinity,
-                            minHeight: 50,
-                            maxHeight: 50,
-                            alignment: .center
-                        )
-                        .background(Color.green)
-                        .opacity(0.95)
-                        .cornerRadius(15.0)
-                }
-                
-                Spacer()
+                ActiveKeyView()
             } else {
                 ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
                 
@@ -175,10 +141,6 @@ struct TransferView: View {
                   dismissButton: .default(Text("Ok"))
             )
         }
-    }
-    
-    func submitActiveKey() {
-        userAuth.changeActiveKey(key: tmpActiveKey)
     }
     
     func transfer() {

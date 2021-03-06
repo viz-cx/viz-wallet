@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D101A38D25F384EE0031AA0A /* DAOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A38C25F384EE0031AA0A /* DAOView.swift */; };
 		D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A38C25F384EE0031AA0A /* DAOView.swift */; };
+		D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyView.swift */; };
+		D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyView.swift */; };
 		D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF74725E239D900B29A19 /* Tests_iOS.swift */; };
 		D11AF75325E239D900B29A19 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF75225E239D900B29A19 /* Tests_macOS.swift */; };
 		D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
@@ -75,6 +77,7 @@
 
 /* Begin PBXFileReference section */
 		D101A38C25F384EE0031AA0A /* DAOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOView.swift; sourceTree = "<group>"; };
+		D101A39325F38A510031AA0A /* ActiveKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveKeyView.swift; sourceTree = "<group>"; };
 		D11AF72C25E239D600B29A19 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		D11AF72E25E239D900B29A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11AF73325E239D900B29A19 /* viz-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viz-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,8 +223,8 @@
 				D1F3887225E429FB00654F12 /* MainView.swift */,
 				D17C3C5625E3CBDD004771EF /* LoginView.swift */,
 				D1F3889A25E4F20A00654F12 /* AwardView.swift */,
-				D157497E25EA78BD0043C95C /* SettingsView.swift */,
 				D13FE97C25EB7D7C0088D49D /* TransferView.swift */,
+				D157497E25EA78BD0043C95C /* SettingsView.swift */,
 				D13FE9A225EBCF790088D49D /* ReceiveView.swift */,
 				D13FE9BB25F105080088D49D /* RegistrationView.swift */,
 				D101A38C25F384EE0031AA0A /* DAOView.swift */,
@@ -237,6 +240,7 @@
 				D157496125EA6A9C0043C95C /* LottieView.swift */,
 				D13FE9D525F25FC60088D49D /* View+Extension.swift */,
 				D13FE9E025F260120088D49D /* Color+Extension.swift */,
+				D101A39325F38A510031AA0A /* ActiveKeyView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -434,6 +438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */,
 				D157494C25EA29810043C95C /* ConfettiView.swift in Sources */,
 				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
@@ -458,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */,
 				D157494D25EA29810043C95C /* ConfettiView.swift in Sources */,
 				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
