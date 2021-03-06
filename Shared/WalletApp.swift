@@ -26,7 +26,7 @@ private struct IntermediateView: View {
             if !userAuth.isLoggedIn {
                 LoginView().navigationBarHidden(true)
             } else {
-                MainView().navigationBarHidden(false)
+                MainView().navigationBarHidden(true)
             }
         }
     }
