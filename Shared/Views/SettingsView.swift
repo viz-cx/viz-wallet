@@ -30,6 +30,11 @@ struct SettingsView: View {
             }
             
             List {
+                Label("Telegram support chat", systemImage: "bubble.left.and.bubble.right.fill")
+                    .onTapGesture {
+                        guard let url = URL(string: "https://t.me/viz_cx") else { return }
+                        UIApplication.shared.open(url)
+                    }
                 Label("Privacy policy", systemImage: "lock.doc")
                     .onTapGesture {
                         activePage = "PrivacyPolicy"
