@@ -27,13 +27,17 @@ struct VIZHelper {
         return result
     }
     
-    func award(initiator: String, regularKey: String, receiver: String, energy: UInt16, memo: String, beneficiaries: [VIZ.Operation.Beneficiary] = []) {
+    func award(initiator: String, regularKey: String, receiver: String, energy: UInt16, memo: String, beneficiaries: [VIZ.Operation.Beneficiary] = [], callback: @escaping (Error?) -> ()) {
         client.send(API.GetDynamicGlobalProperties()) { props, error in
             guard let props = props else {
+                callback(Errors.UnknownError)
                 return
             }
             let expiry = props.time.addingTimeInterval(60)
-            let key = PrivateKey(regularKey)!
+            guard let key = PrivateKey(regularKey) else {
+                callback(Errors.KeyValidationError)
+                return
+            }
             let award = VIZ.Operation.Award(initiator: initiator, receiver: receiver, energy: energy, customSequence: 0, memo: memo, beneficiaries: beneficiaries)
             let tx = Transaction(
                 refBlockNum: UInt16(props.headBlockNumber & 0xFFFF),
@@ -42,11 +46,12 @@ struct VIZHelper {
                 operations: [award]
             )
             guard let stx = try? tx.sign(usingKey: key) else {
+                callback(Errors.SignError)
                 return
             }
             let trx = API.BroadcastTransaction(transaction: stx)
             client.send(trx) { res, error in
-                print(res, error)
+                callback(error)
             }
         }
     }
@@ -59,7 +64,7 @@ struct VIZHelper {
             }
             let expiry = props.time.addingTimeInterval(60)
             guard let key = PrivateKey(activeKey) else {
-                callback(Errors.ActiveKeyError)
+                callback(Errors.KeyValidationError)
                 return
             }
             let transfer = VIZ.Operation.Transfer(from: initiator, to: receiver, amount: Asset(amount), memo: memo)
@@ -70,7 +75,7 @@ struct VIZHelper {
                 operations: [transfer]
             )
             guard let stx = try? tx.sign(usingKey: key) else {
-                callback(Errors.UnknownError)
+                callback(Errors.SignError)
                 return
             }
             let trx = API.BroadcastTransaction(transaction: stx)

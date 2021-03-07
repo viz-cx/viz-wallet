@@ -18,10 +18,15 @@ struct AwardView: View {
     @State private var memo = ""
     
     @State private var confettiCounter = 0
+    @State private var showErrorMessage: Bool = false
+    @State private var errorMessageText: String = ""
+    @State private var isLoading = false
     @State private var isShowingScanner = false
     
     var body: some View {
         VStack {
+            ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+            
             Text("""
                 Account: \(userAuth.login) (\(String(format: "%.2f", Double(userAuth.energy) / 100))%)
                 Social capital: \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ
@@ -97,6 +102,7 @@ struct AwardView: View {
                         alignment: .center
                     )
                     .background(Color.green)
+                    .opacity(0.95)
                     .cornerRadius(15.0)
             }
             
@@ -118,6 +124,12 @@ struct AwardView: View {
         }
         .onTapGesture {
             hideKeyboard()
+        }
+        .alert(isPresented: $showErrorMessage) { () -> Alert in
+            Alert(title: Text("Error"),
+                  message: Text(errorMessageText),
+                  dismissButton: .default(Text("Ok"))
+            )
         }
     }
     
@@ -141,22 +153,28 @@ struct AwardView: View {
     }
     
     func award() {
-        var result: UINotificationFeedbackGenerator.FeedbackType = .error
-        let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
-        notificationFeedbackGenerator.prepare()
-        defer {
-            notificationFeedbackGenerator.notificationOccurred(result)
-        }
         guard receiver.count > 1 else {
             return
         }
-        result = .success
-        viz.award(initiator: userAuth.login, regularKey: userAuth.regularKey, receiver: receiver, energy: UInt16(percent * 100), memo: memo)
-        receiver = ""
-        memo = ""
-        confettiCounter += 1
-        userAuth.updateUserData()
-        userAuth.updateDGPData()
+        isLoading = true
+        var result: UINotificationFeedbackGenerator.FeedbackType = .error
+        let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+        notificationFeedbackGenerator.prepare()
+        viz.award(initiator: userAuth.login, regularKey: userAuth.regularKey, receiver: receiver, energy: UInt16(percent * 100), memo: memo) { error in
+            if let error = error {
+                errorMessageText = error.localizedDescription
+                showErrorMessage = true
+            } else {
+                receiver = ""
+                memo = ""
+                confettiCounter += 1
+                userAuth.updateUserData()
+                userAuth.updateDGPData()
+                result = .success
+            }
+            notificationFeedbackGenerator.notificationOccurred(result)
+            isLoading = false
+        }
     }
 }
 

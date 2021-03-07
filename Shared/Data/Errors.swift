@@ -10,5 +10,5 @@ import Foundation
 enum Errors: Error {
     case UnknownError
     case SignError
-    case ActiveKeyError
+    case KeyValidationError
 }

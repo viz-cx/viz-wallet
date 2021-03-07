@@ -80,24 +80,25 @@ struct TransferView: View {
                         .cornerRadius(20.0)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
-                        Image(systemName: "qrcode.viewfinder")
-                            .font(.largeTitle)
-                            .colorInvert()
-                            .buttonStyle(PlainButtonStyle())
-                            .onTapGesture {
-                                isShowingScanner = true
-                            }
-                            .sheet(isPresented: $isShowingScanner, content: {
-                                CodeScannerView(codeTypes: [.qr], simulatedData: "id") { result in
-                                    switch result {
-                                    case .success(let code):
-                                        receiver = code
-                                        isShowingScanner = false
-                                    case .failure(let error):
-                                        print(error.localizedDescription)
-                                    }
+                    
+                    Image(systemName: "qrcode.viewfinder")
+                        .font(.largeTitle)
+                        .colorInvert()
+                        .buttonStyle(PlainButtonStyle())
+                        .onTapGesture {
+                            isShowingScanner = true
+                        }
+                        .sheet(isPresented: $isShowingScanner, content: {
+                            CodeScannerView(codeTypes: [.qr], simulatedData: "id") { result in
+                                switch result {
+                                case .success(let code):
+                                    receiver = code
+                                    isShowingScanner = false
+                                case .failure(let error):
+                                    print(error.localizedDescription)
                                 }
-                            })
+                            }
+                        })
                 }
                 
                 TextField("Amount", text: binding)
@@ -133,9 +134,9 @@ struct TransferView: View {
                         .cornerRadius(15.0)
                 }
                 
-                Spacer()
-                
                 ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
+                
+                Spacer()
             }
         }
         .padding([.leading, .trailing], 27.5)
@@ -158,21 +159,16 @@ struct TransferView: View {
     }
     
     func transfer() {
+        guard let amount = amount else {
+            return
+        }
         isLoading = true
         var result: UINotificationFeedbackGenerator.FeedbackType = .error
         let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
         notificationFeedbackGenerator.prepare()
-        defer {
-            notificationFeedbackGenerator.notificationOccurred(result)
-        }
-        guard let amount = amount else {
-            return
-        }
-        result = .success
-        print("Transfer: \(amount)")
-        viz.transfer(initiator: userAuth.login, activeKey: userAuth.activeKey, receiver: receiver, amount: amount, memo: memo) { (err) in
-            if err != nil {
-                errorMessageText = err.debugDescription
+        viz.transfer(initiator: userAuth.login, activeKey: userAuth.activeKey, receiver: receiver, amount: amount, memo: memo) { (error) in
+            if let error = error {
+                errorMessageText = error.localizedDescription
                 showErrorMessage = true
             } else {
                 receiver = ""
@@ -181,7 +177,9 @@ struct TransferView: View {
                 memo = ""
                 confettiCounter += 1
                 userAuth.updateUserData()
+                result = .success
             }
+            notificationFeedbackGenerator.notificationOccurred(result)
             isLoading = false
         }
         
