@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDisplayName</key>
-	<string>VIZ Wallet</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -57,5 +57,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>LSHasLocalizedDisplayName</key>
+	<true/>
 </dict>
 </plist>
