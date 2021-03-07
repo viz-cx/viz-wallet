@@ -11,4 +11,5 @@ enum Errors: Error {
     case UnknownError
     case SignError
     case KeyValidationError
+    case LoginTooSmall
 }

@@ -49,6 +49,10 @@ class UserAuth: ObservableObject {
     private(set) var dgp: API.DynamicGlobalProperties? = nil
     private(set) var isLoggedIn = false
     
+    private(set) var accountNickname = ""
+    private(set) var accountAbout = ""
+    private(set) var accountAvatar = ""
+    
     private let viz = VIZHelper()
     
     init() {
@@ -56,18 +60,19 @@ class UserAuth: ObservableObject {
             self.activeKey = activeKey
         }
         if let login = try? keychain.getString("login"), let regularKey = try? keychain.getString("regularKey") {
-            auth(login: login, regularKey: regularKey)
+            auth(login: login, regularKey: regularKey, callback: {_ in})
             updateDGPData()
         }
     }
     
-    func auth(login: String, regularKey: String) {
+    func auth(login: String, regularKey: String, callback: @escaping (Error?) -> ()) {
         DispatchQueue.global(qos: .background).async { [unowned self] in
             guard login.count > 1 else {
-                print("Login too small")
+                callback(Errors.LoginTooSmall)
                 return
             }
             guard let account = viz.getAccount(login: login) else {
+                callback(Errors.UnknownError)
                 return
             }
             var isRegularValid = false
@@ -87,7 +92,32 @@ class UserAuth: ObservableObject {
                 self.login = account.name
                 self.regularKey = regularKey
                 self.isLoggedIn = true
+                
+                let decoder = JSONDecoder()
+                let metadata = account.jsonMetadata
+                    .replacingOccurrences(of: "sia://", with: "https://siasky.net/")
+                let json = metadata.data(using: .utf8) ?? Data()
+                let meta = try? decoder.decode(AccountMetadata.self, from: json)
+                if let nickname = meta?.profile.nickname, nickname.count > 0 {
+                    accountNickname = nickname
+                } else {
+                    accountNickname = login
+                }
+                if let about = meta?.profile.about, about.count > 0 {
+                    accountAbout = about
+                } else {
+                    let formatter1 = DateFormatter()
+                    formatter1.dateStyle = .short
+                    let created = formatter1.string(from: account.created)
+                    accountAbout = String(format: NSLocalizedString("AccountCreatedDate", comment: ""), created)
+                }
+                accountAvatar = meta?.profile.avatar ?? ""
+                
+                callback(nil)
                 updateObject()
+            } else {
+                callback(Errors.KeyValidationError)
+                logout()
             }
         }
     }

@@ -47,6 +47,24 @@
         }
       },
       {
+        "package": "SDWebImage",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImage.git",
+        "state": {
+          "branch": null,
+          "revision": "a6b6e44eadf0d39250c10a7cc0e3b91d0bdb0e94",
+          "version": "5.10.4"
+        }
+      },
+      {
+        "package": "SDWebImageSwiftUI",
+        "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
+        "state": {
+          "branch": null,
+          "revision": "88f2d679b7c47d98f1d5dc4f23a5d28c665b97b7",
+          "version": "2.0.1"
+        }
+      },
+      {
         "package": "VIZ",
         "repositoryURL": "https://github.com/viz-blockchain/viz-swift-lib.git",
         "state": {

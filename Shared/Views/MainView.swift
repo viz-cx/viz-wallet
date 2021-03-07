@@ -78,6 +78,8 @@ struct MainView: View {
     
     init() {
         UITabBar.appearance().barTintColor = UIColor(Color.themeTextField)
+        UITableView.appearance().backgroundColor = UIColor.clear
+        UITableViewCell.appearance().backgroundColor = .clear
     }
 }
 

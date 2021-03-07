@@ -14,11 +14,7 @@ struct VIZHelper {
     func getAccount(login: String) -> API.ExtendedAccount? {
         let req = API.GetAccounts(names: [login])
         let result = try? client.sendSynchronous(req)
-        guard let account = result?.first else {
-            print("Account \(login) not found")
-            return nil
-        }
-        return account
+        return result?.first
     }
     
     func getDGP() -> API.DynamicGlobalProperties? {

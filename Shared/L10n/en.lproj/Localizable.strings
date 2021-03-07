@@ -1,1 +1,5 @@
-
+AccountCreatedDate = "Account created at %@";
+Telegram = "Telegram support chat";
+PrivacyPolicy = "Privacy policy";
+ChangeLanguage = "Change language";
+Logout = "Logout";

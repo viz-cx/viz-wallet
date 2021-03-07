@@ -1,1 +1,5 @@
-
+AccountCreatedDate = "Аккаунт создан %@";
+Telegram = "Поддержка в телеграме";
+PrivacyPolicy = "Политика конфиденциальности";
+ChangeLanguage = "Сменить язык";
+Logout = "Выйти";

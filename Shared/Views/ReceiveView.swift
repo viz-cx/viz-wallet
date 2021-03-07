@@ -17,6 +17,12 @@ struct ReceiveView: View {
     
     var body: some View {
         VStack {
+            Image(uiImage: genrateQRImage(text: userAuth.login))
+                .interpolation(.none)
+                .resizable()
+                .frame(maxHeight: 300, alignment: .center)
+                .aspectRatio(1, contentMode: .fit)
+            
             Text("Login: \(userAuth.login)")
                 .font(.headline)
                 .foregroundColor(.white)
@@ -34,15 +40,11 @@ struct ReceiveView: View {
                 }
             
             Spacer()
-            
-            Image(uiImage: genrateQRImage(text: userAuth.login))
-                .interpolation(.none)
-                .resizable()
-                .frame(maxHeight: 300, alignment: .center)
-                .aspectRatio(1, contentMode: .fit)
-            
-            Spacer()
         }
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+        )
     }
     
     func genrateQRImage(text: String) -> UIImage {
@@ -59,6 +61,6 @@ struct ReceiveView: View {
 
 struct ReceiveView_Previews: PreviewProvider {
     static var previews: some View {
-        ReceiveView()
+        ReceiveView().environmentObject(UserAuth())
     }
 }

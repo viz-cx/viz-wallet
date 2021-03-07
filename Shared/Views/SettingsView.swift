@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var userAuth: UserAuth
@@ -14,39 +15,51 @@ struct SettingsView: View {
     var body: some View {
         let isSubPageActive = Binding<Bool>(get: { self.activePage.count > 0 }, set: { _ in })
         VStack {
-            Image("profile")
+            WebImage(url: URL(string: userAuth.accountAvatar))
                 .resizable()
+                .placeholder(Image("profile"))
+                .indicator(.activity)
+                .transition(.fade(duration: 0.5))
+                .scaledToFit()
                 .aspectRatio(contentMode: .fill)
-                .frame(width: 150, height: 150, alignment: .center)
+                .frame(width: 200, height: 200, alignment: .center)
                 .clipShape(Circle())
-                .padding()
             VStack {
-                Text(userAuth.login)
+                Text(userAuth.accountNickname)
                     .font(.title)
                     .foregroundColor(.primary)
-                Text("Profile description or registration date")
+                    .colorInvert()
+                Text(userAuth.accountAbout)
                     .font(.subheadline)
-                    .foregroundColor(.secondary)
+                    .colorInvert()
             }
             
             List {
-                Label("Telegram support chat", systemImage: "paperplane.circle.fill")
+                Label(NSLocalizedString("Telegram", comment: ""), systemImage: "paperplane.circle.fill")
                     .onTapGesture {
                         guard let url = URL(string: "https://t.me/viz_cx") else { return }
                         UIApplication.shared.open(url)
                     }
-                Label("Privacy policy", systemImage: "lock.doc")
+                    .listRowBackground(Color.clear)
+                    .foregroundColor(.white)
+                Label(NSLocalizedString("PrivacyPolicy", comment: ""), systemImage: "lock.doc")
                     .onTapGesture {
                         activePage = "PrivacyPolicy"
                     }
-                Label("Change language", systemImage: "gearshape.fill")
+                    .listRowBackground(Color.clear)
+                    .foregroundColor(.white)
+                Label(NSLocalizedString("ChangeLanguage", comment: ""), systemImage: "gearshape.fill")
                     .onTapGesture {
                         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                     }
-                Label("Logout", systemImage: "person.fill")
+                    .listRowBackground(Color.clear)
+                    .foregroundColor(.white)
+                Label(NSLocalizedString("Logout", comment: ""), systemImage: "person.fill")
                     .onTapGesture {
                         userAuth.logout()
                     }
+                    .listRowBackground(Color.clear)
+                    .foregroundColor(.white)
             }
             .fullScreenCover(isPresented: isSubPageActive, onDismiss: {
                 activePage = ""
@@ -65,11 +78,15 @@ struct SettingsView: View {
                 }
             })
         }
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+        )
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView().environmentObject(UserAuth())
     }
 }

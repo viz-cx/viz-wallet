@@ -40,12 +40,24 @@ struct DAOView: View {
             switch sections[selectedIndex] {
             case .committee:
                 Text("Committee view")
+                    .colorInvert()
             case .delegates:
                 Text("Delegates view")
+                    .colorInvert()
             }
             
             Spacer()
         }
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+        )
+    }
+    
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .white
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
 }
 

@@ -22,12 +22,10 @@ private struct IntermediateView: View {
     @EnvironmentObject private var userAuth: UserAuth
     
     var body: some View {
-        NavigationView {
-            if !userAuth.isLoggedIn {
-                LoginView().navigationBarHidden(true)
-            } else {
-                MainView().navigationBarHidden(true)
-            }
+        if !userAuth.isLoggedIn {
+            LoginView().navigationBarHidden(true)
+        } else {
+            MainView().navigationBarHidden(true)
         }
     }
 }

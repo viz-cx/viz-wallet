@@ -12,6 +12,9 @@ struct LoginView: View {
     @State private var login = ""
     @State private var regularKey = ""
     @State private var isLoading = false
+    @State private var showSignUp = false
+    @State private var showErrorMessage: Bool = false
+    @State private var errorMessageText: String = ""
     
     // MARK: - View
     var body: some View {
@@ -58,11 +61,15 @@ struct LoginView: View {
             HStack(spacing: 0) {
                 Text("Don't have an account? ")
                     .colorInvert()
-                NavigationLink(destination: RegistrationView()) {
-                    Text("Sign Up")
-                        .foregroundColor(.black)
-                        .colorInvert()
-                }
+                Text("Sign Up")
+                    .foregroundColor(.black)
+                    .colorInvert()
+                    .onTapGesture {
+                        showSignUp = true
+                    }
+                    .sheet(isPresented: $showSignUp, content: {
+                        Text("123")
+                    })
             }
         }
         .padding([.leading, .trailing], 27.5)
@@ -72,12 +79,23 @@ struct LoginView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .alert(isPresented: $showErrorMessage) { () -> Alert in
+            Alert(title: Text("Error"),
+                  message: Text(errorMessageText),
+                  dismissButton: .default(Text("Ok"))
+            )
+        }
     }
     
     func signIn() {
         isLoading = true
-        // TODO: return error and change isLoading to false
-        userAuth.auth(login: login, regularKey: regularKey)
+        userAuth.auth(login: login, regularKey: regularKey) { error in
+            if let error = error {
+                errorMessageText = error.localizedDescription
+                showErrorMessage = true
+            }
+            isLoading = false
+        }
     }
 }
 

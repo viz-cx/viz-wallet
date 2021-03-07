@@ -16,6 +16,9 @@
 		D101A3E425F4C8CA0031AA0A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D101A3E625F4C8CA0031AA0A /* Localizable.strings */; };
 		D101A41025F4CC120031AA0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D101A41325F4CC120031AA0A /* InfoPlist.strings */; };
 		D101A41125F4CC120031AA0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D101A41325F4CC120031AA0A /* InfoPlist.strings */; };
+		D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */; };
+		D101A43025F5170F0031AA0A /* AccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A42F25F5170F0031AA0A /* AccountMetadata.swift */; };
+		D101A43125F5170F0031AA0A /* AccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A42F25F5170F0031AA0A /* AccountMetadata.swift */; };
 		D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF74725E239D900B29A19 /* Tests_iOS.swift */; };
 		D11AF75325E239D900B29A19 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF75225E239D900B29A19 /* Tests_macOS.swift */; };
 		D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
@@ -87,6 +90,7 @@
 		D101A3EB25F4C9580031AA0A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D101A41225F4CC120031AA0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D101A41825F4CC150031AA0A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D101A42F25F5170F0031AA0A /* AccountMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMetadata.swift; sourceTree = "<group>"; };
 		D11AF72C25E239D600B29A19 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		D11AF72E25E239D900B29A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11AF73325E239D900B29A19 /* viz-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viz-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */,
 				D101A3A025F391040031AA0A /* CodeScanner in Frameworks */,
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
 				D157495425EA69E40043C95C /* Lottie in Frameworks */,
@@ -271,6 +276,7 @@
 				D1F3887D25E42B8000654F12 /* UserAuth.swift */,
 				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
 				D13FE9A925ED78490088D49D /* Errors.swift */,
+				D101A42F25F5170F0031AA0A /* AccountMetadata.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 				D157495325EA69E40043C95C /* Lottie */,
 				D13FE9FA25F2C9EC0088D49D /* KeychainAccess */,
 				D101A39F25F391040031AA0A /* CodeScanner */,
+				D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */,
 			);
 			productName = "viz-wallet (iOS)";
 			productReference = D11AF73325E239D900B29A19 /* viz-wallet.app */;
@@ -404,6 +411,7 @@
 				D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
 			projectDirPath = "";
@@ -470,6 +478,7 @@
 				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
+				D101A43025F5170F0031AA0A /* AccountMetadata.swift in Sources */,
 				D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */,
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
@@ -495,6 +504,7 @@
 				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,
+				D101A43125F5170F0031AA0A /* AccountMetadata.swift in Sources */,
 				D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157498025EA78BD0043C95C /* SettingsView.swift in Sources */,
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
@@ -922,6 +932,14 @@
 				minimumVersion = 1.0.7;
 			};
 		};
+		D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.1;
+			};
+		};
 		D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -953,6 +971,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 		D13FE9FA25F2C9EC0088D49D /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
