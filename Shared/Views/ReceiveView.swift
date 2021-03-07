@@ -23,6 +23,8 @@ struct ReceiveView: View {
                 .frame(maxHeight: 300, alignment: .center)
                 .aspectRatio(1, contentMode: .fit)
             
+            Spacer()
+            
             Text("Login: \(userAuth.login)")
                 .font(.headline)
                 .foregroundColor(.white)
@@ -50,8 +52,13 @@ struct ReceiveView: View {
     func genrateQRImage(text: String) -> UIImage {
         let data = Data(text.utf8)
         filter.setValue(data, forKey: "inputMessage")
+        let colorParameters = [
+            "inputColor0": CIColor(color: UIColor.white),
+            "inputColor1": CIColor(color: UIColor.clear)
+        ]
         if let qrCodeImage = filter.outputImage {
-            if let qrCodeCGImage = context.createCGImage(qrCodeImage, from: qrCodeImage.extent) {
+            let colored = qrCodeImage.applyingFilter("CIFalseColor", parameters: colorParameters)
+            if let qrCodeCGImage = context.createCGImage(colored, from: qrCodeImage.extent) {
                 return UIImage(cgImage: qrCodeCGImage)
             }
         }
