@@ -10,13 +10,21 @@ import VIZ
 
 @main
 struct WalletApp: App {
-
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             IntermediateView().environmentObject(UserAuth())
+                .onOpenURL(perform: handleURL)
         }
     }
+    
+    private func handleURL(_ url: URL) {
+        print(url)
+    }
 }
+
+//final class AppDelegate: NSObject, UIApplicationDelegate {}
 
 private struct IntermediateView: View {
     @EnvironmentObject private var userAuth: UserAuth
