@@ -68,7 +68,7 @@ struct LoginView: View {
 //                        showSignUp = true
                         let locale = Locale.preferredLanguages.count > 0 ? Locale.preferredLanguages[0] : NSLocale.current.languageCode
                         var link = "https://reg.readdle.me/?set_lang=en"
-                        if locale == "ru" {
+                        if locale == "ru" || locale == "ru-RU" {
                             link = "https://reg.readdle.me/?set_lang=ru"
                         }
                         guard let url = URL(string: link) else { return }
