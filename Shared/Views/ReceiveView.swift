@@ -17,7 +17,7 @@ struct ReceiveView: View {
     
     var body: some View {
         VStack {
-            Image(uiImage: genrateQRImage(text: userAuth.login))
+            Image(uiImage: generateQRImage(text: "viz://award/@\(userAuth.login)"))
                 .interpolation(.none)
                 .resizable()
                 .frame(maxHeight: 300, alignment: .center)
@@ -49,7 +49,7 @@ struct ReceiveView: View {
         )
     }
     
-    func genrateQRImage(text: String) -> UIImage {
+    func generateQRImage(text: String) -> UIImage {
         let data = Data(text.utf8)
         filter.setValue(data, forKey: "inputMessage")
         let colorParameters = [

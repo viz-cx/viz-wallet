@@ -54,11 +54,14 @@ struct AwardView: View {
                         isShowingScanner = true
                     }
                     .sheet(isPresented: $isShowingScanner, content: {
-                        CodeScannerView(codeTypes: [.qr], simulatedData: "id") { result in
+                        CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: "id") { result in
                             switch result {
-                            case .success(let code):
-                                receiver = code
-                                isShowingScanner = false
+                            case .success(let str):
+                                if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
+                                    let range = str.index(after: atSymbolIdx)..<str.endIndex
+                                    receiver = String(str[range])
+                                    isShowingScanner = false
+                                }
                             case .failure(let error):
                                 print(error.localizedDescription)
                             }

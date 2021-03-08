@@ -20,7 +20,13 @@ struct WalletApp: App {
     }
     
     private func handleURL(_ url: URL) {
-        print(url)
+        print("URL: \(url)")
+        let str = url.absoluteString.lowercased()
+        if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
+            let range = str.index(after: atSymbolIdx)..<str.endIndex
+            let username = str[range]
+            print(username)
+        }
     }
 }
 
