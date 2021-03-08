@@ -65,10 +65,17 @@ struct LoginView: View {
                     .foregroundColor(.black)
                     .colorInvert()
                     .onTapGesture {
-                        showSignUp = true
+//                        showSignUp = true
+                        let locale = Locale.preferredLanguages.count > 0 ? Locale.preferredLanguages[0] : NSLocale.current.languageCode
+                        var link = "https://reg.readdle.me/?set_lang=en"
+                        if locale == "ru" {
+                            link = "https://reg.readdle.me/?set_lang=ru"
+                        }
+                        guard let url = URL(string: link) else { return }
+                        UIApplication.shared.open(url)
                     }
                     .sheet(isPresented: $showSignUp, content: {
-                        Text("123")
+                        RegistrationView()
                     })
             }
         }
@@ -103,7 +110,7 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LoginView()
+            LoginView().environmentObject(UserAuth())
         }
     }
 }

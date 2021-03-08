@@ -42,12 +42,12 @@ struct SettingsView: View {
                     }
                     .listRowBackground(Color.clear)
                     .foregroundColor(.white)
-                Label("Privacy policy".localized(), systemImage: "lock.doc")
-                    .onTapGesture {
-                        activePage = "PrivacyPolicy"
-                    }
-                    .listRowBackground(Color.clear)
-                    .foregroundColor(.white)
+//                Label("Privacy policy".localized(), systemImage: "lock.doc")
+//                    .onTapGesture {
+//                        activePage = "PrivacyPolicy"
+//                    }
+//                    .listRowBackground(Color.clear)
+//                    .foregroundColor(.white)
                 Label("Change language".localized(), systemImage: "gearshape.fill")
                     .onTapGesture {
                         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)

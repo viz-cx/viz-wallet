@@ -55,16 +55,16 @@ struct MainView: View {
                 }
                 .tag(TabItem.receive)
             
-            DAOView()
-                .tabItem {
-                    if selectedItem == .dao {
-                        Image(systemName: "building.columns.fill")
-                    } else {
-                        Image(systemName: "building.columns")
-                    }
-                    Text("DAO".localized())
-                }
-                .tag(TabItem.dao)
+//            DAOView()
+//                .tabItem {
+//                    if selectedItem == .dao {
+//                        Image(systemName: "building.columns.fill")
+//                    } else {
+//                        Image(systemName: "building.columns")
+//                    }
+//                    Text("DAO".localized())
+//                }
+//                .tag(TabItem.dao)
             
             SettingsView()
                 .tabItem {
