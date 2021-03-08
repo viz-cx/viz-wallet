@@ -25,7 +25,7 @@ struct ReceiveView: View {
             
             Spacer()
             
-            Text("Login: \(userAuth.login)")
+            Text("\("Login".localized()): \(userAuth.login)")
                 .font(.headline)
                 .foregroundColor(.white)
                 .padding()

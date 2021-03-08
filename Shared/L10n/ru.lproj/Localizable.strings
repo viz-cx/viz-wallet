@@ -1,5 +1,33 @@
-AccountCreatedDate = "Аккаунт создан %@";
+"Account сreated at %@" = "Аккаунт создан %@";
 Telegram = "Поддержка в телеграме";
-PrivacyPolicy = "Политика конфиденциальности";
-ChangeLanguage = "Сменить язык";
+"Privacy policy" = "Политика конфиденциальности";
+"Change language" = "Сменить язык";
 Logout = "Выйти";
+Error = "Ошибка";
+/** Menu */
+Award = "Наградить";
+DAO = "ДАО";
+Receive = "Получить";
+Settings = "Настройки";
+Transfer = "Перевести";
+/** Login view */
+"Sign In" = "Войти";
+"Don't have an account? " = "Нет аккаунта? ";
+"Sign Up" = "Зарегистрируйся";
+"Private regular key" = "Обычный приватный ключ";
+/** Award view */
+Account = "Аккаунт";
+"Social capital" = "Соц. капитал";
+Receiver = "Получатель";
+Memo = "Заметка";
+/** Transfer view */
+"Active key is empty" = "Активный ключ пуст";
+Amount = "Сумма";
+"Private active key" = "Активный приватный ключ";
+"Liquid balance" = "Доступно";
+Update = "Обновить";
+/** Receive view */
+Login = "Логин";
+/** DAO view */
+Committee = "Комитет";
+Delegates = "Делегаты";

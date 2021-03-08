@@ -19,6 +19,8 @@
 		D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */; };
 		D101A43025F5170F0031AA0A /* AccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A42F25F5170F0031AA0A /* AccountMetadata.swift */; };
 		D101A43125F5170F0031AA0A /* AccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A42F25F5170F0031AA0A /* AccountMetadata.swift */; };
+		D101A44925F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
+		D101A44A25F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
 		D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF74725E239D900B29A19 /* Tests_iOS.swift */; };
 		D11AF75325E239D900B29A19 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF75225E239D900B29A19 /* Tests_macOS.swift */; };
 		D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
@@ -91,6 +93,7 @@
 		D101A41225F4CC120031AA0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D101A41825F4CC150031AA0A /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D101A42F25F5170F0031AA0A /* AccountMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMetadata.swift; sourceTree = "<group>"; };
+		D101A44825F608670031AA0A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D11AF72C25E239D600B29A19 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		D11AF72E25E239D900B29A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11AF73325E239D900B29A19 /* viz-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viz-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -265,6 +268,7 @@
 				D157496125EA6A9C0043C95C /* LottieView.swift */,
 				D13FE9D525F25FC60088D49D /* View+Extension.swift */,
 				D13FE9E025F260120088D49D /* Color+Extension.swift */,
+				D101A44825F608670031AA0A /* String+Extension.swift */,
 				D101A39325F38A510031AA0A /* ActiveKeyView.swift */,
 			);
 			path = Helpers;
@@ -481,6 +485,7 @@
 				D101A43025F5170F0031AA0A /* AccountMetadata.swift in Sources */,
 				D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */,
+				D101A44925F608670031AA0A /* String+Extension.swift in Sources */,
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
 				D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */,
 				D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */,
@@ -507,6 +512,7 @@
 				D101A43125F5170F0031AA0A /* AccountMetadata.swift in Sources */,
 				D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157498025EA78BD0043C95C /* SettingsView.swift in Sources */,
+				D101A44A25F608670031AA0A /* String+Extension.swift in Sources */,
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
 				D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */,
 				D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */,

@@ -14,14 +14,14 @@ struct ActiveKeyView: View {
     var body: some View {
         Spacer()
         
-        Text("Active key is empty")
+        Text("Active key is empty".localized())
             .padding()
             .frame(maxWidth: .infinity, alignment: Alignment.center)
             .cornerRadius(20.0)
             .font(.headline)
             .foregroundColor(.white)
         
-        TextField("Private active key", text: $activeKey)
+        TextField("Private active key".localized(), text: $activeKey)
             .padding()
             .background(Color.themeTextField)
             .foregroundColor(.black)
@@ -30,7 +30,7 @@ struct ActiveKeyView: View {
             .autocapitalization(.none)
         
         Button(action: submitActiveKey) {
-            Text("Update")
+            Text("Update".localized())
                 .font(.headline)
                 .foregroundColor(.white)
                 .padding()

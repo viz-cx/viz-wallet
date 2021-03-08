@@ -1,5 +1,33 @@
-AccountCreatedDate = "Account created at %@";
+"Account сreated at %@" = "Account created at %@";
 Telegram = "Telegram support chat";
-PrivacyPolicy = "Privacy policy";
-ChangeLanguage = "Change language";
+"Privacy policy" = "Privacy policy";
+"Change language" = "Change language";
 Logout = "Logout";
+Error = "Error";
+/** Menu */
+Award = "Award";
+DAO = "DAO";
+Receive = "Receive";
+Settings = "Settings";
+Transfer = "Transfer";
+/** Login view */
+"Sign In" = "Sign In";
+"Don't have an account? " = "Don't have an account? ";
+"Sign Up" = "Sign Up";
+"Private regular key" = "Private regular key"; 
+/** Award view */
+Account = "Account"; 
+"Social capital" = "Social capital";
+Receiver = "Receiver";
+Memo = "Memo";
+/** Transfer view */
+"Active key is empty" = "Active key is empty";
+Amount = "Amount";
+"Private active key" = "Private active key";
+"Liquid balance" = "Liquid balance"; 
+Update = "Update";
+/** Receive view */
+Login = "Login";
+/** DAO view */
+Committee = "Committee";
+Delegates = "Delegates";

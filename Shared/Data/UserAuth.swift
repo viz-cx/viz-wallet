@@ -109,7 +109,7 @@ class UserAuth: ObservableObject {
                     let formatter1 = DateFormatter()
                     formatter1.dateStyle = .short
                     let created = formatter1.string(from: account.created)
-                    accountAbout = String(format: NSLocalizedString("AccountCreatedDate", comment: ""), created)
+                    accountAbout = String(format: "Account сreated at %@".localized(), created)
                 }
                 accountAvatar = meta?.profile.avatar ?? ""
                 

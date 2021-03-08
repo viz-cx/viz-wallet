@@ -63,8 +63,8 @@ struct TransferView: View {
                 ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
                 
                 Text("""
-                    Account: \(userAuth.login)
-                    Liquid balance: \(String(format: "%.3f", userAuth.balance)) Ƶ
+                    \("Account".localized()): \(userAuth.login)
+                    \("Liquid balance".localized()): \(String(format: "%.3f", userAuth.balance)) Ƶ
                     """)
                     .padding()
                     .frame(maxWidth: .infinity, alignment: Alignment.leading)
@@ -73,7 +73,7 @@ struct TransferView: View {
                     .foregroundColor(.white)
                 
                 HStack {
-                    TextField("Receiver", text: $receiver)
+                    TextField("Receiver".localized(), text: $receiver)
                         .padding()
                         .background(Color.themeTextField)
                         .foregroundColor(.black)
@@ -101,7 +101,7 @@ struct TransferView: View {
                         })
                 }
                 
-                TextField("Amount", text: binding)
+                TextField("Amount".localized(), text: binding)
                     .keyboardType(UIKeyboardType.decimalPad)
                     .padding()
                     .background(Color.themeTextField)
@@ -110,7 +110,7 @@ struct TransferView: View {
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                 
-                TextField("Memo", text: $memo)
+                TextField("Memo".localized(), text: $memo)
                     .padding()
                     .background(Color.themeTextField)
                     .foregroundColor(.black)
@@ -119,7 +119,7 @@ struct TransferView: View {
                     .autocapitalization(.none)
                 
                 Button(action: transfer) {
-                    Text("Transfer")
+                    Text("Transfer".localized())
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
@@ -151,7 +151,7 @@ struct TransferView: View {
             hideKeyboard()
         }
         .alert(isPresented: $showErrorMessage) { () -> Alert in
-            Alert(title: Text("Error"),
+            Alert(title: Text("Error".localized()),
                   message: Text(errorMessageText),
                   dismissButton: .default(Text("Ok"))
             )

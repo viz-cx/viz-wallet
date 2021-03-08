@@ -35,26 +35,26 @@ struct SettingsView: View {
             }
             
             List {
-                Label(NSLocalizedString("Telegram", comment: ""), systemImage: "paperplane.circle.fill")
+                Label("Telegram".localized(), systemImage: "paperplane.circle.fill")
                     .onTapGesture {
                         guard let url = URL(string: "https://t.me/viz_cx") else { return }
                         UIApplication.shared.open(url)
                     }
                     .listRowBackground(Color.clear)
                     .foregroundColor(.white)
-                Label(NSLocalizedString("PrivacyPolicy", comment: ""), systemImage: "lock.doc")
+                Label("Privacy policy".localized(), systemImage: "lock.doc")
                     .onTapGesture {
                         activePage = "PrivacyPolicy"
                     }
                     .listRowBackground(Color.clear)
                     .foregroundColor(.white)
-                Label(NSLocalizedString("ChangeLanguage", comment: ""), systemImage: "gearshape.fill")
+                Label("Change language".localized(), systemImage: "gearshape.fill")
                     .onTapGesture {
                         UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                     }
                     .listRowBackground(Color.clear)
                     .foregroundColor(.white)
-                Label(NSLocalizedString("Logout", comment: ""), systemImage: "person.fill")
+                Label("Logout".localized(), systemImage: "person.fill")
                     .onTapGesture {
                         userAuth.logout()
                     }

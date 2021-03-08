@@ -32,7 +32,7 @@ struct LoginView: View {
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                 
-                TextField("Private regular key", text: $regularKey)
+                TextField("Private regular key".localized(), text: $regularKey)
                     .padding()
                     .background(Color.themeTextField)
                     .cornerRadius(20.0)
@@ -40,7 +40,7 @@ struct LoginView: View {
                     .autocapitalization(.none)
                 
                 Button(action: signIn) {
-                    Text("Sign In")
+                    Text("Sign In".localized())
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding()
@@ -59,9 +59,9 @@ struct LoginView: View {
             Spacer()
             
             HStack(spacing: 0) {
-                Text("Don't have an account? ")
+                Text("Don't have an account? ".localized())
                     .colorInvert()
-                Text("Sign Up")
+                Text("Sign Up".localized())
                     .foregroundColor(.black)
                     .colorInvert()
                     .onTapGesture {

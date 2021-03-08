@@ -28,8 +28,8 @@ struct AwardView: View {
             ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
             
             Text("""
-                Account: \(userAuth.login) (\(String(format: "%.2f", Double(userAuth.energy) / 100))%)
-                Social capital: \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ
+                \("Account".localized()): \(userAuth.login) (\(String(format: "%.2f", Double(userAuth.energy) / 100))%)
+                \("Social capital".localized()): \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ
                 """)
                 .padding()
                 .frame(maxWidth: .infinity, alignment: Alignment.leading)
@@ -38,7 +38,7 @@ struct AwardView: View {
                 .foregroundColor(.white)
             
             HStack {
-                TextField("Receiver", text: $receiver)
+                TextField("Receiver".localized(), text: $receiver)
                     .padding()
                     .background(Color.themeTextField)
                     .foregroundColor(.black)
@@ -66,7 +66,7 @@ struct AwardView: View {
                     })
             }
             
-            TextField("Memo", text: $memo)
+            TextField("Memo".localized(), text: $memo)
                 .padding()
                 .background(Color.themeTextField)
                 .foregroundColor(.black)
@@ -91,7 +91,7 @@ struct AwardView: View {
             }
             
             Button(action: award) {
-                Text("Award")
+                Text("Award".localized())
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
@@ -126,7 +126,7 @@ struct AwardView: View {
             hideKeyboard()
         }
         .alert(isPresented: $showErrorMessage) { () -> Alert in
-            Alert(title: Text("Error"),
+            Alert(title: Text("Error".localized()),
                   message: Text(errorMessageText),
                   dismissButton: .default(Text("Ok"))
             )

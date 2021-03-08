@@ -29,7 +29,7 @@ struct MainView: View {
                     } else {
                         Image(systemName: "hand.thumbsup")
                     }
-                    Text("Award")
+                    Text("Award".localized())
                 }
                 .tag(TabItem.award)
             
@@ -40,7 +40,7 @@ struct MainView: View {
                     } else {
                         Image(systemName: "arrow.up.heart")
                     }
-                    Text("Transfer")
+                    Text("Transfer".localized())
                 }
                 .tag(TabItem.transfer)
             
@@ -51,7 +51,7 @@ struct MainView: View {
                     } else {
                         Image(systemName: "arrow.down.heart")
                     }
-                    Text("Receive")
+                    Text("Receive".localized())
                 }
                 .tag(TabItem.receive)
             
@@ -62,14 +62,14 @@ struct MainView: View {
                     } else {
                         Image(systemName: "building.columns")
                     }
-                    Text("DAO")
+                    Text("DAO".localized())
                 }
                 .tag(TabItem.dao)
             
             SettingsView()
                 .tabItem {
                     Image(systemName: "gear")
-                    Text("Settings")
+                    Text("Settings".localized())
                 }
                 .tag(TabItem.settings)
         })
