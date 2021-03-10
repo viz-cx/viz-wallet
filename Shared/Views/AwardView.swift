@@ -121,8 +121,12 @@ struct AwardView: View {
                 .edgesIgnoringSafeArea(.all)
         )
         .onAppear {
-            if percent == 0 {
-                percent = Double(userAuth.energy) / 100
+            let currentEnergyPercent = Double(userAuth.energy) / 100
+            if percent > currentEnergyPercent {
+                percent = currentEnergyPercent
+            }
+            if percent == 0 && currentEnergyPercent > 0 { // set initial percent value
+                percent = currentEnergyPercent / 10
             }
             userAuth.updateUserData()
             userAuth.updateDGPData()
