@@ -24,8 +24,10 @@ struct AwardView: View {
     @State private var isShowingScanner = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+            
+            Spacer()
             
             Text("""
                 \("Account".localized()): \(userAuth.login) (\(String(format: "%.2f", Double(userAuth.energy) / 100))%)
@@ -183,6 +185,6 @@ struct AwardView: View {
 
 struct AwardView_Previews: PreviewProvider {
     static var previews: some View {
-        AwardView()
+        AwardView().environmentObject(UserAuth())
     }
 }

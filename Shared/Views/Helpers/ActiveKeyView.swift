@@ -12,40 +12,42 @@ struct ActiveKeyView: View {
     @State private var activeKey = ""
     
     var body: some View {
-        Spacer()
-        
-        Text("Active key is empty".localized())
-            .padding()
-            .frame(maxWidth: .infinity, alignment: Alignment.center)
-            .cornerRadius(20.0)
-            .font(.headline)
-            .foregroundColor(.white)
-        
-        TextField("Private active key".localized(), text: $activeKey)
-            .padding()
-            .background(Color.themeTextField)
-            .foregroundColor(.black)
-            .cornerRadius(20.0)
-            .disableAutocorrection(true)
-            .autocapitalization(.none)
-        
-        Button(action: submitActiveKey) {
-            Text("Update".localized())
+        VStack(spacing: 10) {
+            Spacer()
+            
+            Text("Active key not added yet".localized())
+                .padding()
+                .frame(maxWidth: .infinity, alignment: Alignment.center)
+                .cornerRadius(20.0)
                 .font(.headline)
                 .foregroundColor(.white)
+            
+            TextField("Private active key".localized(), text: $activeKey)
                 .padding()
-                .frame(
-                    maxWidth: .infinity,
-                    minHeight: 50,
-                    maxHeight: 50,
-                    alignment: .center
-                )
-                .background(Color.green)
-                .opacity(0.95)
-                .cornerRadius(15.0)
+                .background(Color.themeTextField)
+                .foregroundColor(.black)
+                .cornerRadius(20.0)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            
+            Button(action: submitActiveKey) {
+                Text("Update".localized())
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(
+                        maxWidth: .infinity,
+                        minHeight: 50,
+                        maxHeight: 50,
+                        alignment: .center
+                    )
+                    .background(Color.green)
+                    .opacity(0.95)
+                    .cornerRadius(15.0)
+            }
+            
+            Spacer()
         }
-        
-        Spacer()
     }
     
     func submitActiveKey() {

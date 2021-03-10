@@ -20,7 +20,6 @@ struct LoginView: View {
     var body: some View {
         VStack() {
             LottieView(name: "33598-hammock")
-                .padding([.top], 30)
             
             ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
             
@@ -54,7 +53,7 @@ struct LoginView: View {
                         .cornerRadius(15.0)
                 }
             }
-            .padding(.bottom, 30)
+            .padding(.bottom, 25)
 
             Spacer()
             
@@ -78,6 +77,7 @@ struct LoginView: View {
                         RegistrationView()
                     })
             }
+            .padding(.bottom, 15)
         }
         .padding([.leading, .trailing], 27.5)
         .background(

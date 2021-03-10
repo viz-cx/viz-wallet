@@ -17,14 +17,15 @@ struct ReceiveView: View {
     
     var body: some View {
         VStack {
+            Spacer()
+            
             Image(uiImage: generateQRImage(text: "viz://award/@\(userAuth.login)"))
                 .interpolation(.none)
                 .resizable()
-                .frame(maxHeight: 300, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .center)
                 .aspectRatio(1, contentMode: .fit)
-            
-            Spacer()
-            
+                .padding([.bottom], 10)
+            VStack{
             Text("\("Login".localized()): \(userAuth.login)")
                 .font(.headline)
                 .foregroundColor(.white)
@@ -35,11 +36,15 @@ struct ReceiveView: View {
                     maxHeight: 50,
                     alignment: .center
                 )
-                .background(Color.green)
-                .cornerRadius(15.0)
+                .border(Color.white, width: 3.0)
+                .cornerRadius(7.5)
                 .onTapGesture {
                     UIPasteboard.general.string = userAuth.login
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
                 }
+            }
+            .padding([.leading, .trailing], 27.5)
             
             Spacer()
         }

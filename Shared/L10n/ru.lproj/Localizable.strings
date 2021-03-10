@@ -21,7 +21,7 @@ Account = "Аккаунт";
 Receiver = "Получатель";
 Memo = "Заметка";
 /** Transfer view */
-"Active key is empty" = "Активный ключ пуст";
+"Active key not added yet" = "Активный ключ ещё не добавлен";
 Amount = "Сумма";
 "Private active key" = "Активный приватный ключ";
 "Liquid balance" = "Доступно";

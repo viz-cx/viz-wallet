@@ -56,11 +56,13 @@ struct TransferView: View {
             let amount = Double(s) ?? 0.0
             self.amount = (amount >= userAuth.balance) ? userAuth.balance : amount
         })
-        VStack {
+        VStack(spacing: 10) {
             if userAuth.activeKey.isEmpty {
                 ActiveKeyView()
             } else {
                 ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+                
+                Spacer()
                 
                 Text("""
                     \("Account".localized()): \(userAuth.login)
@@ -190,7 +192,19 @@ struct TransferView: View {
 }
 
 struct TransferView_Previews: PreviewProvider {
+    
+    static let showActiveKeyPreview = true
+    
+    static let auth = UserAuth()
+    
+    init() {
+        let randomKey = "5KLTkMZc3oRDAcdKeTv22sh4F2mB6rewyPDU4FENc4oYZ5DFBpe"
+        if TransferView_Previews.showActiveKeyPreview {
+            TransferView_Previews.auth.changeActiveKey(key: randomKey)
+        }
+    }
+    
     static var previews: some View {
-        TransferView()
+        TransferView().environmentObject(auth)
     }
 }

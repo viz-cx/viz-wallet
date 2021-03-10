@@ -21,7 +21,7 @@ Account = "Account";
 Receiver = "Receiver";
 Memo = "Memo";
 /** Transfer view */
-"Active key is empty" = "Active key is empty";
+"Active key not added yet" = "Active key not added yet";
 Amount = "Amount";
 "Private active key" = "Private active key";
 "Liquid balance" = "Liquid balance"; 
