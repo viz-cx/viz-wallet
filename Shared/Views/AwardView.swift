@@ -11,6 +11,7 @@ import CodeScanner
 
 struct AwardView: View {
     private let viz = VIZHelper()
+    private let energyDivider = 5.0
     @EnvironmentObject private var userAuth: UserAuth
     
     @State private var receiver = ""
@@ -126,10 +127,12 @@ struct AwardView: View {
                 percent = currentEnergyPercent
             }
             if percent == 0 && currentEnergyPercent > 0 { // set initial percent value
-                percent = currentEnergyPercent / 10
+                percent = currentEnergyPercent / energyDivider
             }
-            userAuth.updateUserData()
-            userAuth.updateDGPData()
+            DispatchQueue.global(qos: .background).async {
+                userAuth.updateUserData()
+                userAuth.updateDGPData()
+            }
         }
         .onTapGesture {
             hideKeyboard()
@@ -177,8 +180,11 @@ struct AwardView: View {
                 receiver = ""
                 memo = ""
                 confettiCounter += 1
-                userAuth.updateUserData()
-                userAuth.updateDGPData()
+                DispatchQueue.global(qos: .background).async {
+                    userAuth.updateUserData()
+                    userAuth.updateDGPData()
+                    updateSlider()
+                }
                 result = .success
             }
             notificationFeedbackGenerator.notificationOccurred(result)

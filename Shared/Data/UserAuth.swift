@@ -138,20 +138,16 @@ class UserAuth: ObservableObject {
     }
     
     func updateUserData() {
-        DispatchQueue.global(qos: .background).async { [unowned self] in
-            guard isLoggedIn, login.count > 1, let account = viz.getAccount(login: login) else {
-                return
-            }
-            self.updateDynamicData(account: account)
-            self.updateObject()
+        guard isLoggedIn, login.count > 1, let account = viz.getAccount(login: login) else {
+            return
         }
+        updateDynamicData(account: account)
+        updateObject()
     }
     
     func updateDGPData() {
-        DispatchQueue.global(qos: .background).async { [unowned self] in
-            self.dgp = viz.getDGP()
-            self.updateObject()
-        }
+        dgp = viz.getDGP()
+        updateObject()
     }
     
     private func updateDynamicData(account: API.ExtendedAccount) {

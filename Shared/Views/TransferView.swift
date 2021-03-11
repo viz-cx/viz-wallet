@@ -149,8 +149,10 @@ struct TransferView: View {
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
         .onAppear {
-            userAuth.updateUserData()
-            userAuth.updateDGPData()
+            DispatchQueue.global(qos: .background).async {
+                userAuth.updateUserData()
+                userAuth.updateDGPData()
+            }
         }
         .onTapGesture {
             hideKeyboard()
@@ -181,7 +183,9 @@ struct TransferView: View {
                 self.empty = true
                 memo = ""
                 confettiCounter += 1
-                userAuth.updateUserData()
+                DispatchQueue.global(qos: .background).async {
+                    userAuth.updateUserData()
+                }
                 result = .success
             }
             notificationFeedbackGenerator.notificationOccurred(result)
