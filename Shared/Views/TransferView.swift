@@ -69,7 +69,7 @@ struct TransferView: View {
                     \("Liquid balance".localized()): \(String(format: "%.3f", userAuth.balance)) Ƶ
                     """)
                     .padding()
-                    .frame(maxWidth: .infinity, alignment: Alignment.leading)
+                    .frame(maxWidth: .infinity, alignment: Alignment.center)
                     .cornerRadius(20.0)
                     .font(.headline)
                     .foregroundColor(.white)

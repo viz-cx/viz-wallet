@@ -31,11 +31,11 @@ struct AwardView: View {
             Spacer()
             
             Text("""
-                \("Account".localized()): \(userAuth.login) (\(String(format: "%.2f", Double(userAuth.energy) / 100))%)
+                \("Account".localized()): \(userAuth.login) 🔋\(String(format: "%.2f", Double(userAuth.energy) / 100))%
                 \("Social capital".localized()): \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ
                 """)
                 .padding()
-                .frame(maxWidth: .infinity, alignment: Alignment.leading)
+                .frame(maxWidth: .infinity, alignment: Alignment.center)
                 .cornerRadius(20.0)
                 .font(.headline)
                 .foregroundColor(.white)

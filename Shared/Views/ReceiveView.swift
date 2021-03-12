@@ -40,7 +40,7 @@ struct ReceiveView: View {
                 .cornerRadius(7.5)
                 .onTapGesture {
                     UIPasteboard.general.string = userAuth.login
-                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    let generator = UIImpactFeedbackGenerator(style: .soft)
                     generator.impactOccurred()
                 }
             }

@@ -25,7 +25,7 @@ Memo = "Memo";
 Amount = "Amount";
 "Private active key" = "Private active key";
 "Liquid balance" = "Liquid balance"; 
-Update = "Update";
+Save = "Save";
 /** Receive view */
 Login = "Login";
 /** DAO view */

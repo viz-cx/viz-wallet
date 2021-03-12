@@ -31,7 +31,7 @@ struct ActiveKeyView: View {
                 .autocapitalization(.none)
             
             Button(action: submitActiveKey) {
-                Text("Update".localized())
+                Text("Save".localized())
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
