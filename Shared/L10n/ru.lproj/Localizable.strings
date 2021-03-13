@@ -31,3 +31,4 @@ Login = "Логин";
 /** DAO view */
 Committee = "Комитет";
 Delegates = "Делегаты";
+"Fetching posts..." = "Получение сообщений...";

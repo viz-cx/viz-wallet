@@ -13,12 +13,14 @@ struct MainView: View {
         case transfer
         case receive
         case dao
+        case news
         case settings
     }
     
     @State private var selectedItem: TabItem = .award
     
     @EnvironmentObject private var userAuth: UserAuth
+    private let newsState = NewsState()
     
     var body: some View {
         TabView(selection: $selectedItem, content: {
@@ -54,6 +56,18 @@ struct MainView: View {
                     Text("Receive".localized())
                 }
                 .tag(TabItem.receive)
+            
+            NewsView()
+                .environmentObject(newsState)
+                .tabItem {
+                    if selectedItem == .news {
+                        Image(systemName: "newspaper.fill")
+                    } else {
+                        Image(systemName: "newspaper")
+                    }
+                    Text("News".localized())
+                }
+                .tag(TabItem.news)
             
 //            DAOView()
 //                .tabItem {

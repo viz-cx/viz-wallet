@@ -54,6 +54,15 @@
 		D17C3C3225E3B374004771EF /* VIZ in Frameworks */ = {isa = PBXBuildFile; productRef = D17C3C3125E3B374004771EF /* VIZ */; };
 		D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
 		D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
+		D1D4160225FBC8D10039C99D /* WordpressKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1D4160125FBC8D10039C99D /* WordpressKit */; };
+		D1D4160825FBC9B30039C99D /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4160725FBC9B30039C99D /* NewsView.swift */; };
+		D1D4160925FBC9B30039C99D /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4160725FBC9B30039C99D /* NewsView.swift */; };
+		D1D4163225FCB66E0039C99D /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163125FCB66E0039C99D /* Locales.swift */; };
+		D1D4163325FCB66E0039C99D /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163125FCB66E0039C99D /* Locales.swift */; };
+		D1D4163925FCFA480039C99D /* HTMLStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163825FCFA470039C99D /* HTMLStringView.swift */; };
+		D1D4163A25FCFA480039C99D /* HTMLStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163825FCFA470039C99D /* HTMLStringView.swift */; };
+		D1D4164025FCFFA90039C99D /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */; };
+		D1D4164125FCFFA90039C99D /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */; };
 		D1F3887325E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3887425E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887D25E42B8000654F12 /* UserAuth.swift */; };
@@ -115,6 +124,10 @@
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D157497E25EA78BD0043C95C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D17C3C5625E3CBDD004771EF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D1D4160725FBC9B30039C99D /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
+		D1D4163125FCB66E0039C99D /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
+		D1D4163825FCFA470039C99D /* HTMLStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLStringView.swift; sourceTree = "<group>"; };
+		D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
 		D1F3887225E429FB00654F12 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D1F3887D25E42B8000654F12 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		D1F3889A25E4F20A00654F12 /* AwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardView.swift; sourceTree = "<group>"; };
@@ -127,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */,
+				D1D4160225FBC8D10039C99D /* WordpressKit in Frameworks */,
 				D101A3A025F391040031AA0A /* CodeScanner in Frameworks */,
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
 				D157495425EA69E40043C95C /* Lottie in Frameworks */,
@@ -250,6 +264,8 @@
 				D13FE9A225EBCF790088D49D /* ReceiveView.swift */,
 				D13FE9BB25F105080088D49D /* RegistrationView.swift */,
 				D101A38C25F384EE0031AA0A /* DAOView.swift */,
+				D1D4160725FBC9B30039C99D /* NewsView.swift */,
+				D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -264,6 +280,7 @@
 				D13FE9E025F260120088D49D /* Color+Extension.swift */,
 				D101A44825F608670031AA0A /* String+Extension.swift */,
 				D101A39325F38A510031AA0A /* ActiveKeyView.swift */,
+				D1D4163825FCFA470039C99D /* HTMLStringView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -275,6 +292,7 @@
 				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
 				D13FE9A925ED78490088D49D /* Errors.swift */,
 				D101A42F25F5170F0031AA0A /* AccountMetadata.swift */,
+				D1D4163125FCB66E0039C99D /* Locales.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -309,6 +327,7 @@
 				D13FE9FA25F2C9EC0088D49D /* KeychainAccess */,
 				D101A39F25F391040031AA0A /* CodeScanner */,
 				D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */,
+				D1D4160125FBC8D10039C99D /* WordpressKit */,
 			);
 			productName = "viz-wallet (iOS)";
 			productReference = D11AF73325E239D900B29A19 /* viz-wallet.app */;
@@ -408,6 +427,7 @@
 				D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				D1D4160025FBC8D10039C99D /* XCRemoteSwiftPackageReference "WordpressKit" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
 			projectDirPath = "";
@@ -468,19 +488,23 @@
 				D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */,
 				D157494C25EA29810043C95C /* ConfettiView.swift in Sources */,
 				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
+				D1D4160825FBC9B30039C99D /* NewsView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
 				D101A43025F5170F0031AA0A /* AccountMetadata.swift in Sources */,
 				D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */,
 				D101A44925F608670031AA0A /* String+Extension.swift in Sources */,
+				D1D4164025FCFFA90039C99D /* NewsDetailView.swift in Sources */,
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
 				D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */,
 				D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */,
+				D1D4163925FCFA480039C99D /* HTMLStringView.swift in Sources */,
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */,
 				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,
+				D1D4163225FCB66E0039C99D /* Locales.swift in Sources */,
 				D13FE9AA25ED784A0088D49D /* Errors.swift in Sources */,
 				D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38D25F384EE0031AA0A /* DAOView.swift in Sources */,
@@ -495,19 +519,23 @@
 				D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */,
 				D157494D25EA29810043C95C /* ConfettiView.swift in Sources */,
 				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
+				D1D4160925FBC9B30039C99D /* NewsView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,
 				D101A43125F5170F0031AA0A /* AccountMetadata.swift in Sources */,
 				D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157498025EA78BD0043C95C /* SettingsView.swift in Sources */,
 				D101A44A25F608670031AA0A /* String+Extension.swift in Sources */,
+				D1D4164125FCFFA90039C99D /* NewsDetailView.swift in Sources */,
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
 				D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */,
 				D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */,
+				D1D4163A25FCFA480039C99D /* HTMLStringView.swift in Sources */,
 				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */,
 				D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */,
+				D1D4163325FCB66E0039C99D /* Locales.swift in Sources */,
 				D13FE9AB25ED784A0088D49D /* Errors.swift in Sources */,
 				D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */,
@@ -686,8 +714,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7JF6XQC536;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -698,7 +726,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.viz-wallet";
 				PRODUCT_NAME = "viz-wallet";
-				PROVISIONING_PROFILE_SPECIFIER = "viz-wallet";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -710,8 +738,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7JF6XQC536;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
@@ -722,7 +750,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.viz-wallet";
 				PRODUCT_NAME = "viz-wallet";
-				PROVISIONING_PROFILE_SPECIFIER = "viz-wallet";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -958,6 +986,14 @@
 				kind = branch;
 			};
 		};
+		D1D4160025FBC8D10039C99D /* XCRemoteSwiftPackageReference "WordpressKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/chiliec/WordpressKit.git";
+			requirement = {
+				branch = development;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -985,6 +1021,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D17C3C3025E3B374004771EF /* XCRemoteSwiftPackageReference "viz-swift-lib" */;
 			productName = VIZ;
+		};
+		D1D4160125FBC8D10039C99D /* WordpressKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1D4160025FBC8D10039C99D /* XCRemoteSwiftPackageReference "WordpressKit" */;
+			productName = WordpressKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

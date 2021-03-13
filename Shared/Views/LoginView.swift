@@ -65,9 +65,8 @@ struct LoginView: View {
                         .colorInvert()
                         .onTapGesture {
                             // showSignUp = true
-                            let locale = Locale.preferredLanguages.count > 0 ? Locale.preferredLanguages[0] : NSLocale.current.languageCode
                             var link = "https://reg.readdle.me/?set_lang=en"
-                            if locale == "ru" || locale == "ru-RU" {
+                            if case .russian = Locales.current {
                                 link = "https://reg.readdle.me/?set_lang=ru"
                             }
                             guard let url = URL(string: link) else { return }
@@ -112,7 +111,6 @@ struct LoginView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            LoginView().environmentObject(UserAuth())
             LoginView().environmentObject(UserAuth())
         }
     }

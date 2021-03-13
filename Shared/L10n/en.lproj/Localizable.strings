@@ -31,3 +31,4 @@ Login = "Login";
 /** DAO view */
 Committee = "Committee";
 Delegates = "Delegates";
+"Fetching posts..." = "Fetching posts...";

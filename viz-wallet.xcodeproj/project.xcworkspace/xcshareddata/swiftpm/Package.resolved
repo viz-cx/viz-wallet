@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/SDWebImage/SDWebImageSwiftUI.git",
         "state": {
           "branch": null,
-          "revision": "88f2d679b7c47d98f1d5dc4f23a5d28c665b97b7",
-          "version": "2.0.1"
+          "revision": "cd8625b7cf11a97698e180d28bb7d5d357196678",
+          "version": "2.0.2"
         }
       },
       {
@@ -70,6 +70,15 @@
         "state": {
           "branch": "master",
           "revision": "1b903d476c5909f180c554359cefbf5bce74f612",
+          "version": null
+        }
+      },
+      {
+        "package": "WordpressKit",
+        "repositoryURL": "https://github.com/chiliec/WordpressKit.git",
+        "state": {
+          "branch": "development",
+          "revision": "a3822e055fa7010eaaecd6ab4a45cfdf23e0fec6",
           "version": null
         }
       }
