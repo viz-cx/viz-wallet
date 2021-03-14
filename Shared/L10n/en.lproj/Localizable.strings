@@ -31,4 +31,6 @@ Login = "Login";
 /** DAO view */
 Committee = "Committee";
 Delegates = "Delegates";
+News = "News";
 "Fetching posts..." = "Fetching posts...";
+Dismiss = "Dismiss";

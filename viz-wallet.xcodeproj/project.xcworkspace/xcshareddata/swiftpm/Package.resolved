@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "Atributika",
+        "repositoryURL": "https://github.com/psharanda/Atributika.git",
+        "state": {
+          "branch": null,
+          "revision": "61e176b964e24ecd0323ed92f3c78c3a97795556",
+          "version": "4.9.10"
+        }
+      },
+      {
         "package": "CodeScanner",
         "repositoryURL": "https://github.com/twostraws/CodeScanner.git",
         "state": {

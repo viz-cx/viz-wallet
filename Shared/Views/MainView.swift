@@ -20,7 +20,7 @@ struct MainView: View {
     @State private var selectedItem: TabItem = .award
     
     @EnvironmentObject private var userAuth: UserAuth
-    private let newsState = NewsState()
+    @EnvironmentObject private var newsState: NewsState
     
     var body: some View {
         TabView(selection: $selectedItem, content: {

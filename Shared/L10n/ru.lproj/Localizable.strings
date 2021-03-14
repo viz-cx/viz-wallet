@@ -31,4 +31,6 @@ Login = "Логин";
 /** DAO view */
 Committee = "Комитет";
 Delegates = "Делегаты";
+News = "Новости";
 "Fetching posts..." = "Получение сообщений...";
+Dismiss = "Закрыть";

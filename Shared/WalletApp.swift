@@ -14,7 +14,9 @@ struct WalletApp: App {
     
     var body: some Scene {
         WindowGroup {
-            IntermediateView().environmentObject(UserAuth())
+            IntermediateView()
+                .environmentObject(UserAuth())
+                .environmentObject(NewsState())
                 .onOpenURL(perform: handleURL)
         }
     }

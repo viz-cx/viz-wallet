@@ -44,6 +44,12 @@
 		D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
 		D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
 		D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D13FE9FA25F2C9EC0088D49D /* KeychainAccess */; };
+		D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */; };
+		D14B287F25FD44BC0037B750 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */; };
+		D14B288625FDF1F80037B750 /* NewsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B288525FDF1F80037B750 /* NewsState.swift */; };
+		D14B288725FDF1F80037B750 /* NewsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B288525FDF1F80037B750 /* NewsState.swift */; };
+		D14B289125FDF2A30037B750 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B289025FDF2A30037B750 /* UIImage+Extension.swift */; };
+		D14B289225FDF2A30037B750 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B289025FDF2A30037B750 /* UIImage+Extension.swift */; };
 		D157494C25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157494D25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157495425EA69E40043C95C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D157495325EA69E40043C95C /* Lottie */; };
@@ -59,10 +65,11 @@
 		D1D4160925FBC9B30039C99D /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4160725FBC9B30039C99D /* NewsView.swift */; };
 		D1D4163225FCB66E0039C99D /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163125FCB66E0039C99D /* Locales.swift */; };
 		D1D4163325FCB66E0039C99D /* Locales.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163125FCB66E0039C99D /* Locales.swift */; };
-		D1D4163925FCFA480039C99D /* HTMLStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163825FCFA470039C99D /* HTMLStringView.swift */; };
-		D1D4163A25FCFA480039C99D /* HTMLStringView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163825FCFA470039C99D /* HTMLStringView.swift */; };
+		D1D4163925FCFA480039C99D /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163825FCFA470039C99D /* LabelView.swift */; };
+		D1D4163A25FCFA480039C99D /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163825FCFA470039C99D /* LabelView.swift */; };
 		D1D4164025FCFFA90039C99D /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */; };
 		D1D4164125FCFFA90039C99D /* NewsDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */; };
+		D1D4166325FD31960039C99D /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = D1D4166225FD31960039C99D /* Atributika */; };
 		D1F3887325E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3887425E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887D25E42B8000654F12 /* UserAuth.swift */; };
@@ -120,13 +127,16 @@
 		D13FE9BB25F105080088D49D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		D13FE9D525F25FC60088D49D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D13FE9E025F260120088D49D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		D14B288525FDF1F80037B750 /* NewsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsState.swift; sourceTree = "<group>"; };
+		D14B289025FDF2A30037B750 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		D157494B25EA29810043C95C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D157497E25EA78BD0043C95C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D17C3C5625E3CBDD004771EF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D1D4160725FBC9B30039C99D /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		D1D4163125FCB66E0039C99D /* Locales.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locales.swift; sourceTree = "<group>"; };
-		D1D4163825FCFA470039C99D /* HTMLStringView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLStringView.swift; sourceTree = "<group>"; };
+		D1D4163825FCFA470039C99D /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailView.swift; sourceTree = "<group>"; };
 		D1F3887225E429FB00654F12 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D1F3887D25E42B8000654F12 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -140,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */,
+				D1D4166325FD31960039C99D /* Atributika in Frameworks */,
 				D1D4160225FBC8D10039C99D /* WordpressKit in Frameworks */,
 				D101A3A025F391040031AA0A /* CodeScanner in Frameworks */,
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
@@ -256,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				D13FE9CB25F166110088D49D /* Helpers */,
+				D14B288425FDF1C50037B750 /* News */,
 				D1F3887225E429FB00654F12 /* MainView.swift */,
 				D17C3C5625E3CBDD004771EF /* LoginView.swift */,
 				D1F3889A25E4F20A00654F12 /* AwardView.swift */,
@@ -264,8 +276,6 @@
 				D13FE9A225EBCF790088D49D /* ReceiveView.swift */,
 				D13FE9BB25F105080088D49D /* RegistrationView.swift */,
 				D101A38C25F384EE0031AA0A /* DAOView.swift */,
-				D1D4160725FBC9B30039C99D /* NewsView.swift */,
-				D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -280,7 +290,9 @@
 				D13FE9E025F260120088D49D /* Color+Extension.swift */,
 				D101A44825F608670031AA0A /* String+Extension.swift */,
 				D101A39325F38A510031AA0A /* ActiveKeyView.swift */,
-				D1D4163825FCFA470039C99D /* HTMLStringView.swift */,
+				D1D4163825FCFA470039C99D /* LabelView.swift */,
+				D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */,
+				D14B289025FDF2A30037B750 /* UIImage+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -295,6 +307,16 @@
 				D1D4163125FCB66E0039C99D /* Locales.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		D14B288425FDF1C50037B750 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				D1D4160725FBC9B30039C99D /* NewsView.swift */,
+				D14B288525FDF1F80037B750 /* NewsState.swift */,
+				D1D4163F25FCFFA90039C99D /* NewsDetailView.swift */,
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		D157495525EA69EF0043C95C /* Lottie */ = {
@@ -328,6 +350,7 @@
 				D101A39F25F391040031AA0A /* CodeScanner */,
 				D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */,
 				D1D4160125FBC8D10039C99D /* WordpressKit */,
+				D1D4166225FD31960039C99D /* Atributika */,
 			);
 			productName = "viz-wallet (iOS)";
 			productReference = D11AF73325E239D900B29A19 /* viz-wallet.app */;
@@ -428,6 +451,7 @@
 				D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				D1D4160025FBC8D10039C99D /* XCRemoteSwiftPackageReference "WordpressKit" */,
+				D1D4166125FD31960039C99D /* XCRemoteSwiftPackageReference "Atributika" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
 			projectDirPath = "";
@@ -499,11 +523,14 @@
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
 				D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */,
 				D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */,
-				D1D4163925FCFA480039C99D /* HTMLStringView.swift in Sources */,
+				D1D4163925FCFA480039C99D /* LabelView.swift in Sources */,
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
+				D14B288625FDF1F80037B750 /* NewsState.swift in Sources */,
 				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */,
+				D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,
 				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,
+				D14B289125FDF2A30037B750 /* UIImage+Extension.swift in Sources */,
 				D1D4163225FCB66E0039C99D /* Locales.swift in Sources */,
 				D13FE9AA25ED784A0088D49D /* Errors.swift in Sources */,
 				D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */,
@@ -530,11 +557,14 @@
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
 				D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */,
 				D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */,
-				D1D4163A25FCFA480039C99D /* HTMLStringView.swift in Sources */,
+				D1D4163A25FCFA480039C99D /* LabelView.swift in Sources */,
 				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
+				D14B288725FDF1F80037B750 /* NewsState.swift in Sources */,
 				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */,
+				D14B287F25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,
 				D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */,
+				D14B289225FDF2A30037B750 /* UIImage+Extension.swift in Sources */,
 				D1D4163325FCB66E0039C99D /* Locales.swift in Sources */,
 				D13FE9AB25ED784A0088D49D /* Errors.swift in Sources */,
 				D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */,
@@ -994,6 +1024,14 @@
 				kind = branch;
 			};
 		};
+		D1D4166125FD31960039C99D /* XCRemoteSwiftPackageReference "Atributika" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/psharanda/Atributika.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.9.10;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1026,6 +1064,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1D4160025FBC8D10039C99D /* XCRemoteSwiftPackageReference "WordpressKit" */;
 			productName = WordpressKit;
+		};
+		D1D4166225FD31960039C99D /* Atributika */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1D4166125FD31960039C99D /* XCRemoteSwiftPackageReference "Atributika" */;
+			productName = Atributika;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
