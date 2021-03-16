@@ -56,6 +56,7 @@ struct NewsDetailView: View {
                         .background(Color.green)
                         .opacity(0.95)
                         .cornerRadius(15.0)
+                        .padding([.leading, .trailing, .bottom], 27.5)
                 }
             }
         }
