@@ -16,45 +16,55 @@ struct ReceiveView: View {
     @EnvironmentObject private var userAuth: UserAuth
     
     var body: some View {
-        VStack {
-            Spacer()
-            
-            Image(uiImage: generateQRImage(text: "viz://award/@\(userAuth.login)"))
-                .interpolation(.none)
-                .resizable()
-                .frame(maxWidth: .infinity, alignment: .center)
-                .aspectRatio(1, contentMode: .fit)
-                .padding([.bottom], 10)
-            VStack{
-            Text("\("Login".localized()): \(userAuth.login)")
-                .font(.headline)
-                .foregroundColor(.white)
-                .padding()
-                .frame(
-                    maxWidth: .infinity,
-                    minHeight: 50,
-                    maxHeight: 50,
-                    alignment: .center
-                )
-                .border(Color.white, width: 3.0)
-                .cornerRadius(7.5)
-                .onTapGesture {
-                    UIPasteboard.general.string = userAuth.login
-                    let generator = UIImpactFeedbackGenerator(style: .soft)
-                    generator.impactOccurred()
+        GeometryReader { geometry in
+            VStack {
+                Spacer()
+                
+                Image(uiImage: generateQRImage(text: "viz://award/@\(userAuth.login)"))
+                    .interpolation(.none)
+                    .resizable()
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .aspectRatio(1, contentMode: .fit)
+                    .padding([.bottom], 10)
+                    .padding([.leading, .trailing], geometry.size.width * 0.2)
+                    .onTapGesture {
+                        copyToClipboard()
+                    }
+                
+                VStack {
+                    Text("\("Login".localized()): \(userAuth.login)")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(
+                            maxWidth: .infinity,
+                            minHeight: 50,
+                            maxHeight: 50,
+                            alignment: .center
+                        )
+                        .cornerRadius(7.5)
+                        .onTapGesture {
+                            copyToClipboard()
+                        }
                 }
+                .padding([.leading, .trailing], 27.5)
+                
+                Spacer()
             }
-            .padding([.leading, .trailing], 27.5)
-            
-            Spacer()
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+            )
         }
-        .background(
-            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
-        )
     }
     
-    func generateQRImage(text: String) -> UIImage {
+    private func copyToClipboard() {
+        UIPasteboard.general.string = userAuth.login
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
+    
+    private func generateQRImage(text: String) -> UIImage {
         let data = Data(text.utf8)
         filter.setValue(data, forKey: "inputMessage")
         let colorParameters = [
