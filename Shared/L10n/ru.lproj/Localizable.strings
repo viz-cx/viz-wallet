@@ -15,8 +15,10 @@ Transfer = "Перевести";
 "Sign Up with an invite code" = "Зарегистироваться по приглашению";
 "Private regular key" = "Обычный приватный ключ";
 /** Registration view */
-"Don't have an invite code? " = "Нет кода приглашения? ";
+"Don't have an invite code? " = "Нет приглашения? ";
 "Sign Up" = "Зарегистрироваться";
+"Invite code" = "Код приглашения";
+"Feature not released yet" = "Функция ещё не реализована";
 /** Award view */
 Account = "Аккаунт";
 Energy = "Энергия";

@@ -17,6 +17,8 @@ Transfer = "Transfer";
 /** Registration view */
 "Don't have an invite code?" = "Don't have an invite code? ";
 "Sign Up" = "Sign Up";
+"Invite code" = "Invite code";
+"Feature not released yet" = "Feature not released yet";
 /** Award view */
 Account = "Account";
 Energy = "Energy";

@@ -11,6 +11,9 @@ struct RegistrationView: View {
     
     @State private var code: String = ""
     
+    @State private var showErrorMessage: Bool = false
+    @State private var errorMessageText: String = ""
+    
     var body: some View {
         VStack {
             Text("Sign Up with an invite code".localized())
@@ -21,7 +24,7 @@ struct RegistrationView: View {
                 .foregroundColor(.white)
             
             HStack {
-                TextField("Invite code", text: $code)
+                TextField("Invite code".localized(), text: $code)
                     .padding()
                     .background(Color.themeTextField)
                     .foregroundColor(.black)
@@ -72,9 +75,16 @@ struct RegistrationView: View {
         .onTapGesture {
             hideKeyboard()
         }
+        .alert(isPresented: $showErrorMessage) { () -> Alert in
+            Alert(title: Text("Error"),
+                  message: Text(errorMessageText),
+                  dismissButton: .default(Text("Ok"))
+            )
+        }
     }
     func registration() {
-        print("reg!!")
+        errorMessageText = "Feature not released yet".localized()
+        showErrorMessage = true
     }
 }
 
