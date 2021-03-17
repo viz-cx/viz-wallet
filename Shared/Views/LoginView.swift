@@ -21,9 +21,8 @@ struct LoginView: View {
         VStack() {
             LottieView(name: "39387-business-team")
             VStack() {
-                ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
                 
-                VStack(alignment: .leading, spacing: 15) {
+                VStack(spacing: 15) {
                     TextField("Login", text: $login)
                         .padding()
                         .background(Color.themeTextField)
@@ -38,19 +37,23 @@ struct LoginView: View {
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                     
-                    Button(action: signIn) {
-                        Text("Sign In".localized())
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(
-                                maxWidth: .infinity,
-                                minHeight: 50,
-                                maxHeight: 50,
-                                alignment: .center
-                            )
-                            .background(Color.green)
-                            .cornerRadius(15.0)
+                    if isLoading {
+                        ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+                    } else {
+                        Button(action: signIn) {
+                            Text("Sign In".localized())
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(
+                                    maxWidth: .infinity,
+                                    minHeight: 50,
+                                    maxHeight: 50,
+                                    alignment: .center
+                                )
+                                .background(Color.green)
+                                .cornerRadius(15.0)
+                        }
                     }
                 }
                 .padding(.bottom, 25)
@@ -61,7 +64,7 @@ struct LoginView: View {
                     Text("Sign Up with an invite code".localized())
                         .foregroundColor(.white)
                         .onTapGesture {
-                             showSignUp = true
+                            showSignUp = true
                         }
                         .sheet(isPresented: $showSignUp, content: {
                             RegistrationView()
