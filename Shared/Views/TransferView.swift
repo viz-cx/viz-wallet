@@ -56,26 +56,58 @@ struct TransferView: View {
             let amount = Double(s) ?? 0.0
             self.amount = (amount >= userAuth.balance) ? userAuth.balance : amount
         })
-        VStack(spacing: 10) {
-            if userAuth.activeKey.isEmpty {
-                ActiveKeyView()
-            } else {
-                ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
-                
-                Spacer()
-                
-                Text("""
-                    \("Account".localized()): \(userAuth.login)
-                    \("Liquid balance".localized()): \(String(format: "%.3f", userAuth.balance)) Ƶ
-                    """)
+        
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 10) {
+                if userAuth.activeKey.isEmpty {
+                    ActiveKeyView()
+                } else {
+                    Spacer()
+                    
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text("🧑 \("Account".localized()): \(userAuth.login)")
+                        Text("💰 \("Liquid balance".localized()): \(String(format: "%.3f", userAuth.balance)) Ƶ")
+                    }
                     .padding()
-                    .frame(maxWidth: .infinity, alignment: Alignment.center)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .cornerRadius(20.0)
                     .font(.headline)
                     .foregroundColor(.white)
-                
-                HStack {
-                    TextField("Receiver".localized(), text: $receiver)
+                    
+                    HStack {
+                        TextField("Receiver".localized(), text: $receiver)
+                            .padding()
+                            .background(Color.themeTextField)
+                            .foregroundColor(.black)
+                            .cornerRadius(20.0)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                        
+                        Image(systemName: "qrcode.viewfinder")
+                            .font(.largeTitle)
+                            .colorInvert()
+                            .buttonStyle(PlainButtonStyle())
+                            .onTapGesture {
+                                isShowingScanner = true
+                            }
+                            .sheet(isPresented: $isShowingScanner, content: {
+                                CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: "id") { result in
+                                    switch result {
+                                    case .success(let str):
+                                        if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
+                                            let range = str.index(after: atSymbolIdx)..<str.endIndex
+                                            receiver = String(str[range])
+                                            isShowingScanner = false
+                                        }
+                                    case .failure(let error):
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                            })
+                    }
+                    
+                    TextField("Amount".localized(), text: binding)
+                        .keyboardType(UIKeyboardType.decimalPad)
                         .padding()
                         .background(Color.themeTextField)
                         .foregroundColor(.black)
@@ -83,68 +115,41 @@ struct TransferView: View {
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                     
-                    Image(systemName: "qrcode.viewfinder")
-                        .font(.largeTitle)
-                        .colorInvert()
-                        .buttonStyle(PlainButtonStyle())
-                        .onTapGesture {
-                            isShowingScanner = true
-                        }
-                        .sheet(isPresented: $isShowingScanner, content: {
-                            CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: "id") { result in
-                                switch result {
-                                case .success(let str):
-                                    if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
-                                        let range = str.index(after: atSymbolIdx)..<str.endIndex
-                                        receiver = String(str[range])
-                                        isShowingScanner = false
-                                    }
-                                case .failure(let error):
-                                    print(error.localizedDescription)
-                                }
-                            }
-                        })
-                }
-                
-                TextField("Amount".localized(), text: binding)
-                    .keyboardType(UIKeyboardType.decimalPad)
-                    .padding()
-                    .background(Color.themeTextField)
-                    .foregroundColor(.black)
-                    .cornerRadius(20.0)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                
-                TextField("Memo".localized(), text: $memo)
-                    .padding()
-                    .background(Color.themeTextField)
-                    .foregroundColor(.black)
-                    .cornerRadius(20.0)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                
-                Button(action: transfer) {
-                    Text("Transfer".localized())
-                        .font(.headline)
-                        .foregroundColor(.white)
+                    TextField("Memo".localized(), text: $memo)
                         .padding()
-                        .frame(
-                            maxWidth: .infinity,
-                            minHeight: 50,
-                            maxHeight: 50,
-                            alignment: .center
-                        )
-                        .background(Color.orange)
-                        .opacity(0.95)
-                        .cornerRadius(15.0)
+                        .background(Color.themeTextField)
+                        .foregroundColor(.black)
+                        .cornerRadius(20.0)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                    
+                    if isLoading {
+                        ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+                    } else {
+                        Button(action: transfer) {
+                            Text("Transfer".localized())
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(
+                                    maxWidth: .infinity,
+                                    minHeight: 50,
+                                    maxHeight: 50,
+                                    alignment: .center
+                                )
+                                .background(Color.orange)
+                                .opacity(0.95)
+                                .cornerRadius(15.0)
+                        }
+                    }
+                    
+                    ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
+                    
+                    Spacer()
                 }
-                
-                ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
-                
-                Spacer()
             }
+            .padding([.leading, .trailing], 16.0)
         }
-        .padding([.leading, .trailing], 27.5)
         .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))

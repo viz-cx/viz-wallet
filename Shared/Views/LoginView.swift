@@ -58,19 +58,10 @@ struct LoginView: View {
                 Spacer()
                 
                 HStack(spacing: 0) {
-                    Text("Don't have an account? ".localized())
-                        .colorInvert()
-                    Text("Sign Up".localized())
-                        .foregroundColor(.black)
-                        .colorInvert()
+                    Text("Sign Up with an invite code".localized())
+                        .foregroundColor(.white)
                         .onTapGesture {
-                            // showSignUp = true
-                            var link = "https://reg.readdle.me/?set_lang=en"
-                            if case .russian = Locales.current {
-                                link = "https://reg.readdle.me/?set_lang=ru"
-                            }
-                            guard let url = URL(string: link) else { return }
-                            UIApplication.shared.open(url)
+                             showSignUp = true
                         }
                         .sheet(isPresented: $showSignUp, content: {
                             RegistrationView()
@@ -79,7 +70,7 @@ struct LoginView: View {
                 .padding(.bottom, 15)
                 
             }
-            .padding([.leading, .trailing], 27.5)
+            .padding([.leading, .trailing], 16.0)
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)

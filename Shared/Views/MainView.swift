@@ -24,73 +24,113 @@ struct MainView: View {
     
     var body: some View {
         TabView(selection: $selectedItem, content: {
-            AwardView()
-                .tabItem {
-                    if selectedItem == .award {
-                        Image(systemName: "hand.thumbsup.fill")
-                    } else {
-                        Image(systemName: "hand.thumbsup")
-                    }
-                    Text("Award".localized())
+            NavigationView {
+                AwardView()
+                    .navigationTitle("Award")
+                    .navigationBarHidden(false)
+            }
+            .tabItem {
+                if selectedItem == .award {
+                    Image(systemName: "hand.thumbsup.fill")
+                } else {
+                    Image(systemName: "hand.thumbsup")
                 }
-                .tag(TabItem.award)
+                Text("Award".localized())
+            }
+            .tag(TabItem.award)
+            .navigationViewStyle(StackNavigationViewStyle())
             
-            TransferView()
-                .tabItem {
-                    if selectedItem == .transfer {
-                        Image(systemName: "arrow.up.heart.fill")
-                    } else {
-                        Image(systemName: "arrow.up.heart")
-                    }
-                    Text("Transfer".localized())
+            NavigationView {
+                TransferView()
+                    .navigationTitle("Transfer")
+                    .navigationBarHidden(false)
+            }
+            .tabItem {
+                if selectedItem == .transfer {
+                    Image(systemName: "arrow.up.heart.fill")
+                } else {
+                    Image(systemName: "arrow.up.heart")
                 }
-                .tag(TabItem.transfer)
+                Text("Transfer".localized())
+            }
+            .tag(TabItem.transfer)
+            .navigationViewStyle(StackNavigationViewStyle())
             
-            ReceiveView()
-                .tabItem {
-                    if selectedItem == .receive {
-                        Image(systemName: "arrow.down.heart.fill")
-                    } else {
-                        Image(systemName: "arrow.down.heart")
-                    }
-                    Text("Receive".localized())
+            NavigationView {
+                ReceiveView()
+                    .navigationTitle("Receive")
+                    .navigationBarHidden(false)
+            }
+            .tabItem {
+                if selectedItem == .receive {
+                    Image(systemName: "arrow.down.heart.fill")
+                } else {
+                    Image(systemName: "arrow.down.heart")
                 }
-                .tag(TabItem.receive)
+                Text("Receive".localized())
+            }
+            .tag(TabItem.receive)
+            .navigationViewStyle(StackNavigationViewStyle())
             
-            NewsView()
-                .environmentObject(newsState)
-                .tabItem {
-                    if selectedItem == .news {
-                        Image(systemName: "newspaper.fill")
-                    } else {
-                        Image(systemName: "newspaper")
-                    }
-                    Text("News".localized())
+            NavigationView {
+                NewsView()
+                    .environmentObject(newsState)
+                    .navigationBarTitle("News")
+                    .navigationBarHidden(false)
+            }
+            .tabItem {
+                if selectedItem == .news {
+                    Image(systemName: "newspaper.fill")
+                } else {
+                    Image(systemName: "newspaper")
                 }
-                .tag(TabItem.news)
+                Text("News".localized())
+            }
+            .tag(TabItem.news)
+            .navigationViewStyle(StackNavigationViewStyle())
             
-//            DAOView()
-//                .tabItem {
-//                    if selectedItem == .dao {
-//                        Image(systemName: "building.columns.fill")
-//                    } else {
-//                        Image(systemName: "building.columns")
-//                    }
-//                    Text("DAO".localized())
+//            NavigationView {
+//                DAOView()
+//                    .navigationTitle("DAO")
+//                    .navigationBarHidden(false)
+//            }
+//            .tabItem {
+//                if selectedItem == .dao {
+//                    Image(systemName: "building.columns.fill")
+//                } else {
+//                    Image(systemName: "building.columns")
 //                }
-//                .tag(TabItem.dao)
+//                Text("DAO".localized())
+//            }
+//            .tag(TabItem.dao)
+//            .navigationViewStyle(StackNavigationViewStyle())
             
-            SettingsView()
-                .tabItem {
-                    Image(systemName: "gear")
-                    Text("Settings".localized())
-                }
-                .tag(TabItem.settings)
+            NavigationView {
+                SettingsView()
+                    .navigationTitle("Settings")
+                    .navigationBarHidden(true)
+            }
+            .tabItem {
+                Image(systemName: "gear")
+                Text("Settings".localized())
+            }
+            .tag(TabItem.settings)
+            .navigationViewStyle(StackNavigationViewStyle())
         })
         .font(.headline)
+        .edgesIgnoringSafeArea(.top)
     }
     
     init() {
+        let coloredNavAppearance = UINavigationBarAppearance()
+        coloredNavAppearance.configureWithOpaqueBackground()
+        coloredNavAppearance.backgroundColor = .clear
+        coloredNavAppearance.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        coloredNavAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        coloredNavAppearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = coloredNavAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
+        
         UITabBar.appearance().barTintColor = UIColor(Color.themeTextField)
         UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = .clear

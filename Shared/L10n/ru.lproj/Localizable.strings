@@ -12,9 +12,11 @@ Settings = "Настройки";
 Transfer = "Перевести";
 /** Login view */
 "Sign In" = "Войти";
-"Don't have an account? " = "Нет аккаунта? ";
-"Sign Up" = "Зарегистрируйся";
+"Sign Up with an invite code" = "Зарегистироваться по приглашению";
 "Private regular key" = "Обычный приватный ключ";
+/** Registration view */
+"Don't have an invite code? " = "Нет кода приглашения? ";
+"Sign Up" = "Зарегистрироваться";
 /** Award view */
 Account = "Аккаунт";
 "Social capital" = "Соц. капитал";

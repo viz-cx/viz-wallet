@@ -17,39 +17,41 @@ struct ReceiveView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                Spacer()
-                
-                Image(uiImage: generateQRImage(text: "viz://award/@\(userAuth.login)"))
-                    .interpolation(.none)
-                    .resizable()
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .aspectRatio(1, contentMode: .fit)
-                    .padding([.bottom], 10)
-                    .padding([.leading, .trailing], geometry.size.width * 0.2)
-                    .onTapGesture {
-                        copyToClipboard()
-                    }
-                
+            ScrollView(showsIndicators: false) {
                 VStack {
-                    Text("\("Login".localized()): \(userAuth.login)")
-                        .font(.title)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(
-                            maxWidth: .infinity,
-                            minHeight: 50,
-                            maxHeight: 50,
-                            alignment: .center
-                        )
-                        .cornerRadius(7.5)
+                    Spacer()
+                    
+                    Image(uiImage: generateQRImage(text: "viz://award/@\(userAuth.login)"))
+                        .interpolation(.none)
+                        .resizable()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .aspectRatio(1, contentMode: .fit)
+                        .padding([.top, .leading, .trailing, .bottom], geometry.size.width * 0.2)
                         .onTapGesture {
                             copyToClipboard()
                         }
+                    
+                    VStack {
+                        Text("\("Login".localized()): \(userAuth.login)")
+                            .font(.title)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(
+                                maxWidth: .infinity,
+                                minHeight: 50,
+                                maxHeight: 50,
+                                alignment: .center
+                            )
+                            .cornerRadius(7.5)
+                            .onTapGesture {
+                                copyToClipboard()
+                            }
+                    }
+                    .padding([.leading, .trailing], 16.0)
+                    
+                    Spacer()
                 }
-                .padding([.leading, .trailing], 27.5)
                 
-                Spacer()
             }
             .background(
                 LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)

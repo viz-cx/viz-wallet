@@ -25,23 +25,54 @@ struct AwardView: View {
     @State private var isShowingScanner = false
     
     var body: some View {
-        VStack(spacing: 10) {
-            ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
-            
-            Spacer()
-            
-            Text("""
-                \("Account".localized()): \(userAuth.login) 🔋\(String(format: "%.2f", Double(userAuth.energy) / 100))%
-                \("Social capital".localized()): \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ
-                """)
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 10) {
+                Spacer()
+                
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("🧑 \("Login".localized()): \(userAuth.login)")
+                    Text("🔋 \("Energy".localized()): \(String(format: "%.2f", Double(userAuth.energy) / 100))%")
+                    Text("🏆 \("Social capital".localized()): \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ")
+                }
                 .padding()
-                .frame(maxWidth: .infinity, alignment: Alignment.center)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .cornerRadius(20.0)
                 .font(.headline)
                 .foregroundColor(.white)
-            
-            HStack {
-                TextField("Receiver".localized(), text: $receiver)
+                
+                HStack {
+                    TextField("Receiver".localized(), text: $receiver)
+                        .padding()
+                        .background(Color.themeTextField)
+                        .foregroundColor(.black)
+                        .cornerRadius(20.0)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                    
+                    Image(systemName: "qrcode.viewfinder")
+                        .font(.largeTitle)
+                        .colorInvert()
+                        .buttonStyle(PlainButtonStyle())
+                        .onTapGesture {
+                            isShowingScanner = true
+                        }
+                        .sheet(isPresented: $isShowingScanner, content: {
+                            CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: "id") { result in
+                                switch result {
+                                case .success(let str):
+                                    if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
+                                        let range = str.index(after: atSymbolIdx)..<str.endIndex
+                                        receiver = String(str[range])
+                                        isShowingScanner = false
+                                    }
+                                case .failure(let error):
+                                    print(error.localizedDescription)
+                                }
+                            }
+                        })
+                }
+                
+                TextField("Memo".localized(), text: $memo)
                     .padding()
                     .background(Color.themeTextField)
                     .foregroundColor(.black)
@@ -49,74 +80,48 @@ struct AwardView: View {
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                 
-                Image(systemName: "qrcode.viewfinder")
-                    .font(.largeTitle)
-                    .colorInvert()
-                    .buttonStyle(PlainButtonStyle())
-                    .onTapGesture {
-                        isShowingScanner = true
-                    }
-                    .sheet(isPresented: $isShowingScanner, content: {
-                        CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: "id") { result in
-                            switch result {
-                            case .success(let str):
-                                if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
-                                    let range = str.index(after: atSymbolIdx)..<str.endIndex
-                                    receiver = String(str[range])
-                                    isShowingScanner = false
-                                }
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
+                VStack {
+                    Slider(value: $percent, in: 0.01...100.0, step: 0.01, onEditingChanged: { changing in
+                        if !changing {
+                            updateSlider()
                         }
                     })
-            }
-            
-            TextField("Memo".localized(), text: $memo)
-                .padding()
-                .background(Color.themeTextField)
-                .foregroundColor(.black)
-                .cornerRadius(20.0)
-                .disableAutocorrection(true)
-                .autocapitalization(.none)
-            
-            VStack {
-                Slider(value: $percent, in: 0.01...100.0, step: 0.01, onEditingChanged: { changing in
-                    if !changing {
-                        updateSlider()
+                    .accentColor(.green)
+                    HStack {
+                        Text(String(format: "%.2f", percent) + " %")
+                            .colorInvert()
+                        Text("≈\(String(format: "%.3f", calculateReward(energy: Int(percent) * 100))) Ƶ")
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .colorInvert()
                     }
-                })
-                .accentColor(.green)
-                HStack {
-                    Text(String(format: "%.2f", percent) + " %")
-                        .colorInvert()
-                    Text("≈\(String(format: "%.3f", calculateReward(energy: Int(percent) * 100))) Ƶ")
-                        .frame(maxWidth: .infinity, alignment: .trailing)
-                        .colorInvert()
                 }
+                
+                if isLoading {
+                    ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+                } else {
+                    Button(action: award) {
+                        Text("Award".localized())
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(
+                                maxWidth: .infinity,
+                                minHeight: 50,
+                                maxHeight: 50,
+                                alignment: .center
+                            )
+                            .background(Color.green)
+                            .opacity(0.95)
+                            .cornerRadius(15.0)
+                    }
+                }
+                
+                ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
+                
+                Spacer()
             }
-            
-            Button(action: award) {
-                Text("Award".localized())
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(
-                        maxWidth: .infinity,
-                        minHeight: 50,
-                        maxHeight: 50,
-                        alignment: .center
-                    )
-                    .background(Color.green)
-                    .opacity(0.95)
-                    .cornerRadius(15.0)
-            }
-            
-            ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
-            
-            Spacer()
+            .padding([.leading, .trailing], 16.0)
         }
-        .padding([.leading, .trailing], 27.5)
         .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)

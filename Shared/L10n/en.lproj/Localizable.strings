@@ -12,9 +12,11 @@ Settings = "Settings";
 Transfer = "Transfer";
 /** Login view */
 "Sign In" = "Sign In";
-"Don't have an account? " = "Don't have an account? ";
+"Sign Up with an invite code" = "Sign Up with an invite code";
+"Private regular key" = "Private regular key";
+/** Registration view */
+"Don't have an invite code?" = "Don't have an invite code? ";
 "Sign Up" = "Sign Up";
-"Private regular key" = "Private regular key"; 
 /** Award view */
 Account = "Account"; 
 "Social capital" = "Social capital";

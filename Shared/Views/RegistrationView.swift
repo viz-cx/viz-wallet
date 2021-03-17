@@ -13,7 +13,7 @@ struct RegistrationView: View {
     
     var body: some View {
         VStack {
-            Text("Registration by invite")
+            Text("Sign Up with an invite code".localized())
                 .padding()
                 .frame(maxWidth: .infinity, alignment: Alignment.leading)
                 .cornerRadius(20.0)
@@ -31,7 +31,7 @@ struct RegistrationView: View {
             }
             
             Button(action: registration) {
-                Text("Registration")
+                Text("Sign Up".localized())
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()
@@ -46,8 +46,25 @@ struct RegistrationView: View {
             }
             
             Spacer()
+            
+            HStack(spacing: 0) {
+                Text("Don't have an invite code? ".localized())
+                    .colorInvert()
+                Text("Sign Up".localized())
+                    .foregroundColor(.black)
+                    .colorInvert()
+                    .onTapGesture {
+                       var link = "https://reg.readdle.me/?set_lang=en"
+                       if case .russian = Locales.current {
+                           link = "https://reg.readdle.me/?set_lang=ru"
+                       }
+                       guard let url = URL(string: link) else { return }
+                       UIApplication.shared.open(url)
+                    }
+            }
+            .padding(.bottom, 15)
         }
-        .padding([.leading, .trailing], 27.5)
+        .padding([.leading, .trailing], 16.0)
         .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
