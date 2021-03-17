@@ -19,6 +19,7 @@ Transfer = "Перевести";
 "Sign Up" = "Зарегистрироваться";
 /** Award view */
 Account = "Аккаунт";
+Energy = "Энергия";
 "Social capital" = "Соц. капитал";
 Receiver = "Получатель";
 Memo = "Заметка";

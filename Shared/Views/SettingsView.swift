@@ -14,6 +14,7 @@ struct SettingsView: View {
     
     var body: some View {
         let isSubPageActive = Binding<Bool>(get: { self.activePage.count > 0 }, set: { _ in })
+        
         VStack {
             WebImage(url: URL(string: userAuth.accountAvatar))
                 .resizable()
@@ -24,6 +25,7 @@ struct SettingsView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 200, height: 200, alignment: .center)
                 .clipShape(Circle())
+            
             VStack {
                 Text(userAuth.accountNickname)
                     .font(.title)

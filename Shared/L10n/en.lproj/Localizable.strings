@@ -18,7 +18,8 @@ Transfer = "Transfer";
 "Don't have an invite code?" = "Don't have an invite code? ";
 "Sign Up" = "Sign Up";
 /** Award view */
-Account = "Account"; 
+Account = "Account";
+Energy = "Energy";
 "Social capital" = "Social capital";
 Receiver = "Receiver";
 Memo = "Memo";
