@@ -15,54 +15,68 @@ struct SettingsView: View {
     var body: some View {
         let isSubPageActive = Binding<Bool>(get: { self.activePage.count > 0 }, set: { _ in })
         
-        VStack {
-            WebImage(url: URL(string: userAuth.accountAvatar))
-                .resizable()
-                .placeholder(Image("profile"))
-                .indicator(.activity)
-                .transition(.fade(duration: 0.5))
-                .scaledToFit()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 200, height: 200, alignment: .center)
-                .clipShape(Circle())
-            
-            VStack {
-                Text(userAuth.accountNickname)
-                    .font(.title)
-                    .foregroundColor(.primary)
-                    .colorInvert()
-                Text(userAuth.accountAbout)
-                    .font(.subheadline)
-                    .colorInvert()
+        let header = VStack {
+            HStack {
+                Spacer()
+                WebImage(url: URL(string: userAuth.accountAvatar))
+                    .resizable()
+                    .placeholder(Image("profile"))
+                    .frame(width: 200, height: 200, alignment: .center)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.white, lineWidth: 1))
+                    .shadow(radius: 10)
+                Spacer()
             }
-            
+            HStack {
+                Spacer()
+                VStack {
+                    Text(userAuth.accountNickname)
+                        .font(.title)
+                        .foregroundColor(.primary)
+                        .colorInvert()
+                    Text(userAuth.accountAbout)
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                        .colorInvert()
+                }
+                Spacer()
+            }
+        }
+        
+        VStack {
             List {
-                Label("Telegram".localized(), systemImage: "paperplane.circle.fill")
-                    .onTapGesture {
-                        guard let url = URL(string: "https://t.me/viz_cx") else { return }
-                        UIApplication.shared.open(url)
-                    }
-                    .listRowBackground(Color.clear)
-                    .foregroundColor(.white)
+                Section(header: header) {
+                    Label("Telegram".localized(), systemImage: "paperplane.circle.fill")
+                        .onTapGesture {
+                            guard let url = URL(string: "https://t.me/viz_cx") else { return }
+                            UIApplication.shared.open(url)
+                        }
+                        .listRowBackground(Color.clear)
+                        .foregroundColor(.white)
+                    
 //                Label("Privacy policy".localized(), systemImage: "lock.doc")
 //                    .onTapGesture {
 //                        activePage = "PrivacyPolicy"
 //                    }
 //                    .listRowBackground(Color.clear)
 //                    .foregroundColor(.white)
-                Label("Change language".localized(), systemImage: "gearshape.fill")
-                    .onTapGesture {
-                        UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                    }
-                    .listRowBackground(Color.clear)
-                    .foregroundColor(.white)
-                Label("Logout".localized(), systemImage: "person.fill")
-                    .onTapGesture {
-                        userAuth.logout()
-                    }
-                    .listRowBackground(Color.clear)
-                    .foregroundColor(.white)
+                    
+                    Label("Change language".localized(), systemImage: "gearshape.fill")
+                        .onTapGesture {
+                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                        }
+                        .listRowBackground(Color.clear)
+                        .foregroundColor(.white)
+                    
+                    Label("Logout".localized(), systemImage: "person.fill")
+                        .onTapGesture {
+                            userAuth.logout()
+                        }
+                        .listRowBackground(Color.clear)
+                        .foregroundColor(.white)
+                }
             }
+            .listStyle(InsetGroupedListStyle())
             .fullScreenCover(isPresented: isSubPageActive, onDismiss: {
                 activePage = ""
             }, content: {
