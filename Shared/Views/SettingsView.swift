@@ -61,6 +61,13 @@ struct SettingsView: View {
 //                    .listRowBackground(Color.clear)
 //                    .foregroundColor(.white)
                     
+                    Label("Onboarding".localized(), systemImage: "building.2.crop.circle.fill")
+                        .onTapGesture {
+                            userAuth.showOnboarding(show: true)
+                        }
+                        .listRowBackground(Color.clear)
+                        .foregroundColor(.white)
+                    
                     Label("Change language".localized(), systemImage: "gearshape.fill")
                         .onTapGesture {
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)

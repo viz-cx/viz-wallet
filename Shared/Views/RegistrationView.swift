@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    
+    @State private var login: String = ""
     @State private var code: String = ""
     
     @State private var showErrorMessage: Bool = false
@@ -23,15 +23,20 @@ struct RegistrationView: View {
                 .font(.headline)
                 .foregroundColor(.white)
             
-            HStack {
-                TextField("Invite code".localized(), text: $code)
-                    .padding()
-                    .background(Color.themeTextField)
-                    .foregroundColor(.black)
-                    .cornerRadius(20.0)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-            }
+            TextField("Invite code".localized(), text: $code)
+                .padding()
+                .background(Color.themeTextField)
+                .foregroundColor(.black)
+                .cornerRadius(20.0)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
+            
+            TextField("Login", text: $login)
+                .padding()
+                .background(Color.themeTextField)
+                .cornerRadius(20.0)
+                .disableAutocorrection(true)
+                .autocapitalization(.none)
             
             Button(action: registration) {
                 Text("Sign Up".localized())
@@ -57,12 +62,12 @@ struct RegistrationView: View {
                     .foregroundColor(.black)
                     .colorInvert()
                     .onTapGesture {
-                       var link = "https://reg.readdle.me/?set_lang=en"
-                       if case .russian = Locales.current {
-                           link = "https://reg.readdle.me/?set_lang=ru"
-                       }
-                       guard let url = URL(string: link) else { return }
-                       UIApplication.shared.open(url)
+                        var link = "https://reg.readdle.me/?set_lang=en"
+                        if case .russian = Locales.current {
+                            link = "https://reg.readdle.me/?set_lang=ru"
+                        }
+                        guard let url = URL(string: link) else { return }
+                        UIApplication.shared.open(url)
                     }
             }
             .padding(.bottom, 15)

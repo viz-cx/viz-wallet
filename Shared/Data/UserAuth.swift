@@ -53,6 +53,8 @@ class UserAuth: ObservableObject {
     private(set) var accountAbout = ""
     private(set) var accountAvatar = ""
     
+    private(set) var showOnboarding = false
+    
     private let viz = VIZHelper()
     
     init() {
@@ -63,6 +65,11 @@ class UserAuth: ObservableObject {
             auth(login: login, regularKey: regularKey, callback: {_ in})
             updateDGPData()
         }
+    }
+    
+    func showOnboarding(show: Bool) {
+        showOnboarding = show
+        updateObject()
     }
     
     func auth(login: String, regularKey: String, callback: @escaping (Error?) -> ()) {
