@@ -54,6 +54,8 @@
 		D14B288725FDF1F80037B750 /* NewsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B288525FDF1F80037B750 /* NewsState.swift */; };
 		D14B289125FDF2A30037B750 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B289025FDF2A30037B750 /* UIImage+Extension.swift */; };
 		D14B289225FDF2A30037B750 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B289025FDF2A30037B750 /* UIImage+Extension.swift */; };
+		D15458412613966600F92488 /* viz_walletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15458402613966600F92488 /* viz_walletUITests.swift */; };
+		D154585F2613979600F92488 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154585E2613979600F92488 /* SnapshotHelper.swift */; };
 		D157494C25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157494D25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157495425EA69E40043C95C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D157495325EA69E40043C95C /* Lottie */; };
@@ -113,6 +115,13 @@
 			remoteGlobalIDString = D11AF73A25E239D900B29A19;
 			remoteInfo = "viz-wallet (macOS)";
 		};
+		D15458432613966600F92488 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D11AF72725E239D600B29A19 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D11AF73225E239D900B29A19;
+			remoteInfo = "viz-wallet (iOS)";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +159,10 @@
 		D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		D14B288525FDF1F80037B750 /* NewsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsState.swift; sourceTree = "<group>"; };
 		D14B289025FDF2A30037B750 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		D154583E2613966600F92488 /* viz-walletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "viz-walletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D15458402613966600F92488 /* viz_walletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viz_walletUITests.swift; sourceTree = "<group>"; };
+		D15458422613966600F92488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D154585E2613979600F92488 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		D157494B25EA29810043C95C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D157497E25EA78BD0043C95C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -207,6 +220,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D154583B2613966600F92488 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -227,6 +247,7 @@
 				D11AF73C25E239D900B29A19 /* macOS */,
 				D11AF74625E239D900B29A19 /* Tests iOS */,
 				D11AF75125E239D900B29A19 /* Tests macOS */,
+				D154583F2613966600F92488 /* viz-walletUITests */,
 				D11AF73425E239D900B29A19 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -252,6 +273,7 @@
 				D11AF73B25E239D900B29A19 /* viz-wallet.app */,
 				D11AF74325E239D900B29A19 /* Tests iOS.xctest */,
 				D11AF74E25E239D900B29A19 /* Tests macOS.xctest */,
+				D154583E2613966600F92488 /* viz-walletUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -358,6 +380,16 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		D154583F2613966600F92488 /* viz-walletUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D15458402613966600F92488 /* viz_walletUITests.swift */,
+				D154585E2613979600F92488 /* SnapshotHelper.swift */,
+				D15458422613966600F92488 /* Info.plist */,
+			);
+			path = "viz-walletUITests";
+			sourceTree = "<group>";
+		};
 		D157495525EA69EF0043C95C /* Lottie */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,6 +485,24 @@
 			productReference = D11AF74E25E239D900B29A19 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		D154583D2613966600F92488 /* viz-walletUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D15458472613966600F92488 /* Build configuration list for PBXNativeTarget "viz-walletUITests" */;
+			buildPhases = (
+				D154583A2613966600F92488 /* Sources */,
+				D154583B2613966600F92488 /* Frameworks */,
+				D154583C2613966600F92488 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D15458442613966600F92488 /* PBXTargetDependency */,
+			);
+			name = "viz-walletUITests";
+			productName = "viz-walletUITests";
+			productReference = D154583E2613966600F92488 /* viz-walletUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -475,6 +525,10 @@
 					D11AF74D25E239D900B29A19 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = D11AF73A25E239D900B29A19;
+					};
+					D154583D2613966600F92488 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = D11AF73225E239D900B29A19;
 					};
 				};
 			};
@@ -505,6 +559,7 @@
 				D11AF73A25E239D900B29A19 /* viz-wallet (macOS) */,
 				D11AF74225E239D900B29A19 /* Tests iOS */,
 				D11AF74D25E239D900B29A19 /* Tests macOS */,
+				D154583D2613966600F92488 /* viz-walletUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -552,6 +607,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D11AF74C25E239D900B29A19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D154583C2613966600F92488 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -651,6 +713,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D154583A2613966600F92488 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D15458412613966600F92488 /* viz_walletUITests.swift in Sources */,
+				D154585F2613979600F92488 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -663,6 +734,11 @@
 			isa = PBXTargetDependency;
 			target = D11AF73A25E239D900B29A19 /* viz-wallet (macOS) */;
 			targetProxy = D11AF74F25E239D900B29A19 /* PBXContainerItemProxy */;
+		};
+		D15458442613966600F92488 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D11AF73225E239D900B29A19 /* viz-wallet (iOS) */;
+			targetProxy = D15458432613966600F92488 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -987,6 +1063,49 @@
 			};
 			name = Release;
 		};
+		D15458452613966600F92488 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7JF6XQC536;
+				INFOPLIST_FILE = "viz-walletUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "info.babin.viz-walletUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "viz-wallet (iOS)";
+			};
+			name = Debug;
+		};
+		D15458462613966600F92488 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7JF6XQC536;
+				INFOPLIST_FILE = "viz-walletUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "info.babin.viz-walletUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "viz-wallet (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1031,6 +1150,15 @@
 			buildConfigurations = (
 				D11AF76725E239D900B29A19 /* Debug */,
 				D11AF76825E239D900B29A19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D15458472613966600F92488 /* Build configuration list for PBXNativeTarget "viz-walletUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D15458452613966600F92488 /* Debug */,
+				D15458462613966600F92488 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

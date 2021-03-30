@@ -28,3 +28,6 @@ DerivedData/
 #fastlane
 fastlane/report.*
 *.p8
+fastlane/metadata/*
+fastlane/screenshots/*
+fastlane/Preview.html
