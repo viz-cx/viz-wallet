@@ -67,7 +67,7 @@ struct LoginView: View {
                             showSignUp = true
                         }
                         .sheet(isPresented: $showSignUp, content: {
-                            RegistrationView()
+                            RegistrationView().environmentObject(userAuth)
                         })
                 }
                 .padding(.bottom, 15)

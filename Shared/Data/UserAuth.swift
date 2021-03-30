@@ -14,7 +14,28 @@ class UserAuth: ObservableObject {
     internal let objectWillChange = PassthroughSubject<UserAuth,Never>()
     
     private let keychain = Keychain(service: "cx.viz.viz-wallet")
-        .accessibility(.afterFirstUnlock)
+        .synchronizable(true)
+    
+    // Login used for registration
+    var registrationLogin: String = "" {
+        didSet {
+            keychain["registrationLogin"] = registrationLogin
+            updateObject()
+        }
+    }
+    // Random password for generate private keys
+    var registrationPassword: String {
+        if let password = try? keychain.getString("registrationPassword") {
+            return password
+        } else {
+            // password must be generated only once!
+            let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            let length = Int.random(in: 512...1024)
+            let randomPassword = String((0..<length).map {_ in letters.randomElement()! })
+            keychain["registrationPassword"] = randomPassword
+            return randomPassword
+        }
+    }
     
     private(set) var login: String = "" {
         didSet {
@@ -58,6 +79,9 @@ class UserAuth: ObservableObject {
     private let viz = VIZHelper()
     
     init() {
+        if let registrationLogin = try? keychain.getString("registrationLogin") {
+            self.registrationLogin = registrationLogin
+        }
         if let activeKey = try? keychain.getString("activeKey") {
             self.activeKey = activeKey
         }

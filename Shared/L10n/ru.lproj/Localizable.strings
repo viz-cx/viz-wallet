@@ -12,13 +12,14 @@ Settings = "Настройки";
 Transfer = "Перевести";
 /** Login view */
 "Sign In" = "Войти";
-"Sign Up with an invite code" = "Зарегистироваться по приглашению";
+"Sign Up with an invite code" = "Регистрация по приглашению";
 "Private regular key" = "Обычный приватный ключ";
 /** Registration view */
-"Don't have an invite code? " = "Нет приглашения? ";
-"Sign Up" = "Зарегистрироваться";
+"Sign Up" = "Регистрация";
 "Invite code" = "Код приглашения";
 "Feature not released yet" = "Функция ещё не реализована";
+"Attention! Be sure to copy these keys to a safe place" = "Внимание! Обязательно сохраните эти ключи в надежное место";
+"You can ask invite in telegram group @viz_cx" = "Вы можете попросить код приглашения в телеграм-группе @viz_cx";
 /** Award view */
 Account = "Аккаунт";
 Energy = "Энергия";

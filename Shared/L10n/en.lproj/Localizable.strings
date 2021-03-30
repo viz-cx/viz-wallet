@@ -15,10 +15,11 @@ Transfer = "Transfer";
 "Sign Up with an invite code" = "Sign Up with an invite code";
 "Private regular key" = "Private regular key";
 /** Registration view */
-"Don't have an invite code?" = "Don't have an invite code? ";
 "Sign Up" = "Sign Up";
 "Invite code" = "Invite code";
 "Feature not released yet" = "Feature not released yet";
+"Attention! Be sure to copy these keys to a safe place" = "Attention! Be sure to save these keys to a safe place";
+"You can ask invite in telegram group @viz_cx" = "You can ask invite in telegram group @viz_cx";
 /** Award view */
 Account = "Account";
 Energy = "Energy";
