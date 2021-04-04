@@ -23,6 +23,7 @@ struct ActiveKeyView: View {
                 .foregroundColor(.white)
             
             TextField("Private active key".localized(), text: $activeKey)
+                .accessibility(identifier: "active")
                 .padding()
                 .background(Color.themeTextField)
                 .foregroundColor(.black)
@@ -32,6 +33,7 @@ struct ActiveKeyView: View {
             
             Button(action: submitActiveKey) {
                 Text("Save".localized())
+                    .accessibility(identifier: "save")
                     .font(.headline)
                     .foregroundColor(.white)
                     .padding()

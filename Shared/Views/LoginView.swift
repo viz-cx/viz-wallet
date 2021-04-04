@@ -23,7 +23,8 @@ struct LoginView: View {
             VStack() {
                 
                 VStack(spacing: 15) {
-                    TextField("Login", text: $login)
+                    TextField("Login".localized(), text: $login)
+                        .accessibility(identifier: "login")
                         .padding()
                         .background(Color.themeTextField)
                         .cornerRadius(20.0)
@@ -31,6 +32,7 @@ struct LoginView: View {
                         .autocapitalization(.none)
                     
                     TextField("Private regular key".localized(), text: $regularKey)
+                        .accessibility(identifier: "regular")
                         .padding()
                         .background(Color.themeTextField)
                         .cornerRadius(20.0)
@@ -42,6 +44,7 @@ struct LoginView: View {
                     } else {
                         Button(action: signIn) {
                             Text("Sign In".localized())
+                                .accessibility(identifier: "signin")
                                 .font(.headline)
                                 .foregroundColor(.white)
                                 .padding()

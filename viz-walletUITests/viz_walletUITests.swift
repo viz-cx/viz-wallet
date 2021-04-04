@@ -9,27 +9,77 @@ import XCTest
 
 class viz_walletUITests: XCTestCase {
     
+    private var app: XCUIApplication!
+    
     override class func setUp() {
         let app = XCUIApplication()
         setupSnapshot(app)
         app.launch()
     }
-
+    
+    override func tearDownWithError() throws {
+        app = nil
+    }
+    
     func testExample() throws {
-        snapshot("01LoginScreen")
-        
         let app = XCUIApplication()
-        let login = app.textFields["Login"]
-        login.tap()
-        login.typeText("tester5")
+        let login = app.textFields["login"]
+        if login.exists {
+            snapshot("01Login")
+            login.tap()
+            login.typeText("tester")
+            
+            let privateRegularKeyTextField = app.textFields["regular"]
+            privateRegularKeyTextField.tap()
+            waitForElementToAppear(element: app.keyboards.element, timeout: 5)
+            privateRegularKeyTextField.typeText("5JZz2oob5VzKegg8dr3BC8q2M2u1qrFhA7WLF6VWvp1c8yiTc6Z")
+            app.buttons["signin"].tap()
+        }
         
-        let privateRegularKeyTextField = app.textFields["Private regular key"]
-        privateRegularKeyTextField.tap()
-        privateRegularKeyTextField.typeText("5K6wUi4eL2j8LV4R6UVqyaww1zQFjMLmKxrr7B45WLa1QeD6i9x")
-        app.buttons["Sign In"].tap()
+        let tabBar = app.tabBars
         
-        sleep(10)
+        tabBar.buttons.element(boundBy: 0).tap()
+        snapshot("02Award")
         
-        snapshot("02MainScreen")
+        tabBar.buttons.element(boundBy: 1).tap()
+        let privateActiveKeyTextField = XCUIApplication().scrollViews.otherElements.textFields["active"]
+        if privateActiveKeyTextField.exists {
+            privateActiveKeyTextField.tap()
+            privateActiveKeyTextField.typeText("5JZz2oob5VzKegg8dr3BC8q2M2u1qrFhA7WLF6VWvp1c8yiTc6Z")
+            XCUIApplication().scrollViews.otherElements.buttons["save"].tap()
+        }
+        snapshot("03Transfer")
+        
+        tabBar.buttons.element(boundBy: 2).tap()
+        snapshot("04Receive")
+        
+        tabBar.buttons.element(boundBy: 3).tap()
+        waitForElementToAppear(element: app.tables.firstMatch, timeout: 5)
+        snapshot("05News")
+        
+        tabBar.buttons.element(boundBy: 4).tap()
+        snapshot("06Settings")
+        
+        let englishLogout = app.tables.staticTexts["Logout"]
+        if englishLogout.exists {
+            englishLogout.tap()
+        } else {
+            app.tables.staticTexts["Выйти"].tap()
+        }
+        snapshot("01Login")
+    }
+    
+    func waitForElementToAppear(element: XCUIElement, timeout: TimeInterval = 5) {
+        let existsPredicate = NSPredicate(format: "exists == true")
+        
+        expectation(for: existsPredicate,
+                    evaluatedWith: element, handler: nil)
+        
+        waitForExpectations(timeout: timeout) { (error) -> Void in
+            if (error != nil) {
+                let message = "Failed to find \(element) after \(timeout) seconds."
+                self.record(XCTIssue(type: .assertionFailure, compactDescription: message))
+            }
+        }
     }
 }
