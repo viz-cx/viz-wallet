@@ -31,3 +31,5 @@ fastlane/report.*
 fastlane/metadata/*
 fastlane/screenshots/*
 fastlane/Preview.html
+*.ipa
+*.DSYM.zip
