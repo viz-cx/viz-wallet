@@ -134,7 +134,7 @@ struct AwardView: View {
                 percent = currentEnergyPercent
             }
             if percent == 0 && currentEnergyPercent > 0 { // set initial percent value
-                percent = currentEnergyPercent / energyDivider
+                percent = round(currentEnergyPercent / energyDivider)
             }
             DispatchQueue.global(qos: .background).async {
                 userAuth.updateUserData()
