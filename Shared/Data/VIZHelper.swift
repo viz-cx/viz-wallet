@@ -18,6 +18,19 @@ enum VIZKeyType: String {
 struct VIZHelper {
     private let client = VIZ.Client(address: URL(string: "https://node.viz.cx")!)
     
+    static func toFormattedString(_ amount: Double) -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.groupingSeparator = ","
+        numberFormatter.groupingSize = 3
+        numberFormatter.usesGroupingSeparator = true
+        numberFormatter.decimalSeparator = "."
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.maximumFractionDigits = 2
+        numberFormatter.numberStyle = NumberFormatter.Style.currency
+        numberFormatter.currencySymbol = "Ƶ"
+        return numberFormatter.string(from: amount as NSNumber) ?? ""
+    }
+    
     func privateKey(fromAccount name: String, password: String, type: VIZKeyType) throws -> PrivateKey {
         guard let key = PrivateKey(seed: name + type.rawValue + password) else {
             throw Errors.KeyValidationError

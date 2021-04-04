@@ -32,7 +32,9 @@ struct AwardView: View {
                 VStack(alignment: .leading, spacing: 5) {
                     Text("🧑 \("Login".localized()): \(userAuth.login)")
                     Text("🔋 \("Energy".localized()): \(String(format: "%.2f", Double(userAuth.energy) / 100))%")
-                    Text("🏆 \("Social capital".localized()): \(String(format: "%.2f", userAuth.effectiveVestingShares)) Ƶ")
+                    Text("🏆 \("Social capital".localized()): \( VIZHelper.toFormattedString(userAuth.effectiveVestingShares))")
+                        .lineLimit(1)
+                        .fixedSize()
                 }
                 .padding()
                 .frame(maxWidth: .infinity, alignment: .leading)

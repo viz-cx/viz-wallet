@@ -24,15 +24,6 @@ struct TransferView: View {
     @State private var isLoading = false
     @State private var isShowingScanner = false
     
-    private var currencyFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.minimum = 0
-        formatter.isPartialStringValidationEnabled = true
-        formatter.isLenient = true
-        return formatter
-    }()
-    
     var body: some View {
         let binding = Binding<String>(get: {
             if empty { return "" }
@@ -66,7 +57,9 @@ struct TransferView: View {
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text("🧑 \("Account".localized()): \(userAuth.login)")
-                        Text("💰 \("Liquid balance".localized()): \(String(format: "%.3f", userAuth.balance)) Ƶ")
+                        Text("💰 \("Liquid balance".localized()): \(VIZHelper.toFormattedString( userAuth.balance))")
+                            .lineLimit(1)
+                            .fixedSize()
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
