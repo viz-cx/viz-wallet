@@ -65,6 +65,8 @@
 		D157498025EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
 		D16B48A02619BA61009CCE54 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D16B489F2619BA60009CCE54 /* Settings.bundle */; };
 		D16B48A12619BA61009CCE54 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D16B489F2619BA60009CCE54 /* Settings.bundle */; };
+		D16B48BC2619EA11009CCE54 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */; };
+		D16B48BD2619EA11009CCE54 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */; };
 		D17C35E526062CDB000B7D60 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35E426062CDB000B7D60 /* 1.json */; };
 		D17C35E626062CDB000B7D60 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35E426062CDB000B7D60 /* 1.json */; };
 		D17C35FE260636C5000B7D60 /* 4.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FA260636C4000B7D60 /* 4.json */; };
@@ -169,6 +171,7 @@
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D157497E25EA78BD0043C95C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D16B489F2619BA60009CCE54 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		D17C35E426062CDB000B7D60 /* 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
 		D17C35FA260636C4000B7D60 /* 4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 4.json; sourceTree = "<group>"; };
 		D17C35FB260636C5000B7D60 /* 3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 3.json; sourceTree = "<group>"; };
@@ -358,6 +361,7 @@
 				D1D4163825FCFA470039C99D /* LabelView.swift */,
 				D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */,
 				D14B289025FDF2A30037B750 /* UIImage+Extension.swift */,
+				D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -660,6 +664,7 @@
 				D17C361D26064791000B7D60 /* OnboardPageControl.swift in Sources */,
 				D1D4163225FCB66E0039C99D /* Locales.swift in Sources */,
 				D13FE9AA25ED784A0088D49D /* Errors.swift in Sources */,
+				D16B48BC2619EA11009CCE54 /* CurrencyTextField.swift in Sources */,
 				D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38D25F384EE0031AA0A /* DAOView.swift in Sources */,
 				D157496225EA6A9C0043C95C /* LottieView.swift in Sources */,
@@ -697,6 +702,7 @@
 				D17C361E26064791000B7D60 /* OnboardPageControl.swift in Sources */,
 				D1D4163325FCB66E0039C99D /* Locales.swift in Sources */,
 				D13FE9AB25ED784A0088D49D /* Errors.swift in Sources */,
+				D16B48BD2619EA11009CCE54 /* CurrencyTextField.swift in Sources */,
 				D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */,
 				D157496325EA6A9C0043C95C /* LottieView.swift in Sources */,

@@ -25,29 +25,6 @@ struct TransferView: View {
     @State private var isShowingScanner = false
     
     var body: some View {
-        let binding = Binding<String>(get: {
-            if empty { return "" }
-            let value = self.amount ?? 0.0
-            let dot = Locale.current.decimalSeparator ?? "."
-            var s = String(format: "%f", value)
-                .replacingOccurrences(of: ".", with: dot)
-                .reversed()
-                .drop(while: { $0 == "0" })
-                .reversed()
-                .map(String.init)
-                .joined()
-            if let last = s.last, String(last) == dot {
-                s.removeLast()
-            }
-            return s
-        }, set: { (str) in
-            empty = str.isEmpty
-            let dot = Locale.current.decimalSeparator ?? "."
-            let s = str.replacingOccurrences(of: dot, with: ".")
-            let amount = Double(s) ?? 0.0
-            self.amount = (amount >= userAuth.balance) ? userAuth.balance : amount
-        })
-        
         ScrollView(showsIndicators: false) {
             VStack(spacing: 10) {
                 if userAuth.activeKey.isEmpty {
@@ -99,7 +76,7 @@ struct TransferView: View {
                             })
                     }
                     
-                    TextField("Amount".localized(), text: binding)
+                    CurrencyTextField("Amount".localized(), value: $amount, alwaysShowFractions: true, numberOfDecimalPlaces: 2, currencySymbol: "Ƶ")
                         .keyboardType(UIKeyboardType.decimalPad)
                         .padding()
                         .background(Color.themeTextField)
@@ -107,6 +84,12 @@ struct TransferView: View {
                         .cornerRadius(20.0)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
+                        .onChange(of: amount) { (value) in
+                            guard let value = value else { return }
+                            if value > userAuth.balance {
+                                self.amount = userAuth.balance
+                            }
+                        }
                     
                     TextField("Memo".localized(), text: $memo)
                         .padding()
