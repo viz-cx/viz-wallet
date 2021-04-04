@@ -16,7 +16,12 @@ enum VIZKeyType: String {
 }
 
 struct VIZHelper {
-    private let client = VIZ.Client(address: URL(string: "https://node.viz.cx")!)
+    private let client: VIZ.Client
+    
+    init() {
+        let address = UserDefaults.standard.string(forKey: "public_node") ?? ""
+        self.client = VIZ.Client(address: URL(string: address)!)
+    }
     
     static func toFormattedString(_ amount: Double) -> String {
         let numberFormatter = NumberFormatter()

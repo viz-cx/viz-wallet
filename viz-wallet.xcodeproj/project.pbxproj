@@ -63,6 +63,8 @@
 		D157496325EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
 		D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
 		D157498025EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
+		D16B48A02619BA61009CCE54 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D16B489F2619BA60009CCE54 /* Settings.bundle */; };
+		D16B48A12619BA61009CCE54 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D16B489F2619BA60009CCE54 /* Settings.bundle */; };
 		D17C35E526062CDB000B7D60 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35E426062CDB000B7D60 /* 1.json */; };
 		D17C35E626062CDB000B7D60 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35E426062CDB000B7D60 /* 1.json */; };
 		D17C35FE260636C5000B7D60 /* 4.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FA260636C4000B7D60 /* 4.json */; };
@@ -166,6 +168,7 @@
 		D157494B25EA29810043C95C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D157497E25EA78BD0043C95C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D16B489F2619BA60009CCE54 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D17C35E426062CDB000B7D60 /* 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
 		D17C35FA260636C4000B7D60 /* 4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 4.json; sourceTree = "<group>"; };
 		D17C35FB260636C5000B7D60 /* 3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 3.json; sourceTree = "<group>"; };
@@ -282,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				D11AF73625E239D900B29A19 /* Info.plist */,
+				D16B489F2619BA60009CCE54 /* Settings.bundle */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -578,6 +582,7 @@
 				D11AF75925E239D900B29A19 /* Assets.xcassets in Resources */,
 				D125935B26060E2100F3BC1A /* Launch Screen.storyboard in Resources */,
 				D11BC99825FBB76800A011AA /* 39387-business-team.json in Resources */,
+				D16B48A02619BA61009CCE54 /* Settings.bundle in Resources */,
 				D17C35E526062CDB000B7D60 /* 1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -595,6 +600,7 @@
 				D11AF75A25E239D900B29A19 /* Assets.xcassets in Resources */,
 				D125935C26060E2100F3BC1A /* Launch Screen.storyboard in Resources */,
 				D11BC99925FBB76800A011AA /* 39387-business-team.json in Resources */,
+				D16B48A12619BA61009CCE54 /* Settings.bundle in Resources */,
 				D17C35E626062CDB000B7D60 /* 1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
