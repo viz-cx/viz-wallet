@@ -22,13 +22,12 @@ class viz_walletUITests: XCTestCase {
     }
     
     func testExample() throws {
+        snapshot("01Login")
         let app = XCUIApplication()
         let login = app.textFields["login"]
         if login.exists {
-            snapshot("01Login")
             login.tap()
             login.typeText("tester")
-            
             let privateRegularKeyTextField = app.textFields["regular"]
             privateRegularKeyTextField.tap()
             waitForElementToAppear(element: app.keyboards.element, timeout: 5)
@@ -37,6 +36,7 @@ class viz_walletUITests: XCTestCase {
         }
         
         let tabBar = app.tabBars
+        waitForElementToAppear(element: tabBar.element, timeout: 90)
         
         tabBar.buttons.element(boundBy: 0).tap()
         snapshot("02Award")
@@ -54,7 +54,7 @@ class viz_walletUITests: XCTestCase {
         snapshot("04Receive")
         
         tabBar.buttons.element(boundBy: 3).tap()
-        waitForElementToAppear(element: app.tables.firstMatch, timeout: 5)
+        waitForElementToAppear(element: app.tables.element(boundBy: 0).cells.element(boundBy: 2), timeout: 30)
         snapshot("05News")
         
         tabBar.buttons.element(boundBy: 4).tap()

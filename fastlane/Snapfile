@@ -2,17 +2,10 @@
 
 # A list of devices you want to take the screenshots from
 devices([
-  "iPad (7th generation)",
-  "iPad Air (3rd generation)",
-  # "iPad Pro (9.7-inch)",
-  # "iPad Pro (11-inch)",
-  "iPad Pro (12.9-inch) (2nd generation)",
-  "iPad Pro (12.9-inch) (4th generation)",
-  "iPhone 11",
-  "iPhone 11 Pro",
-  "iPhone 11 Pro Max",
-  "iPhone 8",
-  "iPhone 8 Plus"
+  "iPhone Xs Max",
+  "iPhone 8 Plus",
+  "iPad Pro (12.9-inch) (3rd generation)",
+  "iPad Pro (12.9-inch) (2nd generation)"
 ])
 
 languages([
@@ -23,11 +16,11 @@ languages([
 #   ["pt", "pt_BR"] # Portuguese with Brazilian locale
 ])
 
-reinstall_app true
-erase_simulator true
+# reinstall_app true
+# erase_simulator true
 stop_after_first_error true
 number_of_retries 2
-# headless false
+headless false
 localize_simulator true
 
 # The name of the scheme which contains the UI Tests
