@@ -19,9 +19,15 @@ platform :ios do
   desc "Push a new release build to the App Store"
   lane :release do
     # ensure_git_status_clean
+    # get_push_certificate
     build_number = number_of_commits(all: true)
     increment_build_number(build_number: build_number)
-    build_app(scheme: "viz-wallet (iOS)")
+    build_app(
+      scheme: "viz-wallet (iOS)",
+      clean: true,
+      include_bitcode: true,
+      export_method: "app-store",
+      configuration: "Release")
     upload_to_app_store(
       force: true,
       skip_screenshots: true,
