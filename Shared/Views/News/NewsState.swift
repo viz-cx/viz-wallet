@@ -18,7 +18,8 @@ final class NewsState: ObservableObject {
         didSet {
             let imageUrl = detailsPost?._embedded?.wp_featuredmedia?.first?.source_url ?? ""
             let title = detailsPost?.title.rendered.decodingHTMLEntities() ?? ""
-            let content = detailsPost?.content.rendered.decodingHTMLEntities() ?? ""
+            var content = detailsPost?.content.rendered.decodingHTMLEntities() ?? ""
+            content = content.replacingOccurrences(of: #"\[(\/*)?vc_.*?\]"#, with: "", options: .regularExpression, range: nil)
             detailsView = NewsDetailView(imageUrl: imageUrl, title: title, content: content)
             isShowDetails = self.detailsPost != nil
         }
