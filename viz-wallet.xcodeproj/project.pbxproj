@@ -930,7 +930,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.viz-wallet";
 				PRODUCT_NAME = "viz-wallet";
-				PROVISIONING_PROFILE_SPECIFIER = "viz-wallet";
+				PROVISIONING_PROFILE_SPECIFIER = "VIZ Profile";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
