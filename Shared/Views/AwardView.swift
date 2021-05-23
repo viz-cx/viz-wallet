@@ -92,7 +92,7 @@ struct AwardView: View {
                     HStack {
                         Text(String(format: "%.2f", percent) + " %")
                             .colorInvert()
-                        Text("≈\(String(format: "%.3f", calculateReward(energy: Int(percent) * 100))) Ƶ")
+                        Text("≈\(String(format: "%.3f", calculateReward(energy: Int(percent * 100)))) Ƶ")
                             .frame(maxWidth: .infinity, alignment: .trailing)
                             .colorInvert()
                     }
