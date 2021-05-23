@@ -179,6 +179,13 @@ struct AwardView: View {
         var result: UINotificationFeedbackGenerator.FeedbackType = .error
         let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
         notificationFeedbackGenerator.prepare()
+        guard percent > 0 else {
+            errorMessageText = "Percent can't be less than zero".localized()
+            showErrorMessage = true
+            notificationFeedbackGenerator.notificationOccurred(result)
+            isLoading = false
+            return
+        }
         viz.award(initiator: userAuth.login, regularKey: userAuth.regularKey, receiver: receiver, energy: UInt16(percent * 100), memo: memo) { error in
             if let error = error {
                 errorMessageText = error.localizedDescription

@@ -26,6 +26,7 @@ Energy = "Энергия";
 "Social capital" = "Соц. капитал";
 Receiver = "Получатель";
 Memo = "Заметка";
+"Percent can't be less than zero" = "Процент не может быть отрицательным";
 /** Transfer view */
 "Active key not added yet" = "Активный ключ ещё не добавлен";
 Amount = "Сумма";

@@ -26,6 +26,7 @@ Energy = "Energy";
 "Social capital" = "Social capital";
 Receiver = "Receiver";
 Memo = "Memo";
+"Percent can't be less than zero" = "Percent can't be less than zero";
 /** Transfer view */
 "Active key not added yet" = "Active key not added yet";
 Amount = "Amount";
