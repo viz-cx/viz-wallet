@@ -119,7 +119,6 @@ struct AwardView: View {
                 }
                 
                 ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
-                
                 Spacer()
             }
             .padding([.leading, .trailing], 16.0)
