@@ -127,23 +127,7 @@ struct AwardView: View {
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
         )
-        .onAppear {
-            let currentEnergyPercent = Double(userAuth.energy) / 100
-            if percent > currentEnergyPercent {
-                percent = currentEnergyPercent
-            }
-            if percent == 0 && currentEnergyPercent > 0 { // set initial percent value
-                if currentEnergyPercent > 1 {
-                    percent = round(currentEnergyPercent / energyDivider)
-                } else {
-                    percent = round(currentEnergyPercent / energyDivider * 10) / 10.0
-                }
-            }
-            DispatchQueue.global(qos: .background).async {
-                userAuth.updateUserData()
-                userAuth.updateDGPData()
-            }
-        }
+        .onAppear(perform: updateCurrentPercent)
         .onTapGesture {
             hideKeyboard()
         }
@@ -152,6 +136,27 @@ struct AwardView: View {
                   message: Text(errorMessageText),
                   dismissButton: .default(Text("Ok"))
             )
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.willEnterForegroundNotification)) { _ in
+            updateCurrentPercent()
+        }
+    }
+    
+    private func updateCurrentPercent() {
+        let currentEnergyPercent = Double(userAuth.energy) / 100
+        if percent > currentEnergyPercent {
+            percent = currentEnergyPercent
+        }
+        if percent == 0 && currentEnergyPercent > 0 { // set initial percent value
+            if currentEnergyPercent > 1 {
+                percent = round(currentEnergyPercent / energyDivider)
+            } else {
+                percent = round(currentEnergyPercent / energyDivider * 10) / 10.0
+            }
+        }
+        DispatchQueue.global(qos: .background).async {
+            userAuth.updateUserData()
+            userAuth.updateDGPData()
         }
     }
     
