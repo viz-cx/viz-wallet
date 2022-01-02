@@ -10,7 +10,7 @@ import VIZ
 import CodeScanner
 
 struct AwardView: View {
-    private let viz = VIZHelper()
+    private let viz = VIZHelper.shared
     private let energyDivider = 5.0
     @EnvironmentObject private var userAuth: UserAuth
     

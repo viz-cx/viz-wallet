@@ -46,3 +46,4 @@ Dismiss = "Закрыть";
 "Signature error" = "Ошибка подписи";
 "Wrong key" = "Ошибка ключа";
 "Login too small" = "Логин слишком маленький";
+"Wrong account name" = "Ошибка имени аккаунта";

@@ -76,17 +76,26 @@ class UserAuth: ObservableObject {
     
     private(set) var showOnboarding = false
     
-    private let viz = VIZHelper()
+    private let viz = VIZHelper.shared
     
     init() {
+        let login = try? keychain.getString("login")
+        let regularKey = try? keychain.getString("regularKey")
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if !launchedBefore {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            if login == nil || login == "" {
+                demoCredentials()
+            }
+        }
         if let registrationLogin = try? keychain.getString("registrationLogin") {
             self.registrationLogin = registrationLogin
         }
         if let activeKey = try? keychain.getString("activeKey") {
             self.activeKey = activeKey
         }
-        if let login = try? keychain.getString("login"), let regularKey = try? keychain.getString("regularKey") {
-            auth(login: login, regularKey: regularKey, callback: {_ in})
+        if let login = login, let regularKey = regularKey {
+            auth(login: login, privateKey: regularKey, callback: {_ in})
             updateDGPData()
         }
     }
@@ -96,32 +105,43 @@ class UserAuth: ObservableObject {
         updateObject()
     }
     
-    func auth(login: String, regularKey: String, callback: @escaping (Error?) -> ()) {
+    func auth(login: String, privateKey: String, callback: @escaping (Error?) -> ()) {
         DispatchQueue.global(qos: .background).async { [unowned self] in
             guard login.count > 1 else {
                 callback(Errors.LoginTooSmall)
                 return
             }
             guard let account = viz.getAccount(login: login) else {
-                callback(Errors.UnknownError)
+                callback(Errors.WrongAccountName)
                 return
             }
-            var isRegularValid = false
-            for auth in account.regularAuthority.keyAuths {
-                if auth.weight >= account.regularAuthority.weightThreshold {
-                    guard let publicKey = PrivateKey(regularKey)?.createPublic() else {
-                        continue
-                    }
-                    isRegularValid = publicKey.address == auth.value.address
-                    if isRegularValid {
-                        break
-                    }
+            var isActiveValid = false
+            for auth in account.activeAuthority.keyAuths where auth.weight >= account.activeAuthority.weightThreshold {
+                guard let publicKey = PrivateKey(privateKey)?.createPublic() else {
+                    continue
+                }
+                isActiveValid = publicKey.address == auth.value.address
+                if isActiveValid {
+                    break
                 }
             }
-            if isRegularValid {
+            var isRegularValid = false
+            for auth in account.regularAuthority.keyAuths where auth.weight >= account.regularAuthority.weightThreshold {
+                guard let publicKey = PrivateKey(privateKey)?.createPublic() else {
+                    continue
+                }
+                isRegularValid = publicKey.address == auth.value.address
+                if isRegularValid {
+                    break
+                }
+            }
+            if isActiveValid {
+                self.activeKey = privateKey
+            }
+            if isActiveValid || isRegularValid {
                 updateDynamicData(account: account)
                 self.login = account.name
-                self.regularKey = regularKey
+                self.regularKey = privateKey
                 self.isLoggedIn = true
                 
                 let decoder = JSONDecoder()
@@ -161,11 +181,15 @@ class UserAuth: ObservableObject {
     }
     
     func logout() {
-        self.login = ""
-        self.regularKey = ""
-        self.activeKey = ""
-        self.isLoggedIn = false
+        login = ""
+        regularKey = ""
+        activeKey = ""
+        isLoggedIn = false
         updateObject()
+    }
+    
+    func demoCredentials() {
+        auth(login: "invite", privateKey: "5KcfoRuDfkhrLCxVcE9x51J6KN9aM9fpb78tLrvvFckxVV6FyFW", callback: {_ in})
     }
     
     func updateUserData() {

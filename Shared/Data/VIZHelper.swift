@@ -16,9 +16,11 @@ enum VIZKeyType: String {
 }
 
 struct VIZHelper {
+    static let shared = VIZHelper()
+    
     private let client: VIZ.Client
     
-    init() {
+    private init() {
         let address = UserDefaults.standard.string(forKey: "public_node") ?? ""
         self.client = VIZ.Client(address: URL(string: address)!)
     }

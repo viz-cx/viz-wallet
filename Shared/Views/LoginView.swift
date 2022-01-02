@@ -94,7 +94,7 @@ struct LoginView: View {
     
     func signIn() {
         isLoading = true
-        userAuth.auth(login: login, regularKey: regularKey) { error in
+        userAuth.auth(login: login, privateKey: regularKey) { error in
             if let error = error {
                 errorMessageText = error.localizedDescription
                 showErrorMessage = true

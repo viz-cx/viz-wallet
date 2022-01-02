@@ -12,6 +12,7 @@ enum Errors: Error, LocalizedError {
     case SignError
     case KeyValidationError
     case LoginTooSmall
+    case WrongAccountName
     
     var errorDescription: String? {
         switch self {
@@ -23,6 +24,8 @@ enum Errors: Error, LocalizedError {
             return NSLocalizedString("Wrong key", comment: "")
         case .LoginTooSmall:
             return NSLocalizedString("Login too small", comment: "")
+        case .WrongAccountName:
+            return NSLocalizedString("Wrong account name", comment: "")
         }
     }
 }

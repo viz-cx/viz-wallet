@@ -9,7 +9,7 @@ import SwiftUI
 import CodeScanner
 
 struct TransferView: View {
-    private let viz = VIZHelper()
+    private let viz = VIZHelper.shared
     @State private var confettiCounter = 0
     @State private var empty = true
     
@@ -34,7 +34,7 @@ struct TransferView: View {
                     
                     VStack(alignment: .leading, spacing: 5) {
                         Text("🧑 \("Account".localized()): \(userAuth.login)")
-                        Text("💰 \("Liquid balance".localized()): \(VIZHelper.toFormattedString( userAuth.balance))")
+                        Text("💰 \("Liquid balance".localized()): \(VIZHelper.toFormattedString(userAuth.balance))")
                             .lineLimit(1)
                             .fixedSize()
                     }

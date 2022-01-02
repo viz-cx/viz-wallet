@@ -9,7 +9,7 @@ import SwiftUI
 import VIZ
 
 struct RegistrationView: View {
-    private let viz = VIZHelper()
+    private let viz = VIZHelper.shared
     
     @EnvironmentObject private var userAuth: UserAuth
     
