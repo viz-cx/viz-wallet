@@ -132,6 +132,13 @@ struct MainView: View {
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
         
         UITabBar.appearance().barTintColor = UIColor(Color.themeTextField)
+        if #available(iOS 15.0, *) {
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = UIColor(Color.themeTextField)
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = UITabBar.appearance().standardAppearance
+        }
         UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = .clear
     }
