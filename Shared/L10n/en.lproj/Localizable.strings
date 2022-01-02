@@ -41,3 +41,8 @@ Delegates = "Delegates";
 News = "News";
 "Fetching posts..." = "Fetching posts...";
 Dismiss = "Dismiss";
+/** Errors */
+"Unknown error" = "Unknown error";
+"Signature error" = "Signature error";
+"Wrong key" = "Wrong key";
+"Login too small" = "Login too small";

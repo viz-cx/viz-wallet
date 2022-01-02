@@ -41,3 +41,8 @@ Delegates = "Делегаты";
 News = "Новости";
 "Fetching posts..." = "Получение сообщений...";
 Dismiss = "Закрыть";
+/** Errors */
+"Unknown error" = "Неизвестная ошибка";
+"Signature error" = "Ошибка подписи";
+"Wrong key" = "Ошибка ключа";
+"Login too small" = "Логин слишком маленький";
