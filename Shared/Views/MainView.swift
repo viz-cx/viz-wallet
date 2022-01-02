@@ -8,114 +8,123 @@
 import SwiftUI
 
 struct MainView: View {
-    private enum TabItem {
+    private enum TabItem: String, Equatable, CaseIterable {
+        case news
         case award
         case transfer
         case receive
-        case dao
-        case news
+//        case dao
         case settings
+        
+        var localizedName: LocalizedStringKey {
+            LocalizedStringKey(rawValue.capitalized)
+        }
     }
     
-    @State private var selectedItem: TabItem = .award
+    @State private var selectedItem: TabItem = TabItem.allCases.first!
     
     @EnvironmentObject private var userAuth: UserAuth
     @EnvironmentObject private var newsState: NewsState
     
     var body: some View {
         TabView(selection: $selectedItem, content: {
-            NavigationView {
-                AwardView()
-                    .navigationTitle("Award")
-                    .navigationBarHidden(false)
-            }
-            .tabItem {
-                if selectedItem == .award {
-                    Image(systemName: "hand.thumbsup.fill")
-                } else {
-                    Image(systemName: "hand.thumbsup")
+            ForEach(TabItem.allCases, id: \.rawValue) { value in
+                switch value {
+                case .award:
+                    NavigationView {
+                        AwardView()
+                            .navigationTitle(value.localizedName)
+                            .navigationBarHidden(false)
+                    }
+                    .tabItem {
+                        if selectedItem == value {
+                            Image(systemName: "hand.thumbsup.fill")
+                        } else {
+                            Image(systemName: "hand.thumbsup")
+                        }
+                        Text(value.localizedName)
+                    }
+                    .tag(value)
+                    .navigationViewStyle(StackNavigationViewStyle())
+                case .news:
+                    NavigationView {
+                        NewsView()
+                            .environmentObject(newsState)
+                            .navigationBarTitle(value.localizedName)
+                            .navigationBarHidden(false)
+                    }
+                    .tabItem {
+                        if selectedItem == value {
+                            Image(systemName: "newspaper.fill")
+                        } else {
+                            Image(systemName: "newspaper")
+                        }
+                        Text(value.localizedName)
+                    }
+                    .tag(value)
+                    .navigationViewStyle(StackNavigationViewStyle())
+                case .transfer:
+                    NavigationView {
+                        TransferView()
+                            .navigationTitle(value.localizedName)
+                            .navigationBarHidden(false)
+                    }
+                    .tabItem {
+                        if selectedItem == value {
+                            Image(systemName: "arrow.up.heart.fill")
+                        } else {
+                            Image(systemName: "arrow.up.heart")
+                        }
+                        Text(value.localizedName)
+                    }
+                    .tag(value)
+                    .navigationViewStyle(StackNavigationViewStyle())
+                case .receive:
+                    NavigationView {
+                        ReceiveView()
+                            .navigationTitle(value.localizedName)
+                            .navigationBarHidden(false)
+                    }
+                    .tabItem {
+                        if selectedItem == value {
+                            Image(systemName: "arrow.down.heart.fill")
+                        } else {
+                            Image(systemName: "arrow.down.heart")
+                        }
+                        Text(value.localizedName)
+                    }
+                    .tag(value)
+                    .navigationViewStyle(StackNavigationViewStyle())
+                case .settings:
+                    NavigationView {
+                        SettingsView()
+                            .navigationTitle(value.localizedName)
+                            .navigationBarHidden(true)
+                    }
+                    .tabItem {
+                        Image(systemName: "gear")
+                        Text(value.localizedName)
+                    }
+                    .tag(value)
+                    .navigationViewStyle(StackNavigationViewStyle())
+//                case .dao:
+//                    NavigationView {
+//                        DAOView()
+//                            .navigationTitle(value.localizedName)
+//                            .navigationBarHidden(false)
+//                    }
+//                    .tabItem {
+//                        if selectedItem == value {
+//                            Image(systemName: "building.columns.fill")
+//                        } else {
+//                            Image(systemName: "building.columns")
+//                        }
+//                        Text(value.localizedName)
+//                    }
+//                    .tag(value)
+//                    .navigationViewStyle(StackNavigationViewStyle())
                 }
-                Text("Award".localized())
             }
-            .tag(TabItem.award)
-            .navigationViewStyle(StackNavigationViewStyle())
-            
-            NavigationView {
-                TransferView()
-                    .navigationTitle("Transfer")
-                    .navigationBarHidden(false)
-            }
-            .tabItem {
-                if selectedItem == .transfer {
-                    Image(systemName: "arrow.up.heart.fill")
-                } else {
-                    Image(systemName: "arrow.up.heart")
-                }
-                Text("Transfer".localized())
-            }
-            .tag(TabItem.transfer)
-            .navigationViewStyle(StackNavigationViewStyle())
-            
-            NavigationView {
-                ReceiveView()
-                    .navigationTitle("Receive")
-                    .navigationBarHidden(false)
-            }
-            .tabItem {
-                if selectedItem == .receive {
-                    Image(systemName: "arrow.down.heart.fill")
-                } else {
-                    Image(systemName: "arrow.down.heart")
-                }
-                Text("Receive".localized())
-            }
-            .tag(TabItem.receive)
-            .navigationViewStyle(StackNavigationViewStyle())
-            
-            NavigationView {
-                NewsView()
-                    .environmentObject(newsState)
-                    .navigationBarTitle("News")
-                    .navigationBarHidden(false)
-            }
-            .tabItem {
-                if selectedItem == .news {
-                    Image(systemName: "newspaper.fill")
-                } else {
-                    Image(systemName: "newspaper")
-                }
-                Text("News".localized())
-            }
-            .tag(TabItem.news)
-            .navigationViewStyle(StackNavigationViewStyle())
-            
-//            NavigationView {
-//                DAOView()
-//                    .navigationTitle("DAO")
-//                    .navigationBarHidden(false)
-//            }
-//            .tabItem {
-//                if selectedItem == .dao {
-//                    Image(systemName: "building.columns.fill")
-//                } else {
-//                    Image(systemName: "building.columns")
-//                }
-//                Text("DAO".localized())
-//            }
-//            .tag(TabItem.dao)
-//            .navigationViewStyle(StackNavigationViewStyle())
-            
-            NavigationView {
-                SettingsView()
-                    .navigationTitle("Settings")
-                    .navigationBarHidden(true)
-            }
-            .tabItem {
-                Image(systemName: "gear")
-                Text("Settings".localized())
-            }
-            .tag(TabItem.settings)
-            .navigationViewStyle(StackNavigationViewStyle())
         })
         .font(.headline)
         .edgesIgnoringSafeArea(.top)
