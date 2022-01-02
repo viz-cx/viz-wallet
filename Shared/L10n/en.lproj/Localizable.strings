@@ -1,7 +1,7 @@
 "Account сreated at %@" = "Account created at %@";
 Telegram = "Telegram support chat";
 "Privacy policy" = "Privacy policy";
-"Change language" = "Change language";
+"Application settings" = "Application settings";
 Logout = "Logout";
 Error = "Error";
 /** Menu */

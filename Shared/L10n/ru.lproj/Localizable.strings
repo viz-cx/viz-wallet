@@ -1,7 +1,7 @@
 "Account сreated at %@" = "Аккаунт создан %@";
 Telegram = "Поддержка в телеграме";
 "Privacy policy" = "Политика конфиденциальности";
-"Change language" = "Сменить язык";
+"Application settings" = "Настройки приложения";
 Logout = "Выйти";
 Error = "Ошибка";
 /** Menu */

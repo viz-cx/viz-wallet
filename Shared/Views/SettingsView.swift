@@ -68,7 +68,7 @@ struct SettingsView: View {
 //                        .listRowBackground(Color.clear)
 //                        .foregroundColor(.white)
                     
-                    Label("Change language".localized(), systemImage: "gearshape.fill")
+                    Label("Application settings".localized(), systemImage: "gearshape.fill")
                         .onTapGesture {
                             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
                         }
