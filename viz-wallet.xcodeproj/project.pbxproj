@@ -301,7 +301,6 @@
 		D125936C2606193F00F3BC1A /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
-				D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */,
 				D125936D2606199700F3BC1A /* OnboardingView.swift */,
 				D17C36152606471F000B7D60 /* OnboardPageViewController.swift */,
 				D17C361C26064791000B7D60 /* OnboardPageControl.swift */,
@@ -312,6 +311,7 @@
 		D13FE9CA25F164720088D49D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D125936C2606193F00F3BC1A /* OnboardingView */,
 				D13FE9CB25F166110088D49D /* Helpers */,
 				D1F3887225E429FB00654F12 /* MainView.swift */,
 				D17C3C5625E3CBDD004771EF /* LoginView.swift */,
@@ -328,8 +328,8 @@
 		D13FE9CB25F166110088D49D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D125936C2606193F00F3BC1A /* OnboardingView */,
 				D157494B25EA29810043C95C /* ConfettiView.swift */,
+				D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */,
 				D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */,
 				D157496125EA6A9C0043C95C /* LottieView.swift */,
 				D13FE9D525F25FC60088D49D /* View+Extension.swift */,
