@@ -10,6 +10,25 @@ import Foundation
 import VIZ
 import KeychainAccess
 
+struct AccountMetadata: Codable {
+    let profile: Profile
+    
+    struct Profile: Codable {
+        let nickname: String?
+        let about: String?
+        let gender: String?
+        let avatar: String?
+        let location: String?
+        let interests: [String]?
+        let site: String?
+        let services: Services?
+        
+        struct Services: Codable {
+            let telegram: String?
+        }
+    }
+}
+
 @MainActor
 final class UserAuth: ObservableObject {
     private let keychain = Keychain(service: "cx.viz.viz-wallet")
@@ -68,9 +87,7 @@ final class UserAuth: ObservableObject {
     @Published private(set) var dgp: API.DynamicGlobalProperties? = nil
     @Published private(set) var isLoggedIn = false
     
-    @Published private(set) var accountNickname = ""
-    @Published private(set) var accountAbout = ""
-    @Published private(set) var accountAvatar = ""
+    @Published private(set) var accountMetadata: AccountMetadata? = nil
     
     @Published private(set) var showOnboarding = false
     
@@ -141,6 +158,7 @@ final class UserAuth: ObservableObject {
         
         self.login = account.name
         regularKey = privateKey
+        accountMetadata = try? parseAccountMetadata(from: account.jsonMetadata)
         isLoggedIn = true
         
         updateDynamicData(account: account)
@@ -157,6 +175,7 @@ final class UserAuth: ObservableObject {
         login = ""
         regularKey = ""
         activeKey = ""
+        accountMetadata = nil
         isLoggedIn = false
     }
     
@@ -181,6 +200,13 @@ final class UserAuth: ObservableObject {
         self.energy = account.currentEnergy
         self.effectiveVestingShares = account.effectiveVestingShares
         self.balance = account.balance.resolvedAmount
+    }
+    
+    private func parseAccountMetadata(from jsonString: String) throws -> AccountMetadata {
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            throw Errors.KeyValidationError
+        }
+        return try JSONDecoder().decode(AccountMetadata.self, from: jsonData)
     }
 }
 

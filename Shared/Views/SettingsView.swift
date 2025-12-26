@@ -10,106 +10,227 @@ import SDWebImageSwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var userAuth: UserAuth
-    @State private var activePage = ""
     
     var body: some View {
-        let isSubPageActive = Binding<Bool>(get: { self.activePage.count > 0 }, set: { _ in })
-        
-        let header = VStack {
-            HStack {
-                Spacer()
-                WebImage(url: URL(string: userAuth.accountAvatar))
-                    .resizable()
-                    .placeholder(Image("profile"))
-                    .frame(width: 200, height: 200, alignment: .center)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.white, lineWidth: 1))
-                    .shadow(radius: 10)
-                Spacer()
-            }
-            HStack {
-                Spacer()
-                VStack {
-                    Text(userAuth.accountNickname)
-                        .font(.title)
-                        .foregroundColor(.primary)
-                        .colorInvert()
-                    Text(userAuth.accountAbout)
-                        .font(.subheadline)
-                        .foregroundColor(.primary)
-                        .colorInvert()
+        ZStack {
+            backgroundGradient
+            
+            ScrollView {
+                VStack(spacing: 32) {
+                    profileHeader
+                    settingsOptions
                 }
-                Spacer()
+                .padding(.top, 32)
+                .padding(.bottom, 48)
             }
         }
-        
-        VStack {
-            List {
-                Section(header: header) {
-                    Label("Telegram".localized(), systemImage: "paperplane.circle.fill")
-                        .onTapGesture {
-                            guard let url = URL(string: "https://t.me/viz_cx") else { return }
-                            UIApplication.shared.open(url)
-                        }
-                        .listRowBackground(Color.clear)
-                        .foregroundColor(.white)
-                    
-//                Label("Privacy policy".localized(), systemImage: "lock.doc")
-//                    .onTapGesture {
-//                        activePage = "PrivacyPolicy"
-//                    }
-//                    .listRowBackground(Color.clear)
-//                    .foregroundColor(.white)
-                    
-//                    Label("Onboarding".localized(), systemImage: "building.2.crop.circle.fill")
-//                        .onTapGesture {
-//                            userAuth.showOnboarding(show: true)
-//                        }
-//                        .listRowBackground(Color.clear)
-//                        .foregroundColor(.white)
-                    
-                    Label("Application settings".localized(), systemImage: "gearshape.fill")
-                        .onTapGesture {
-                            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                        }
-                        .listRowBackground(Color.clear)
-                        .foregroundColor(.white)
-                    
-                    Label("Logout".localized(), systemImage: "person.fill")
-                        .onTapGesture {
-                            userAuth.logout()
-                        }
-                        .listRowBackground(Color.clear)
-                        .foregroundColor(.white)
-                }
-            }
-            .listStyle(InsetGroupedListStyle())
-            .fullScreenCover(isPresented: isSubPageActive, onDismiss: {
-                activePage = ""
-            }, content: {
-                VStack {
-                    switch activePage {
-                    case "PrivacyPolicy":
-                        Text("Privacy Policy")
-                    default:
-                        Text("Not supported now")
-                    }
-                    Spacer()
-                    Button("Dismiss") {
-                        self.activePage = ""
-                    }
-                }
-            })
-        }
-        .background(
-            LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
+    }
+    
+    // MARK: - Background
+    
+    private var backgroundGradient: some View {
+        LinearGradient(
+            colors: [.purple, .blue],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
         )
+        .ignoresSafeArea()
+    }
+    
+    // MARK: - Profile Header
+    
+    private var profileHeader: some View {
+        VStack(spacing: 16) {
+            profileAvatar
+            profileInfo
+        }
+        .padding(.horizontal, 24)
+    }
+    
+    @ViewBuilder
+    private var profileAvatar: some View {
+        let placeholder = Image("profile")
+            .resizable()
+            .aspectRatio(contentMode: .fill)
+            .frame(width: 120, height: 120)
+            .clipShape(Circle())
+            .overlay(
+                Circle()
+                    .stroke(
+                        LinearGradient(
+                            colors: [.white.opacity(0.8), .white.opacity(0.4)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: 3
+                    )
+            )
+            .shadow(color: .black.opacity(0.2), radius: 16, x: 0, y: 8)
+        
+        if let avatar = userAuth.accountMetadata?.profile.avatar,
+            let avatarUrl = URL(string: avatar) {
+            WebImage(url: avatarUrl)
+                .resizable()
+                .placeholder { placeholder }
+                .indicator(.activity)
+                .transition(.fade(duration: 0.3))
+                .scaledToFill()
+                .frame(width: 120, height: 120)
+                .clipShape(Circle())
+                .overlay(
+                    Circle()
+                        .stroke(
+                            LinearGradient(
+                                colors: [.white.opacity(0.8), .white.opacity(0.4)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 3
+                        )
+                )
+                .shadow(color: .black.opacity(0.2), radius: 16, x: 0, y: 8)
+        } else {
+            placeholder
+        }
+    }
+    
+    private var profileInfo: some View {
+        VStack(spacing: 8) {
+            if let nickname = userAuth.accountMetadata?.profile.nickname {
+                Text(nickname)
+                    .font(.title2.bold())
+                    .foregroundColor(.white)
+            }
+            if let about = userAuth.accountMetadata?.profile.about {
+                Text(about)
+                    .font(.subheadline)
+                    .foregroundColor(.white.opacity(0.8))
+                    .multilineTextAlignment(.center)
+                    .lineLimit(3)
+                    .padding(.horizontal, 32)
+            }
+        }
+    }
+    
+    // MARK: - Settings Options
+    
+    private var settingsOptions: some View {
+        VStack(spacing: 12) {
+            SettingsRowView(
+                title: "Telegram".localized(),
+                systemImage: "paperplane.fill",
+                iconColor: .blue
+            ) {
+                openTelegram()
+            }
+            
+            SettingsRowView(title: "Onboarding".localized(), systemImage: "building.2.crop.circle.fill", iconColor: .blue) {
+                userAuth.showOnboarding(show: true)
+            }
+            
+            SettingsRowView(title: "Privacy policy".localized(), systemImage: "lock.doc", iconColor: .gray) {
+                // TODO
+            }
+            
+            SettingsRowView(
+                title: "Application settings".localized(),
+                systemImage: "gearshape.fill",
+                iconColor: .gray
+            ) {
+                openAppSettings()
+            }
+            
+            SettingsRowView(
+                title: "Logout".localized(),
+                systemImage: "arrow.backward.circle.fill",
+                iconColor: .red,
+                isDestructive: true
+            ) {
+                userAuth.logout()
+            }
+        }
+        .padding(.horizontal, 24)
+    }
+    
+    // MARK: - Actions
+    
+    private func openTelegram() {
+        guard let url = URL(string: "https://t.me/viz_cx") else { return }
+        UIApplication.shared.open(url)
+    }
+    
+    private func openAppSettings() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        UIApplication.shared.open(url)
     }
 }
 
+// MARK: - Settings Row Component
+
+struct SettingsRowView: View {
+    let title: String
+    let systemImage: String
+    let iconColor: Color
+    var isDestructive: Bool = false
+    let action: () -> Void
+    
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: 16) {
+                iconView
+                
+                Text(title)
+                    .font(.body.weight(.medium))
+                    .foregroundColor(isDestructive ? .red : .white)
+                
+                Spacer()
+                
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundColor(.white.opacity(0.5))
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 16)
+            .background(
+                RoundedRectangle(cornerRadius: 16)
+                    .fill(.ultraThinMaterial)
+            )
+            .overlay(
+                RoundedRectangle(cornerRadius: 16)
+                    .stroke(.white.opacity(0.2), lineWidth: 1)
+            )
+        }
+        .buttonStyle(SettingsButtonStyle())
+    }
+    
+    private var iconView: some View {
+        Image(systemName: systemImage)
+            .font(.system(size: 20, weight: .semibold))
+            .foregroundColor(isDestructive ? .red : iconColor)
+            .frame(width: 32, height: 32)
+            .background(
+                Circle()
+                    .fill(isDestructive ? .red.opacity(0.15) : iconColor.opacity(0.15))
+            )
+    }
+}
+
+// MARK: - Button Style
+
+struct SettingsButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.96 : 1.0)
+            .opacity(configuration.isPressed ? 0.8 : 1.0)
+            .animation(.easeInOut(duration: 0.15), value: configuration.isPressed)
+    }
+}
+
+// MARK: - Preview
+
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView().environmentObject(UserAuth())
+        SettingsView()
+            .environmentObject(UserAuth())
     }
 }
