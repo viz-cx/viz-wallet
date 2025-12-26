@@ -10,9 +10,8 @@ import Foundation
 import VIZ
 import KeychainAccess
 
-class UserAuth: ObservableObject {
-    internal let objectWillChange = PassthroughSubject<UserAuth,Never>()
-    
+@MainActor
+final class UserAuth: ObservableObject {
     private let keychain = Keychain(service: "cx.viz.viz-wallet")
         .synchronizable(true)
     
@@ -20,7 +19,6 @@ class UserAuth: ObservableObject {
     var registrationLogin: String = "" {
         didSet {
             keychain["registrationLogin"] = registrationLogin
-            updateObject()
         }
     }
     // Random password for generate private keys
@@ -31,13 +29,13 @@ class UserAuth: ObservableObject {
             // password must be generated only once!
             let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
             let length = Int.random(in: 512...1024)
-            let randomPassword = String((0..<length).map {_ in letters.randomElement()! })
+            let randomPassword = String((0..<length).map { _ in letters.randomElement()! })
             keychain["registrationPassword"] = randomPassword
             return randomPassword
         }
     }
     
-    private(set) var login: String = "" {
+    @Published private(set) var login: String = "" {
         didSet {
             if login != "" {
                 keychain["login"] = login
@@ -46,7 +44,7 @@ class UserAuth: ObservableObject {
             }
         }
     }
-    private(set) var regularKey: String = "" {
+    @Published private(set) var regularKey: String = "" {
         didSet {
             if regularKey != "" {
                 keychain["regularKey"] = regularKey
@@ -55,7 +53,7 @@ class UserAuth: ObservableObject {
             }
         }
     }
-    private(set) var activeKey: String = "" {
+    @Published private(set) var activeKey: String = "" {
         didSet {
             if activeKey != "" {
                 keychain["activeKey"] = activeKey
@@ -64,17 +62,17 @@ class UserAuth: ObservableObject {
             }
         }
     }
-    private(set) var energy = 0
-    private(set) var effectiveVestingShares = 0.0
-    private(set) var balance = 0.0
-    private(set) var dgp: API.DynamicGlobalProperties? = nil
-    private(set) var isLoggedIn = false
+    @Published private(set) var energy = 0
+    @Published private(set) var effectiveVestingShares = 0.0
+    @Published private(set) var balance = 0.0
+    @Published private(set) var dgp: API.DynamicGlobalProperties? = nil
+    @Published private(set) var isLoggedIn = false
     
-    private(set) var accountNickname = ""
-    private(set) var accountAbout = ""
-    private(set) var accountAvatar = ""
+    @Published private(set) var accountNickname = ""
+    @Published private(set) var accountAbout = ""
+    @Published private(set) var accountAvatar = ""
     
-    private(set) var showOnboarding = false
+    @Published private(set) var showOnboarding = false
     
     private let viz = VIZHelper.shared
     
@@ -85,7 +83,9 @@ class UserAuth: ObservableObject {
         if !launchedBefore {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
             if login == nil || login == "" {
-                demoCredentials()
+                Task {
+                    await demoCredentials()
+                }
             }
         }
         if let registrationLogin = try? keychain.getString("registrationLogin") {
@@ -95,89 +95,62 @@ class UserAuth: ObservableObject {
             self.activeKey = activeKey
         }
         if let login = login, let regularKey = regularKey {
-            auth(login: login, privateKey: regularKey, callback: {_ in})
-            updateDGPData()
+            Task {
+                try? await auth(login: login, privateKey: regularKey)
+                await updateDGPData()
+            }
         }
     }
     
     func showOnboarding(show: Bool) {
         showOnboarding = show
-        updateObject()
     }
     
-    func auth(login: String, privateKey: String, callback: @escaping (Error?) -> ()) {
-        DispatchQueue.global(qos: .background).async { [unowned self] in
-            guard login.count > 1 else {
-                callback(Errors.LoginTooSmall)
-                return
-            }
-            guard let account = viz.getAccount(login: login) else {
-                callback(Errors.WrongAccountName)
-                return
-            }
-            var isActiveValid = false
-            for auth in account.activeAuthority.keyAuths where auth.weight >= account.activeAuthority.weightThreshold {
-                guard let publicKey = PrivateKey(privateKey)?.createPublic() else {
-                    continue
-                }
-                isActiveValid = publicKey.address == auth.value.address
-                if isActiveValid {
-                    break
-                }
-            }
-            var isRegularValid = false
-            for auth in account.regularAuthority.keyAuths where auth.weight >= account.regularAuthority.weightThreshold {
-                guard let publicKey = PrivateKey(privateKey)?.createPublic() else {
-                    continue
-                }
-                isRegularValid = publicKey.address == auth.value.address
-                if isRegularValid {
-                    break
-                }
-            }
-            if isActiveValid {
-                self.activeKey = privateKey
-            }
-            if isActiveValid || isRegularValid {
-                updateDynamicData(account: account)
-                self.login = account.name
-                self.regularKey = privateKey
-                self.isLoggedIn = true
-                
-                let decoder = JSONDecoder()
-                let metadata = account.jsonMetadata
-                    .replacingOccurrences(of: "sia://", with: "https://siasky.net/")
-                let json = metadata.data(using: .utf8) ?? Data()
-                let meta = try? decoder.decode(AccountMetadata.self, from: json)
-                if let nickname = meta?.profile.nickname, nickname.count > 0 {
-                    accountNickname = nickname
-                } else {
-                    accountNickname = login
-                }
-                if let about = meta?.profile.about, about.count > 0 {
-                    accountAbout = about
-                } else {
-                    let formatter1 = DateFormatter()
-                    formatter1.dateStyle = .short
-                    let created = formatter1.string(from: account.created)
-                    accountAbout = String(format: "Account сreated at %@".localized(), created)
-                }
-                accountAvatar = meta?.profile.avatar ?? ""
-                
-                callback(nil)
-                updateObject()
-            } else {
-                callback(Errors.KeyValidationError)
-                logout()
-            }
+    func auth(login: String, privateKey: String) async throws {
+        guard login.count > 1 else {
+            throw Errors.LoginTooSmall
         }
+        
+        let account = try await Task {
+            guard let account = await viz.getAccount(login: login) else {
+                throw Errors.WrongAccountName
+            }
+            return account
+        }.value
+        
+        let publicKey = PrivateKey(privateKey)?.createPublic()
+        
+        let isActiveValid = account.activeAuthority.keyAuths.contains {
+            $0.weight >= account.activeAuthority.weightThreshold &&
+            $0.value.address == publicKey?.address
+        }
+        
+        let isRegularValid = account.regularAuthority.keyAuths.contains {
+            $0.weight >= account.regularAuthority.weightThreshold &&
+            $0.value.address == publicKey?.address
+        }
+        
+        guard isActiveValid || isRegularValid else {
+            logout()
+            throw Errors.KeyValidationError
+        }
+        
+        if isActiveValid {
+            activeKey = privateKey
+        }
+        
+        self.login = account.name
+        regularKey = privateKey
+        isLoggedIn = true
+        
+        updateDynamicData(account: account)
     }
+    
     
     func changeActiveKey(key: String) {
         // TODO: verify account keyAuths
         guard VIZ.PrivateKey(key) != nil else { return }
         activeKey = key
-        updateObject()
     }
     
     func logout() {
@@ -185,24 +158,23 @@ class UserAuth: ObservableObject {
         regularKey = ""
         activeKey = ""
         isLoggedIn = false
-        updateObject()
     }
     
-    func demoCredentials() {
-        auth(login: "invite", privateKey: "5KcfoRuDfkhrLCxVcE9x51J6KN9aM9fpb78tLrvvFckxVV6FyFW", callback: {_ in})
+    func demoCredentials() async {
+        try? await auth(login: "invite", privateKey: "5KcfoRuDfkhrLCxVcE9x51J6KN9aM9fpb78tLrvvFckxVV6FyFW")
     }
     
-    func updateUserData() {
-        guard isLoggedIn, login.count > 1, let account = viz.getAccount(login: login) else {
+    func updateUserData() async {
+        guard isLoggedIn, login.count > 1 else {
             return
         }
-        updateDynamicData(account: account)
-        updateObject()
+        guard let account = await viz.getAccount(login: login) else { return }
+        self.updateDynamicData(account: account)
     }
     
-    func updateDGPData() {
-        dgp = viz.getDGP()
-        updateObject()
+    func updateDGPData() async {
+        let dgp = await viz.getDGP()
+        self.dgp = dgp
     }
     
     private func updateDynamicData(account: API.ExtendedAccount) {
@@ -210,19 +182,13 @@ class UserAuth: ObservableObject {
         self.effectiveVestingShares = account.effectiveVestingShares
         self.balance = account.balance.resolvedAmount
     }
-    
-    private func updateObject() {
-        DispatchQueue.main.async { [unowned self] in
-            self.objectWillChange.send(self)
-        }
-    }
 }
 
 fileprivate extension API.ExtendedAccount {
     var effectiveVestingShares: Double {
         return vestingShares.resolvedAmount
-            + receivedVestingShares.resolvedAmount
-            - delegatedVestingShares.resolvedAmount
+        + receivedVestingShares.resolvedAmount
+        - delegatedVestingShares.resolvedAmount
     }
     
     var currentEnergy: Int {

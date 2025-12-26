@@ -101,7 +101,10 @@ struct AwardView: View {
                 if isLoading {
                     ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
                 } else {
-                    Button(action: award) {
+                    Button(action: {
+                        Task {
+                            await award()
+                        }}) {
                         Text("Award".localized())
                             .font(.headline)
                             .foregroundColor(.white)
@@ -154,9 +157,9 @@ struct AwardView: View {
                 percent = round(currentEnergyPercent / energyDivider * 10) / 10.0
             }
         }
-        DispatchQueue.global(qos: .background).async {
-            userAuth.updateUserData()
-            userAuth.updateDGPData()
+        Task {
+            await userAuth.updateUserData()
+            await userAuth.updateDGPData()
         }
     }
     
@@ -179,7 +182,7 @@ struct AwardView: View {
         return reward
     }
     
-    func award() {
+    func award() async {
         guard receiver.count > 1 else {
             return
         }
@@ -194,24 +197,23 @@ struct AwardView: View {
             isLoading = false
             return
         }
-        viz.award(initiator: userAuth.login, regularKey: userAuth.regularKey, receiver: receiver, energy: UInt16(percent * 100), memo: memo) { error in
-            if let error = error {
-                errorMessageText = error.localizedDescription
-                showErrorMessage = true
-            } else {
-                receiver = ""
-                memo = ""
-                confettiCounter += 1
-                DispatchQueue.global(qos: .background).async {
-                    userAuth.updateUserData()
-                    userAuth.updateDGPData()
-                    updateSlider()
-                }
-                result = .success
+        do {
+            try await viz.award(initiator: userAuth.login, regularKey: userAuth.regularKey, receiver: receiver, energy: UInt16(percent * 100), memo: memo)
+            receiver = ""
+            memo = ""
+            confettiCounter += 1
+            Task {
+                await userAuth.updateUserData()
+                await  userAuth.updateDGPData()
+                updateSlider()
             }
-            notificationFeedbackGenerator.notificationOccurred(result)
-            isLoading = false
+            result = .success
+        } catch {
+            errorMessageText = error.localizedDescription
+            showErrorMessage = true
         }
+        notificationFeedbackGenerator.notificationOccurred(result)
+        isLoading = false
     }
 }
 

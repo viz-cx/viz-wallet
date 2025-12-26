@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainView: View {
     private enum TabItem: String, Equatable, CaseIterable {
-        case news
         case award
         case transfer
         case receive
@@ -24,7 +23,6 @@ struct MainView: View {
     @State private var selectedItem: TabItem = TabItem.allCases.first!
     
     @EnvironmentObject private var userAuth: UserAuth
-    @EnvironmentObject private var newsState: NewsState
     
     var body: some View {
         TabView(selection: $selectedItem, content: {
@@ -41,23 +39,6 @@ struct MainView: View {
                             Image(systemName: "hand.thumbsup.fill")
                         } else {
                             Image(systemName: "hand.thumbsup")
-                        }
-                        Text(value.localizedName)
-                    }
-                    .tag(value)
-                    .navigationViewStyle(StackNavigationViewStyle())
-                case .news:
-                    NavigationView {
-                        NewsView()
-                            .environmentObject(newsState)
-                            .navigationBarTitle(value.localizedName)
-                            .navigationBarHidden(false)
-                    }
-                    .tabItem {
-                        if selectedItem == value {
-                            Image(systemName: "newspaper.fill")
-                        } else {
-                            Image(systemName: "newspaper")
                         }
                         Text(value.localizedName)
                     }

@@ -102,7 +102,10 @@ struct TransferView: View {
                     if isLoading {
                         ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
                     } else {
-                        Button(action: transfer) {
+                        Button(action: {
+                            Task {
+                                await transfer()
+                            }}) {
                             Text("Transfer".localized())
                                 .font(.headline)
                                 .foregroundColor(.white)
@@ -130,9 +133,9 @@ struct TransferView: View {
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
         .onAppear {
-            DispatchQueue.global(qos: .background).async {
-                userAuth.updateUserData()
-                userAuth.updateDGPData()
+            Task {
+                await userAuth.updateUserData()
+                await userAuth.updateDGPData()
             }
         }
         .onTapGesture {
@@ -146,7 +149,7 @@ struct TransferView: View {
         }
     }
     
-    func transfer() {
+    func transfer() async {
         guard let amount = amount else {
             return
         }
@@ -154,25 +157,23 @@ struct TransferView: View {
         var result: UINotificationFeedbackGenerator.FeedbackType = .error
         let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
         notificationFeedbackGenerator.prepare()
-        viz.transfer(initiator: userAuth.login, activeKey: userAuth.activeKey, receiver: receiver, amount: amount, memo: memo) { (error) in
-            if let error = error {
-                errorMessageText = error.localizedDescription
-                showErrorMessage = true
-            } else {
-                receiver = ""
-                self.amount = nil
-                self.empty = true
-                memo = ""
-                confettiCounter += 1
-                DispatchQueue.global(qos: .background).async {
-                    userAuth.updateUserData()
-                }
-                result = .success
+        do {
+            try await viz.transfer(initiator: userAuth.login, activeKey: userAuth.activeKey, receiver: receiver, amount: amount, memo: memo)
+            receiver = ""
+            self.amount = nil
+            self.empty = true
+            memo = ""
+            confettiCounter += 1
+            Task {
+                await userAuth.updateUserData()
             }
-            notificationFeedbackGenerator.notificationOccurred(result)
-            isLoading = false
+            result = .success
+        } catch {
+            errorMessageText = error.localizedDescription
+            showErrorMessage = true
         }
-        
+        notificationFeedbackGenerator.notificationOccurred(result)
+        isLoading = false
     }
 }
 

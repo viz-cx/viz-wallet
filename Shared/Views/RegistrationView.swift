@@ -21,6 +21,8 @@ struct RegistrationView: View {
     @State private var errorMessageText: String = ""
     @State private var isLoading = false
     
+    @State private var registrationInfo = ""
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
@@ -49,7 +51,11 @@ struct RegistrationView: View {
                 if isLoading {
                     ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
                 } else {
-                    Button(action: registration) {
+                    Button(action: {
+                        Task {
+                            await registration()
+                        }
+                    }) {
                         Text("Sign Up".localized())
                             .font(.headline)
                             .foregroundColor(.white)
@@ -71,12 +77,16 @@ struct RegistrationView: View {
                             .bold()
                             .foregroundColor(.white)
                             .onTapGesture {
-                                copyToClipboard()
+                                Task {
+                                    await copyToClipboard()
+                                }
                             }
-                        Text(registrationText())
+                        Text(registrationInfo)
                             .foregroundColor(.white)
                             .onTapGesture {
-                                copyToClipboard()
+                                Task {
+                                    await copyToClipboard()
+                                }
                             }
                     } else {
                         Text("You can ask invite in telegram group @viz_cx".localized())
@@ -98,6 +108,11 @@ struct RegistrationView: View {
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
         )
+        .onAppear {
+            Task {
+                registrationInfo = await registrationText()
+            }
+        }
         .onTapGesture {
             hideKeyboard()
         }
@@ -109,63 +124,80 @@ struct RegistrationView: View {
         }
     }
     
-    func registration() {
+    private func registration() async {
         isLoading = true
         var result: UINotificationFeedbackGenerator.FeedbackType = .error
         let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
         notificationFeedbackGenerator.prepare()
         
         let password = userAuth.registrationPassword
-        viz.inviteRegistration(inviteSecret: code, accountName: login, password: password, callback: { error in
-            if let error = error {
-                errorMessageText = error.localizedDescription
-                showErrorMessage = true
-            } else {
-                userAuth.registrationLogin = login
-                confettiCounter += 1
-                code = ""
-                login = ""
-                result = .success
-                viz.accountUpdate(accountName: login, password: password) { (error) in
-                    if let error = error {
-                        errorMessageText = error.localizedDescription
-                        showErrorMessage = true
-                    }
-                }
-            }
-            notificationFeedbackGenerator.notificationOccurred(result)
-            isLoading = false
-        })
-    }
-    
-    func randomString(of length: Int) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var s = ""
-        for _ in 0 ..< length {
-            s.append(letters.randomElement()!)
+        do {
+            try await viz.inviteRegistration(inviteSecret: code, accountName: login, password: password)
+        } catch {
+            errorMessageText = error.localizedDescription
+            showErrorMessage = true
         }
-        return s
+        userAuth.registrationLogin = login
+        confettiCounter += 1
+        code = ""
+        login = ""
+        result = .success
+        do {
+            try await viz.accountUpdate(accountName: login, password: password)
+        } catch {
+            errorMessageText = error.localizedDescription
+            showErrorMessage = true
+            result = .error
+        }
+            
+        notificationFeedbackGenerator.notificationOccurred(result)
+        isLoading = false
     }
     
-    private func copyToClipboard() {
-        UIPasteboard.general.string = registrationText()
+    private func copyToClipboard() async {
+        UIPasteboard.general.string = await registrationText()
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
     }
     
-    private func registrationText() -> String {
+    private func registrationText() async -> String {
         do {
+            let login = userAuth.registrationLogin
+            let password = userAuth.registrationPassword
+            
+            async let regular = viz.privateKey(
+                fromAccount: login,
+                password: password,
+                type: .regular
+            )
+            async let active = viz.privateKey(
+                fromAccount: login,
+                password: password,
+                type: .active
+            )
+            async let master = viz.privateKey(
+                fromAccount: login,
+                password: password,
+                type: .master
+            )
+            async let memo = viz.privateKey(
+                fromAccount: login,
+                password: password,
+                type: .memo
+            )
+            
             return """
-            Login: \(userAuth.registrationLogin)
-            Private regular key: \(String(try viz.privateKey(fromAccount: userAuth.registrationLogin, password: userAuth.registrationPassword, type: .regular)))
-            Private active key: \(String(try viz.privateKey(fromAccount: userAuth.registrationLogin, password: userAuth.registrationPassword, type: .active)))
-            Private master key: \(String(try viz.privateKey(fromAccount: userAuth.registrationLogin, password: userAuth.registrationPassword, type: .master)))
-            Private memo key: \(String(try viz.privateKey(fromAccount: userAuth.registrationLogin, password: userAuth.registrationPassword, type: .memo)))
-            """
+        Login: \(login)
+        Private regular key: \(try await regular)
+        Private active key: \(try await active)
+        Private master key: \(try await master)
+        Private memo key: \(try await memo)
+        """
         } catch {
             return ""
         }
     }
+
 }
 
 struct RegistrationView_Previews: PreviewProvider {

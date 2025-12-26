@@ -42,7 +42,11 @@ struct LoginView: View {
                     if isLoading {
                         ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
                     } else {
-                        Button(action: signIn) {
+                        Button(action: {
+                            Task {
+                                await signIn()
+                            }
+                        }) {
                             Text("Sign In".localized())
                                 .accessibility(identifier: "signin")
                                 .font(.headline)
@@ -92,15 +96,15 @@ struct LoginView: View {
         }
     }
     
-    func signIn() {
+    func signIn() async {
         isLoading = true
-        userAuth.auth(login: login, privateKey: regularKey) { error in
-            if let error = error {
-                errorMessageText = error.localizedDescription
-                showErrorMessage = true
-            }
-            isLoading = false
+        do {
+            try await userAuth.auth(login: login, privateKey: regularKey)
+        } catch {
+            errorMessageText = error.localizedDescription
+            showErrorMessage = true
         }
+        isLoading = false
     }
 }
 

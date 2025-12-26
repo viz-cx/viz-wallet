@@ -29,7 +29,7 @@ struct DAOView: View {
     var body: some View {
         VStack {
             Picker("Sections", selection: $selectedIndex) {
-                ForEach(0 ..< sections.count) { index in
+                ForEach(0 ..< sections.count, id: \.self) { index in
                     Text(sections[index].title).tag(index)
                 }
             }

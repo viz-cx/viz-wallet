@@ -163,7 +163,7 @@ struct ConfettiContainer: View {
 }
 
 @available(iOS 14.0, macOS 11.0, watchOS 7, tvOS 14.0, *)
-struct ConfettiView: View{
+struct ConfettiView: View {
     @State var location:CGPoint = CGPoint(x: 0, y: 0)
     @State var opacity:Double = 0.0
     @StateObject var confettiConfig:ConfettiConfig

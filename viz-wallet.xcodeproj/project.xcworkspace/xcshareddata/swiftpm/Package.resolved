@@ -1,15 +1,6 @@
 {
-  "originHash" : "0cc14e1337723d9a0025ed0379a1539485d9984289006d7302323f448a002e11",
+  "originHash" : "41064a0e74163394204a84d8be0efb4c534e157dbda6bbddbdad580c120bad87",
   "pins" : [
-    {
-      "identity" : "anycodable",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Flight-School/AnyCodable.git",
-      "state" : {
-        "revision" : "862808b2070cd908cb04f9aafe7de83d35f81b05",
-        "version" : "0.6.7"
-      }
-    },
     {
       "identity" : "atributika",
       "kind" : "remoteSourceControl",
@@ -74,21 +65,21 @@
       }
     },
     {
+      "identity" : "secp256k1",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/greymass/secp256k1.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "f5babfbb95166ac3bca64b09adefc0dcda0b5c52"
+      }
+    },
+    {
       "identity" : "viz-swift-lib",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/viz-blockchain/viz-swift-lib.git",
       "state" : {
         "branch" : "master",
-        "revision" : "daee6d1f3649031d982c667e417a83b4d9d461a5"
-      }
-    },
-    {
-      "identity" : "wordpresskit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/chiliec/WordpressKit.git",
-      "state" : {
-        "branch" : "development",
-        "revision" : "a3822e055fa7010eaaecd6ab4a45cfdf23e0fec6"
+        "revision" : "aaa4d32e0c803b09918ce36c32e2cc474d0a5833"
       }
     }
   ],
