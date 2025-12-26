@@ -50,6 +50,9 @@ private struct IntermediateView: View {
 final class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         registerDefaultsFromSettingsBundle()
+        if ProcessInfo.processInfo.arguments.contains("-ui-testing") {
+            UIView.setAnimationsEnabled(false)
+        }
         return true
     }
 }
