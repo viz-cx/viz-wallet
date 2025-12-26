@@ -42,6 +42,8 @@
 		D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
 		D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
 		D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D13FE9FA25F2C9EC0088D49D /* KeychainAccess */; };
+		D149052A2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */; };
+		D149052B2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */; };
 		D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */; };
 		D14B287F25FD44BC0037B750 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */; };
 		D15447942EFD6B0600BB927C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447932EFD6B0600BB927C /* Localizable.xcstrings */; };
@@ -140,6 +142,7 @@
 		D13FE9BB25F105080088D49D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		D13FE9D525F25FC60088D49D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D13FE9E025F260120088D49D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewWithGradient.swift; sourceTree = "<group>"; };
 		D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		D15447932EFD6B0600BB927C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
@@ -298,6 +301,7 @@
 		D125936C2606193F00F3BC1A /* OnboardingView */ = {
 			isa = PBXGroup;
 			children = (
+				D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */,
 				D125936D2606199700F3BC1A /* OnboardingView.swift */,
 				D17C36152606471F000B7D60 /* OnboardPageViewController.swift */,
 				D17C361C26064791000B7D60 /* OnboardPageControl.swift */,
@@ -619,6 +623,7 @@
 				D16B48BC2619EA11009CCE54 /* CurrencyTextField.swift in Sources */,
 				D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38D25F384EE0031AA0A /* DAOView.swift in Sources */,
+				D149052B2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */,
 				D157496225EA6A9C0043C95C /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -650,6 +655,7 @@
 				D16B48BD2619EA11009CCE54 /* CurrencyTextField.swift in Sources */,
 				D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */,
+				D149052A2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */,
 				D157496325EA6A9C0043C95C /* LottieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
