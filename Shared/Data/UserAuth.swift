@@ -209,20 +209,3 @@ final class UserAuth: ObservableObject {
         return try JSONDecoder().decode(AccountMetadata.self, from: jsonData)
     }
 }
-
-fileprivate extension API.ExtendedAccount {
-    var effectiveVestingShares: Double {
-        return vestingShares.resolvedAmount
-        + receivedVestingShares.resolvedAmount
-        - delegatedVestingShares.resolvedAmount
-    }
-    
-    var currentEnergy: Int {
-        let deltaTime = Date().timeIntervalSince(lastVoteTime)
-        var e = Float64(energy) + (deltaTime * 10000 / 432000) //CHAIN_ENERGY_REGENERATION_SECONDS
-        if e > 10000 {
-            e = 10000
-        }
-        return Int(e)
-    }
-}
