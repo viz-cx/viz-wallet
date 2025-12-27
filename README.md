@@ -1,12 +1,12 @@
-# VIZ Blockchain Wallet
-
 <div align="center">
+
+# VIZ Blockchain Wallet
 
 **A modern, native iOS wallet for the VIZ blockchain**
 
 Built with Swift and SwiftUI for a seamless, secure experience
 
-[Download on TestFlight](https://testflight.apple.com/join/G1VtJ0NA) • [Report Bug](https://github.com/VIZ-Blockchain/viz-wallet-ios/issues) • [Request Feature](https://github.com/VIZ-Blockchain/viz-wallet-ios/issues)
+[Download on TestFlight](https://testflight.apple.com/join/G1VtJ0NA) • [Report Bug](https://github.com/viz-cx/viz-wallet/issues) • [Request Feature](https://github.com/viz-cx/viz-wallet/issues)
 
 </div>
 
@@ -134,8 +134,8 @@ VIZ is a decentralized blockchain designed for social interactions and digital a
 
 ### Resources
 
-- **[VIZ Website](https://viz.cx)** - Official VIZ platform
-- **[VIZ Podcast](https://podcast.viz.cx)** - Discussions and updates
+- **[VIZ Website](https://viz.cx)** - VIZ platform
+- **[VIZ Podcast](https://podcast.viz.cx)** - Podcast updates
 - **[Telegram Community](https://t.me/viz_cx)** - Join the conversation
 - **[VIZ Swift Library](https://github.com/VIZ-Blockchain/viz-swift-lib)** - SDK documentation
 
@@ -146,27 +146,10 @@ VIZ is a decentralized blockchain designed for social interactions and digital a
 This project is open source and available under the **MIT License**.
 See the [LICENSE](LICENSE) file for full details.
 
----
-
-## 🤝 Community & Support
-
-### Get Help
-
-- 💬 **[Telegram Group](https://t.me/viz_cx)** - Chat with the community
-- 🐛 **[Issue Tracker](https://github.com/viz-cx/viz-wallet/issues)** - Report bugs or request features
-
-### Stay Updated
-
-- ⭐ Star this repository to follow development
-- 👀 Watch for release notifications
-- 🔔 Enable TestFlight notifications for beta updates
-
----
-
 <div align="center">
 
 **Made with ❤️ for the VIZ community**
 
-[TestFlight](https://testflight.apple.com/join/G1VtJ0NA) • [GitHub](https://github.com/VIZ-Blockchain) • [Telegram](https://t.me/viz_cx)
+[TestFlight](https://testflight.apple.com/join/G1VtJ0NA) • [GitHub](https://github.com/viz-cx/viz-wallet) • [Telegram](https://t.me/viz_cx)
 
 </div>
