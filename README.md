@@ -1,7 +1,12 @@
+# VIZ Wallet
+
 <div align="center">
-<h1>VIZ Blockchain Wallet</h1>
 
 **A modern, native iOS wallet for the VIZ blockchain**
+
+Built with Swift and SwiftUI for a seamless, secure experience
+
+[Download on TestFlight](https://testflight.apple.com/join/G1VtJ0NA) • [Report Bug](https://github.com/viz-cx/viz-wallet/issues) • [Request Feature](https://github.com/viz-cx/viz-wallet/issues)
 
 </div>
 
