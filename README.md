@@ -1,9 +1,7 @@
 <div align="center">
-# VIZ Blockchain Wallet
+<h1>VIZ Blockchain Wallet</h1>
 
 **A modern, native iOS wallet for the VIZ blockchain**
-
-Built with Swift and SwiftUI for a seamless, secure experience
 
 </div>
 
