@@ -1,12 +1,9 @@
 <div align="center">
-
 # VIZ Blockchain Wallet
 
 **A modern, native iOS wallet for the VIZ blockchain**
 
 Built with Swift and SwiftUI for a seamless, secure experience
-
-[Download on TestFlight](https://testflight.apple.com/join/G1VtJ0NA) • [Report Bug](https://github.com/viz-cx/viz-wallet/issues) • [Request Feature](https://github.com/viz-cx/viz-wallet/issues)
 
 </div>
 
@@ -60,12 +57,6 @@ Whether you're rewarding great content, managing your digital assets, or explori
 ---
 
 ## 🚀 Get Started
-
-### TestFlight Beta
-
-Join our testing program to get early access and help improve the app:
-
-**[👉 Join TestFlight Beta](https://testflight.apple.com/join/G1VtJ0NA)**
 
 ### Requirements
 
@@ -140,11 +131,6 @@ VIZ is a decentralized blockchain designed for social interactions and digital a
 - **[VIZ Swift Library](https://github.com/VIZ-Blockchain/viz-swift-lib)** - SDK documentation
 
 ---
-
-## 📄 License
-
-This project is open source and available under the **MIT License**.
-See the [LICENSE](LICENSE) file for full details.
 
 <div align="center">
 
