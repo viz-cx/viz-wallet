@@ -14,11 +14,24 @@ Built with Swift and SwiftUI for a seamless, secure experience
 
 ## 🌟 Overview
 
-VIZ Wallet brings the power of the VIZ blockchain to your iPhone with a beautiful, intuitive interface. Manage your accounts, send awards, transfer funds, and stay connected with the VIZ community—all from a native iOS app designed with privacy and security at its core.
+VIZ Wallet brings the power of the VIZ blockchain to your iPhone with a beautiful, intuitive interface. Manage your accounts, send awards, transfer funds, and stay connected with the VIZ community — all from a native iOS app designed with privacy and security at its core.
 
 Whether you're rewarding great content, managing your digital assets, or exploring the VIZ ecosystem, this wallet provides everything you need in a clean, modern package.
 
-> 🚧 **Active Development**: This project is continuously evolving with new features and improvements. Your feedback helps shape the future of VIZ Wallet!
+---
+
+## 📸 Screenshots
+
+<p align="center">
+<img src="screenshots/iPhone 8 Plus-01Login_framed.png" width="30%" alt="Login screen" />
+<img src="screenshots/iPhone 8 Plus-02Award_framed.png" width="30%" alt="Award screen" />
+<img src="screenshots/iPhone 8 Plus-03Transfer_framed.png" width="30%" alt="Transfer screen" />
+</p>
+<p align="center">
+<img src="screenshots/iPhone 8 Plus-04Receive_framed.png" width="30%" alt="Receive screen" />
+<img src="screenshots/iPhone 8 Plus-05News_framed.png" width="30%" alt="News feed" />
+<img src="screenshots/iPhone 8 Plus-06Settings_framed.png" width="30%" alt="Settings" />
+</p>
 
 ---
 
@@ -41,21 +54,6 @@ Whether you're rewarding great content, managing your digital assets, or explori
 - Follows iOS Human Interface Guidelines
 - Dark mode support
 - Optimized for all iPhone sizes
-
----
-
-## 📸 Screenshots
-
-<p align="center">
-<img src="screenshots/iPhone 8 Plus-01Login_framed.png" width="30%" alt="Login screen" />
-<img src="screenshots/iPhone 8 Plus-02Award_framed.png" width="30%" alt="Award screen" />
-<img src="screenshots/iPhone 8 Plus-03Transfer_framed.png" width="30%" alt="Transfer screen" />
-</p>
-<p align="center">
-<img src="screenshots/iPhone 8 Plus-04Receive_framed.png" width="30%" alt="Receive screen" />
-<img src="screenshots/iPhone 8 Plus-05News_framed.png" width="30%" alt="News feed" />
-<img src="screenshots/iPhone 8 Plus-06Settings_framed.png" width="30%" alt="Settings" />
-</p>
 
 ---
 
@@ -130,7 +128,6 @@ VIZ is a decentralized blockchain designed for social interactions and digital a
 
 - **[VIZ Website](https://viz.cx)** - VIZ platform
 - **[VIZ Podcast](https://podcast.viz.cx)** - Podcast updates
-- **[Telegram Community](https://t.me/viz_cx)** - Join the conversation
 - **[VIZ Swift Library](https://github.com/VIZ-Blockchain/viz-swift-lib)** - SDK documentation
 
 ---
