@@ -29,7 +29,6 @@ struct AccountMetadata: Codable {
     }
 }
 
-@MainActor
 final class UserAuth: ObservableObject {
     private let keychain = Keychain(service: "cx.viz.viz-wallet")
         .synchronizable(true)
@@ -91,6 +90,8 @@ final class UserAuth: ObservableObject {
     
     @Published private(set) var showOnboarding = false
     
+    @Published private(set) var isLoading = false
+    
     private let viz = VIZHelper.shared
     
     init() {
@@ -124,46 +125,61 @@ final class UserAuth: ObservableObject {
     }
     
     func auth(login: String, privateKey: String) async throws {
-        guard login.count > 1 else {
-            throw Errors.LoginTooSmall
-        }
-        
-        let account = try await Task {
-            guard let account = await viz.getAccount(login: login) else {
-                throw Errors.WrongAccountName
+        try await withLoading {
+            guard login.count > 1 else {
+                throw Errors.LoginTooSmall
             }
-            return account
-        }.value
+            
+            let (account, isActiveValid) = try await self.fetchAndValidateAccount(
+                login: login,
+                privateKey: privateKey
+            )
+            
+            // We’re already on @MainActor; keep assignments here.
+            if isActiveValid {
+                self.activeKey = privateKey
+            }
+            self.login = account.name
+            self.regularKey = privateKey
+            self.accountMetadata = try? self.parseAccountMetadata(
+                from: account.jsonMetadata
+            )
+            self.isLoggedIn = true
+            self.updateDynamicData(account: account)
+        }
+    }
+
+    
+    private func fetchAndValidateAccount(
+        login: String,
+        privateKey: String
+    ) async throws -> (account: API.ExtendedAccount, isActive: Bool) {
         
-        let publicKey = PrivateKey(privateKey)?.createPublic()
-        
-        let isActiveValid = account.activeAuthority.keyAuths.contains {
-            $0.weight >= account.activeAuthority.weightThreshold &&
-            $0.value.address == publicKey?.address
+        guard let account = await viz.getAccount(login: login) else {
+            throw Errors.WrongAccountName
         }
         
-        let isRegularValid = account.regularAuthority.keyAuths.contains {
-            $0.weight >= account.regularAuthority.weightThreshold &&
-            $0.value.address == publicKey?.address
-        }
-        
-        guard isActiveValid || isRegularValid else {
-            logout()
+        guard let publicKey = PrivateKey(privateKey)?.createPublic() else {
             throw Errors.KeyValidationError
         }
         
-        if isActiveValid {
-            activeKey = privateKey
+        let isActive = account.activeAuthority.keyAuths.contains {
+            $0.weight >= account.activeAuthority.weightThreshold &&
+            $0.value.address == publicKey.address
         }
         
-        self.login = account.name
-        regularKey = privateKey
-        accountMetadata = try? parseAccountMetadata(from: account.jsonMetadata)
-        isLoggedIn = true
+        let isRegular = account.regularAuthority.keyAuths.contains {
+            $0.weight >= account.regularAuthority.weightThreshold &&
+            $0.value.address == publicKey.address
+        }
         
-        updateDynamicData(account: account)
+        guard isActive || isRegular else {
+            throw Errors.KeyValidationError
+        }
+        
+        return (account, isActive)
     }
-    
+
     
     func changeActiveKey(key: String) {
         // TODO: verify account keyAuths
@@ -184,11 +200,11 @@ final class UserAuth: ObservableObject {
     }
     
     func updateUserData() async {
-        guard isLoggedIn, login.count > 1 else {
-            return
+        await withLoading {
+            guard self.isLoggedIn, self.login.count > 1 else { return }
+            guard let account = await self.viz.getAccount(login: self.login) else { return }
+            self.updateDynamicData(account: account)
         }
-        guard let account = await viz.getAccount(login: login) else { return }
-        self.updateDynamicData(account: account)
     }
     
     func updateDGPData() async {
@@ -208,4 +224,19 @@ final class UserAuth: ObservableObject {
         }
         return try JSONDecoder().decode(AccountMetadata.self, from: jsonData)
     }
+    
+    private func withLoading<T>(
+        _ operation: @escaping () async throws -> T
+    ) async rethrows -> T {
+        isLoading = true
+        
+        defer {
+            Task { @MainActor in
+                isLoading = false
+            }
+        }
+        
+        return try await operation()
+    }
 }
+

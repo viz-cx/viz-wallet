@@ -129,7 +129,7 @@ struct SettingsView: View {
             }
             
             SettingsRowView(title: "Privacy policy".localized(), systemImage: "lock.doc", iconColor: .gray) {
-                // TODO
+                print("TODO: Show Privacy policy")
             }
             
             SettingsRowView(
@@ -144,7 +144,7 @@ struct SettingsView: View {
                 title: "Logout".localized(),
                 systemImage: "arrow.backward.circle.fill",
                 iconColor: .red,
-                isDestructive: true
+                isDestructive: true,
             ) {
                 userAuth.logout()
             }

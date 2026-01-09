@@ -133,15 +133,15 @@ struct RegistrationView: View {
         let password = userAuth.registrationPassword
         do {
             try await viz.inviteRegistration(inviteSecret: code, accountName: login, password: password)
+            userAuth.registrationLogin = login
+            confettiCounter += 1
+            code = ""
+            login = ""
+            result = .success
         } catch {
             errorMessageText = error.localizedDescription
             showErrorMessage = true
         }
-        userAuth.registrationLogin = login
-        confettiCounter += 1
-        code = ""
-        login = ""
-        result = .success
         do {
             try await viz.accountUpdate(accountName: login, password: password)
         } catch {

@@ -11,7 +11,6 @@ struct LoginView: View {
     @EnvironmentObject private var userAuth: UserAuth
     @State private var login = ""
     @State private var regularKey = ""
-    @State private var isLoading = false
     @State private var showSignUp = false
     @State private var showErrorMessage: Bool = false
     @State private var errorMessageText: String = ""
@@ -39,8 +38,8 @@ struct LoginView: View {
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                     
-                    if isLoading {
-                        ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+                    if userAuth.isLoading {
+                        ActivityIndicator(isAnimating: .constant(true), style: .large, color: .yellow)
                     } else {
                         Button(action: {
                             Task {
@@ -97,14 +96,12 @@ struct LoginView: View {
     }
     
     func signIn() async {
-        isLoading = true
         do {
             try await userAuth.auth(login: login, privateKey: regularKey)
         } catch {
             errorMessageText = error.localizedDescription
             showErrorMessage = true
         }
-        isLoading = false
     }
 }
 
