@@ -16,7 +16,10 @@ struct MainView: View {
         case settings
         
         var localizedName: LocalizedStringKey {
-            LocalizedStringKey(rawValue.capitalized)
+            if case .dao = self {
+                return LocalizedStringKey(rawValue.uppercased())
+            }
+            return LocalizedStringKey(rawValue.capitalized)
         }
     }
     
