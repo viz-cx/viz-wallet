@@ -83,7 +83,7 @@ struct AwardView: View {
                     .autocapitalization(.none)
                 
                 VStack {
-                    Slider(value: $percent, in: 1.0...100.0, step: 1, onEditingChanged: { changing in
+                    Slider(value: $percent, in: 0.01...Double(userAuth.energy) / 100.0, step: 0.01, onEditingChanged: { changing in
                         if !changing {
                             updateSlider()
                         }
