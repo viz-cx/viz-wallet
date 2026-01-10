@@ -89,6 +89,8 @@
 		D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3889A25E4F20A00654F12 /* AwardView.swift */; };
 		D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F388AD25E5269800654F12 /* VIZHelper.swift */; };
 		D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F388AD25E5269800654F12 /* VIZHelper.swift */; };
+		D1F9EE892F12520B00D18B86 /* AccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */; };
+		D1F9EE8A2F12520B00D18B86 /* AccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,6 +169,7 @@
 		D1F3887D25E42B8000654F12 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		D1F3889A25E4F20A00654F12 /* AwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardView.swift; sourceTree = "<group>"; };
 		D1F388AD25E5269800654F12 /* VIZHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIZHelper.swift; sourceTree = "<group>"; };
+		D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMetadata.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -345,6 +348,7 @@
 		D13FE9D425F25F500088D49D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */,
 				D1F3887D25E42B8000654F12 /* UserAuth.swift */,
 				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
 				D13FE9A925ED78490088D49D /* Errors.swift */,
@@ -610,6 +614,7 @@
 				D101A44925F608670031AA0A /* String+Extension.swift in Sources */,
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
 				D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */,
+				D1F9EE8A2F12520B00D18B86 /* AccountMetadata.swift in Sources */,
 				D125936E2606199700F3BC1A /* OnboardingView.swift in Sources */,
 				D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */,
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
@@ -642,6 +647,7 @@
 				D101A44A25F608670031AA0A /* String+Extension.swift in Sources */,
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
 				D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */,
+				D1F9EE892F12520B00D18B86 /* AccountMetadata.swift in Sources */,
 				D125936F2606199700F3BC1A /* OnboardingView.swift in Sources */,
 				D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */,
 				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
