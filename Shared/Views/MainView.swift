@@ -12,7 +12,7 @@ struct MainView: View {
         case award
         case transfer
         case receive
-//        case dao
+        case dao
         case settings
         
         var localizedName: LocalizedStringKey {
@@ -91,22 +91,22 @@ struct MainView: View {
                     }
                     .tag(value)
                     .navigationViewStyle(StackNavigationViewStyle())
-//                case .dao:
-//                    NavigationView {
-//                        DAOView()
-//                            .navigationTitle(value.localizedName)
-//                            .navigationBarHidden(false)
-//                    }
-//                    .tabItem {
-//                        if selectedItem == value {
-//                            Image(systemName: "building.columns.fill")
-//                        } else {
-//                            Image(systemName: "building.columns")
-//                        }
-//                        Text(value.localizedName)
-//                    }
-//                    .tag(value)
-//                    .navigationViewStyle(StackNavigationViewStyle())
+                case .dao:
+                    NavigationView {
+                        DAOView()
+                            .navigationTitle(value.localizedName)
+                            .navigationBarHidden(false)
+                    }
+                    .tabItem {
+                        if selectedItem == value {
+                            Image(systemName: "building.columns.fill")
+                        } else {
+                            Image(systemName: "building.columns")
+                        }
+                        Text(value.localizedName)
+                    }
+                    .tag(value)
+                    .navigationViewStyle(StackNavigationViewStyle())
                 }
             }
         })

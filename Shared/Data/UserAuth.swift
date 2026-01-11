@@ -188,7 +188,7 @@ final class UserAuth: ObservableObject, Sendable {
     }
     
     func updateDGPData() async {
-        let dgp = await viz.getDGP()
+        let dgp = try? await viz.getDGP()
         await MainActor.run {
             self.dgp = dgp
         }

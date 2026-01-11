@@ -10,20 +10,20 @@ import SwiftUI
 struct DAOView: View {
     
     private enum Section: Int, CaseIterable {
-        case committee = 0
-        case delegates
+        case witnesses = 0
+        case committee
         
         var title: String {
             switch self {
+            case .witnesses:
+                return "Witnesses".localized()
             case .committee:
                 return "Committee".localized()
-            case .delegates:
-                return "Delegates".localized()
             }
         }
     }
     
-    @State private var selectedIndex = Section.committee.rawValue
+    @State private var selectedIndex = Section.witnesses.rawValue
     @State private var sections = Section.allCases
     
     var body: some View {
@@ -38,12 +38,10 @@ struct DAOView: View {
             Spacer()
             
             switch sections[selectedIndex] {
+            case .witnesses:
+                WitnessesView()
             case .committee:
-                Text("Committee view")
-                    .colorInvert()
-            case .delegates:
-                Text("Delegates view")
-                    .colorInvert()
+                CommitteeView()
             }
             
             Spacer()

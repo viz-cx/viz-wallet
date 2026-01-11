@@ -46,19 +46,20 @@ actor VIZHelper {
     }
     
     func getAccount(login: String) async -> API.ExtendedAccount? {
-        let req = API.GetAccounts(names: [login])
-        let result = try? await client.send(req)
-        return result?.first
-    }
-    
-    func getDGP() async -> API.DynamicGlobalProperties? {
-        let req = API.GetDynamicGlobalProperties()
+        let req = API.GetAccount(account: login, customProtocolId: "")
         let result = try? await client.send(req)
         return result
     }
     
+    func getDGP() async throws -> API.DynamicGlobalProperties? {
+        let req = API.GetDynamicGlobalProperties()
+        return try await client.send(req)
+    }
+    
     func inviteRegistration(inviteSecret: String, accountName: String, password: String) async throws {
-        let props = try await client.send(API.GetDynamicGlobalProperties())
+        guard let props = try await getDGP() else {
+            throw Errors.UnknownError
+        }
         let expiry = props.time.addingTimeInterval(60)
         let initiator = "invite"
         let privateKey = "5KcfoRuDfkhrLCxVcE9x51J6KN9aM9fpb78tLrvvFckxVV6FyFW"
@@ -151,5 +152,125 @@ actor VIZHelper {
         }
         let trx = API.BroadcastTransaction(transaction: stx)
         let _ = try await client.send(trx)
+    }
+    
+    struct Witness: Decodable, Sendable {
+        let id: Int
+        let owner: String
+        let created: Date
+        let url: String
+        let votes: VIZ.API.Share?
+        let penaltyPercent: Int?
+        let countedVotes: VIZ.API.Share?
+        let virtualLastUpdate: VIZ.API.Share?
+        let virtualPosition: VIZ.API.Share?
+        let virtualScheduledTime: VIZ.API.Share?
+        let totalMissed: Int?
+        let lastAslot: Int?
+        let lastConfirmedBlockNum: Int?
+        let signingKey: String?
+        let props: WitnessProps?
+        let lastWork: String?
+        let runningVersion: String?
+        let hardforkVersionVote: String?
+        let hardforkTimeVote: Date?
+        
+        enum CodingKeys: String, CodingKey {
+            case id
+            case owner
+            case created
+            case url
+            case votes
+            case penaltyPercent = "penalty_percent"
+            case countedVotes = "counted_votes"
+            case virtualLastUpdate = "virtual_last_update"
+            case virtualPosition = "virtual_position"
+            case virtualScheduledTime = "virtual_scheduled_time"
+            case totalMissed = "total_missed"
+            case lastAslot = "last_aslot"
+            case lastConfirmedBlockNum = "last_confirmed_block_num"
+            case signingKey = "signing_key"
+            case props
+            case lastWork = "last_work"
+            case runningVersion = "running_version"
+            case hardforkVersionVote = "hardfork_version_vote"
+            case hardforkTimeVote = "hardfork_time_vote"
+        }
+    }
+    
+    struct WitnessProps: Decodable, Sendable {
+        let accountCreationFee: VIZ.Asset?
+        let maximumBlockSize: Int?
+        let createAccountDelegationRatio: Int?
+        let createAccountDelegationTime: Int?
+        let minDelegation: VIZ.Asset?
+        let minCurationPercent: Int?
+        let maxCurationPercent: Int?
+        let bandwidthReservePercent: Int?
+        let bandwidthReserveBelow: VIZ.Asset?
+        let flagEnergyAdditionalCost: Int?
+        let voteAccountingMinRshares: Int?
+        let committeeRequestApproveMinPercent: Int?
+        let inflationWitnessPercent: Int?
+        let inflationRatioCommitteeVsRewardFund: Int?
+        let inflationRecalcPeriod: Int?
+        let dataOperationsCostAdditionalBandwidth: Int?
+        let witnessMissPenaltyPercent: Int?
+        let witnessMissPenaltyDuration: Int?
+        let createInviteMinBalance: VIZ.Asset?
+        let committeeCreateRequestFee: VIZ.Asset?
+        let createPaidSubscriptionFee: VIZ.Asset?
+        let accountOnSaleFee: VIZ.Asset?
+        let subaccountOnSaleFee: VIZ.Asset?
+        let witnessDeclarationFee: VIZ.Asset?
+        let withdrawIntervals: Int?
+        
+        enum CodingKeys: String, CodingKey {
+            case accountCreationFee = "account_creation_fee"
+            case maximumBlockSize = "maximum_block_size"
+            case createAccountDelegationRatio = "create_account_delegation_ratio"
+            case createAccountDelegationTime = "create_account_delegation_time"
+            case minDelegation = "min_delegation"
+            case minCurationPercent = "min_curation_percent"
+            case maxCurationPercent = "max_curation_percent"
+            case bandwidthReservePercent = "bandwidth_reserve_percent"
+            case bandwidthReserveBelow = "bandwidth_reserve_below"
+            case flagEnergyAdditionalCost = "flag_energy_additional_cost"
+            case voteAccountingMinRshares = "vote_accounting_min_rshares"
+            case committeeRequestApproveMinPercent = "committee_request_approve_min_percent"
+            case inflationWitnessPercent = "inflation_witness_percent"
+            case inflationRatioCommitteeVsRewardFund = "inflation_ratio_committee_vs_reward_fund"
+            case inflationRecalcPeriod = "inflation_recalc_period"
+            case dataOperationsCostAdditionalBandwidth = "data_operations_cost_additional_bandwidth"
+            case witnessMissPenaltyPercent = "witness_miss_penalty_percent"
+            case witnessMissPenaltyDuration = "witness_miss_penalty_duration"
+            case createInviteMinBalance = "create_invite_min_balance"
+            case committeeCreateRequestFee = "committee_create_request_fee"
+            case createPaidSubscriptionFee = "create_paid_subscription_fee"
+            case accountOnSaleFee = "account_on_sale_fee"
+            case subaccountOnSaleFee = "subaccount_on_sale_fee"
+            case witnessDeclarationFee = "witness_declaration_fee"
+            case withdrawIntervals = "withdraw_intervals"
+        }
+        
+    }
+
+    
+    func getWitnessesByVote() async throws -> [Witness] {
+        struct GetWitnessesByVote: VIZ.Request {
+            typealias Response = [Witness]
+            public let method = "get_witnesses_by_vote"
+            public var params: RequestParams<AnyEncodable>? {
+                return RequestParams([AnyEncodable(self.from), AnyEncodable(self.limit)])
+            }
+            
+            public var from: String
+            public var limit: Int
+            public init(fromWitness: String = "", limit: Int = 100) {
+                self.from = fromWitness
+                self.limit = limit > 100 ? 100 : limit
+            }
+        }
+        return try await client.send(GetWitnessesByVote())
     }
 }
