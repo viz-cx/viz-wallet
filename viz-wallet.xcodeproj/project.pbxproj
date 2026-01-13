@@ -52,8 +52,6 @@
 		D15447982EFD6B0600BB927C /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */; };
 		D15458412613966600F92488 /* viz_walletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15458402613966600F92488 /* viz_walletUITests.swift */; };
 		D154585F2613979600F92488 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154585E2613979600F92488 /* SnapshotHelper.swift */; };
-		D157494C25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
-		D157494D25EA29810043C95C /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157494B25EA29810043C95C /* ConfettiView.swift */; };
 		D157495425EA69E40043C95C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D157495325EA69E40043C95C /* Lottie */; };
 		D157496225EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
 		D157496325EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
@@ -80,6 +78,7 @@
 		D17C3C3225E3B374004771EF /* VIZ in Frameworks */ = {isa = PBXBuildFile; productRef = D17C3C3125E3B374004771EF /* VIZ */; };
 		D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
 		D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
+		D1CACE922F1633D300DF9CD5 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */; };
 		D1D4166325FD31960039C99D /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = D1D4166225FD31960039C99D /* Atributika */; };
 		D1F3887325E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3887425E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
@@ -158,7 +157,6 @@
 		D15458402613966600F92488 /* viz_walletUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = viz_walletUITests.swift; sourceTree = "<group>"; };
 		D15458422613966600F92488 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D154585E2613979600F92488 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		D157494B25EA29810043C95C /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D157497E25EA78BD0043C95C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D16B489F2619BA60009CCE54 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -192,6 +190,7 @@
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
 				D157495425EA69E40043C95C /* Lottie in Frameworks */,
 				D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */,
+				D1CACE922F1633D300DF9CD5 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +243,7 @@
 				D11AF74625E239D900B29A19 /* Tests iOS */,
 				D11AF75125E239D900B29A19 /* Tests macOS */,
 				D154583F2613966600F92488 /* viz-walletUITests */,
+				D1CACE902F1633D300DF9CD5 /* Frameworks */,
 				D11AF73425E239D900B29A19 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -342,7 +342,6 @@
 		D13FE9CB25F166110088D49D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				D157494B25EA29810043C95C /* ConfettiView.swift */,
 				D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */,
 				D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */,
 				D157496125EA6A9C0043C95C /* LottieView.swift */,
@@ -391,6 +390,13 @@
 			path = Lottie;
 			sourceTree = "<group>";
 		};
+		D1CACE902F1633D300DF9CD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -414,6 +420,7 @@
 				D101A39F25F391040031AA0A /* CodeScanner */,
 				D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */,
 				D1D4166225FD31960039C99D /* Atributika */,
+				D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */,
 			);
 			productName = "viz-wallet (iOS)";
 			productReference = D11AF73325E239D900B29A19 /* viz-wallet.app */;
@@ -537,6 +544,7 @@
 				D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				D1D4166125FD31960039C99D /* XCRemoteSwiftPackageReference "Atributika" */,
+				D1CACE8F2F16322600DF9CD5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
 			projectDirPath = "";
@@ -617,7 +625,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */,
-				D157494C25EA29810043C95C /* ConfettiView.swift in Sources */,
 				D1F9EE902F1269C400D18B86 /* WitnessesView.swift in Sources */,
 				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
@@ -653,7 +660,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */,
-				D157494D25EA29810043C95C /* ConfettiView.swift in Sources */,
 				D1F9EE8F2F1269C400D18B86 /* WitnessesView.swift in Sources */,
 				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
@@ -866,7 +872,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -889,7 +895,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1184,6 +1190,14 @@
 				kind = branch;
 			};
 		};
+		D1CACE8F2F16322600DF9CD5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/simibac/ConfettiSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		D1D4166125FD31960039C99D /* XCRemoteSwiftPackageReference "Atributika" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/psharanda/Atributika.git";
@@ -1219,6 +1233,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D17C3C3025E3B374004771EF /* XCRemoteSwiftPackageReference "viz-swift-lib" */;
 			productName = VIZ;
+		};
+		D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1CACE8F2F16322600DF9CD5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
+			productName = ConfettiSwiftUI;
 		};
 		D1D4166225FD31960039C99D /* Atributika */ = {
 			isa = XCSwiftPackageProductDependency;

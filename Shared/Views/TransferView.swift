@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CodeScanner
+import ConfettiSwiftUI
 
 struct TransferView: View {
     private let viz = VIZHelper.shared
@@ -122,7 +123,7 @@ struct TransferView: View {
                         }
                     }
                     
-                    ConfettiCannon(counter: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
+                    ConfettiCannon(trigger: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
                     
                     Spacer()
                 }
