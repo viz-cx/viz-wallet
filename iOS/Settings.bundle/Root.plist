@@ -18,20 +18,12 @@
 			<key>Values</key>
 			<array>
 				<string>https://node.viz.cx</string>
-				<string>https://node.viz.plus</string>
-				<string>https://viz-node.dpos.space</string>
-				<string>https://viz.lexai.host</string>
-				<string>https://vizrpc.lexai.host</string>
-				<string>https://node.viz.media</string>
+				<string>https://api.viz.world</string>
 			</array>
 			<key>Titles</key>
 			<array>
 				<string>node.viz.cx</string>
-				<string>node.viz.plus</string>
-				<string>viz-node.dpos.space</string>
-				<string>viz.lexai.host</string>
-				<string>vizrpc.lexai.host</string>
-				<string>node.viz.media</string>
+				<string>api.viz.world</string>
 			</array>
 		</dict>
 	</array>
