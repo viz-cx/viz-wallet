@@ -134,7 +134,7 @@ final class UserAuth: ObservableObject, Sendable {
         login: String,
         privateKey: String
     ) async throws -> (account: API.ExtendedAccount, isActive: Bool) {
-        let account = await viz.getAccount(login: login)
+        let account = try await viz.getAccount(login: login)
         guard let account = account else {
             throw Errors.WrongAccountName
         }
@@ -181,7 +181,7 @@ final class UserAuth: ObservableObject, Sendable {
     func updateUserData() async {
         await withLoading {
             guard self.isLoggedIn, self.login.count > 1 else { return }
-            let account = await self.viz.getAccount(login: self.login)
+            let account = try? await self.viz.getAccount(login: self.login)
             guard let account = account else { return }
             await self.updateDynamicData(account: account)
         }

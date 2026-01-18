@@ -106,20 +106,20 @@ struct AwardView: View {
                         Task {
                             await award()
                         }}) {
-                        Text("Award".localized())
-                            .font(.headline)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(
-                                maxWidth: .infinity,
-                                minHeight: 50,
-                                maxHeight: 50,
-                                alignment: .center
-                            )
-                            .background(Color.green)
-                            .opacity(0.95)
-                            .cornerRadius(15.0)
-                    }
+                            Text("Award".localized())
+                                .font(.headline)
+                                .foregroundColor(.white)
+                                .padding()
+                                .frame(
+                                    maxWidth: .infinity,
+                                    minHeight: 50,
+                                    maxHeight: 50,
+                                    alignment: .center
+                                )
+                                .background(Color.green)
+                                .opacity(0.95)
+                                .cornerRadius(15.0)
+                        }
                 }
                 ConfettiCannon(trigger: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
                 Spacer()
@@ -204,10 +204,18 @@ struct AwardView: View {
             confettiCounter += 1
             Task {
                 await userAuth.updateUserData()
-                await  userAuth.updateDGPData()
+                await userAuth.updateDGPData()
                 updateSlider()
             }
             result = .success
+        } catch Client.Error.networkError(let message, _) where message.contains("502") {
+            let account = try? await viz.getAccount(login: receiver)
+            if account == nil {
+                errorMessageText = "There is no account with this login"
+            } else {
+                errorMessageText = message
+            }
+            showErrorMessage = true
         } catch {
             errorMessageText = error.localizedDescription
             showErrorMessage = true

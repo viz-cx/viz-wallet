@@ -45,9 +45,9 @@ actor VIZHelper {
         return key
     }
     
-    func getAccount(login: String) async -> API.ExtendedAccount? {
+    func getAccount(login: String) async throws -> API.ExtendedAccount? {
         let req = API.GetAccount(account: login, customProtocolId: "")
-        let result = try? await client.send(req)
+        let result = try await client.send(req)
         return result
     }
     
