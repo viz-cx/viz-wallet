@@ -57,6 +57,8 @@
 		D157496325EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
 		D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
 		D157498025EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
+		D15967A82F2537CD00F90A73 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15967A72F2537AF00F90A73 /* ConfettiView.swift */; };
+		D15967A92F2537CD00F90A73 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15967A72F2537AF00F90A73 /* ConfettiView.swift */; };
 		D16B48A02619BA61009CCE54 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D16B489F2619BA60009CCE54 /* Settings.bundle */; };
 		D16B48A12619BA61009CCE54 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D16B489F2619BA60009CCE54 /* Settings.bundle */; };
 		D16B48BC2619EA11009CCE54 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */; };
@@ -159,6 +161,7 @@
 		D154585E2613979600F92488 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		D157496125EA6A9C0043C95C /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		D157497E25EA78BD0043C95C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D15967A72F2537AF00F90A73 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
 		D16B489F2619BA60009CCE54 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		D17C35E426062CDB000B7D60 /* 1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 1.json; sourceTree = "<group>"; };
@@ -342,6 +345,7 @@
 		D13FE9CB25F166110088D49D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D15967A72F2537AF00F90A73 /* ConfettiView.swift */,
 				D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */,
 				D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */,
 				D157496125EA6A9C0043C95C /* LottieView.swift */,
@@ -626,6 +630,7 @@
 			files = (
 				D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */,
 				D1F9EE902F1269C400D18B86 /* WitnessesView.swift in Sources */,
+				D15967A92F2537CD00F90A73 /* ConfettiView.swift in Sources */,
 				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
@@ -661,6 +666,7 @@
 			files = (
 				D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */,
 				D1F9EE8F2F1269C400D18B86 /* WitnessesView.swift in Sources */,
+				D15967A82F2537CD00F90A73 /* ConfettiView.swift in Sources */,
 				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,

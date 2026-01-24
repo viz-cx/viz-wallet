@@ -8,7 +8,6 @@
 import SwiftUI
 import VIZ
 import CodeScanner
-import ConfettiSwiftUI
 
 struct AwardView: View {
     private let viz = VIZHelper.shared
@@ -121,9 +120,9 @@ struct AwardView: View {
                                 .cornerRadius(15.0)
                         }
                 }
-                ConfettiCannon(trigger: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
                 Spacer()
             }
+            .confetti(trigger: $confettiCounter)
             .padding([.leading, .trailing], 16.0)
         }
         .background(

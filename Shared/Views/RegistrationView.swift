@@ -7,7 +7,6 @@
 
 import SwiftUI
 import VIZ
-import ConfettiSwiftUI
 
 struct RegistrationView: View {
     private let viz = VIZHelper.shared
@@ -98,12 +97,10 @@ struct RegistrationView: View {
                             }
                     }
                 }
-                
-                ConfettiCannon(trigger: $confettiCounter, confettis: [.text("Ƶ")], colors: [.red, .orange, .green], confettiSize: 20)
-                
                 Spacer()
             }
         }
+        .confetti(trigger: $confettiCounter)
         .padding([.leading, .trailing], 16.0)
         .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
