@@ -8,26 +8,15 @@
 import SwiftUI
 import ConfettiSwiftUI
 
-struct ConfettiWrapper: View {
-    @Binding var trigger: Int
-    private let confettiSize = 20.0
+extension View {
     
-    var body: some View {
-        ConfettiCannon(
-            trigger: $trigger,
+    func confetti(trigger: Binding<Int>) -> some View {
+        confettiCannon(
+            trigger: trigger,
             num: 100,
             confettis: [.text("Ƶ")],
             colors: [.red, .orange, .green],
-            confettiSize: confettiSize
-        )
-    }
-}
-
-
-extension View {
-    func confetti(trigger: Binding<Int>) -> some View {
-        overlay(
-            ConfettiWrapper(trigger: trigger)
+            confettiSize: 20
         )
     }
 }
