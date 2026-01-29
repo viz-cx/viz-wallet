@@ -36,29 +36,17 @@ final class UserAuth: ObservableObject, Sendable {
     
     @Published private(set) var login: String = "" {
         didSet {
-            if login != "" {
-                keychain["login"] = login
-            } else {
-                keychain["login"] = nil
-            }
+            keychain["login"] = login.isEmpty ? nil : login
         }
     }
     @Published private(set) var regularKey: String = "" {
         didSet {
-            if regularKey != "" {
-                keychain["regularKey"] = regularKey
-            } else {
-                keychain["regularKey"] = nil
-            }
+            keychain["regularKey"] = regularKey.isEmpty ? nil : regularKey
         }
     }
     @Published private(set) var activeKey: String = "" {
         didSet {
-            if activeKey != "" {
-                keychain["activeKey"] = activeKey
-            } else {
-                keychain["activeKey"] = nil
-            }
+            keychain["activeKey"] = activeKey.isEmpty ? nil : activeKey
         }
     }
     @Published private(set) var energy = 0
@@ -73,23 +61,18 @@ final class UserAuth: ObservableObject, Sendable {
     private let viz = VIZHelper.shared
     
     init() {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        guard launchedBefore else {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            Task { @MainActor in
+                await self.demoCredentials()
+            }
+            return
+        }
         let login = try? keychain.getString("login")
         let regularKey = try? keychain.getString("regularKey")
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if !launchedBefore {
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-            if login == nil || login == "" {
-                Task { @MainActor in
-                    await self.demoCredentials()
-                }
-            }
-        }
-        if let registrationLogin = try? keychain.getString("registrationLogin") {
-            self.registrationLogin = registrationLogin
-        }
-        if let activeKey = try? keychain.getString("activeKey") {
-            self.activeKey = activeKey
-        }
+        self.registrationLogin = (try? keychain.getString("registrationLogin")) ?? ""
+        self.activeKey = (try? keychain.getString("activeKey")) ?? ""
         if let login = login, let regularKey = regularKey {
             Task {
                 try? await self.auth(login: login, privateKey: regularKey)
@@ -160,9 +143,11 @@ final class UserAuth: ObservableObject, Sendable {
     }
     
     
-    func changeActiveKey(key: String) {
+    func changeActiveKey(key: String) throws {
         // TODO: verify account keyAuths
-        guard VIZ.PrivateKey(key) != nil else { return }
+        guard VIZ.PrivateKey(key) != nil else {
+            throw Errors.KeyValidationError
+        }
         activeKey = key
     }
     

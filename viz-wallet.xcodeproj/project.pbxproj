@@ -46,6 +46,14 @@
 		D149052B2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */; };
 		D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */; };
 		D14B287F25FD44BC0037B750 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */; };
+		D14F5A8F2F2B591400AC2479 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A8E2F2B591100AC2479 /* TransferViewModel.swift */; };
+		D14F5A902F2B591400AC2479 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A8E2F2B591100AC2479 /* TransferViewModel.swift */; };
+		D14F5A922F2B6B6400AC2479 /* TransferFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A912F2B6B6300AC2479 /* TransferFormView.swift */; };
+		D14F5A932F2B6B6400AC2479 /* TransferFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A912F2B6B6300AC2479 /* TransferFormView.swift */; };
+		D14F5A952F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A942F2B6B6C00AC2479 /* TransferHeaderView.swift */; };
+		D14F5A962F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A942F2B6B6C00AC2479 /* TransferHeaderView.swift */; };
+		D14F5A982F2B6D5200AC2479 /* TransferActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */; };
+		D14F5A992F2B6D5200AC2479 /* TransferActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */; };
 		D15447942EFD6B0600BB927C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447932EFD6B0600BB927C /* Localizable.xcstrings */; };
 		D15447952EFD6B0600BB927C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447932EFD6B0600BB927C /* Localizable.xcstrings */; };
 		D15447972EFD6B0600BB927C /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */; };
@@ -153,6 +161,10 @@
 		D13FE9E025F260120088D49D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewWithGradient.swift; sourceTree = "<group>"; };
 		D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		D14F5A8E2F2B591100AC2479 /* TransferViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewModel.swift; sourceTree = "<group>"; };
+		D14F5A912F2B6B6300AC2479 /* TransferFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFormView.swift; sourceTree = "<group>"; };
+		D14F5A942F2B6B6C00AC2479 /* TransferHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferHeaderView.swift; sourceTree = "<group>"; };
+		D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferActionsView.swift; sourceTree = "<group>"; };
 		D15447932EFD6B0600BB927C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		D154583E2613966600F92488 /* viz-walletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "viz-walletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -326,12 +338,12 @@
 		D13FE9CA25F164720088D49D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D14F5A8D2F2B590500AC2479 /* TransferView */,
 				D125936C2606193F00F3BC1A /* OnboardingView */,
 				D13FE9CB25F166110088D49D /* Helpers */,
 				D1F3887225E429FB00654F12 /* MainView.swift */,
 				D17C3C5625E3CBDD004771EF /* LoginView.swift */,
 				D1F3889A25E4F20A00654F12 /* AwardView.swift */,
-				D13FE97C25EB7D7C0088D49D /* TransferView.swift */,
 				D157497E25EA78BD0043C95C /* SettingsView.swift */,
 				D13FE9A225EBCF790088D49D /* ReceiveView.swift */,
 				D13FE9BB25F105080088D49D /* RegistrationView.swift */,
@@ -369,6 +381,18 @@
 				D13FE9A925ED78490088D49D /* Errors.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		D14F5A8D2F2B590500AC2479 /* TransferView */ = {
+			isa = PBXGroup;
+			children = (
+				D13FE97C25EB7D7C0088D49D /* TransferView.swift */,
+				D14F5A942F2B6B6C00AC2479 /* TransferHeaderView.swift */,
+				D14F5A912F2B6B6300AC2479 /* TransferFormView.swift */,
+				D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */,
+				D14F5A8E2F2B591100AC2479 /* TransferViewModel.swift */,
+			);
+			path = TransferView;
 			sourceTree = "<group>";
 		};
 		D154583F2613966600F92488 /* viz-walletUITests */ = {
@@ -640,6 +664,7 @@
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
 				D1F9EE8D2F125FE600D18B86 /* CommitteeView.swift in Sources */,
 				D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */,
+				D14F5A982F2B6D5200AC2479 /* TransferActionsView.swift in Sources */,
 				D1F9EE8A2F12520B00D18B86 /* AccountMetadata.swift in Sources */,
 				D125936E2606199700F3BC1A /* OnboardingView.swift in Sources */,
 				D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */,
@@ -647,13 +672,16 @@
 				D17C36162606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
 				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */,
+				D14F5A902F2B591400AC2479 /* TransferViewModel.swift in Sources */,
 				D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,
 				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,
+				D14F5A932F2B6B6400AC2479 /* TransferFormView.swift in Sources */,
 				D17C361D26064791000B7D60 /* OnboardPageControl.swift in Sources */,
 				D13FE9AA25ED784A0088D49D /* Errors.swift in Sources */,
 				D16B48BC2619EA11009CCE54 /* CurrencyTextField.swift in Sources */,
 				D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38D25F384EE0031AA0A /* DAOView.swift in Sources */,
+				D14F5A952F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */,
 				D149052B2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */,
 				D1F9EE932F126A9900D18B86 /* WitnessesViewModel.swift in Sources */,
 				D157496225EA6A9C0043C95C /* LottieView.swift in Sources */,
@@ -676,6 +704,7 @@
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
 				D1F9EE8C2F125FE600D18B86 /* CommitteeView.swift in Sources */,
 				D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */,
+				D14F5A992F2B6D5200AC2479 /* TransferActionsView.swift in Sources */,
 				D1F9EE892F12520B00D18B86 /* AccountMetadata.swift in Sources */,
 				D125936F2606199700F3BC1A /* OnboardingView.swift in Sources */,
 				D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */,
@@ -683,13 +712,16 @@
 				D17C36172606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
 				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */,
+				D14F5A8F2F2B591400AC2479 /* TransferViewModel.swift in Sources */,
 				D14B287F25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,
 				D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */,
+				D14F5A922F2B6B6400AC2479 /* TransferFormView.swift in Sources */,
 				D17C361E26064791000B7D60 /* OnboardPageControl.swift in Sources */,
 				D13FE9AB25ED784A0088D49D /* Errors.swift in Sources */,
 				D16B48BD2619EA11009CCE54 /* CurrencyTextField.swift in Sources */,
 				D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */,
+				D14F5A962F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */,
 				D149052A2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */,
 				D1F9EE922F126A9900D18B86 /* WitnessesViewModel.swift in Sources */,
 				D157496325EA6A9C0043C95C /* LottieView.swift in Sources */,
@@ -878,6 +910,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VIZ;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -901,6 +935,8 @@
 				CODE_SIGN_STYLE = Automatic;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VIZ;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -932,6 +968,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VIZ;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -960,6 +998,8 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				INFOPLIST_FILE = macOS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VIZ;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",

@@ -24,7 +24,6 @@ struct MainView: View {
     }
     
     @State private var selectedItem: TabItem = TabItem.allCases.first!
-    
     @EnvironmentObject private var userAuth: UserAuth
     
     var body: some View {

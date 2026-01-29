@@ -53,7 +53,11 @@ struct ActiveKeyView: View {
     }
     
     func submitActiveKey() {
-        userAuth.changeActiveKey(key: activeKey)
+        do {
+            try userAuth.changeActiveKey(key: activeKey)
+        } catch {
+            print(error.localizedDescription) // TODO: show for user
+        }
     }
 }
 

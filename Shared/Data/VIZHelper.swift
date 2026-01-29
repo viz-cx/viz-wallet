@@ -22,7 +22,7 @@ actor VIZHelper {
     
     private init() {
         let address = UserDefaults.standard.string(forKey: "public_node") ?? "https://node.viz.cx"
-        self.client = VIZ.Client(address: URL(string: address)!)
+        client = VIZ.Client(address: URL(string: address)!)
     }
     
     static func toFormattedString(_ amount: Double) -> String {
