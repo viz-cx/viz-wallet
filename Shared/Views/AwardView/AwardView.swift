@@ -13,7 +13,7 @@ struct AwardView: View {
     @State private var isShowingScanner = false
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 
                 AwardHeaderView(userAuth: vm.userAuth)
@@ -58,7 +58,16 @@ struct AwardView: View {
             )
             .ignoresSafeArea()
         )
-        .scrollDismissesKeyboard(.interactively)
+        .simultaneousGesture(
+            TapGesture().onEnded {
+                UIApplication.shared.sendAction(
+                    #selector(UIResponder.resignFirstResponder),
+                    to: nil,
+                    from: nil,
+                    for: nil
+                )
+            }
+        )
     }
 }
 
