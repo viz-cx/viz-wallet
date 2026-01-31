@@ -1,5 +1,5 @@
 {
-  "originHash" : "53f005baa88f2cdd1c1ea9e172c607c584ef127af462a658ccba7ed684878c1b",
+  "originHash" : "bd9d3777ad0112edb6243433a59dbf1c73520cabec5031e08568b3ce334ef378",
   "pins" : [
     {
       "identity" : "atributika",
@@ -88,7 +88,7 @@
       "location" : "https://github.com/viz-blockchain/viz-swift-lib.git",
       "state" : {
         "branch" : "master",
-        "revision" : "957f8f3fe69e7b0e446354327d282ebe6fb8c280"
+        "revision" : "f892ef4d3173d448e573a8903ca21624bf90569c"
       }
     }
   ],
