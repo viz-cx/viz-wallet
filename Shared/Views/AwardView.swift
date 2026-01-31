@@ -51,27 +51,9 @@ struct AwardView: View {
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
                     
-                    Image(systemName: "qrcode.viewfinder")
-                        .font(.largeTitle)
-                        .colorInvert()
-                        .buttonStyle(PlainButtonStyle())
-                        .onTapGesture {
-                            isShowingScanner = true
-                        }
-                        .sheet(isPresented: $isShowingScanner, content: {
-                            CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: "id") { result in
-                                switch result {
-                                case .success(let str):
-                                    if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
-                                        let range = str.index(after: atSymbolIdx)..<str.endIndex
-                                        receiver = String(str[range])
-                                        isShowingScanner = false
-                                    }
-                                case .failure(let error):
-                                    print(error.localizedDescription)
-                                }
-                            }
-                        })
+                    QRScannerButton(isShowingScanner: $isShowingScanner) { receiver in
+                        self.receiver = receiver
+                    }
                 }
                 
                 TextField("Memo".localized(), text: $memo)

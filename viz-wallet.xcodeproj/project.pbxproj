@@ -54,6 +54,8 @@
 		D14F5A962F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A942F2B6B6C00AC2479 /* TransferHeaderView.swift */; };
 		D14F5A982F2B6D5200AC2479 /* TransferActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */; };
 		D14F5A992F2B6D5200AC2479 /* TransferActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */; };
+		D14F5A9B2F2E19B000AC2479 /* QRScannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A9A2F2E19AF00AC2479 /* QRScannerButton.swift */; };
+		D14F5A9C2F2E19B000AC2479 /* QRScannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A9A2F2E19AF00AC2479 /* QRScannerButton.swift */; };
 		D15447942EFD6B0600BB927C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447932EFD6B0600BB927C /* Localizable.xcstrings */; };
 		D15447952EFD6B0600BB927C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447932EFD6B0600BB927C /* Localizable.xcstrings */; };
 		D15447972EFD6B0600BB927C /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */; };
@@ -165,6 +167,7 @@
 		D14F5A912F2B6B6300AC2479 /* TransferFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferFormView.swift; sourceTree = "<group>"; };
 		D14F5A942F2B6B6C00AC2479 /* TransferHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferHeaderView.swift; sourceTree = "<group>"; };
 		D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferActionsView.swift; sourceTree = "<group>"; };
+		D14F5A9A2F2E19AF00AC2479 /* QRScannerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerButton.swift; sourceTree = "<group>"; };
 		D15447932EFD6B0600BB927C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		D154583E2613966600F92488 /* viz-walletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "viz-walletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -357,6 +360,7 @@
 		D13FE9CB25F166110088D49D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D14F5A9A2F2E19AF00AC2479 /* QRScannerButton.swift */,
 				D15967A72F2537AF00F90A73 /* ConfettiView.swift */,
 				D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */,
 				D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */,
@@ -655,6 +659,7 @@
 				D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */,
 				D1F9EE902F1269C400D18B86 /* WitnessesView.swift in Sources */,
 				D15967A92F2537CD00F90A73 /* ConfettiView.swift in Sources */,
+				D14F5A9C2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
 				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
@@ -695,6 +700,7 @@
 				D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */,
 				D1F9EE8F2F1269C400D18B86 /* WitnessesView.swift in Sources */,
 				D15967A82F2537CD00F90A73 /* ConfettiView.swift in Sources */,
+				D14F5A9B2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
 				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,

@@ -23,27 +23,9 @@ struct TransferFormView: View {
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                 
-                Image(systemName: "qrcode.viewfinder")
-                    .font(.largeTitle)
-                    .colorInvert()
-                    .buttonStyle(PlainButtonStyle())
-                    .onTapGesture {
-                        vm.isShowingScanner = true
-                    }
-                    .sheet(isPresented: $vm.isShowingScanner, content: {
-                        CodeScannerView(codeTypes: [.qr], scanMode: .oncePerCode, simulatedData: "id") { result in
-                            switch result {
-                            case .success(let str):
-                                if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
-                                    let range = str.index(after: atSymbolIdx)..<str.endIndex
-                                    vm.receiver = String(str[range])
-                                    vm.isShowingScanner = false
-                                }
-                            case .failure(let error):
-                                print(error.localizedDescription)
-                            }
-                        }
-                    })
+                QRScannerButton(isShowingScanner: $vm.isShowingScanner) { receiver in
+                    vm.receiver = receiver
+                }
             }
             
             CurrencyTextField(
