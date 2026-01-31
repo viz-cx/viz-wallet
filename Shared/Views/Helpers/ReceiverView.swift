@@ -11,11 +11,9 @@ struct ReceiverView: View {
     @Binding var isShowingScanner: Bool
     @Binding var receiver: String
     
-    let title = "Receiver".localized()
-    
     var body: some View {
         HStack {
-            TextField(title, text: $receiver)
+            TextField("Receiver".localized(), text: $receiver)
                 .padding()
                 .background(Color.themeTextField)
                 .foregroundColor(.black)

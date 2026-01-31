@@ -32,7 +32,7 @@ struct MainView: View {
                 switch value {
                 case .award:
                     NavigationView {
-                        AwardView()
+                        AwardView(vm: AwardViewModel(userAuth: userAuth))
                             .navigationTitle(value.localizedName)
                             .navigationBarHidden(false)
                     }

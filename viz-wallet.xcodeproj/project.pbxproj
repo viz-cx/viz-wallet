@@ -92,6 +92,16 @@
 		D17C3C3225E3B374004771EF /* VIZ in Frameworks */ = {isa = PBXBuildFile; productRef = D17C3C3125E3B374004771EF /* VIZ */; };
 		D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
 		D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
+		D19CB9082F2E291100E3A1DF /* AwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9072F2E291000E3A1DF /* AwardViewModel.swift */; };
+		D19CB9092F2E291100E3A1DF /* AwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9072F2E291000E3A1DF /* AwardViewModel.swift */; };
+		D19CB90B2F2E2D0000E3A1DF /* AwardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB90A2F2E2CFE00E3A1DF /* AwardHeaderView.swift */; };
+		D19CB90C2F2E2D0000E3A1DF /* AwardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB90A2F2E2CFE00E3A1DF /* AwardHeaderView.swift */; };
+		D19CB90E2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB90D2F2E2D2900E3A1DF /* AwardMemoField.swift */; };
+		D19CB90F2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB90D2F2E2D2900E3A1DF /* AwardMemoField.swift */; };
+		D19CB9112F2E2D6400E3A1DF /* AwardSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9102F2E2D6100E3A1DF /* AwardSlider.swift */; };
+		D19CB9122F2E2D6400E3A1DF /* AwardSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9102F2E2D6100E3A1DF /* AwardSlider.swift */; };
+		D19CB9142F2E2D8100E3A1DF /* AwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */; };
+		D19CB9152F2E2D8100E3A1DF /* AwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */; };
 		D1CACE922F1633D300DF9CD5 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */; };
 		D1D4166325FD31960039C99D /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = D1D4166225FD31960039C99D /* Atributika */; };
 		D1F3887325E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
@@ -190,6 +200,11 @@
 		D17C36152606471F000B7D60 /* OnboardPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPageViewController.swift; sourceTree = "<group>"; };
 		D17C361C26064791000B7D60 /* OnboardPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPageControl.swift; sourceTree = "<group>"; };
 		D17C3C5625E3CBDD004771EF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D19CB9072F2E291000E3A1DF /* AwardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardViewModel.swift; sourceTree = "<group>"; };
+		D19CB90A2F2E2CFE00E3A1DF /* AwardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardHeaderView.swift; sourceTree = "<group>"; };
+		D19CB90D2F2E2D2900E3A1DF /* AwardMemoField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardMemoField.swift; sourceTree = "<group>"; };
+		D19CB9102F2E2D6100E3A1DF /* AwardSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardSlider.swift; sourceTree = "<group>"; };
+		D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardButton.swift; sourceTree = "<group>"; };
 		D1F3887225E429FB00654F12 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		D1F3887D25E42B8000654F12 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		D1F3889A25E4F20A00654F12 /* AwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardView.swift; sourceTree = "<group>"; };
@@ -344,12 +359,12 @@
 		D13FE9CA25F164720088D49D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D19CB9062F2E28F200E3A1DF /* AwardView */,
 				D14F5A8D2F2B590500AC2479 /* TransferView */,
 				D125936C2606193F00F3BC1A /* OnboardingView */,
 				D13FE9CB25F166110088D49D /* Helpers */,
 				D1F3887225E429FB00654F12 /* MainView.swift */,
 				D17C3C5625E3CBDD004771EF /* LoginView.swift */,
-				D1F3889A25E4F20A00654F12 /* AwardView.swift */,
 				D157497E25EA78BD0043C95C /* SettingsView.swift */,
 				D13FE9A225EBCF790088D49D /* ReceiveView.swift */,
 				D13FE9BB25F105080088D49D /* RegistrationView.swift */,
@@ -424,6 +439,19 @@
 				D11BC99725FBB76800A011AA /* 39387-business-team.json */,
 			);
 			path = Lottie;
+			sourceTree = "<group>";
+		};
+		D19CB9062F2E28F200E3A1DF /* AwardView */ = {
+			isa = PBXGroup;
+			children = (
+				D1F3889A25E4F20A00654F12 /* AwardView.swift */,
+				D19CB90A2F2E2CFE00E3A1DF /* AwardHeaderView.swift */,
+				D19CB9102F2E2D6100E3A1DF /* AwardSlider.swift */,
+				D19CB90D2F2E2D2900E3A1DF /* AwardMemoField.swift */,
+				D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */,
+				D19CB9072F2E291000E3A1DF /* AwardViewModel.swift */,
+			);
+			path = AwardView;
 			sourceTree = "<group>";
 		};
 		D1CACE902F1633D300DF9CD5 /* Frameworks */ = {
@@ -667,6 +695,7 @@
 				D14F5A9C2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
 				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
+				D19CB9122F2E2D6400E3A1DF /* AwardSlider.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
 				D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */,
@@ -674,11 +703,13 @@
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
 				D1F9EE8D2F125FE600D18B86 /* CommitteeView.swift in Sources */,
 				D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */,
+				D19CB9092F2E291100E3A1DF /* AwardViewModel.swift in Sources */,
 				D14F5A982F2B6D5200AC2479 /* TransferActionsView.swift in Sources */,
 				D1F9EE8A2F12520B00D18B86 /* AccountMetadata.swift in Sources */,
 				D125936E2606199700F3BC1A /* OnboardingView.swift in Sources */,
 				D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */,
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
+				D19CB90E2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */,
 				D17C36162606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
 				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */,
@@ -692,9 +723,11 @@
 				D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38D25F384EE0031AA0A /* DAOView.swift in Sources */,
 				D14F5A952F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */,
+				D19CB90B2F2E2D0000E3A1DF /* AwardHeaderView.swift in Sources */,
 				D149052B2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */,
 				D1F9EE932F126A9900D18B86 /* WitnessesViewModel.swift in Sources */,
 				D157496225EA6A9C0043C95C /* LottieView.swift in Sources */,
+				D19CB9152F2E2D8100E3A1DF /* AwardButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +742,7 @@
 				D14F5A9B2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
 				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
+				D19CB9112F2E2D6400E3A1DF /* AwardSlider.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,
 				D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157498025EA78BD0043C95C /* SettingsView.swift in Sources */,
@@ -716,11 +750,13 @@
 				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
 				D1F9EE8C2F125FE600D18B86 /* CommitteeView.swift in Sources */,
 				D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */,
+				D19CB9082F2E291100E3A1DF /* AwardViewModel.swift in Sources */,
 				D14F5A992F2B6D5200AC2479 /* TransferActionsView.swift in Sources */,
 				D1F9EE892F12520B00D18B86 /* AccountMetadata.swift in Sources */,
 				D125936F2606199700F3BC1A /* OnboardingView.swift in Sources */,
 				D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */,
 				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
+				D19CB90F2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */,
 				D17C36172606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
 				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */,
@@ -734,9 +770,11 @@
 				D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */,
 				D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */,
 				D14F5A962F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */,
+				D19CB90C2F2E2D0000E3A1DF /* AwardHeaderView.swift in Sources */,
 				D149052A2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */,
 				D1F9EE922F126A9900D18B86 /* WitnessesViewModel.swift in Sources */,
 				D157496325EA6A9C0043C95C /* LottieView.swift in Sources */,
+				D19CB9142F2E2D8100E3A1DF /* AwardButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
