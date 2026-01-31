@@ -105,12 +105,8 @@ struct LoginView: View {
     }
 }
 
-#if DEBUG
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            LoginView().environmentObject(UserAuth())
-        }
+#Preview {
+    Group {
+        LoginView().environmentObject(UserAuth())
     }
 }
-#endif

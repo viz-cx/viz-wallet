@@ -51,20 +51,11 @@ struct TransferView: View {
     }
 }
 
-
-struct TransferView_Previews: PreviewProvider {
-    static let showActiveKeyPreview = true
-    static let auth = UserAuth()
-    
-    init() {
-        let randomKey = "5KLTkMZc3oRDAcdKeTv22sh4F2mB6rewyPDU4FENc4oYZ5DFBpe"
-        if TransferView_Previews.showActiveKeyPreview {
-            try! TransferView_Previews.auth.changeActiveKey(key: randomKey)
-        }
-    }
-    
-    static var previews: some View {
-        TransferView()
-            .environmentObject(auth)
-    }
+#Preview {
+    let showActiveKeyPreview = true
+    let auth = UserAuth()
+    let randomKey = "5KLTkMZc3oRDAcdKeTv22sh4F2mB6rewyPDU4FENc4oYZ5DFBpe"
+    try? auth.changeActiveKey(key: randomKey)
+    return TransferView()
+        .environmentObject(auth)
 }

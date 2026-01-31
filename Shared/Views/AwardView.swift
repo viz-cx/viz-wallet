@@ -194,8 +194,7 @@ struct AwardView: View {
     }
 }
 
-struct AwardView_Previews: PreviewProvider {
-    static var previews: some View {
-        AwardView().environmentObject(UserAuth())
-    }
+#Preview {
+    AwardView()
+        .environmentObject(UserAuth())
 }

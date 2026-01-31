@@ -226,11 +226,7 @@ struct SettingsButtonStyle: ButtonStyle {
     }
 }
 
-// MARK: - Preview
-
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-            .environmentObject(UserAuth())
-    }
+#Preview {
+    SettingsView()
+        .environmentObject(UserAuth())
 }

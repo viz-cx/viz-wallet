@@ -61,8 +61,6 @@ struct ActiveKeyInputView: View {
     }
 }
 
-struct ActiveKeyView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActiveKeyInputView()
-    }
+#Preview {
+    ActiveKeyInputView()
 }

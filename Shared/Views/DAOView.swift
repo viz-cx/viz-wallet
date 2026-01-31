@@ -59,8 +59,6 @@ struct DAOView: View {
     }
 }
 
-struct DAOView_Previews: PreviewProvider {
-    static var previews: some View {
-        DAOView()
-    }
+#Preview {
+    DAOView()
 }
