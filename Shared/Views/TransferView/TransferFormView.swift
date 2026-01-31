@@ -14,19 +14,7 @@ struct TransferFormView: View {
     
     var body: some View {
         VStack(spacing: 12) {
-            HStack {
-                TextField("Receiver".localized(), text: $vm.receiver)
-                    .padding()
-                    .background(Color.themeTextField)
-                    .foregroundColor(.black)
-                    .cornerRadius(20)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                
-                QRScannerButton(isShowingScanner: $vm.isShowingScanner) { receiver in
-                    vm.receiver = receiver
-                }
-            }
+            ReceiverView(isShowingScanner: $vm.isShowingScanner, receiver: $vm.receiver)
             
             CurrencyTextField(
                 "Amount".localized(),

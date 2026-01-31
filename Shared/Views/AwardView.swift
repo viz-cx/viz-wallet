@@ -42,19 +42,7 @@ struct AwardView: View {
                 .font(.headline)
                 .foregroundColor(.white)
                 
-                HStack {
-                    TextField("Receiver".localized(), text: $receiver)
-                        .padding()
-                        .background(Color.themeTextField)
-                        .foregroundColor(.black)
-                        .cornerRadius(20.0)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                    
-                    QRScannerButton(isShowingScanner: $isShowingScanner) { receiver in
-                        self.receiver = receiver
-                    }
-                }
+                ReceiverView(isShowingScanner: $isShowingScanner, receiver: $receiver)
                 
                 TextField("Memo".localized(), text: $memo)
                     .padding()
