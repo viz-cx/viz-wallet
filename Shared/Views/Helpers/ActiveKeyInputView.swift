@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ActiveKeyView: View {
+struct ActiveKeyInputView: View {
     @EnvironmentObject private var userAuth: UserAuth
     @State private var activeKey = ""
     
@@ -63,6 +63,6 @@ struct ActiveKeyView: View {
 
 struct ActiveKeyView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveKeyView()
+        ActiveKeyInputView()
     }
 }

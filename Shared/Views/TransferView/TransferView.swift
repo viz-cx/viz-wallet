@@ -15,7 +15,7 @@ struct TransferView: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 if userAuth.activeKey.isEmpty {
-                    ActiveKeyView()
+                    ActiveKeyInputView()
                 } else {
                     TransferHeaderView(auth: userAuth)
                     

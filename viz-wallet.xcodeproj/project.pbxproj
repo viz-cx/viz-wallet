@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		D101A38D25F384EE0031AA0A /* DAOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A38C25F384EE0031AA0A /* DAOView.swift */; };
 		D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A38C25F384EE0031AA0A /* DAOView.swift */; };
-		D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyView.swift */; };
-		D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyView.swift */; };
+		D101A39425F38A510031AA0A /* ActiveKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */; };
+		D101A39525F38A510031AA0A /* ActiveKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */; };
 		D101A3A025F391040031AA0A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D101A39F25F391040031AA0A /* CodeScanner */; };
 		D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */; };
 		D101A44925F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
@@ -136,7 +136,7 @@
 
 /* Begin PBXFileReference section */
 		D101A38C25F384EE0031AA0A /* DAOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOView.swift; sourceTree = "<group>"; };
-		D101A39325F38A510031AA0A /* ActiveKeyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveKeyView.swift; sourceTree = "<group>"; };
+		D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveKeyInputView.swift; sourceTree = "<group>"; };
 		D101A44825F608670031AA0A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D11AF72C25E239D600B29A19 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		D11AF72E25E239D900B29A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 				D13FE9D525F25FC60088D49D /* View+Extension.swift */,
 				D13FE9E025F260120088D49D /* Color+Extension.swift */,
 				D101A44825F608670031AA0A /* String+Extension.swift */,
-				D101A39325F38A510031AA0A /* ActiveKeyView.swift */,
+				D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */,
 				D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */,
 				D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */,
 			);
@@ -656,7 +656,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D101A39425F38A510031AA0A /* ActiveKeyView.swift in Sources */,
+				D101A39425F38A510031AA0A /* ActiveKeyInputView.swift in Sources */,
 				D1F9EE902F1269C400D18B86 /* WitnessesView.swift in Sources */,
 				D15967A92F2537CD00F90A73 /* ConfettiView.swift in Sources */,
 				D14F5A9C2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
@@ -697,7 +697,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D101A39525F38A510031AA0A /* ActiveKeyView.swift in Sources */,
+				D101A39525F38A510031AA0A /* ActiveKeyInputView.swift in Sources */,
 				D1F9EE8F2F1269C400D18B86 /* WitnessesView.swift in Sources */,
 				D15967A82F2537CD00F90A73 /* ConfettiView.swift in Sources */,
 				D14F5A9B2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
