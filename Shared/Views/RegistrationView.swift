@@ -49,7 +49,7 @@ struct RegistrationView: View {
                     .autocapitalization(.none)
                 
                 if isLoading {
-                    ActivityIndicator(isAnimating: $isLoading, style: .large, color: .yellow)
+                    ActivityIndicator(isAnimating: $isLoading)
                 } else {
                     Button(action: {
                         Task {

@@ -12,7 +12,6 @@
 		D101A39425F38A510031AA0A /* ActiveKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */; };
 		D101A39525F38A510031AA0A /* ActiveKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */; };
 		D101A3A025F391040031AA0A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D101A39F25F391040031AA0A /* CodeScanner */; };
-		D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */; };
 		D101A44925F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
 		D101A44A25F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
 		D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF74725E239D900B29A19 /* Tests_iOS.swift */; };
@@ -219,7 +218,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */,
 				D101A3A025F391040031AA0A /* CodeScanner in Frameworks */,
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
 				D157495425EA69E40043C95C /* Lottie in Frameworks */,
@@ -480,7 +478,6 @@
 				D157495325EA69E40043C95C /* Lottie */,
 				D13FE9FA25F2C9EC0088D49D /* KeychainAccess */,
 				D101A39F25F391040031AA0A /* CodeScanner */,
-				D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */,
 				D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */,
 			);
 			productName = "viz-wallet (iOS)";
@@ -603,7 +600,6 @@
 				D157495225EA69E30043C95C /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */,
-				D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 				D1CACE8F2F16322600DF9CD5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
@@ -1250,14 +1246,6 @@
 				minimumVersion = 2.5.2;
 			};
 		};
-		D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.1;
-			};
-		};
 		D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess.git";
@@ -1297,11 +1285,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
-		};
-		D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
-			productName = SDWebImageSwiftUI;
 		};
 		D13FE9FA25F2C9EC0088D49D /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;

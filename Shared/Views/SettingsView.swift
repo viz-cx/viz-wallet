@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import SDWebImageSwiftUI
 
 struct SettingsView: View {
     @EnvironmentObject private var userAuth: UserAuth
@@ -49,9 +48,13 @@ struct SettingsView: View {
     
     @ViewBuilder
     private var profileAvatar: some View {
-        let placeholder = Image("profile")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
+        if let avatar = userAuth.accountMetadata?.profile.avatar {
+            AsyncImage(url: URL(string: avatar)) { image in
+                image.resizable()
+            } placeholder: {
+                ActivityIndicator(isAnimating: .constant(true))
+            }
+            .scaledToFill()
             .frame(width: 120, height: 120)
             .clipShape(Circle())
             .overlay(
@@ -66,15 +69,10 @@ struct SettingsView: View {
                     )
             )
             .shadow(color: .black.opacity(0.2), radius: 16, x: 0, y: 8)
-        
-        if let avatar = userAuth.accountMetadata?.profile.avatar,
-            let avatarUrl = URL(string: avatar) {
-            WebImage(url: avatarUrl)
+        } else { // placeholder
+            Image("profile")
                 .resizable()
-                .placeholder { placeholder }
-                .indicator(.activity)
-                .transition(.fade(duration: 0.3))
-                .scaledToFill()
+                .aspectRatio(contentMode: .fill)
                 .frame(width: 120, height: 120)
                 .clipShape(Circle())
                 .overlay(
@@ -89,8 +87,6 @@ struct SettingsView: View {
                         )
                 )
                 .shadow(color: .black.opacity(0.2), radius: 16, x: 0, y: 8)
-        } else {
-            placeholder
         }
     }
     

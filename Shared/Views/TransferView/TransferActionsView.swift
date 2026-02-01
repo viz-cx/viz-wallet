@@ -13,11 +13,7 @@ struct TransferActionsView: View {
     
     var body: some View {
         if vm.isLoading {
-            ActivityIndicator(
-                isAnimating: $vm.isLoading,
-                style: .large,
-                color: .yellow
-            )
+            ActivityIndicator(isAnimating: $vm.isLoading)
         } else {
             Button(action: onTransfer) {
                 Text("Transfer".localized())

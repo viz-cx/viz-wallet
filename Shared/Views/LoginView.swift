@@ -39,7 +39,7 @@ struct LoginView: View {
                         .autocapitalization(.none)
                     
                     if userAuth.isLoading {
-                        ActivityIndicator(isAnimating: .constant(true), style: .large, color: .yellow)
+                        ActivityIndicator(isAnimating: .constant(true))
                     } else {
                         Button(action: {
                             Task {

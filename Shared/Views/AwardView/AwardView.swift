@@ -31,11 +31,7 @@ struct AwardView: View {
                 )
                 
                 if vm.isLoading {
-                    ActivityIndicator(
-                        isAnimating: $vm.isLoading,
-                        style: .large,
-                        color: .yellow
-                    )
+                    ActivityIndicator(isAnimating: $vm.isLoading)
                 } else {
                     AwardButton {
                         Task { await vm.award() }
