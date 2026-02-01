@@ -96,15 +96,15 @@ final class UserAuth: ObservableObject, Sendable {
                 privateKey: privateKey
             )
             
-            if isActiveValid {
-                self.activeKey = privateKey
-            }
             let metadata = try? parseAccountMetadata(
                 from: account.jsonMetadata
             )
             await MainActor.run {
                 self.login = account.name
                 self.regularKey = privateKey
+                if isActiveValid {
+                    self.activeKey = privateKey
+                }
                 self.accountMetadata = metadata
                 self.isLoggedIn = true
                 self.updateDynamicData(account: account)

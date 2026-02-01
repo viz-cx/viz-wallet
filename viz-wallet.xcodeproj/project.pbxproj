@@ -1251,7 +1251,7 @@
 			repositoryURL = "https://github.com/twostraws/CodeScanner.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.7;
+				minimumVersion = 2.5.2;
 			};
 		};
 		D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {

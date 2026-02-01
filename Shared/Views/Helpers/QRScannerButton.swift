@@ -31,12 +31,12 @@ struct QRScannerButton: View {
             }
     }
     
-    private func handle(_ result: Result<String, CodeScannerView.ScanError>) {
-        guard case .success(let str) = result,
-              str.hasPrefix("viz://"),
-              let at = str.firstIndex(of: "@")
+    private func handle(_ result: Result<ScanResult, ScanError>) {
+        guard case .success(let scan) = result,
+              scan.string.hasPrefix("viz://"),
+              let at = scan.string.firstIndex(of: "@")
         else { return }
-        onScan(String(str[str.index(after: at)...]))
+        onScan(String(scan.string[scan.string.index(after: at)...]))
         isShowingScanner = false
     }
 }
