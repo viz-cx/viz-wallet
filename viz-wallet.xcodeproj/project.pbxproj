@@ -103,7 +103,6 @@
 		D19CB9142F2E2D8100E3A1DF /* AwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */; };
 		D19CB9152F2E2D8100E3A1DF /* AwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */; };
 		D1CACE922F1633D300DF9CD5 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */; };
-		D1D4166325FD31960039C99D /* Atributika in Frameworks */ = {isa = PBXBuildFile; productRef = D1D4166225FD31960039C99D /* Atributika */; };
 		D1F3887325E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3887425E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887D25E42B8000654F12 /* UserAuth.swift */; };
@@ -221,7 +220,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D101A42A25F5088A0031AA0A /* SDWebImageSwiftUI in Frameworks */,
-				D1D4166325FD31960039C99D /* Atributika in Frameworks */,
 				D101A3A025F391040031AA0A /* CodeScanner in Frameworks */,
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
 				D157495425EA69E40043C95C /* Lottie in Frameworks */,
@@ -483,7 +481,6 @@
 				D13FE9FA25F2C9EC0088D49D /* KeychainAccess */,
 				D101A39F25F391040031AA0A /* CodeScanner */,
 				D101A42925F5088A0031AA0A /* SDWebImageSwiftUI */,
-				D1D4166225FD31960039C99D /* Atributika */,
 				D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */,
 			);
 			productName = "viz-wallet (iOS)";
@@ -607,7 +604,6 @@
 				D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				D101A42825F5088A0031AA0A /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
-				D1D4166125FD31960039C99D /* XCRemoteSwiftPackageReference "Atributika" */,
 				D1CACE8F2F16322600DF9CD5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
@@ -1294,14 +1290,6 @@
 				kind = branch;
 			};
 		};
-		D1D4166125FD31960039C99D /* XCRemoteSwiftPackageReference "Atributika" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/psharanda/Atributika.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.9.10;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1334,11 +1322,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1CACE8F2F16322600DF9CD5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */;
 			productName = ConfettiSwiftUI;
-		};
-		D1D4166225FD31960039C99D /* Atributika */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D1D4166125FD31960039C99D /* XCRemoteSwiftPackageReference "Atributika" */;
-			productName = Atributika;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
