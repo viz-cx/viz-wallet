@@ -9,19 +9,27 @@ import SwiftUI
 
 struct AwardSlider: View {
     @Binding var percent: Double
-    let reward: Double
+    let maxPercent: Double
+    let rewardProvider: () -> Double
     
     var body: some View {
-        VStack(spacing: 8) {
-            Slider(value: $percent, in: 0.01...100, step: 0.01)
+        if maxPercent >= 0.01 {
+            VStack(spacing: 8) {
+                Slider(
+                    value: $percent,
+                    in: 0.01...maxPercent,
+                    step: 0.01
+                )
                 .accentColor(.green)
-            
-            HStack {
-                Text(String(format: "%.2f %%", percent))
-                Spacer()
-                Text("≈ \(String(format: "%.3f", reward)) Ƶ")
+                
+                
+                HStack {
+                    Text(String(format: "%.2f %%", percent))
+                    Spacer()
+                    Text("≈ \(String(format: "%.3f", rewardProvider())) Ƶ")
+                }
+                .foregroundColor(.white)
             }
-            .foregroundColor(.white)
         }
     }
 }

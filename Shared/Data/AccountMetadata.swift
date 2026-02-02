@@ -24,12 +24,13 @@ struct AccountMetadata: Codable {
             let telegram: String?
         }
     }
+    
+    static func parse(from jsonString: String) throws -> AccountMetadata {
+        guard let jsonData = jsonString.data(using: .utf8) else {
+            throw Errors.KeyValidationError
+        }
+        return try JSONDecoder().decode(AccountMetadata.self, from: jsonData)
+    }
 }
 
-func parseAccountMetadata(from jsonString: String) throws -> AccountMetadata {
-    guard let jsonData = jsonString.data(using: .utf8) else {
-        throw Errors.KeyValidationError
-    }
-    return try JSONDecoder().decode(AccountMetadata.self, from: jsonData)
-}
 

@@ -11,7 +11,7 @@ import VIZ
 struct RegistrationView: View {
     private let viz = VIZHelper.shared
     
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     
     @State private var login: String = ""
     @State private var code: String = ""
@@ -71,32 +71,32 @@ struct RegistrationView: View {
                     }
                 }
                 
-                VStack(spacing: 10) {
-                    if !userAuth.registrationLogin.isEmpty {
-                        Text("Attention! Be sure to copy these keys to a safe place".localized())
-                            .bold()
-                            .foregroundColor(.white)
-                            .onTapGesture {
-                                Task {
-                                    await copyToClipboard()
-                                }
-                            }
-                        Text(registrationInfo)
-                            .foregroundColor(.white)
-                            .onTapGesture {
-                                Task {
-                                    await copyToClipboard()
-                                }
-                            }
-                    } else {
-                        Text("You can ask invite in telegram group @viz_cx".localized())
-                            .foregroundColor(.white)
-                            .onTapGesture {
-                                guard let url = URL(string: "https://t.me/viz_cx") else { return }
-                                UIApplication.shared.open(url)
-                            }
-                    }
-                }
+//                VStack(spacing: 10) {
+//                    if !userAuth.registrationLogin.isEmpty {
+//                        Text("Attention! Be sure to copy these keys to a safe place".localized())
+//                            .bold()
+//                            .foregroundColor(.white)
+//                            .onTapGesture {
+//                                Task {
+//                                    await copyToClipboard()
+//                                }
+//                            }
+//                        Text(registrationInfo)
+//                            .foregroundColor(.white)
+//                            .onTapGesture {
+//                                Task {
+//                                    await copyToClipboard()
+//                                }
+//                            }
+//                    } else {
+//                        Text("You can ask invite in telegram group @viz_cx".localized())
+//                            .foregroundColor(.white)
+//                            .onTapGesture {
+//                                guard let url = URL(string: "https://t.me/viz_cx") else { return }
+//                                UIApplication.shared.open(url)
+//                            }
+//                    }
+//                }
                 Spacer()
             }
         }
@@ -123,33 +123,33 @@ struct RegistrationView: View {
     }
     
     private func registration() async {
-        isLoading = true
-        var result: UINotificationFeedbackGenerator.FeedbackType = .error
-        let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
-        notificationFeedbackGenerator.prepare()
-        
-        let password = userAuth.registrationPassword
-        do {
-            try await viz.inviteRegistration(inviteSecret: code, accountName: login, password: password)
-            userAuth.registrationLogin = login
-            confettiCounter += 1
-            code = ""
-            login = ""
-            result = .success
-        } catch {
-            errorMessageText = error.localizedDescription
-            showErrorMessage = true
-        }
-        do {
-            try await viz.accountUpdate(accountName: login, password: password)
-        } catch {
-            errorMessageText = error.localizedDescription
-            showErrorMessage = true
-            result = .error
-        }
-            
-        notificationFeedbackGenerator.notificationOccurred(result)
-        isLoading = false
+//        isLoading = true
+//        var result: UINotificationFeedbackGenerator.FeedbackType = .error
+//        let notificationFeedbackGenerator = UINotificationFeedbackGenerator()
+//        notificationFeedbackGenerator.prepare()
+//        
+//        let password = userAuth.registrationPassword
+//        do {
+//            try await viz.inviteRegistration(inviteSecret: code, accountName: login, password: password)
+//            userAuth.registrationLogin = login
+//            confettiCounter += 1
+//            code = ""
+//            login = ""
+//            result = .success
+//        } catch {
+//            errorMessageText = error.localizedDescription
+//            showErrorMessage = true
+//        }
+//        do {
+//            try await viz.accountUpdate(accountName: login, password: password)
+//        } catch {
+//            errorMessageText = error.localizedDescription
+//            showErrorMessage = true
+//            result = .error
+//        }
+//            
+//        notificationFeedbackGenerator.notificationOccurred(result)
+//        isLoading = false
     }
     
     private func copyToClipboard() async {
@@ -160,8 +160,8 @@ struct RegistrationView: View {
     
     private func registrationText() async -> String {
         do {
-            let login = userAuth.registrationLogin
-            let password = userAuth.registrationPassword
+            let login = ""//userAuth.registrationLogin
+            let password = ""// userAuth.registrationPassword
             
             async let regular = viz.privateKey(
                 fromAccount: login,

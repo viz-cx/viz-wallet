@@ -14,6 +14,10 @@
 		D101A3A025F391040031AA0A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D101A39F25F391040031AA0A /* CodeScanner */; };
 		D101A44925F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
 		D101A44A25F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
+		D1194F342F2FC4AB001B1853 /* UserAuthActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1194F332F2FC4AA001B1853 /* UserAuthActor.swift */; };
+		D1194F352F2FC4AB001B1853 /* UserAuthActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1194F332F2FC4AA001B1853 /* UserAuthActor.swift */; };
+		D1194F372F2FC500001B1853 /* UserAuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1194F362F2FC4FF001B1853 /* UserAuthStore.swift */; };
+		D1194F382F2FC500001B1853 /* UserAuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1194F362F2FC4FF001B1853 /* UserAuthStore.swift */; };
 		D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF74725E239D900B29A19 /* Tests_iOS.swift */; };
 		D11AF75325E239D900B29A19 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF75225E239D900B29A19 /* Tests_macOS.swift */; };
 		D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
@@ -104,8 +108,6 @@
 		D1CACE922F1633D300DF9CD5 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */; };
 		D1F3887325E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3887425E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
-		D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887D25E42B8000654F12 /* UserAuth.swift */; };
-		D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887D25E42B8000654F12 /* UserAuth.swift */; };
 		D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3889A25E4F20A00654F12 /* AwardView.swift */; };
 		D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3889A25E4F20A00654F12 /* AwardView.swift */; };
 		D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F388AD25E5269800654F12 /* VIZHelper.swift */; };
@@ -148,6 +150,8 @@
 		D101A38C25F384EE0031AA0A /* DAOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOView.swift; sourceTree = "<group>"; };
 		D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveKeyInputView.swift; sourceTree = "<group>"; };
 		D101A44825F608670031AA0A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D1194F332F2FC4AA001B1853 /* UserAuthActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthActor.swift; sourceTree = "<group>"; };
+		D1194F362F2FC4FF001B1853 /* UserAuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthStore.swift; sourceTree = "<group>"; };
 		D11AF72C25E239D600B29A19 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		D11AF72E25E239D900B29A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11AF73325E239D900B29A19 /* viz-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viz-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,7 +208,6 @@
 		D19CB9102F2E2D6100E3A1DF /* AwardSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardSlider.swift; sourceTree = "<group>"; };
 		D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardButton.swift; sourceTree = "<group>"; };
 		D1F3887225E429FB00654F12 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		D1F3887D25E42B8000654F12 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		D1F3889A25E4F20A00654F12 /* AwardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardView.swift; sourceTree = "<group>"; };
 		D1F388AD25E5269800654F12 /* VIZHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIZHelper.swift; sourceTree = "<group>"; };
 		D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountMetadata.swift; sourceTree = "<group>"; };
@@ -264,6 +267,15 @@
 				D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */,
 			);
 			path = L10n;
+			sourceTree = "<group>";
+		};
+		D1194F322F2FC480001B1853 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				D1194F362F2FC4FF001B1853 /* UserAuthStore.swift */,
+				D1194F332F2FC4AA001B1853 /* UserAuthActor.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		D11AF72625E239D600B29A19 = {
@@ -393,9 +405,9 @@
 		D13FE9D425F25F500088D49D /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				D1194F322F2FC480001B1853 /* Auth */,
 				D1F9EE912F126A8E00D18B86 /* WitnessesViewModel.swift */,
 				D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */,
-				D1F3887D25E42B8000654F12 /* UserAuth.swift */,
 				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
 				D13FE9A925ED78490088D49D /* Errors.swift */,
 			);
@@ -687,6 +699,8 @@
 				D14F5A9C2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
 				D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */,
+				D1194F342F2FC4AB001B1853 /* UserAuthActor.swift in Sources */,
+				D1194F372F2FC500001B1853 /* UserAuthStore.swift in Sources */,
 				D19CB9122F2E2D6400E3A1DF /* AwardSlider.swift in Sources */,
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
 				D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
@@ -703,7 +717,6 @@
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D19CB90E2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */,
 				D17C36162606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
-				D1F3887E25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */,
 				D14F5A902F2B591400AC2479 /* TransferViewModel.swift in Sources */,
 				D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,
@@ -734,6 +747,8 @@
 				D14F5A9B2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
 				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
 				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
+				D1194F352F2FC4AB001B1853 /* UserAuthActor.swift in Sources */,
+				D1194F382F2FC500001B1853 /* UserAuthStore.swift in Sources */,
 				D19CB9112F2E2D6400E3A1DF /* AwardSlider.swift in Sources */,
 				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,
 				D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
@@ -750,7 +765,6 @@
 				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D19CB90F2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */,
 				D17C36172606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
-				D1F3887F25E42B8000654F12 /* UserAuth.swift in Sources */,
 				D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */,
 				D14F5A8F2F2B591400AC2479 /* TransferViewModel.swift in Sources */,
 				D14B287F25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,

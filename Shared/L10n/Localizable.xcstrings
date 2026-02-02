@@ -157,7 +157,7 @@
       }
     },
     "Attention! Be sure to copy these keys to a safe place" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -710,7 +710,7 @@
       }
     },
     "You can ask invite in telegram group @viz_cx" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {

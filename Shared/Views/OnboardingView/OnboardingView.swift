@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     
     private struct Page: Hashable {
         let title: String
@@ -217,5 +217,5 @@ struct OnboardingView: View {
 
 #Preview {
     OnboardingView()
-        .environmentObject(UserAuth())
+        .environmentObject(UserAuthStore())
 }

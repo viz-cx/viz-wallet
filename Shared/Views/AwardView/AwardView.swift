@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AwardView: View {
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     @StateObject var vm: AwardViewModel
     @State private var isShowingScanner = false
     
@@ -27,7 +27,8 @@ struct AwardView: View {
                 
                 AwardSlider(
                     percent: $vm.percent,
-                    reward: vm.rewardEstimate
+                    maxPercent: vm.currentEnergyPercent,
+                    rewardProvider: { vm.rewardEstimate }
                 )
                 
                 if vm.isLoading {
@@ -69,7 +70,7 @@ struct AwardView: View {
 
 
 #Preview {
-    let userAuth = UserAuth()
+    let userAuth = UserAuthStore()
     AwardView(vm: AwardViewModel(userAuth: userAuth))
         .environmentObject(userAuth)
 }

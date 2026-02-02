@@ -25,7 +25,7 @@ final class TransferViewModel: ObservableObject {
     
     func transfer(
         viz: VIZHelper,
-        auth: UserAuth
+        auth: UserAuthStore
     ) async {
         guard let amount else { return }
         
@@ -33,13 +33,7 @@ final class TransferViewModel: ObservableObject {
         defer { isLoading = false }
         
         do {
-            try await viz.transfer(
-                initiator: auth.login,
-                activeKey: auth.activeKey,
-                receiver: receiver,
-                amount: amount,
-                memo: memo
-            )
+            try await auth.makeTransfer(receiver: receiver, amount: amount, memo: memo)
             
             receiver = ""
             self.amount = nil
@@ -47,6 +41,7 @@ final class TransferViewModel: ObservableObject {
             confetti += 1
             
             await auth.updateUserData()
+            await auth.updateDGPData()
         } catch {
             errorText = error.localizedDescription
             showError = true

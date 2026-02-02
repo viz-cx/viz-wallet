@@ -13,7 +13,7 @@ struct ReceiveView: View {
     private let context = CIContext()
     private let filter = CIFilter.qrCodeGenerator()
     
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     
     var body: some View {
         GeometryReader { geometry in
@@ -85,5 +85,5 @@ struct ReceiveView: View {
 
 #Preview {
     ReceiveView()
-        .environmentObject(UserAuth())
+        .environmentObject(UserAuthStore())
 }

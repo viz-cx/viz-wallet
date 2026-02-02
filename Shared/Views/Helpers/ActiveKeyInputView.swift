@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ActiveKeyInputView: View {
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     @State private var activeKey = ""
     
     var body: some View {
@@ -31,7 +31,15 @@ struct ActiveKeyInputView: View {
                 .disableAutocorrection(true)
                 .autocapitalization(.none)
             
-            Button(action: submitActiveKey) {
+                Button(action: {
+                    Task {
+                        do {
+                            try await userAuth.changeActiveKey(key: activeKey)
+                        } catch {
+                            print(error.localizedDescription) // TODO: show for user
+                        }
+                    }
+                }, label: {
                 Text("Save".localized())
                     .accessibility(identifier: "save")
                     .font(.headline)
@@ -46,17 +54,9 @@ struct ActiveKeyInputView: View {
                     .background(Color.green)
                     .opacity(0.95)
                     .cornerRadius(15.0)
-            }
+            })
             
             Spacer()
-        }
-    }
-    
-    func submitActiveKey() {
-        do {
-            try userAuth.changeActiveKey(key: activeKey)
-        } catch {
-            print(error.localizedDescription) // TODO: show for user
         }
     }
 }

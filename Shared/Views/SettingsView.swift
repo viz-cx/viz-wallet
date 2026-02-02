@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     
     var body: some View {
         ZStack {
@@ -224,5 +224,5 @@ struct SettingsButtonStyle: ButtonStyle {
 
 #Preview {
     SettingsView()
-        .environmentObject(UserAuth())
+        .environmentObject(UserAuthStore())
 }

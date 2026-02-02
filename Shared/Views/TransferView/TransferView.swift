@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct TransferView: View {
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     @StateObject private var vm = TransferViewModel()
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
-                if userAuth.activeKey.isEmpty {
+                if !userAuth.isActiveKeySet {
                     ActiveKeyInputView()
                 } else {
                     TransferHeaderView(auth: userAuth)
@@ -61,10 +61,12 @@ struct TransferView: View {
 }
 
 #Preview {
-    let showActiveKeyPreview = true
-    let auth = UserAuth()
-    let randomKey = "5KLTkMZc3oRDAcdKeTv22sh4F2mB6rewyPDU4FENc4oYZ5DFBpe"
-    try? auth.changeActiveKey(key: randomKey)
-    return TransferView()
+    let auth = UserAuthStore()
+    
+    TransferView()
         .environmentObject(auth)
+        .task {
+            let randomKey = "5KLTkMZc3oRDAcdKeTv22sh4F2mB6rewyPDU4FENc4oYZ5DFBpe"
+            try? await auth.changeActiveKey(key: randomKey)
+        }
 }

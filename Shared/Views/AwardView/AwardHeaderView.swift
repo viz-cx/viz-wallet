@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AwardHeaderView: View {
-    @ObservedObject var userAuth: UserAuth
+    @ObservedObject var userAuth: UserAuthStore
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {

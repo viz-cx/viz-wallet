@@ -22,7 +22,7 @@ final class AwardViewModel: ObservableObject, Identifiable {
     @Published var showError = false
     @Published var errorText = ""
     
-    let userAuth: UserAuth
+    let userAuth: UserAuthStore
     
     var currentEnergyPercent: Double {
         Double(userAuth.energy) / 100
@@ -36,7 +36,7 @@ final class AwardViewModel: ObservableObject, Identifiable {
         )
     }
     
-    init(viz: VIZHelper = .shared, userAuth: UserAuth) {
+    init(viz: VIZHelper = .shared, userAuth: UserAuthStore) {
         self.viz = viz
         self.userAuth = userAuth
         updateInitialPercent()
@@ -87,14 +87,7 @@ final class AwardViewModel: ObservableObject, Identifiable {
         defer { isLoading = false }
         
         do {
-            try await viz.award(
-                initiator: userAuth.login,
-                regularKey: userAuth.regularKey,
-                receiver: receiver,
-                energy: UInt16(percent * 100),
-                memo: memo
-            )
-            
+            try await userAuth.makeAward(receiver: receiver, energy: UInt16(percent * 100), memo: memo)
             onAwardSuccess()
         } catch {
             errorText = error.localizedDescription
@@ -115,8 +108,5 @@ final class AwardViewModel: ObservableObject, Identifiable {
             updateInitialPercent()
         }
     }
-
-
-
 }
 

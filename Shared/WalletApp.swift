@@ -15,7 +15,7 @@ struct WalletApp: App {
     var body: some Scene {
         WindowGroup {
             IntermediateView()
-                .environmentObject(UserAuth())
+                .environmentObject(UserAuthStore())
                 .onOpenURL(perform: handleURL)
         }
     }
@@ -32,7 +32,7 @@ struct WalletApp: App {
 }
 
 private struct IntermediateView: View {
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     
     var body: some View {
         if userAuth.showOnboarding {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject private var userAuth: UserAuth
+    @EnvironmentObject private var userAuth: UserAuthStore
     @State private var login = ""
     @State private var regularKey = ""
     @State private var showSignUp = false
@@ -96,9 +96,11 @@ struct LoginView: View {
     }
     
     func signIn() async {
-        do {
-            try await userAuth.auth(login: login, privateKey: regularKey)
-        } catch {
+        let result = await userAuth.auth(login: login, key: regularKey)
+        switch result {
+        case .success:
+            break
+        case .failure(let error):
             errorMessageText = error.localizedDescription
             showErrorMessage = true
         }
@@ -107,6 +109,6 @@ struct LoginView: View {
 
 #Preview {
     Group {
-        LoginView().environmentObject(UserAuth())
+        LoginView().environmentObject(UserAuthStore())
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TransferHeaderView: View {
-    let auth: UserAuth
+    let auth: UserAuthStore
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
