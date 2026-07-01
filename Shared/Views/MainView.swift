@@ -14,106 +14,68 @@ struct MainView: View {
         case receive
         case dao
         case settings
-        
+
         var localizedName: LocalizedStringKey {
             if case .dao = self {
                 return LocalizedStringKey(rawValue.uppercased())
             }
             return LocalizedStringKey(rawValue.capitalized)
         }
+
+        func systemImage(selected: Bool) -> String {
+            switch self {
+            case .award:    return selected ? "hand.thumbsup.fill" : "hand.thumbsup"
+            case .transfer: return selected ? "arrow.up.heart.fill" : "arrow.up.heart"
+            case .receive:  return selected ? "arrow.down.heart.fill" : "arrow.down.heart"
+            case .dao:      return selected ? "building.columns.fill" : "building.columns"
+            case .settings: return "gear"
+            }
+        }
+
+        /// Settings hides its navigation bar; every other tab shows it.
+        var navigationBarVisibility: Visibility {
+            self == .settings ? .hidden : .visible
+        }
     }
-    
+
     @State private var selectedItem: TabItem = TabItem.allCases.first!
     @EnvironmentObject private var userAuth: UserAuthStore
-    
+
     var body: some View {
-        TabView(selection: $selectedItem, content: {
-            ForEach(TabItem.allCases, id: \.rawValue) { value in
-                switch value {
-                case .award:
-                    NavigationView {
-                        AwardView(vm: AwardViewModel(userAuth: userAuth))
-                            .navigationTitle(value.localizedName)
-                            .navigationBarHidden(false)
-                    }
-                    .tabItem {
-                        if selectedItem == value {
-                            Image(systemName: "hand.thumbsup.fill")
-                        } else {
-                            Image(systemName: "hand.thumbsup")
-                        }
-                        Text(value.localizedName)
-                    }
-                    .tag(value)
-                    .navigationViewStyle(StackNavigationViewStyle())
-                case .transfer:
-                    NavigationView {
-                        TransferView()
-                            .navigationTitle(value.localizedName)
-                            .navigationBarHidden(false)
-                    }
-                    .tabItem {
-                        if selectedItem == value {
-                            Image(systemName: "arrow.up.heart.fill")
-                        } else {
-                            Image(systemName: "arrow.up.heart")
-                        }
-                        Text(value.localizedName)
-                    }
-                    .tag(value)
-                    .navigationViewStyle(StackNavigationViewStyle())
-                case .receive:
-                    NavigationView {
-                        ReceiveView()
-                            .navigationTitle(value.localizedName)
-                            .navigationBarHidden(false)
-                    }
-                    .tabItem {
-                        if selectedItem == value {
-                            Image(systemName: "arrow.down.heart.fill")
-                        } else {
-                            Image(systemName: "arrow.down.heart")
-                        }
-                        Text(value.localizedName)
-                    }
-                    .tag(value)
-                    .navigationViewStyle(StackNavigationViewStyle())
-                case .settings:
-                    NavigationView {
-                        SettingsView()
-                            .navigationTitle(value.localizedName)
-                            .navigationBarHidden(true)
-                    }
-                    .tabItem {
-                        Image(systemName: "gear")
-                        Text(value.localizedName)
-                    }
-                    .tag(value)
-                    .navigationViewStyle(StackNavigationViewStyle())
-                case .dao:
-                    NavigationView {
-                        DAOView()
-                            .navigationTitle(value.localizedName)
-                            .navigationBarHidden(false)
-                    }
-                    .tabItem {
-                        if selectedItem == value {
-                            Image(systemName: "building.columns.fill")
-                        } else {
-                            Image(systemName: "building.columns")
-                        }
-                        Text(value.localizedName)
-                    }
-                    .tag(value)
-                    .navigationViewStyle(StackNavigationViewStyle())
+        TabView(selection: $selectedItem) {
+            ForEach(TabItem.allCases, id: \.rawValue) { item in
+                NavigationStack {
+                    destination(for: item)
+                        .navigationTitle(item.localizedName)
+                        .toolbar(item.navigationBarVisibility, for: .navigationBar)
                 }
+                .tabItem {
+                    Image(systemName: item.systemImage(selected: selectedItem == item))
+                    Text(item.localizedName)
+                }
+                .tag(item)
             }
-        })
+        }
         .font(.headline)
-        .edgesIgnoringSafeArea(.top)
+        .ignoresSafeArea(edges: .top)
     }
-    
+
+    @ViewBuilder
+    private func destination(for item: TabItem) -> some View {
+        switch item {
+        case .award:    AwardView(vm: AwardViewModel(userAuth: userAuth))
+        case .transfer: TransferView()
+        case .receive:  ReceiveView()
+        case .dao:      DAOView()
+        case .settings: SettingsView()
+        }
+    }
+
     init() {
+        Self.configureAppearance()
+    }
+
+    private static func configureAppearance() {
         let coloredNavAppearance = UINavigationBarAppearance()
         coloredNavAppearance.configureWithOpaqueBackground()
         coloredNavAppearance.backgroundColor = .clear
@@ -122,14 +84,14 @@ struct MainView: View {
         coloredNavAppearance.shadowColor = .clear
         UINavigationBar.appearance().standardAppearance = coloredNavAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredNavAppearance
-        
+
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor(Color.themeTextField)
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = UITabBar.appearance().standardAppearance
         UITabBar.appearance().barTintColor = UIColor(Color.themeTextField)
-        
+
         UITableView.appearance().backgroundColor = UIColor.clear
         UITableViewCell.appearance().backgroundColor = .clear
     }
