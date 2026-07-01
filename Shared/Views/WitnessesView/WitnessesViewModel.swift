@@ -12,7 +12,11 @@ final class WitnessesViewModel: ObservableObject {
     
     private let viz = VIZHelper.shared
     
-    @Published private(set) var witnesses: [VIZHelper.Witness] = []
+    @Published private(set) var witnesses: [VIZHelper.Witness] = [] {
+        didSet {
+            print(witnesses)
+        }
+    }
     @Published private(set) var isLoading = false
     
     func updateWitnesses() async {
@@ -26,5 +30,10 @@ final class WitnessesViewModel: ObservableObject {
             self.witnesses = []
             print(error)
         }
+    }
+    
+    func vote(for witness: VIZHelper.Witness, approve: Bool) async {
+        // TODO: implement vote call
+        print("Vote \(approve ? "for" : "against") \(witness.owner)")
     }
 }

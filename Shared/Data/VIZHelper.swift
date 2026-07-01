@@ -5,6 +5,7 @@
 //  Created by Vladimir Babin on 23.02.2021.
 //
 
+import BigInt
 import Foundation
 import VIZ
 
@@ -154,17 +155,36 @@ actor VIZHelper {
         let _ = try await client.send(trx)
     }
     
+    public struct BigIntShare: Decodable, Sendable {
+        public let value: BigInt
+        
+        public init(_ value: BigInt) {
+            self.value = value
+        }
+        
+        public init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+            if let intValue = try? container.decode(BigInt.self) {
+                self.value = intValue
+            } else if let intValue = try? container.decode(Int64.self) {
+                self.value = BigInt(intValue)
+            } else {
+                self.value = 0
+            }
+        }
+    }
+    
     struct Witness: Decodable, Sendable {
         let id: Int
         let owner: String
         let created: Date
         let url: String
-        let votes: VIZ.API.Share?
+        let votes: BigIntShare?  //VIZ.API.Share?
         let penaltyPercent: Int?
-        let countedVotes: VIZ.API.Share?
-        let virtualLastUpdate: VIZ.API.Share?
-        let virtualPosition: VIZ.API.Share?
-        let virtualScheduledTime: VIZ.API.Share?
+        let countedVotes: BigIntShare? // VIZ.API.Share?
+        let virtualLastUpdate: BigIntShare? // VIZ.API.Share?
+        let virtualPosition: BigIntShare? // VIZ.API.Share?
+        let virtualScheduledTime: BigIntShare? // VIZ.API.Share?
         let totalMissed: Int?
         let lastAslot: Int?
         let lastConfirmedBlockNum: Int?

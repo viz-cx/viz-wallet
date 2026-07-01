@@ -26,6 +26,7 @@ final class UserAuthStore: ObservableObject {
     private let vizHelper: VIZHelper = .shared
     
     init() {
+        MainActor.assertIsolated()
         restore()
     }
     
