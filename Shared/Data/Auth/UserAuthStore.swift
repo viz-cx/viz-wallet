@@ -26,7 +26,6 @@ final class UserAuthStore: ObservableObject {
     private let vizHelper: VIZHelper = .shared
     
     init() {
-        MainActor.assertIsolated()
         restore()
     }
     
@@ -61,29 +60,23 @@ final class UserAuthStore: ObservableObject {
             }
             let key = creds.activeKey ?? creds.regularKey
             guard let key else { return }
-            let _ = await auth(login: login, key: key)
+            try? await auth(login: login, key: key)
             await updateDGPData()
         }
     }
     
-    func auth(login: String, key: String) async -> Result<Void, Error> {
+    func auth(login: String, key: String) async throws {
         isLoading = true
         defer { isLoading = false }
-        
-        do {
-            let (account, isKeyActive) = try await auth.auth(login: login, privateKey: key)
-            self.accountMetadata = try? AccountMetadata.parse(from: account.jsonMetadata)
-            self.isActiveKeySet = isKeyActive
-            self.balance = account.balance.resolvedAmount
-            self.login = account.name
-            self.energy = account.currentEnergy
-            self.effectiveVestingShares = account.effectiveVestingShares
-            self.balance = account.balance.resolvedAmount
-            self.isLoggedIn = true
-            return .success(())
-        } catch {
-            return .failure(error)
-        }
+
+        let (account, isKeyActive) = try await auth.auth(login: login, privateKey: key)
+        self.accountMetadata = try? AccountMetadata.parse(from: account.jsonMetadata)
+        self.isActiveKeySet = isKeyActive
+        self.balance = account.balance.resolvedAmount
+        self.login = account.name
+        self.energy = account.currentEnergy
+        self.effectiveVestingShares = account.effectiveVestingShares
+        self.isLoggedIn = true
     }
     
     func logout() {

@@ -82,11 +82,9 @@ struct LoginView: View {
     }
     
     func signIn() async {
-        let result = await userAuth.auth(login: login, key: regularKey)
-        switch result {
-        case .success:
-            break
-        case .failure(let error):
+        do {
+            try await userAuth.auth(login: login, key: regularKey)
+        } catch {
             errorMessageText = error.localizedDescription
             showErrorMessage = true
         }
