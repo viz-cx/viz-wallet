@@ -11,7 +11,6 @@ struct LoginView: View {
     @EnvironmentObject private var userAuth: UserAuthStore
     @State private var login = ""
     @State private var regularKey = ""
-    @State private var showSignUp = false
     @State private var showErrorMessage: Bool = false
     @State private var errorMessageText: String = ""
     
@@ -63,21 +62,8 @@ struct LoginView: View {
                     }
                 }
                 .padding(.bottom, 25)
-                
+
                 Spacer()
-                
-                HStack(spacing: 0) {
-                    Text("Sign Up with an invite code".localized())
-                        .foregroundColor(.white)
-                        .onTapGesture {
-                            showSignUp = true
-                        }
-                        .sheet(isPresented: $showSignUp, content: {
-                            RegistrationView().environmentObject(userAuth)
-                        })
-                }
-                .padding(.bottom, 15)
-                
             }
             .padding([.leading, .trailing], 16.0)
         }

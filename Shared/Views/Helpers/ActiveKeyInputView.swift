@@ -5,7 +5,10 @@
 //  Created by Vladimir Babin on 06.03.2021.
 //
 
+import os
 import SwiftUI
+
+private let log = Logger(subsystem: "cx.viz.viz-wallet", category: "auth")
 
 struct ActiveKeyInputView: View {
     @EnvironmentObject private var userAuth: UserAuthStore
@@ -36,7 +39,8 @@ struct ActiveKeyInputView: View {
                         do {
                             try await userAuth.changeActiveKey(key: activeKey)
                         } catch {
-                            print(error.localizedDescription) // TODO: show for user
+                            // TODO: surface this error to the user
+                            log.error("Failed to change active key: \(error, privacy: .public)")
                         }
                     }
                 }, label: {

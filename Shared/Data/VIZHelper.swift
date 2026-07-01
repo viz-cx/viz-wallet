@@ -9,13 +9,6 @@ import BigInt
 import Foundation
 import VIZ
 
-enum VIZKeyType: String {
-    case regular
-    case active
-    case master
-    case memo
-}
-
 actor VIZHelper {
     static let shared = VIZHelper()
     
@@ -39,13 +32,6 @@ actor VIZHelper {
         return numberFormatter.string(from: amount as NSNumber) ?? ""
     }
     
-    func privateKey(fromAccount name: String, password: String, type: VIZKeyType) throws -> PrivateKey {
-        guard let key = PrivateKey(seed: name + type.rawValue + password) else {
-            throw Errors.KeyValidationError
-        }
-        return key
-    }
-    
     func getAccount(login: String) async throws -> API.ExtendedAccount? {
         let req = API.GetAccount(account: login, customProtocolId: "")
         let result = try await client.send(req)
@@ -55,63 +41,6 @@ actor VIZHelper {
     func getDGP() async throws -> API.DynamicGlobalProperties? {
         let req = API.GetDynamicGlobalProperties()
         return try await client.send(req)
-    }
-    
-    func inviteRegistration(inviteSecret: String, accountName: String, password: String) async throws {
-        guard let props = try await getDGP() else {
-            throw Errors.UnknownError
-        }
-        let expiry = props.time.addingTimeInterval(60)
-        let initiator = "invite"
-        let privateKey = "5KcfoRuDfkhrLCxVcE9x51J6KN9aM9fpb78tLrvvFckxVV6FyFW"
-        guard let key = PrivateKey(privateKey) else {
-            throw Errors.KeyValidationError
-        }
-        guard let masterKey = PrivateKey(seed: accountName + "master" + password) else {
-            throw Errors.KeyValidationError
-        }
-        let masterPublicKey = masterKey.createPublic()
-        let inviteRegistration = VIZ.Operation.InviteRegistration(initiator: initiator, newAccountName: accountName, inviteSecret: inviteSecret, newAccountKey: masterPublicKey)
-        let tx = Transaction(
-            refBlockNum: UInt16(props.headBlockNumber & 0xFFFF),
-            refBlockPrefix: props.headBlockId.prefix,
-            expiration: expiry,
-            operations: [inviteRegistration]
-        )
-        guard let stx = try? tx.sign(usingKey: key) else {
-            throw Errors.SignError
-        }
-        let trx = API.BroadcastTransaction(transaction: stx)
-        let _ = try await client.send(trx)
-    }
-    
-    func accountUpdate(accountName: String, password: String) async throws {
-        let props = try await client.send(API.GetDynamicGlobalProperties())
-        let expiry = props.time.addingTimeInterval(60)
-        
-        let masterKey, activeKey, regularKey, memoKey: PrivateKey
-        masterKey = try privateKey(fromAccount: accountName, password: password, type: .master)
-        activeKey = try privateKey(fromAccount: accountName, password: password, type: .active)
-        regularKey = try privateKey(fromAccount: accountName, password: password, type: .regular)
-        memoKey = try privateKey(fromAccount: accountName, password: password, type: .memo)
-        
-        let masterAuthority = Authority(keyAuths: [Authority.Auth(masterKey.createPublic())])
-        let activeAuthority = Authority(keyAuths: [Authority.Auth(activeKey.createPublic())])
-        let regularAuthority = Authority(keyAuths: [Authority.Auth(regularKey.createPublic())])
-        let memoPublicKey = memoKey.createPublic()
-        
-        let accountUpdate = VIZ.Operation.AccountUpdate(account: accountName, master: masterAuthority, active: activeAuthority, regular: regularAuthority, memoKey: memoPublicKey)
-        let tx = Transaction(
-            refBlockNum: UInt16(props.headBlockNumber & 0xFFFF),
-            refBlockPrefix: props.headBlockId.prefix,
-            expiration: expiry,
-            operations: [accountUpdate]
-        )
-        guard let stx = try? tx.sign(usingKey: masterKey) else {
-            throw Errors.SignError
-        }
-        let trx = API.BroadcastTransaction(transaction: stx)
-        let _ = try await client.send(trx)
     }
     
     func award(initiator: String, regularKey: String, receiver: String, energy: UInt16, memo: String, beneficiaries: [VIZ.Operation.Beneficiary] = []) async throws {

@@ -24,7 +24,6 @@
 		D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9A225EBCF790088D49D /* ReceiveView.swift */; };
 		D13FE9AA25ED784A0088D49D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9A925ED78490088D49D /* Errors.swift */; };
 		D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */; };
-		D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9BB25F105080088D49D /* RegistrationView.swift */; };
 		D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9D525F25FC60088D49D /* View+Extension.swift */; };
 		D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
 		D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D13FE9FA25F2C9EC0088D49D /* KeychainAccess */; };
@@ -107,7 +106,6 @@
 		D13FE9A225EBCF790088D49D /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
 		D13FE9A925ED78490088D49D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		D13FE9BB25F105080088D49D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		D13FE9D525F25FC60088D49D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D13FE9E025F260120088D49D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewWithGradient.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 				D17C3C5625E3CBDD004771EF /* LoginView.swift */,
 				D157497E25EA78BD0043C95C /* SettingsView.swift */,
 				D13FE9A225EBCF790088D49D /* ReceiveView.swift */,
-				D13FE9BB25F105080088D49D /* RegistrationView.swift */,
 				D101A38C25F384EE0031AA0A /* DAOView.swift */,
 				D1F9EE8B2F125FE600D18B86 /* CommitteeView.swift */,
 			);
@@ -557,7 +554,6 @@
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D19CB90E2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */,
 				D17C36162606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
-				D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */,
 				D14F5A902F2B591400AC2479 /* TransferViewModel.swift in Sources */,
 				D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,
 				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,

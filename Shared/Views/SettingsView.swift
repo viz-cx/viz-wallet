@@ -125,7 +125,7 @@ struct SettingsView: View {
             }
             
             SettingsRowView(title: "Privacy policy".localized(), systemImage: "lock.doc", iconColor: .gray) {
-                print("TODO: Show Privacy policy")
+                // TODO: Show Privacy policy
             }
             
             SettingsRowView(

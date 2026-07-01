@@ -5,8 +5,11 @@
 //  Created by Vladimir Babin on 21.02.2021.
 //
 
+import os
 import SwiftUI
 import VIZ
+
+private let log = Logger(subsystem: "cx.viz.viz-wallet", category: "app")
 
 @main
 struct WalletApp: App {
@@ -21,12 +24,12 @@ struct WalletApp: App {
     }
     
     private func handleURL(_ url: URL) {
-        print("URL: \(url)")
+        log.debug("Opened URL: \(url, privacy: .public)")
         let str = url.absoluteString.lowercased()
         if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
             let range = str.index(after: atSymbolIdx)..<str.endIndex
             let username = str[range]
-            print(username)
+            log.debug("Parsed username: \(username, privacy: .public)")
         }
     }
 }
