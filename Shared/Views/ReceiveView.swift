@@ -55,7 +55,7 @@ struct ReceiveView: View {
             }
             .background(
                 LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
             )
         }
     }

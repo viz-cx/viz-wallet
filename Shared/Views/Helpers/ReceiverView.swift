@@ -19,8 +19,8 @@ struct ReceiverView: View {
                 .foregroundColor(.black)
                 .cornerRadius(20)
                 .disableAutocorrection(true)
-                .autocapitalization(.none)
-            
+                .textInputAutocapitalization(.never)
+
             QRScannerButton(isShowingScanner: $isShowingScanner) { receiver in
                 self.receiver = receiver
             }

@@ -42,9 +42,9 @@ private struct IntermediateView: View {
             OnboardingView()
         } else {
             if !userAuth.isLoggedIn {
-                LoginView().navigationBarHidden(true)
+                LoginView().toolbar(.hidden, for: .navigationBar)
             } else {
-                MainView().navigationBarHidden(true)
+                MainView().toolbar(.hidden, for: .navigationBar)
             }
         }
     }

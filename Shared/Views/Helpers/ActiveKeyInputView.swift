@@ -32,7 +32,7 @@ struct ActiveKeyInputView: View {
                 .foregroundColor(.black)
                 .cornerRadius(20.0)
                 .disableAutocorrection(true)
-                .autocapitalization(.none)
+                .textInputAutocapitalization(.never)
             
                 Button(action: {
                     Task {

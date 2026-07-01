@@ -32,7 +32,7 @@ struct TransferFormView: View {
             .foregroundColor(.black)
             .cornerRadius(20.0)
             .disableAutocorrection(true)
-            .autocapitalization(.none)
+            .textInputAutocapitalization(.never)
 
             
             TextField("Memo".localized(), text: $vm.memo)
@@ -41,7 +41,7 @@ struct TransferFormView: View {
                 .foregroundColor(.black)
                 .cornerRadius(20)
                 .disableAutocorrection(true)
-                .autocapitalization(.none)
+                .textInputAutocapitalization(.never)
         }
     }
 }

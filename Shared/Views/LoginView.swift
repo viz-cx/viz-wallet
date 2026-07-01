@@ -27,7 +27,7 @@ struct LoginView: View {
                         .background(Color.themeTextField)
                         .cornerRadius(20.0)
                         .disableAutocorrection(true)
-                        .autocapitalization(.none)
+                        .textInputAutocapitalization(.never)
                     
                     TextField("Private regular key".localized(), text: $regularKey)
                         .accessibility(identifier: "regular")
@@ -35,7 +35,7 @@ struct LoginView: View {
                         .background(Color.themeTextField)
                         .cornerRadius(20.0)
                         .disableAutocorrection(true)
-                        .autocapitalization(.none)
+                        .textInputAutocapitalization(.never)
                     
                     if userAuth.isLoading {
                         ActivityIndicator(isAnimating: .constant(true))
@@ -69,7 +69,7 @@ struct LoginView: View {
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all))
+                .ignoresSafeArea())
         .onTapGesture {
             hideKeyboard()
         }
