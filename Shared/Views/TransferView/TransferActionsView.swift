@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TransferActionsView: View {
-    @ObservedObject var vm: TransferViewModel
+    @Bindable var vm: TransferViewModel
     let onTransfer: () -> Void
     
     var body: some View {

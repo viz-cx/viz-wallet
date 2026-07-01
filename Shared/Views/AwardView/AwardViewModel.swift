@@ -6,21 +6,23 @@
 //
 
 import Foundation
+import Observation
 import VIZ
 
 @MainActor
-final class AwardViewModel: ObservableObject, Identifiable {
+@Observable
+final class AwardViewModel: Identifiable {
     private let viz: VIZHelper
     private let energyDivider = 5.0
-    
-    @Published var receiver = ""
-    @Published var memo = ""
-    @Published var percent = 0.0
-    
-    @Published var isLoading = false
-    @Published var confettiCounter = 0
-    @Published var showError = false
-    @Published var errorText = ""
+
+    var receiver = ""
+    var memo = ""
+    var percent = 0.0
+
+    var isLoading = false
+    var confettiCounter = 0
+    var showError = false
+    var errorText = ""
     
     let userAuth: UserAuthStore
     

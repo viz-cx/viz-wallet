@@ -14,11 +14,12 @@ private let log = Logger(subsystem: "cx.viz.viz-wallet", category: "app")
 @main
 struct WalletApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+    @State private var userAuth = UserAuthStore()
+
     var body: some Scene {
         WindowGroup {
             IntermediateView()
-                .environmentObject(UserAuthStore())
+                .environment(userAuth)
                 .onOpenURL(perform: handleURL)
         }
     }
@@ -35,7 +36,7 @@ struct WalletApp: App {
 }
 
 private struct IntermediateView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
+    @Environment(UserAuthStore.self) private var userAuth
     
     var body: some View {
         if userAuth.showOnboarding {

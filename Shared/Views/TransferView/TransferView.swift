@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TransferView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
-    @StateObject private var vm = TransferViewModel()
+    @Environment(UserAuthStore.self) private var userAuth
+    @State private var vm = TransferViewModel()
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -64,7 +64,7 @@ struct TransferView: View {
     let auth = UserAuthStore()
     
     TransferView()
-        .environmentObject(auth)
+        .environment(auth)
         .task {
             let randomKey = "5KLTkMZc3oRDAcdKeTv22sh4F2mB6rewyPDU4FENc4oYZ5DFBpe"
             try? await auth.changeActiveKey(key: randomKey)

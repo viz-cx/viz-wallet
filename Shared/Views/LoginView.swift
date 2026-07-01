@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
+    @Environment(UserAuthStore.self) private var userAuth
     @State private var login = ""
     @State private var regularKey = ""
     @State private var showErrorMessage: Bool = false
@@ -93,6 +93,6 @@ struct LoginView: View {
 
 #Preview {
     Group {
-        LoginView().environmentObject(UserAuthStore())
+        LoginView().environment(UserAuthStore())
     }
 }

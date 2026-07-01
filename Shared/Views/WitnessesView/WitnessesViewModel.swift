@@ -5,18 +5,19 @@
 //  Created by Vladimir Babin on 1/10/26.
 //
 
-import Combine
+import Observation
 import os
 
 private let log = Logger(subsystem: "cx.viz.viz-wallet", category: "witnesses")
 
 @MainActor
-final class WitnessesViewModel: ObservableObject {
+@Observable
+final class WitnessesViewModel {
 
     private let viz = VIZHelper.shared
 
-    @Published private(set) var witnesses: [VIZHelper.Witness] = []
-    @Published private(set) var isLoading = false
+    private(set) var witnesses: [VIZHelper.Witness] = []
+    private(set) var isLoading = false
 
     func updateWitnesses() async {
         guard !isLoading else { return }

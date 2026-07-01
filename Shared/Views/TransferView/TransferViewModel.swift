@@ -6,17 +6,19 @@
 //
 
 import Foundation
+import Observation
 
 @MainActor
-final class TransferViewModel: ObservableObject {
-    @Published var receiver = ""
-    @Published var amount: Double?
-    @Published var memo = ""
-    @Published var isShowingScanner = false
-    @Published var isLoading = false
-    @Published var showError = false
-    @Published var errorText = ""
-    @Published var confetti = 0
+@Observable
+final class TransferViewModel {
+    var receiver = ""
+    var amount: Double?
+    var memo = ""
+    var isShowingScanner = false
+    var isLoading = false
+    var showError = false
+    var errorText = ""
+    var confetti = 0
     
     func clampAmount(to balance: Double) {
         guard let amount, amount > balance else { return }

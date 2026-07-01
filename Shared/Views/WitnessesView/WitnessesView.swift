@@ -10,7 +10,7 @@ import VIZ
 
 struct WitnessesView: View {
     
-    @StateObject private var vm = WitnessesViewModel()
+    @State private var vm = WitnessesViewModel()
     
     var body: some View {
         List {

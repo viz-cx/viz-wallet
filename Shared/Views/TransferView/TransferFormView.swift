@@ -9,7 +9,7 @@ import SwiftUI
 import CodeScanner
 
 struct TransferFormView: View {
-    @ObservedObject var vm: TransferViewModel
+    @Bindable var vm: TransferViewModel
     let balance: Double
     
     var body: some View {

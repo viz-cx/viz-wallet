@@ -6,20 +6,22 @@
 //
 
 import Foundation
+import Observation
 import VIZ
 
 @MainActor
-final class UserAuthStore: ObservableObject {
-    @Published private(set) var login = ""
-    @Published private(set) var balance = 0.0
-    @Published private(set) var energy = 0
-    @Published private(set) var isLoggedIn = false
-    @Published private(set) var isLoading = false
-    @Published private(set) var accountMetadata: AccountMetadata? = nil
-    @Published private(set) var effectiveVestingShares = 0.0
-    @Published private(set) var dgp: API.DynamicGlobalProperties? = nil
-    @Published private(set) var isActiveKeySet: Bool = false
-    @Published private(set) var showOnboarding = false
+@Observable
+final class UserAuthStore {
+    private(set) var login = ""
+    private(set) var balance = 0.0
+    private(set) var energy = 0
+    private(set) var isLoggedIn = false
+    private(set) var isLoading = false
+    private(set) var accountMetadata: AccountMetadata? = nil
+    private(set) var effectiveVestingShares = 0.0
+    private(set) var dgp: API.DynamicGlobalProperties? = nil
+    private(set) var isActiveKeySet: Bool = false
+    private(set) var showOnboarding = false
     
     private let auth = UserAuthActor()
     

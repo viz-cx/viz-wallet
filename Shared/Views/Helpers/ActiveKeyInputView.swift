@@ -11,7 +11,7 @@ import SwiftUI
 private let log = Logger(subsystem: "cx.viz.viz-wallet", category: "auth")
 
 struct ActiveKeyInputView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
+    @Environment(UserAuthStore.self) private var userAuth
     @State private var activeKey = ""
     
     var body: some View {
