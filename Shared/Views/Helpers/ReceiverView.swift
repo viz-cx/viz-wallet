@@ -13,7 +13,7 @@ struct ReceiverView: View {
     
     var body: some View {
         HStack {
-            TextField("Receiver".localized(), text: $receiver)
+            TextField("Receiver", text: $receiver)
                 .padding()
                 .background(Color.themeTextField)
                 .foregroundColor(.black)

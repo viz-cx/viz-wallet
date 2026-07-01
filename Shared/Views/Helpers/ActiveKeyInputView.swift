@@ -18,14 +18,14 @@ struct ActiveKeyInputView: View {
         VStack(spacing: 10) {
             Spacer()
             
-            Text("Active key not added yet".localized())
+            Text("Active key not added yet")
                 .padding()
                 .frame(maxWidth: .infinity, alignment: Alignment.center)
                 .cornerRadius(20.0)
                 .font(.headline)
                 .foregroundColor(.white)
             
-            TextField("Private active key".localized(), text: $activeKey)
+            TextField("Private active key", text: $activeKey)
                 .accessibility(identifier: "active")
                 .padding()
                 .background(Color.themeTextField)
@@ -44,7 +44,7 @@ struct ActiveKeyInputView: View {
                         }
                     }
                 }, label: {
-                Text("Save".localized())
+                Text("Save")
                     .accessibility(identifier: "save")
                     .font(.headline)
                     .foregroundColor(.white)

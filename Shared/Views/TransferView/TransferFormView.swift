@@ -17,7 +17,7 @@ struct TransferFormView: View {
             ReceiverView(isShowingScanner: $vm.isShowingScanner, receiver: $vm.receiver)
             
             CurrencyTextField(
-                "Amount".localized(),
+                String(localized: "Amount"),
                 value: $vm.amount,
                 alwaysShowFractions: true,
                 numberOfDecimalPlaces: 2,
@@ -35,7 +35,7 @@ struct TransferFormView: View {
             .textInputAutocapitalization(.never)
 
             
-            TextField("Memo".localized(), text: $vm.memo)
+            TextField("Memo", text: $vm.memo)
                 .padding()
                 .background(Color.themeTextField)
                 .foregroundColor(.black)

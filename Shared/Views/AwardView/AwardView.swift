@@ -40,7 +40,7 @@ struct AwardView: View {
             }
             .padding(.horizontal, 16)
             .confetti(trigger: $vm.confettiCounter)
-            .alert("Error".localized(), isPresented: $vm.showError) {
+            .alert("Error", isPresented: $vm.showError) {
                 Button("Ok", role: .cancel) {}
             } message: {
                 Text(vm.errorText)

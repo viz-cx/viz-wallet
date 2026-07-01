@@ -16,9 +16,9 @@ struct DAOView: View {
         var title: String {
             switch self {
             case .witnesses:
-                return "Witnesses".localized()
+                return String(localized: "Witnesses")
             case .committee:
-                return "Committee".localized()
+                return String(localized: "Committee")
             }
         }
     }

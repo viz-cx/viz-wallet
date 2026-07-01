@@ -32,7 +32,7 @@ struct ReceiveView: View {
                         }
                     
                     VStack {
-                        Text("\("Login".localized()): \(userAuth.login)")
+                        Text("\(String(localized: "Login")): \(userAuth.login)")
                             .font(.title)
                             .foregroundColor(.white)
                             .padding()

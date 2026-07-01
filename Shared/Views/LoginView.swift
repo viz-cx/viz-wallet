@@ -21,7 +21,7 @@ struct LoginView: View {
             VStack() {
                 
                 VStack(spacing: 15) {
-                    TextField("Login".localized(), text: $login)
+                    TextField("Login", text: $login)
                         .accessibility(identifier: "login")
                         .padding()
                         .background(Color.themeTextField)
@@ -29,7 +29,7 @@ struct LoginView: View {
                         .disableAutocorrection(true)
                         .textInputAutocapitalization(.never)
                     
-                    TextField("Private regular key".localized(), text: $regularKey)
+                    TextField("Private regular key", text: $regularKey)
                         .accessibility(identifier: "regular")
                         .padding()
                         .background(Color.themeTextField)
@@ -45,7 +45,7 @@ struct LoginView: View {
                                 await signIn()
                             }
                         }) {
-                            Text("Sign In".localized())
+                            Text("Sign In")
                                 .accessibility(identifier: "signin")
                                 .font(.headline)
                                 .foregroundColor(.white)

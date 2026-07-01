@@ -16,7 +16,7 @@ struct TransferActionsView: View {
             ActivityIndicator(isAnimating: $vm.isLoading)
         } else {
             Button(action: onTransfer) {
-                Text("Transfer".localized())
+                Text("Transfer")
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, minHeight: 50)
