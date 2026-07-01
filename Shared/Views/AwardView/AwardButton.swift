@@ -12,7 +12,7 @@ struct AwardButton: View {
     
     var body: some View {
         Button(action: action) {
-            Text("Award".localized())
+            Text("Award")
                 .font(.headline)
                 .foregroundColor(.white)
                 .frame(maxWidth: .infinity, minHeight: 50)

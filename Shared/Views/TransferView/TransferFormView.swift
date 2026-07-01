@@ -9,7 +9,7 @@ import SwiftUI
 import CodeScanner
 
 struct TransferFormView: View {
-    @ObservedObject var vm: TransferViewModel
+    @Bindable var vm: TransferViewModel
     let balance: Double
     
     var body: some View {
@@ -17,7 +17,7 @@ struct TransferFormView: View {
             ReceiverView(isShowingScanner: $vm.isShowingScanner, receiver: $vm.receiver)
             
             CurrencyTextField(
-                "Amount".localized(),
+                String(localized: "Amount"),
                 value: $vm.amount,
                 alwaysShowFractions: true,
                 numberOfDecimalPlaces: 2,
@@ -32,16 +32,16 @@ struct TransferFormView: View {
             .foregroundColor(.black)
             .cornerRadius(20.0)
             .disableAutocorrection(true)
-            .autocapitalization(.none)
+            .textInputAutocapitalization(.never)
 
             
-            TextField("Memo".localized(), text: $vm.memo)
+            TextField("Memo", text: $vm.memo)
                 .padding()
                 .background(Color.themeTextField)
                 .foregroundColor(.black)
                 .cornerRadius(20)
                 .disableAutocorrection(true)
-                .autocapitalization(.none)
+                .textInputAutocapitalization(.never)
         }
     }
 }

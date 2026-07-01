@@ -12,8 +12,8 @@ struct TransferHeaderView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("🧑 \("Account".localized()): \(auth.login)")
-            Text("💰 \("Liquid balance".localized()): \(VIZHelper.toFormattedString(auth.balance))")
+            Text("🧑 \(String(localized: "Account")): \(auth.login)")
+            Text("💰 \(String(localized: "Liquid balance")): \(VIZHelper.toFormattedString(auth.balance))")
                 .lineLimit(1)
                 .fixedSize()
         }

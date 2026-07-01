@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
+    @Environment(UserAuthStore.self) private var userAuth
     
     var body: some View {
         ZStack {
@@ -113,31 +113,31 @@ struct SettingsView: View {
     private var settingsOptions: some View {
         VStack(spacing: 12) {
             SettingsRowView(
-                title: "Telegram".localized(),
+                title: "Telegram",
                 systemImage: "paperplane.fill",
                 iconColor: .blue
             ) {
                 openTelegram()
             }
-            
-            SettingsRowView(title: "Onboarding".localized(), systemImage: "building.2.crop.circle.fill", iconColor: .blue) {
+
+            SettingsRowView(title: "Onboarding", systemImage: "building.2.crop.circle.fill", iconColor: .blue) {
                 userAuth.showOnboarding(show: true)
             }
-            
-            SettingsRowView(title: "Privacy policy".localized(), systemImage: "lock.doc", iconColor: .gray) {
-                print("TODO: Show Privacy policy")
+
+            SettingsRowView(title: "Privacy policy", systemImage: "lock.doc", iconColor: .gray) {
+                // TODO: Show Privacy policy
             }
-            
+
             SettingsRowView(
-                title: "Application settings".localized(),
+                title: "Application settings",
                 systemImage: "gearshape.fill",
                 iconColor: .gray
             ) {
                 openAppSettings()
             }
-            
+
             SettingsRowView(
-                title: "Logout".localized(),
+                title: "Logout",
                 systemImage: "arrow.backward.circle.fill",
                 iconColor: .red,
                 isDestructive: true,
@@ -164,7 +164,7 @@ struct SettingsView: View {
 // MARK: - Settings Row Component
 
 struct SettingsRowView: View {
-    let title: String
+    let title: LocalizedStringKey
     let systemImage: String
     let iconColor: Color
     var isDestructive: Bool = false
@@ -224,5 +224,5 @@ struct SettingsButtonStyle: ButtonStyle {
 
 #Preview {
     SettingsView()
-        .environmentObject(UserAuthStore())
+        .environment(UserAuthStore())
 }

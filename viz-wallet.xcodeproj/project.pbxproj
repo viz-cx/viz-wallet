@@ -8,117 +8,63 @@
 
 /* Begin PBXBuildFile section */
 		D101A38D25F384EE0031AA0A /* DAOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A38C25F384EE0031AA0A /* DAOView.swift */; };
-		D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A38C25F384EE0031AA0A /* DAOView.swift */; };
 		D101A39425F38A510031AA0A /* ActiveKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */; };
-		D101A39525F38A510031AA0A /* ActiveKeyInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */; };
 		D101A3A025F391040031AA0A /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D101A39F25F391040031AA0A /* CodeScanner */; };
-		D101A44925F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
-		D101A44A25F608670031AA0A /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D101A44825F608670031AA0A /* String+Extension.swift */; };
+		D116177B2F4258440054C2E2 /* BigInt in Frameworks */ = {isa = PBXBuildFile; productRef = D116177A2F4258440054C2E2 /* BigInt */; };
 		D1194F342F2FC4AB001B1853 /* UserAuthActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1194F332F2FC4AA001B1853 /* UserAuthActor.swift */; };
-		D1194F352F2FC4AB001B1853 /* UserAuthActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1194F332F2FC4AA001B1853 /* UserAuthActor.swift */; };
 		D1194F372F2FC500001B1853 /* UserAuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1194F362F2FC4FF001B1853 /* UserAuthStore.swift */; };
-		D1194F382F2FC500001B1853 /* UserAuthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1194F362F2FC4FF001B1853 /* UserAuthStore.swift */; };
 		D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF74725E239D900B29A19 /* Tests_iOS.swift */; };
-		D11AF75325E239D900B29A19 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF75225E239D900B29A19 /* Tests_macOS.swift */; };
 		D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
-		D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11AF72C25E239D600B29A19 /* WalletApp.swift */; };
 		D11AF75925E239D900B29A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11AF72E25E239D900B29A19 /* Assets.xcassets */; };
-		D11AF75A25E239D900B29A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D11AF72E25E239D900B29A19 /* Assets.xcassets */; };
 		D11BC99825FBB76800A011AA /* 39387-business-team.json in Resources */ = {isa = PBXBuildFile; fileRef = D11BC99725FBB76800A011AA /* 39387-business-team.json */; };
-		D11BC99925FBB76800A011AA /* 39387-business-team.json in Resources */ = {isa = PBXBuildFile; fileRef = D11BC99725FBB76800A011AA /* 39387-business-team.json */; };
 		D125935B26060E2100F3BC1A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D125935A26060E2000F3BC1A /* Launch Screen.storyboard */; };
-		D125935C26060E2100F3BC1A /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D125935A26060E2000F3BC1A /* Launch Screen.storyboard */; };
 		D125936E2606199700F3BC1A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D125936D2606199700F3BC1A /* OnboardingView.swift */; };
-		D125936F2606199700F3BC1A /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D125936D2606199700F3BC1A /* OnboardingView.swift */; };
 		D13FE97D25EB7D7C0088D49D /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE97C25EB7D7C0088D49D /* TransferView.swift */; };
-		D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE97C25EB7D7C0088D49D /* TransferView.swift */; };
 		D13FE9A325EBCF790088D49D /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9A225EBCF790088D49D /* ReceiveView.swift */; };
-		D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9A225EBCF790088D49D /* ReceiveView.swift */; };
 		D13FE9AA25ED784A0088D49D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9A925ED78490088D49D /* Errors.swift */; };
-		D13FE9AB25ED784A0088D49D /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9A925ED78490088D49D /* Errors.swift */; };
 		D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */; };
-		D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */; };
-		D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9BB25F105080088D49D /* RegistrationView.swift */; };
-		D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9BB25F105080088D49D /* RegistrationView.swift */; };
 		D13FE9D625F25FC60088D49D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9D525F25FC60088D49D /* View+Extension.swift */; };
-		D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9D525F25FC60088D49D /* View+Extension.swift */; };
 		D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
-		D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13FE9E025F260120088D49D /* Color+Extension.swift */; };
 		D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = D13FE9FA25F2C9EC0088D49D /* KeychainAccess */; };
-		D149052A2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */; };
 		D149052B2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */; };
 		D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */; };
-		D14B287F25FD44BC0037B750 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */; };
-		D14F5A8F2F2B591400AC2479 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A8E2F2B591100AC2479 /* TransferViewModel.swift */; };
 		D14F5A902F2B591400AC2479 /* TransferViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A8E2F2B591100AC2479 /* TransferViewModel.swift */; };
-		D14F5A922F2B6B6400AC2479 /* TransferFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A912F2B6B6300AC2479 /* TransferFormView.swift */; };
 		D14F5A932F2B6B6400AC2479 /* TransferFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A912F2B6B6300AC2479 /* TransferFormView.swift */; };
 		D14F5A952F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A942F2B6B6C00AC2479 /* TransferHeaderView.swift */; };
-		D14F5A962F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A942F2B6B6C00AC2479 /* TransferHeaderView.swift */; };
 		D14F5A982F2B6D5200AC2479 /* TransferActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */; };
-		D14F5A992F2B6D5200AC2479 /* TransferActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A972F2B6D5100AC2479 /* TransferActionsView.swift */; };
-		D14F5A9B2F2E19B000AC2479 /* QRScannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A9A2F2E19AF00AC2479 /* QRScannerButton.swift */; };
 		D14F5A9C2F2E19B000AC2479 /* QRScannerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A9A2F2E19AF00AC2479 /* QRScannerButton.swift */; };
-		D14F5A9E2F2E1CE400AC2479 /* ReceiverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A9D2F2E1CE000AC2479 /* ReceiverView.swift */; };
 		D14F5A9F2F2E1CE400AC2479 /* ReceiverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D14F5A9D2F2E1CE000AC2479 /* ReceiverView.swift */; };
 		D15447942EFD6B0600BB927C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447932EFD6B0600BB927C /* Localizable.xcstrings */; };
-		D15447952EFD6B0600BB927C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447932EFD6B0600BB927C /* Localizable.xcstrings */; };
 		D15447972EFD6B0600BB927C /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */; };
-		D15447982EFD6B0600BB927C /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D15447962EFD6B0600BB927C /* InfoPlist.xcstrings */; };
 		D15458412613966600F92488 /* viz_walletUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15458402613966600F92488 /* viz_walletUITests.swift */; };
 		D154585F2613979600F92488 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D154585E2613979600F92488 /* SnapshotHelper.swift */; };
 		D157495425EA69E40043C95C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D157495325EA69E40043C95C /* Lottie */; };
 		D157496225EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
-		D157496325EA6A9C0043C95C /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157496125EA6A9C0043C95C /* LottieView.swift */; };
 		D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
-		D157498025EA78BD0043C95C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D157497E25EA78BD0043C95C /* SettingsView.swift */; };
-		D15967A82F2537CD00F90A73 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15967A72F2537AF00F90A73 /* ConfettiView.swift */; };
 		D15967A92F2537CD00F90A73 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15967A72F2537AF00F90A73 /* ConfettiView.swift */; };
 		D16B48A02619BA61009CCE54 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D16B489F2619BA60009CCE54 /* Settings.bundle */; };
-		D16B48A12619BA61009CCE54 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D16B489F2619BA60009CCE54 /* Settings.bundle */; };
 		D16B48BC2619EA11009CCE54 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */; };
-		D16B48BD2619EA11009CCE54 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */; };
 		D17C35E526062CDB000B7D60 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35E426062CDB000B7D60 /* 1.json */; };
-		D17C35E626062CDB000B7D60 /* 1.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35E426062CDB000B7D60 /* 1.json */; };
 		D17C35FE260636C5000B7D60 /* 4.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FA260636C4000B7D60 /* 4.json */; };
-		D17C35FF260636C5000B7D60 /* 4.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FA260636C4000B7D60 /* 4.json */; };
 		D17C3600260636C5000B7D60 /* 3.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FB260636C5000B7D60 /* 3.json */; };
-		D17C3601260636C5000B7D60 /* 3.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FB260636C5000B7D60 /* 3.json */; };
 		D17C3602260636C5000B7D60 /* 2.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FC260636C5000B7D60 /* 2.json */; };
-		D17C3603260636C5000B7D60 /* 2.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FC260636C5000B7D60 /* 2.json */; };
 		D17C3604260636C5000B7D60 /* 5.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FD260636C5000B7D60 /* 5.json */; };
-		D17C3605260636C5000B7D60 /* 5.json in Resources */ = {isa = PBXBuildFile; fileRef = D17C35FD260636C5000B7D60 /* 5.json */; };
 		D17C36162606471F000B7D60 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C36152606471F000B7D60 /* OnboardPageViewController.swift */; };
-		D17C36172606471F000B7D60 /* OnboardPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C36152606471F000B7D60 /* OnboardPageViewController.swift */; };
 		D17C361D26064791000B7D60 /* OnboardPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C361C26064791000B7D60 /* OnboardPageControl.swift */; };
-		D17C361E26064791000B7D60 /* OnboardPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C361C26064791000B7D60 /* OnboardPageControl.swift */; };
 		D17C3C3225E3B374004771EF /* VIZ in Frameworks */ = {isa = PBXBuildFile; productRef = D17C3C3125E3B374004771EF /* VIZ */; };
 		D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
-		D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17C3C5625E3CBDD004771EF /* LoginView.swift */; };
-		D19CB9082F2E291100E3A1DF /* AwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9072F2E291000E3A1DF /* AwardViewModel.swift */; };
 		D19CB9092F2E291100E3A1DF /* AwardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9072F2E291000E3A1DF /* AwardViewModel.swift */; };
 		D19CB90B2F2E2D0000E3A1DF /* AwardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB90A2F2E2CFE00E3A1DF /* AwardHeaderView.swift */; };
-		D19CB90C2F2E2D0000E3A1DF /* AwardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB90A2F2E2CFE00E3A1DF /* AwardHeaderView.swift */; };
 		D19CB90E2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB90D2F2E2D2900E3A1DF /* AwardMemoField.swift */; };
-		D19CB90F2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB90D2F2E2D2900E3A1DF /* AwardMemoField.swift */; };
-		D19CB9112F2E2D6400E3A1DF /* AwardSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9102F2E2D6100E3A1DF /* AwardSlider.swift */; };
 		D19CB9122F2E2D6400E3A1DF /* AwardSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9102F2E2D6100E3A1DF /* AwardSlider.swift */; };
-		D19CB9142F2E2D8100E3A1DF /* AwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */; };
 		D19CB9152F2E2D8100E3A1DF /* AwardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19CB9132F2E2D7E00E3A1DF /* AwardButton.swift */; };
 		D1CACE922F1633D300DF9CD5 /* ConfettiSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */; };
 		D1F3887325E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
-		D1F3887425E429FB00654F12 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3887225E429FB00654F12 /* MainView.swift */; };
 		D1F3889B25E4F20A00654F12 /* AwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3889A25E4F20A00654F12 /* AwardView.swift */; };
-		D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F3889A25E4F20A00654F12 /* AwardView.swift */; };
 		D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F388AD25E5269800654F12 /* VIZHelper.swift */; };
-		D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F388AD25E5269800654F12 /* VIZHelper.swift */; };
-		D1F9EE892F12520B00D18B86 /* AccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */; };
 		D1F9EE8A2F12520B00D18B86 /* AccountMetadata.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */; };
-		D1F9EE8C2F125FE600D18B86 /* CommitteeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE8B2F125FE600D18B86 /* CommitteeView.swift */; };
 		D1F9EE8D2F125FE600D18B86 /* CommitteeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE8B2F125FE600D18B86 /* CommitteeView.swift */; };
-		D1F9EE8F2F1269C400D18B86 /* WitnessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE8E2F1269C400D18B86 /* WitnessesView.swift */; };
 		D1F9EE902F1269C400D18B86 /* WitnessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE8E2F1269C400D18B86 /* WitnessesView.swift */; };
-		D1F9EE922F126A9900D18B86 /* WitnessesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE912F126A8E00D18B86 /* WitnessesViewModel.swift */; };
 		D1F9EE932F126A9900D18B86 /* WitnessesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F9EE912F126A8E00D18B86 /* WitnessesViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -129,13 +75,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = D11AF73225E239D900B29A19;
 			remoteInfo = "viz-wallet (iOS)";
-		};
-		D11AF74F25E239D900B29A19 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D11AF72725E239D600B29A19 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = D11AF73A25E239D900B29A19;
-			remoteInfo = "viz-wallet (macOS)";
 		};
 		D15458432613966600F92488 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -149,22 +88,15 @@
 /* Begin PBXFileReference section */
 		D101A38C25F384EE0031AA0A /* DAOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAOView.swift; sourceTree = "<group>"; };
 		D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveKeyInputView.swift; sourceTree = "<group>"; };
-		D101A44825F608670031AA0A /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D1194F332F2FC4AA001B1853 /* UserAuthActor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthActor.swift; sourceTree = "<group>"; };
 		D1194F362F2FC4FF001B1853 /* UserAuthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthStore.swift; sourceTree = "<group>"; };
 		D11AF72C25E239D600B29A19 /* WalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletApp.swift; sourceTree = "<group>"; };
 		D11AF72E25E239D900B29A19 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D11AF73325E239D900B29A19 /* viz-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viz-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11AF73625E239D900B29A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D11AF73B25E239D900B29A19 /* viz-wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "viz-wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D11AF73D25E239D900B29A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D11AF73E25E239D900B29A19 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		D11AF74325E239D900B29A19 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D11AF74725E239D900B29A19 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		D11AF74925E239D900B29A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D11AF74E25E239D900B29A19 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D11AF75225E239D900B29A19 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		D11AF75425E239D900B29A19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D11BC99725FBB76800A011AA /* 39387-business-team.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "39387-business-team.json"; sourceTree = "<group>"; };
 		D125935A26060E2000F3BC1A /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D125936D2606199700F3BC1A /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -172,7 +104,6 @@
 		D13FE9A225EBCF790088D49D /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
 		D13FE9A925ED78490088D49D /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		D13FE9B425F0F6A30088D49D /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
-		D13FE9BB25F105080088D49D /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		D13FE9D525F25FC60088D49D /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		D13FE9E025F260120088D49D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		D14905292EFEFA37000C6340 /* LottieViewWithGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewWithGradient.swift; sourceTree = "<group>"; };
@@ -224,26 +155,13 @@
 				D101A3A025F391040031AA0A /* CodeScanner in Frameworks */,
 				D17C3C3225E3B374004771EF /* VIZ in Frameworks */,
 				D157495425EA69E40043C95C /* Lottie in Frameworks */,
+				D116177B2F4258440054C2E2 /* BigInt in Frameworks */,
 				D13FE9FB25F2C9EC0088D49D /* KeychainAccess in Frameworks */,
 				D1CACE922F1633D300DF9CD5 /* ConfettiSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D11AF73825E239D900B29A19 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D11AF74025E239D900B29A19 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D11AF74B25E239D900B29A19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,9 +201,7 @@
 			children = (
 				D11AF72B25E239D600B29A19 /* Shared */,
 				D11AF73525E239D900B29A19 /* iOS */,
-				D11AF73C25E239D900B29A19 /* macOS */,
 				D11AF74625E239D900B29A19 /* Tests iOS */,
-				D11AF75125E239D900B29A19 /* Tests macOS */,
 				D154583F2613966600F92488 /* viz-walletUITests */,
 				D1CACE902F1633D300DF9CD5 /* Frameworks */,
 				D11AF73425E239D900B29A19 /* Products */,
@@ -309,10 +225,7 @@
 		D11AF73425E239D900B29A19 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D11AF73325E239D900B29A19 /* viz-wallet.app */,
-				D11AF73B25E239D900B29A19 /* viz-wallet.app */,
 				D11AF74325E239D900B29A19 /* Tests iOS.xctest */,
-				D11AF74E25E239D900B29A19 /* Tests macOS.xctest */,
 				D154583E2613966600F92488 /* viz-walletUITests.xctest */,
 			);
 			name = Products;
@@ -327,15 +240,6 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		D11AF73C25E239D900B29A19 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				D11AF73D25E239D900B29A19 /* Info.plist */,
-				D11AF73E25E239D900B29A19 /* macOS.entitlements */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
 		D11AF74625E239D900B29A19 /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -343,15 +247,6 @@
 				D11AF74925E239D900B29A19 /* Info.plist */,
 			);
 			path = "Tests iOS";
-			sourceTree = "<group>";
-		};
-		D11AF75125E239D900B29A19 /* Tests macOS */ = {
-			isa = PBXGroup;
-			children = (
-				D11AF75225E239D900B29A19 /* Tests_macOS.swift */,
-				D11AF75425E239D900B29A19 /* Info.plist */,
-			);
-			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
 		D125936C2606193F00F3BC1A /* OnboardingView */ = {
@@ -369,16 +264,15 @@
 			children = (
 				D19CB9062F2E28F200E3A1DF /* AwardView */,
 				D14F5A8D2F2B590500AC2479 /* TransferView */,
+				D1D39CB52F4249C900DCC84A /* WitnessesView */,
 				D125936C2606193F00F3BC1A /* OnboardingView */,
 				D13FE9CB25F166110088D49D /* Helpers */,
 				D1F3887225E429FB00654F12 /* MainView.swift */,
 				D17C3C5625E3CBDD004771EF /* LoginView.swift */,
 				D157497E25EA78BD0043C95C /* SettingsView.swift */,
 				D13FE9A225EBCF790088D49D /* ReceiveView.swift */,
-				D13FE9BB25F105080088D49D /* RegistrationView.swift */,
 				D101A38C25F384EE0031AA0A /* DAOView.swift */,
 				D1F9EE8B2F125FE600D18B86 /* CommitteeView.swift */,
-				D1F9EE8E2F1269C400D18B86 /* WitnessesView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -394,7 +288,6 @@
 				D157496125EA6A9C0043C95C /* LottieView.swift */,
 				D13FE9D525F25FC60088D49D /* View+Extension.swift */,
 				D13FE9E025F260120088D49D /* Color+Extension.swift */,
-				D101A44825F608670031AA0A /* String+Extension.swift */,
 				D101A39325F38A510031AA0A /* ActiveKeyInputView.swift */,
 				D14B287D25FD44BC0037B750 /* UIFont+Extension.swift */,
 				D16B48BB2619EA11009CCE54 /* CurrencyTextField.swift */,
@@ -406,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				D1194F322F2FC480001B1853 /* Auth */,
-				D1F9EE912F126A8E00D18B86 /* WitnessesViewModel.swift */,
 				D1F9EE882F12520A00D18B86 /* AccountMetadata.swift */,
 				D1F388AD25E5269800654F12 /* VIZHelper.swift */,
 				D13FE9A925ED78490088D49D /* Errors.swift */,
@@ -469,6 +361,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D1D39CB52F4249C900DCC84A /* WitnessesView */ = {
+			isa = PBXGroup;
+			children = (
+				D1F9EE8E2F1269C400D18B86 /* WitnessesView.swift */,
+				D1F9EE912F126A8E00D18B86 /* WitnessesViewModel.swift */,
+			);
+			path = WitnessesView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -491,26 +392,10 @@
 				D13FE9FA25F2C9EC0088D49D /* KeychainAccess */,
 				D101A39F25F391040031AA0A /* CodeScanner */,
 				D1CACE912F1633D300DF9CD5 /* ConfettiSwiftUI */,
+				D116177A2F4258440054C2E2 /* BigInt */,
 			);
 			productName = "viz-wallet (iOS)";
 			productReference = D11AF73325E239D900B29A19 /* viz-wallet.app */;
-			productType = "com.apple.product-type.application";
-		};
-		D11AF73A25E239D900B29A19 /* viz-wallet (macOS) */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D11AF76025E239D900B29A19 /* Build configuration list for PBXNativeTarget "viz-wallet (macOS)" */;
-			buildPhases = (
-				D11AF73725E239D900B29A19 /* Sources */,
-				D11AF73825E239D900B29A19 /* Frameworks */,
-				D11AF73925E239D900B29A19 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "viz-wallet (macOS)";
-			productName = "viz-wallet (macOS)";
-			productReference = D11AF73B25E239D900B29A19 /* viz-wallet.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D11AF74225E239D900B29A19 /* Tests iOS */ = {
@@ -529,24 +414,6 @@
 			name = "Tests iOS";
 			productName = "Tests iOS";
 			productReference = D11AF74325E239D900B29A19 /* Tests iOS.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-		D11AF74D25E239D900B29A19 /* Tests macOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = D11AF76625E239D900B29A19 /* Build configuration list for PBXNativeTarget "Tests macOS" */;
-			buildPhases = (
-				D11AF74A25E239D900B29A19 /* Sources */,
-				D11AF74B25E239D900B29A19 /* Frameworks */,
-				D11AF74C25E239D900B29A19 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				D11AF75025E239D900B29A19 /* PBXTargetDependency */,
-			);
-			name = "Tests macOS";
-			productName = "Tests macOS";
-			productReference = D11AF74E25E239D900B29A19 /* Tests macOS.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 		D154583D2613966600F92488 /* viz-walletUITests */ = {
@@ -580,16 +447,9 @@
 					D11AF73225E239D900B29A19 = {
 						CreatedOnToolsVersion = 12.4;
 					};
-					D11AF73A25E239D900B29A19 = {
-						CreatedOnToolsVersion = 12.4;
-					};
 					D11AF74225E239D900B29A19 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = D11AF73225E239D900B29A19;
-					};
-					D11AF74D25E239D900B29A19 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = D11AF73A25E239D900B29A19;
 					};
 					D154583D2613966600F92488 = {
 						CreatedOnToolsVersion = 12.4;
@@ -613,15 +473,14 @@
 				D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 				D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */,
 				D1CACE8F2F16322600DF9CD5 /* XCRemoteSwiftPackageReference "ConfettiSwiftUI" */,
+				D11617792F4258440054C2E2 /* XCRemoteSwiftPackageReference "BigInt" */,
 			);
 			productRefGroup = D11AF73425E239D900B29A19 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				D11AF73225E239D900B29A19 /* viz-wallet (iOS) */,
-				D11AF73A25E239D900B29A19 /* viz-wallet (macOS) */,
 				D11AF74225E239D900B29A19 /* Tests iOS */,
-				D11AF74D25E239D900B29A19 /* Tests macOS */,
 				D154583D2613966600F92488 /* viz-walletUITests */,
 			);
 		};
@@ -646,32 +505,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D11AF73925E239D900B29A19 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D15447982EFD6B0600BB927C /* InfoPlist.xcstrings in Resources */,
-				D17C3601260636C5000B7D60 /* 3.json in Resources */,
-				D15447952EFD6B0600BB927C /* Localizable.xcstrings in Resources */,
-				D17C3603260636C5000B7D60 /* 2.json in Resources */,
-				D17C35FF260636C5000B7D60 /* 4.json in Resources */,
-				D17C3605260636C5000B7D60 /* 5.json in Resources */,
-				D11AF75A25E239D900B29A19 /* Assets.xcassets in Resources */,
-				D125935C26060E2100F3BC1A /* Launch Screen.storyboard in Resources */,
-				D11BC99925FBB76800A011AA /* 39387-business-team.json in Resources */,
-				D16B48A12619BA61009CCE54 /* Settings.bundle in Resources */,
-				D17C35E626062CDB000B7D60 /* 1.json in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D11AF74125E239D900B29A19 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D11AF74C25E239D900B29A19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -705,7 +539,6 @@
 				D17C3C5725E3CBDD004771EF /* LoginView.swift in Sources */,
 				D13FE9B525F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
 				D157497F25EA78BD0043C95C /* SettingsView.swift in Sources */,
-				D101A44925F608670031AA0A /* String+Extension.swift in Sources */,
 				D1F3887325E429FB00654F12 /* MainView.swift in Sources */,
 				D1F9EE8D2F125FE600D18B86 /* CommitteeView.swift in Sources */,
 				D13FE9E125F260120088D49D /* Color+Extension.swift in Sources */,
@@ -717,7 +550,6 @@
 				D1F388AE25E5269800654F12 /* VIZHelper.swift in Sources */,
 				D19CB90E2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */,
 				D17C36162606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
-				D13FE9BC25F105090088D49D /* RegistrationView.swift in Sources */,
 				D14F5A902F2B591400AC2479 /* TransferViewModel.swift in Sources */,
 				D14B287E25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,
 				D11AF75525E239D900B29A19 /* WalletApp.swift in Sources */,
@@ -736,67 +568,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D11AF73725E239D900B29A19 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D101A39525F38A510031AA0A /* ActiveKeyInputView.swift in Sources */,
-				D1F9EE8F2F1269C400D18B86 /* WitnessesView.swift in Sources */,
-				D14F5A9E2F2E1CE400AC2479 /* ReceiverView.swift in Sources */,
-				D15967A82F2537CD00F90A73 /* ConfettiView.swift in Sources */,
-				D14F5A9B2F2E19B000AC2479 /* QRScannerButton.swift in Sources */,
-				D13FE97E25EB7D7C0088D49D /* TransferView.swift in Sources */,
-				D1F3889C25E4F20A00654F12 /* AwardView.swift in Sources */,
-				D1194F352F2FC4AB001B1853 /* UserAuthActor.swift in Sources */,
-				D1194F382F2FC500001B1853 /* UserAuthStore.swift in Sources */,
-				D19CB9112F2E2D6400E3A1DF /* AwardSlider.swift in Sources */,
-				D17C3C5825E3CBDD004771EF /* LoginView.swift in Sources */,
-				D13FE9B625F0F6A30088D49D /* ActivityIndicator.swift in Sources */,
-				D157498025EA78BD0043C95C /* SettingsView.swift in Sources */,
-				D101A44A25F608670031AA0A /* String+Extension.swift in Sources */,
-				D1F3887425E429FB00654F12 /* MainView.swift in Sources */,
-				D1F9EE8C2F125FE600D18B86 /* CommitteeView.swift in Sources */,
-				D13FE9E225F260120088D49D /* Color+Extension.swift in Sources */,
-				D19CB9082F2E291100E3A1DF /* AwardViewModel.swift in Sources */,
-				D14F5A992F2B6D5200AC2479 /* TransferActionsView.swift in Sources */,
-				D1F9EE892F12520B00D18B86 /* AccountMetadata.swift in Sources */,
-				D125936F2606199700F3BC1A /* OnboardingView.swift in Sources */,
-				D13FE9A425EBCF790088D49D /* ReceiveView.swift in Sources */,
-				D1F388AF25E5269800654F12 /* VIZHelper.swift in Sources */,
-				D19CB90F2F2E2D2D00E3A1DF /* AwardMemoField.swift in Sources */,
-				D17C36172606471F000B7D60 /* OnboardPageViewController.swift in Sources */,
-				D13FE9BD25F105090088D49D /* RegistrationView.swift in Sources */,
-				D14F5A8F2F2B591400AC2479 /* TransferViewModel.swift in Sources */,
-				D14B287F25FD44BC0037B750 /* UIFont+Extension.swift in Sources */,
-				D11AF75625E239D900B29A19 /* WalletApp.swift in Sources */,
-				D14F5A922F2B6B6400AC2479 /* TransferFormView.swift in Sources */,
-				D17C361E26064791000B7D60 /* OnboardPageControl.swift in Sources */,
-				D13FE9AB25ED784A0088D49D /* Errors.swift in Sources */,
-				D16B48BD2619EA11009CCE54 /* CurrencyTextField.swift in Sources */,
-				D13FE9D725F25FC60088D49D /* View+Extension.swift in Sources */,
-				D101A38E25F384EE0031AA0A /* DAOView.swift in Sources */,
-				D14F5A962F2B6B6D00AC2479 /* TransferHeaderView.swift in Sources */,
-				D19CB90C2F2E2D0000E3A1DF /* AwardHeaderView.swift in Sources */,
-				D149052A2EFEFA3F000C6340 /* LottieViewWithGradient.swift in Sources */,
-				D1F9EE922F126A9900D18B86 /* WitnessesViewModel.swift in Sources */,
-				D157496325EA6A9C0043C95C /* LottieView.swift in Sources */,
-				D19CB9142F2E2D8100E3A1DF /* AwardButton.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D11AF73F25E239D900B29A19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				D11AF74825E239D900B29A19 /* Tests_iOS.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		D11AF74A25E239D900B29A19 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				D11AF75325E239D900B29A19 /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -816,11 +592,6 @@
 			isa = PBXTargetDependency;
 			target = D11AF73225E239D900B29A19 /* viz-wallet (iOS) */;
 			targetProxy = D11AF74425E239D900B29A19 /* PBXContainerItemProxy */;
-		};
-		D11AF75025E239D900B29A19 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = D11AF73A25E239D900B29A19 /* viz-wallet (macOS) */;
-			targetProxy = D11AF74F25E239D900B29A19 /* PBXContainerItemProxy */;
 		};
 		D15458442613966600F92488 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -894,6 +665,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -954,6 +726,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -977,7 +750,7 @@
 				PRODUCT_NAME = "viz-wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1002,69 +775,9 @@
 				PRODUCT_NAME = "viz-wallet";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D11AF76125E239D900B29A19 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
-				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
-				INFOPLIST_FILE = macOS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = VIZ;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.viz-wallet";
-				PRODUCT_NAME = "viz-wallet";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		D11AF76225E239D900B29A19 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
-				ENABLE_PREVIEWS = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
-				INFOPLIST_FILE = macOS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = VIZ;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.social-networking";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.viz-wallet";
-				PRODUCT_NAME = "viz-wallet";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -1073,7 +786,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1082,7 +795,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.Tests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "viz-wallet (iOS)";
 			};
@@ -1093,7 +806,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Tests iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1102,52 +815,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.Tests-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "viz-wallet (iOS)";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D11AF76725E239D900B29A19 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "viz-wallet (macOS)";
-			};
-			name = Debug;
-		};
-		D11AF76825E239D900B29A19 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEAD_CODE_STRIPPING = YES;
-				INFOPLIST_FILE = "Tests macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 11.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "cx.viz.Tests-macOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "viz-wallet (macOS)";
 			};
 			name = Release;
 		};
@@ -1156,7 +827,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "viz-walletUITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1165,7 +836,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "info.babin.viz-walletUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "viz-wallet (iOS)";
 			};
@@ -1176,7 +847,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "viz-walletUITests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1185,7 +856,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "info.babin.viz-walletUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "viz-wallet (iOS)";
 				VALIDATE_PRODUCT = YES;
@@ -1213,29 +884,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D11AF76025E239D900B29A19 /* Build configuration list for PBXNativeTarget "viz-wallet (macOS)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D11AF76125E239D900B29A19 /* Debug */,
-				D11AF76225E239D900B29A19 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D11AF76325E239D900B29A19 /* Build configuration list for PBXNativeTarget "Tests iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D11AF76425E239D900B29A19 /* Debug */,
 				D11AF76525E239D900B29A19 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D11AF76625E239D900B29A19 /* Build configuration list for PBXNativeTarget "Tests macOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D11AF76725E239D900B29A19 /* Debug */,
-				D11AF76825E239D900B29A19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1258,6 +911,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.5.2;
+			};
+		};
+		D11617792F4258440054C2E2 /* XCRemoteSwiftPackageReference "BigInt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/attaswift/BigInt.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
 			};
 		};
 		D13FE9F925F2C9EC0088D49D /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
@@ -1299,6 +960,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D101A39E25F391040031AA0A /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		D116177A2F4258440054C2E2 /* BigInt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D11617792F4258440054C2E2 /* XCRemoteSwiftPackageReference "BigInt" */;
+			productName = BigInt;
 		};
 		D13FE9FA25F2C9EC0088D49D /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;

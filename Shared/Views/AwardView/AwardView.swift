@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct AwardView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
-    @StateObject var vm: AwardViewModel
+    @State var vm: AwardViewModel
     @State private var isShowingScanner = false
     
     var body: some View {
@@ -41,7 +40,7 @@ struct AwardView: View {
             }
             .padding(.horizontal, 16)
             .confetti(trigger: $vm.confettiCounter)
-            .alert("Error".localized(), isPresented: $vm.showError) {
+            .alert("Error", isPresented: $vm.showError) {
                 Button("Ok", role: .cancel) {}
             } message: {
                 Text(vm.errorText)
@@ -72,5 +71,5 @@ struct AwardView: View {
 #Preview {
     let userAuth = UserAuthStore()
     AwardView(vm: AwardViewModel(userAuth: userAuth))
-        .environmentObject(userAuth)
+        .environment(userAuth)
 }

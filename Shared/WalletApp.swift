@@ -5,43 +5,47 @@
 //  Created by Vladimir Babin on 21.02.2021.
 //
 
+import os
 import SwiftUI
 import VIZ
+
+private let log = Logger(subsystem: "cx.viz.viz-wallet", category: "app")
 
 @main
 struct WalletApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    
+    @State private var userAuth = UserAuthStore()
+
     var body: some Scene {
         WindowGroup {
             IntermediateView()
-                .environmentObject(UserAuthStore())
+                .environment(userAuth)
                 .onOpenURL(perform: handleURL)
         }
     }
     
     private func handleURL(_ url: URL) {
-        print("URL: \(url)")
+        log.debug("Opened URL: \(url, privacy: .public)")
         let str = url.absoluteString.lowercased()
         if str.hasPrefix("viz://"), let atSymbolIdx = str.firstIndex(of: "@") {
             let range = str.index(after: atSymbolIdx)..<str.endIndex
             let username = str[range]
-            print(username)
+            log.debug("Parsed username: \(username, privacy: .public)")
         }
     }
 }
 
 private struct IntermediateView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
+    @Environment(UserAuthStore.self) private var userAuth
     
     var body: some View {
         if userAuth.showOnboarding {
             OnboardingView()
         } else {
             if !userAuth.isLoggedIn {
-                LoginView().navigationBarHidden(true)
+                LoginView().toolbar(.hidden, for: .navigationBar)
             } else {
-                MainView().navigationBarHidden(true)
+                MainView().toolbar(.hidden, for: .navigationBar)
             }
         }
     }

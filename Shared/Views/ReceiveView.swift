@@ -13,7 +13,7 @@ struct ReceiveView: View {
     private let context = CIContext()
     private let filter = CIFilter.qrCodeGenerator()
     
-    @EnvironmentObject private var userAuth: UserAuthStore
+    @Environment(UserAuthStore.self) private var userAuth
     
     var body: some View {
         GeometryReader { geometry in
@@ -32,7 +32,7 @@ struct ReceiveView: View {
                         }
                     
                     VStack {
-                        Text("\("Login".localized()): \(userAuth.login)")
+                        Text("\(String(localized: "Login")): \(userAuth.login)")
                             .font(.title)
                             .foregroundColor(.white)
                             .padding()
@@ -55,7 +55,7 @@ struct ReceiveView: View {
             }
             .background(
                 LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                    .edgesIgnoringSafeArea(.all)
+                    .ignoresSafeArea()
             )
         }
     }
@@ -85,5 +85,5 @@ struct ReceiveView: View {
 
 #Preview {
     ReceiveView()
-        .environmentObject(UserAuthStore())
+        .environment(UserAuthStore())
 }

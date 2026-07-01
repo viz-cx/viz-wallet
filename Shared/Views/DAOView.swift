@@ -16,39 +16,38 @@ struct DAOView: View {
         var title: String {
             switch self {
             case .witnesses:
-                return "Witnesses".localized()
+                return String(localized: "Witnesses")
             case .committee:
-                return "Committee".localized()
+                return String(localized: "Committee")
             }
         }
     }
     
-    @State private var selectedIndex = Section.witnesses.rawValue
-    @State private var sections = Section.allCases
-    
+    @State private var selectedSection: Section = .witnesses
+
     var body: some View {
         VStack {
-            Picker("Sections", selection: $selectedIndex) {
-                ForEach(0 ..< sections.count, id: \.self) { index in
-                    Text(sections[index].title).tag(index)
+            Picker("Sections", selection: $selectedSection) {
+                ForEach(Section.allCases, id: \.self) { section in
+                    Text(section.title).tag(section)
                 }
             }
-            .pickerStyle(SegmentedPickerStyle())
-            
+            .pickerStyle(.segmented)
+
             Spacer()
-            
-            switch sections[selectedIndex] {
+
+            switch selectedSection {
             case .witnesses:
                 WitnessesView()
             case .committee:
                 CommitteeView()
             }
-            
+
             Spacer()
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
+                .ignoresSafeArea()
         )
     }
     

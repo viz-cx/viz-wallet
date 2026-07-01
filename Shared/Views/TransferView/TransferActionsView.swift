@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TransferActionsView: View {
-    @ObservedObject var vm: TransferViewModel
+    @Bindable var vm: TransferViewModel
     let onTransfer: () -> Void
     
     var body: some View {
@@ -16,7 +16,7 @@ struct TransferActionsView: View {
             ActivityIndicator(isAnimating: $vm.isLoading)
         } else {
             Button(action: onTransfer) {
-                Text("Transfer".localized())
+                Text("Transfer")
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity, minHeight: 50)

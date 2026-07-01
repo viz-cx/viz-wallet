@@ -5,42 +5,46 @@
 //  Created by Vladimir Babin on 06.03.2021.
 //
 
+import os
 import SwiftUI
 
+private let log = Logger(subsystem: "cx.viz.viz-wallet", category: "auth")
+
 struct ActiveKeyInputView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
+    @Environment(UserAuthStore.self) private var userAuth
     @State private var activeKey = ""
     
     var body: some View {
         VStack(spacing: 10) {
             Spacer()
             
-            Text("Active key not added yet".localized())
+            Text("Active key not added yet")
                 .padding()
                 .frame(maxWidth: .infinity, alignment: Alignment.center)
                 .cornerRadius(20.0)
                 .font(.headline)
                 .foregroundColor(.white)
             
-            TextField("Private active key".localized(), text: $activeKey)
+            TextField("Private active key", text: $activeKey)
                 .accessibility(identifier: "active")
                 .padding()
                 .background(Color.themeTextField)
                 .foregroundColor(.black)
                 .cornerRadius(20.0)
                 .disableAutocorrection(true)
-                .autocapitalization(.none)
+                .textInputAutocapitalization(.never)
             
                 Button(action: {
                     Task {
                         do {
                             try await userAuth.changeActiveKey(key: activeKey)
                         } catch {
-                            print(error.localizedDescription) // TODO: show for user
+                            // TODO: surface this error to the user
+                            log.error("Failed to change active key: \(error, privacy: .public)")
                         }
                     }
                 }, label: {
-                Text("Save".localized())
+                Text("Save")
                     .accessibility(identifier: "save")
                     .font(.headline)
                     .foregroundColor(.white)

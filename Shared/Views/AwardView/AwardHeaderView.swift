@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct AwardHeaderView: View {
-    @ObservedObject var userAuth: UserAuthStore
+    let userAuth: UserAuthStore
     
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("🧑 \("Login".localized()): \(userAuth.login)")
-            Text("🔋 \("Energy".localized()): \(energyText)")
-            Text("🏆 \("Social capital".localized()): \(vestingText)")
+            Text("🧑 \(String(localized: "Login")): \(userAuth.login)")
+            Text("🔋 \(String(localized: "Energy")): \(energyText)")
+            Text("🏆 \(String(localized: "Social capital")): \(vestingText)")
                 .lineLimit(1)
         }
         .font(.headline)

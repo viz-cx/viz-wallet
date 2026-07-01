@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
-    @EnvironmentObject private var userAuth: UserAuthStore
+    @Environment(UserAuthStore.self) private var userAuth
     @State private var login = ""
     @State private var regularKey = ""
-    @State private var showSignUp = false
     @State private var showErrorMessage: Bool = false
     @State private var errorMessageText: String = ""
     
@@ -22,21 +21,21 @@ struct LoginView: View {
             VStack() {
                 
                 VStack(spacing: 15) {
-                    TextField("Login".localized(), text: $login)
+                    TextField("Login", text: $login)
                         .accessibility(identifier: "login")
                         .padding()
                         .background(Color.themeTextField)
                         .cornerRadius(20.0)
                         .disableAutocorrection(true)
-                        .autocapitalization(.none)
+                        .textInputAutocapitalization(.never)
                     
-                    TextField("Private regular key".localized(), text: $regularKey)
+                    TextField("Private regular key", text: $regularKey)
                         .accessibility(identifier: "regular")
                         .padding()
                         .background(Color.themeTextField)
                         .cornerRadius(20.0)
                         .disableAutocorrection(true)
-                        .autocapitalization(.none)
+                        .textInputAutocapitalization(.never)
                     
                     if userAuth.isLoading {
                         ActivityIndicator(isAnimating: .constant(true))
@@ -46,7 +45,7 @@ struct LoginView: View {
                                 await signIn()
                             }
                         }) {
-                            Text("Sign In".localized())
+                            Text("Sign In")
                                 .accessibility(identifier: "signin")
                                 .font(.headline)
                                 .foregroundColor(.white)
@@ -63,27 +62,14 @@ struct LoginView: View {
                     }
                 }
                 .padding(.bottom, 25)
-                
+
                 Spacer()
-                
-                HStack(spacing: 0) {
-                    Text("Sign Up with an invite code".localized())
-                        .foregroundColor(.white)
-                        .onTapGesture {
-                            showSignUp = true
-                        }
-                        .sheet(isPresented: $showSignUp, content: {
-                            RegistrationView().environmentObject(userAuth)
-                        })
-                }
-                .padding(.bottom, 15)
-                
             }
             .padding([.leading, .trailing], 16.0)
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [.purple, .blue]), startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all))
+                .ignoresSafeArea())
         .onTapGesture {
             hideKeyboard()
         }
@@ -96,11 +82,9 @@ struct LoginView: View {
     }
     
     func signIn() async {
-        let result = await userAuth.auth(login: login, key: regularKey)
-        switch result {
-        case .success:
-            break
-        case .failure(let error):
+        do {
+            try await userAuth.auth(login: login, key: regularKey)
+        } catch {
             errorMessageText = error.localizedDescription
             showErrorMessage = true
         }
@@ -109,6 +93,6 @@ struct LoginView: View {
 
 #Preview {
     Group {
-        LoginView().environmentObject(UserAuthStore())
+        LoginView().environment(UserAuthStore())
     }
 }

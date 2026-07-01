@@ -11,7 +11,7 @@ struct AwardMemoField: View {
     @Binding var text: String
     
     var body: some View {
-        TextField("Memo".localized(), text: $text)
+        TextField("Memo", text: $text)
             .padding()
             .background(Color.themeTextField)
             .foregroundColor(.black)
