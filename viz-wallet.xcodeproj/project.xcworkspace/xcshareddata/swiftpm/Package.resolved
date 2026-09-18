@@ -69,7 +69,6 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/viz-blockchain/viz-swift-lib.git",
       "state" : {
-        "branch" : "master",
         "revision" : "a793a878b99d3d8d336c819d0449f8af86940a9e"
       }
     }
